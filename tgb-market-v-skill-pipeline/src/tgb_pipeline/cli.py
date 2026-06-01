@@ -5,10 +5,12 @@ from __future__ import annotations
 import argparse
 import sys
 from collections.abc import Sequence
+from pathlib import Path
 
 from tgb_pipeline.config import load_crawl_config, load_target_config
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index, seed_start_article
+from tgb_pipeline.export.tasks import export_corpus_bundle
 
 COMMANDS = (
     "crawl-index",
@@ -39,6 +41,7 @@ def build_parser() -> argparse.ArgumentParser:
             "seed-start-article",
             "crawl-comments",
             "filter-comments",
+            "export-corpus",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -61,6 +64,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "seed-start-article",
         "crawl-comments",
         "filter-comments",
+        "export-corpus",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -98,6 +102,11 @@ def main(argv: Sequence[str] | None = None) -> int:
                     f"{kept_count} comments, {aoch_count} aoch comments, and "
                     f"{interaction_count} interactions."
                 )
+            elif args.command == "export-corpus":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = export_corpus_bundle(raw_dir, processed_dir, Path("reports"), target_config)
+                print(f"export-corpus: generated {len(outputs)} outputs.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

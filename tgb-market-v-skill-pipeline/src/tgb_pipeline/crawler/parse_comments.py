@@ -99,6 +99,9 @@ def parse_comments_page(
             comment_id=comment_id,
             page_url=page_url,
         )
+        for image in comment_images:
+            image.raw["page_num"] = page_num
+            image.raw["page_position"] = floor_index
         comment_text = clean_text(content.get_text("\n", strip=True))
         comment = Comment(
             comment_id=comment_id,

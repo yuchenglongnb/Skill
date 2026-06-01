@@ -82,6 +82,35 @@ data/raw/tgb/html/{article_id}_comments_page_{n}.html
 - `filter-comments` 会先标注作者角色，再筛选目标作者互动评论、输出 `interactions.jsonl`，同时把 `Aoch` 评论单独写入 `aoch_discussions.jsonl`。
 - 普通成员的低价值评论默认不进入互动语料，但原始评论仍保留在 `comments_all.jsonl` 中，方便审计和后续复核。
 
+## Milestone 4A：质量审计和 Markdown 语料导出
+
+本阶段新增了数据质量审计、Markdown 语料导出和 corpus manifest。它不会改动原始抓取数据，只会基于现有 `data/raw/tgb/*.jsonl` 和 HTML snapshot 生成派生报告与导出文件，可重复运行并覆盖旧的 derived data。
+
+```powershell
+tgb-pipeline export-corpus --target-config configs/target.yaml --crawl-config configs/crawl.yaml
+```
+
+生成内容：
+
+```text
+reports/comment_coverage_report.md
+reports/author_inventory.md
+reports/image_inventory_report.md
+reports/image_review_candidates.md
+reports/filter_quality_report.md
+data/processed/tgb/target_author_corpus.md
+data/processed/tgb/interaction_pairs.md
+data/processed/tgb/aoch_corpus.md
+data/processed/tgb/corpus_manifest.json
+```
+
+说明：
+
+- `comment_coverage_report.md` 用于对照 `ArticleIndex.reply_count` 和已解析评论数量，快速发现分页缺口或异常。
+- `author_inventory.md` 会复核作者归类、Aoch alias 命中情况和内容提及情况。
+- `image_inventory_report.md` 和 `image_review_candidates.md` 只做图片证据排队与复核，不下载图片，也不做 OCR。
+- Markdown 导出保持原文，不改写内容，方便后续 Skill 构建和人工审阅。
+
 ## 数据边界
 
 - 目标范围从 2023-01-15《情绪周期是否可靠的思考》开始，包含之后的目标作者主帖。

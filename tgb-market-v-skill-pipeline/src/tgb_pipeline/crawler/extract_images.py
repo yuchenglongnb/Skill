@@ -40,6 +40,7 @@ def extract_comment_images(
         article_id=article_id,
         page_url=page_url,
         source_type="comment",
+        article_owner_id=article_id,
         comment_owner_id=comment_id,
         keep_reason=None,
     )
