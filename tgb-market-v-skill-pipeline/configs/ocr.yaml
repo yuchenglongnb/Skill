@@ -1,0 +1,16 @@
+ocr:
+  enabled: true
+  engine: null
+  languages:
+    - chi_sim
+    - eng
+  preserve_raw_text: true
+  normalize_text: true
+  min_confidence: null
+
+images:
+  download_dir: data/raw/images
+  compute_sha256: true
+  keep_original_files: true
+  treat_as_first_class_evidence: true
+

@@ -1,0 +1,145 @@
+"""Core data contracts for the evidence pipeline."""
+
+from __future__ import annotations
+
+from datetime import datetime
+from enum import StrEnum
+from typing import Any
+
+from pydantic import BaseModel, Field, root_validator
+
+
+class AuthorRole(StrEnum):
+    TARGET = "target"
+    AOCH = "aoch"
+    MEMBER = "member"
+    UNKNOWN = "unknown"
+
+
+class InteractionType(StrEnum):
+    REPLY = "reply"
+    MENTION = "mention"
+    LIKE = "like"
+    FOLLOW_UP = "follow_up"
+    OTHER = "other"
+
+
+class ClaimSourceType(StrEnum):
+    ARTICLE = "article"
+    COMMENT = "comment"
+    IMAGE_OCR = "image_ocr"
+    MIXED = "mixed"
+
+
+class ClaimStatus(StrEnum):
+    CANDIDATE = "candidate"
+    REVIEWED = "reviewed"
+    ACCEPTED = "accepted"
+    REJECTED = "rejected"
+
+
+class PipelineModel(BaseModel):
+    """Base model that rejects accidental schema drift."""
+
+    class Config:
+        extra = "forbid"
+        validate_assignment = True
+
+
+class Article(PipelineModel):
+    article_id: str
+    title: str
+    author_name: str
+    published_at: datetime
+    url: str
+    raw_content: str
+    content_text: str | None = None
+    image_asset_ids: list[str] = Field(default_factory=list)
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class Comment(PipelineModel):
+    comment_id: str
+    article_id: str
+    author_name: str
+    author_role: AuthorRole = AuthorRole.UNKNOWN
+    published_at: datetime | None = None
+    parent_comment_id: str | None = None
+    replied_to_author_name: str | None = None
+    target_author_interacted: bool = False
+    raw_content: str
+    content_text: str | None = None
+    image_asset_ids: list[str] = Field(default_factory=list)
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+    @property
+    def eligible_for_corpus(self) -> bool:
+        """Keep members in the final corpus only when the target author interacted."""
+
+        return self.author_role == AuthorRole.TARGET or self.target_author_interacted
+
+    @property
+    def is_aoch(self) -> bool:
+        return self.author_role == AuthorRole.AOCH
+
+
+class Interaction(PipelineModel):
+    interaction_id: str
+    article_id: str
+    interaction_type: InteractionType
+    actor_name: str
+    target_name: str | None = None
+    comment_id: str | None = None
+    related_comment_id: str | None = None
+    occurred_at: datetime | None = None
+    raw_content: str | None = None
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class ImageAsset(PipelineModel):
+    image_id: str
+    source_url: str
+    page_url: str
+    article_id: str | None = None
+    comment_id: str | None = None
+    local_path: str | None = None
+    sha256: str | None = None
+    mime_type: str | None = None
+    width: int | None = None
+    height: int | None = None
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+    @property
+    def evidence_source(self) -> bool:
+        return True
+
+    @root_validator
+    def validate_parent(cls, values: dict[str, Any]) -> dict[str, Any]:
+        if not values.get("article_id") and not values.get("comment_id"):
+            raise ValueError("image must belong to an article or comment")
+        return values
+
+
+class ImageOCR(PipelineModel):
+    ocr_id: str
+    image_id: str
+    engine: str
+    languages: list[str] = Field(default_factory=list)
+    raw_text: str
+    normalized_text: str | None = None
+    confidence: float | None = Field(default=None, ge=0, le=1)
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class MethodologyClaim(PipelineModel):
+    claim_id: str
+    claim_text: str
+    raw_excerpt: str
+    source_type: ClaimSourceType
+    source_ids: list[str] = Field(min_items=1)
+    evidence_image_ids: list[str] = Field(default_factory=list)
+    evidence_ocr_ids: list[str] = Field(default_factory=list)
+    author_name: str | None = None
+    status: ClaimStatus = ClaimStatus.CANDIDATE
+    tags: list[str] = Field(default_factory=list)
+    raw: dict[str, Any] = Field(default_factory=dict)

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "tgb-market-v-skill-pipeline"
+version = "0.1.0"
+description = "Structured evidence pipeline for the Taoguba methodology corpus."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic>=1.10,<3",
+  "PyYAML>=6.0,<7",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0,<9",
+]
+
+[project.scripts]
+tgb-pipeline = "tgb_pipeline.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/tgb_pipeline"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
