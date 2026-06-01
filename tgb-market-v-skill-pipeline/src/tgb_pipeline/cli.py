@@ -10,6 +10,7 @@ from pathlib import Path
 from tgb_pipeline.config import load_crawl_config, load_ocr_config, load_target_config
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index, seed_start_article
+from tgb_pipeline.extraction.tasks import extract_claims_bundle
 from tgb_pipeline.export.tasks import export_corpus_bundle
 from tgb_pipeline.images.tasks import download_images_task, ocr_images_task
 
@@ -45,6 +46,7 @@ def build_parser() -> argparse.ArgumentParser:
             "download-images",
             "ocr-images",
             "export-corpus",
+            "extract-claims",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -76,6 +78,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "download-images",
         "ocr-images",
         "export-corpus",
+        "extract-claims",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -142,6 +145,11 @@ def main(argv: Sequence[str] | None = None) -> int:
                     f"{ocr_count} ocr records, skipped {skipped_count} images, "
                     f"failed {failed_count} images."
                 )
+            elif args.command == "extract-claims":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = extract_claims_bundle(raw_dir, processed_dir, Path("reports"))
+                print(f"extract-claims: generated {len(outputs)} outputs.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

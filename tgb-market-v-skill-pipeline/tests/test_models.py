@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 import pytest
 from pydantic import ValidationError
 
-from tgb_pipeline.models import AuthorRole, Comment, ImageAsset, ImageOCR
+from tgb_pipeline.models import AuthorRole, ClaimSourceType, Comment, ImageAsset, ImageOCR, MethodologyClaim
 
 
 def test_member_comment_requires_target_interaction_for_corpus() -> None:
@@ -74,3 +74,25 @@ def test_image_requires_parent_and_ocr_remains_separate() -> None:
         normalized_text="图片识别文本",
     )
     assert ocr.raw_text != ocr.normalized_text
+
+
+def test_methodology_claim_supports_extended_fields() -> None:
+    claim = MethodologyClaim(
+        claim_id="claim-1",
+        claim_text="情绪周期切换要结合成交额。",
+        raw_excerpt="情绪周期切换要结合成交额。",
+        source_type=ClaimSourceType.ARTICLE,
+        source_ids=["a1"],
+        article_id="a1",
+        source_author="等主人的猫",
+        method_tags=["情绪周期", "成交额"],
+        mentioned_tickers=["300750"],
+        mentioned_sectors=["机器人"],
+        mentioned_concepts=["情绪周期"],
+        confidence_level="candidate",
+        evidence_text="情绪周期切换要结合成交额。",
+    )
+
+    assert claim.review_status == "unreviewed"
+    assert claim.evidence_level == "text_raw"
+    assert claim.method_tags == ["情绪周期", "成交额"]

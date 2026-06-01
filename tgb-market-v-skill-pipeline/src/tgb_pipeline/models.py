@@ -27,6 +27,7 @@ class InteractionType(StrEnum):
 class ClaimSourceType(StrEnum):
     ARTICLE = "article"
     COMMENT = "comment"
+    INTERACTION = "interaction"
     IMAGE_OCR = "image_ocr"
     MIXED = "mixed"
 
@@ -170,6 +171,21 @@ class MethodologyClaim(PipelineModel):
     raw_excerpt: str
     source_type: ClaimSourceType
     source_ids: list[str] = Field(min_items=1)
+    article_id: str | None = None
+    source_title: str | None = None
+    source_time: datetime | None = None
+    source_author: str | None = None
+    method_tags: list[str] = Field(default_factory=list)
+    mentioned_tickers: list[str] = Field(default_factory=list)
+    mentioned_sectors: list[str] = Field(default_factory=list)
+    mentioned_concepts: list[str] = Field(default_factory=list)
+    direction: str | None = None
+    horizon: str | None = None
+    confidence_level: str = "candidate"
+    evidence_text: str | None = None
+    evidence_level: str = "text_raw"
+    review_status: str = "unreviewed"
+    review_notes: str | None = None
     evidence_image_ids: list[str] = Field(default_factory=list)
     evidence_ocr_ids: list[str] = Field(default_factory=list)
     author_name: str | None = None
