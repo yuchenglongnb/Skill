@@ -10,6 +10,8 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert parser.parse_args(["crawl-index"]).target_config == "configs/target.yaml"
     assert parser.parse_args(["crawl-articles"]).crawl_config == "configs/crawl.yaml"
     assert parser.parse_args(["seed-start-article"]).crawl_config == "configs/crawl.yaml"
+    assert parser.parse_args(["crawl-comments"]).crawl_config == "configs/crawl.yaml"
+    assert parser.parse_args(["filter-comments"]).target_config == "configs/target.yaml"
 
-    assert main(["crawl-comments"]) == 0
+    assert main(["extract-images"]) == 0
     assert "scaffold only" in capsys.readouterr().out

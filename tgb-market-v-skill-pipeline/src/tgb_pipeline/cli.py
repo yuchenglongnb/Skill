@@ -7,6 +7,7 @@ import sys
 from collections.abc import Sequence
 
 from tgb_pipeline.config import load_crawl_config, load_target_config
+from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index, seed_start_article
 
 COMMANDS = (
@@ -32,7 +33,13 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
     for command in COMMANDS:
         command_parser = subparsers.add_parser(command, help=f"Run {command}.")
-        if command in {"crawl-index", "crawl-articles", "seed-start-article"}:
+        if command in {
+            "crawl-index",
+            "crawl-articles",
+            "seed-start-article",
+            "crawl-comments",
+            "filter-comments",
+        }:
             command_parser.add_argument(
                 "--target-config",
                 default="configs/target.yaml",
@@ -48,7 +55,13 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    if args.command in {"crawl-index", "crawl-articles", "seed-start-article"}:
+    if args.command in {
+        "crawl-index",
+        "crawl-articles",
+        "seed-start-article",
+        "crawl-comments",
+        "filter-comments",
+    }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
         try:
@@ -69,6 +82,22 @@ def main(argv: Sequence[str] | None = None) -> int:
             elif args.command == "seed-start-article":
                 count = seed_start_article(target_config, crawl_config)
                 print(f"seed-start-article: appended {count} seed article index records.")
+            elif args.command == "crawl-comments":
+                comment_count, image_count = crawl_comments(target_config, crawl_config)
+                print(
+                    "crawl-comments: appended "
+                    f"{comment_count} comments and {image_count} image assets."
+                )
+            elif args.command == "filter-comments":
+                kept_count, aoch_count, interaction_count = filter_comments(
+                    target_config,
+                    crawl_config,
+                )
+                print(
+                    "filter-comments: appended "
+                    f"{kept_count} comments, {aoch_count} aoch comments, and "
+                    f"{interaction_count} interactions."
+                )
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

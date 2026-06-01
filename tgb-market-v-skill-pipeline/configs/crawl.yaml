@@ -9,6 +9,7 @@ crawl:
   resume: true
   allow_seed_article_fallback: true
   seed_only_when_index_missing_start: true
+  max_comment_pages_per_article: 100
 
 storage:
   raw_dir: data/raw

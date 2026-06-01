@@ -31,6 +31,7 @@ crawl:
   request_timeout_seconds: 10
   allow_seed_article_fallback: true
   seed_only_when_index_missing_start: true
+  max_comment_pages_per_article: 12
 storage:
   raw_dir: fixture/raw
   interim_dir: fixture/interim
@@ -51,5 +52,6 @@ storage:
     assert crawl.crawl.request_interval_seconds == 1.5
     assert crawl.crawl.allow_seed_article_fallback is True
     assert crawl.crawl.seed_only_when_index_missing_start is True
+    assert crawl.crawl.max_comment_pages_per_article == 12
     assert crawl.storage.raw_dir == Path("fixture/raw")
     assert crawl.storage.processed_dir == Path("fixture/processed")

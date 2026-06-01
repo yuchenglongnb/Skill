@@ -57,6 +57,31 @@ tgb-pipeline crawl-articles --target-config configs/target.yaml --crawl-config c
 - 当公开索引缺失起始帖且 `allow_seed_article_fallback: true` 时，`crawl-index` 会自动写入 seed 记录，而不是直接报错退出。
 - 当公开索引正常包含起始帖时，仍优先使用索引页解析结果，不改变原有逻辑。
 
+## Milestone 3B：评论分页、角色标注和互动过滤
+
+本阶段新增了评论分页解析、评论图片元信息提取、作者角色标注、Aoch 专项索引和互动过滤。评论抓取不依赖公开博客主页，而是基于 `articles_index.jsonl` 中的 `mobile_url` 生成评论分页 URL，因此也可以直接接在 seed fallback 之后运行。
+
+```powershell
+tgb-pipeline crawl-comments --target-config configs/target.yaml --crawl-config configs/crawl.yaml
+tgb-pipeline filter-comments --target-config configs/target.yaml --crawl-config configs/crawl.yaml
+```
+
+生成文件：
+
+```text
+data/raw/tgb/comments_all.jsonl
+data/raw/tgb/comments.jsonl
+data/raw/tgb/aoch_discussions.jsonl
+data/raw/tgb/interactions.jsonl
+data/raw/tgb/html/{article_id}_comments_page_{n}.html
+```
+
+行为说明：
+
+- `crawl-comments` 会抓取评论分页 HTML、写入 `comments_all.jsonl`，并把评论中的图片元信息追加到 `images.jsonl`。
+- `filter-comments` 会先标注作者角色，再筛选目标作者互动评论、输出 `interactions.jsonl`，同时把 `Aoch` 评论单独写入 `aoch_discussions.jsonl`。
+- 普通成员的低价值评论默认不进入互动语料，但原始评论仍保留在 `comments_all.jsonl` 中，方便审计和后续复核。
+
 ## 数据边界
 
 - 目标范围从 2023-01-15《情绪周期是否可靠的思考》开始，包含之后的目标作者主帖。

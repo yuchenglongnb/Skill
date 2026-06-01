@@ -80,9 +80,12 @@ class Comment(PipelineModel):
     author_name: str
     author_role: AuthorRole = AuthorRole.UNKNOWN
     published_at: datetime | None = None
+    page_num: int | None = None
+    page_position: int | None = None
     parent_comment_id: str | None = None
     replied_to_author_name: str | None = None
     target_author_interacted: bool = False
+    keep_reason: str | None = None
     raw_content: str
     content_text: str | None = None
     image_asset_ids: list[str] = Field(default_factory=list)
