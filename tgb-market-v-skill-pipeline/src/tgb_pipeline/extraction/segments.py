@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from typing import Any
 
-from tgb_pipeline.models import Article, Comment, ImageAsset, ImageOCR, Interaction
+from tgb_pipeline.models import Article, AuthorRole, Comment, ImageAsset, ImageOCR, Interaction
 from tgb_pipeline.utils.text_cleaning import clean_text
 
 SPLIT_RE = re.compile(r"(?<=[。！？!?；;\n])")
@@ -45,7 +45,9 @@ def segment_article(article: Article) -> list[dict[str, Any]]:
 
 
 def segment_comment(comment: Comment) -> list[dict[str, Any]]:
-    evidence_level = "target_comment_text" if comment.author_role.value == "target" else "comment_text"
+    evidence_level = (
+        "target_comment_text" if comment.author_role == AuthorRole.TARGET else "comment_text"
+    )
     return _segment_text(
         text=comment.content_text or comment.raw_content,
         source_type="comment",
@@ -63,35 +65,31 @@ def segment_interaction(
     comments_by_id: dict[str, Comment],
 ) -> list[dict[str, Any]]:
     segments: list[dict[str, Any]] = []
-    if interaction.raw_content:
-        segments.extend(
-            _segment_text(
-                text=interaction.raw_content,
-                source_type="interaction",
-                source_id=interaction.interaction_id,
-                article_id=interaction.article_id,
-                author_name=interaction.actor_name,
-                source_time=interaction.occurred_at,
-                source_title=None,
-                evidence_level="interaction_text",
-            )
-        )
+    context_lines: list[str] = []
     for comment_id in interaction.comment_ids:
         comment = comments_by_id.get(comment_id)
         if comment is None:
             continue
-        segments.extend(
-            _segment_text(
-                text=comment.content_text or comment.raw_content,
-                source_type="interaction",
-                source_id=f"{interaction.interaction_id}:{comment.comment_id}",
-                article_id=comment.article_id,
-                author_name=comment.author_name,
-                source_time=comment.published_at,
-                source_title=None,
-                evidence_level="interaction_text",
-            )
+        text = clean_text(comment.content_text or comment.raw_content)
+        if not text:
+            continue
+        context_lines.append(f"{comment.author_name}: {text}")
+        if comment.author_role != AuthorRole.TARGET:
+            continue
+        target_segments = _segment_text(
+            text=text,
+            source_type="interaction",
+            source_id=f"{interaction.interaction_id}:{comment.comment_id}",
+            article_id=comment.article_id,
+            author_name=comment.author_name,
+            source_time=comment.published_at,
+            source_title=None,
+            evidence_level="interaction_text",
         )
+        for segment in target_segments:
+            segment["interaction_context"] = list(context_lines)
+            segment["interaction_id"] = interaction.interaction_id
+        segments.extend(target_segments)
     return _dedupe_segments(segments)
 
 

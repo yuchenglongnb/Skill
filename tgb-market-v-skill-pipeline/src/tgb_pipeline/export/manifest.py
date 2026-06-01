@@ -26,6 +26,12 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "methodology_claims": len(_read_optional(processed_dir / "methodology_claims.jsonl", MethodologyClaim, "claim_id")),
         "claim_review_queue": 1 if (reports_dir / "claim_review_queue.md").exists() else 0,
         "methodology_profile_draft": 1 if (reports_dir / "methodology_profile_draft.md").exists() else 0,
+        "accepted_methodology_claims": len(_read_optional(processed_dir / "accepted_methodology_claims.jsonl", MethodologyClaim, "claim_id")),
+        "rejected_methodology_claims": len(_read_optional(processed_dir / "rejected_methodology_claims.jsonl", MethodologyClaim, "claim_id")),
+        "needs_edit_methodology_claims": len(_read_optional(processed_dir / "needs_edit_methodology_claims.jsonl", MethodologyClaim, "claim_id")),
+        "claim_review_decisions": 1 if (processed_dir / "claim_review_decisions.yaml").exists() else 0,
+        "curated_methodology_profile": 1 if (reports_dir / "curated_methodology_profile.md").exists() else 0,
+        "claim_curation_report": 1 if (reports_dir / "claim_curation_report.md").exists() else 0,
     }
     manifest = {
         "generated_at": datetime.now(UTC).isoformat(),
@@ -43,6 +49,10 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
             _relative(processed_dir / "aoch_corpus.md"),
             _relative(processed_dir / "image_ocr.jsonl"),
             _relative(processed_dir / "methodology_claims.jsonl"),
+            _relative(processed_dir / "accepted_methodology_claims.jsonl"),
+            _relative(processed_dir / "rejected_methodology_claims.jsonl"),
+            _relative(processed_dir / "needs_edit_methodology_claims.jsonl"),
+            _relative(processed_dir / "claim_review_decisions.yaml"),
         ],
         "reports": [
             _relative(reports_dir / "comment_coverage_report.md"),
@@ -53,12 +63,15 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
             _relative(reports_dir / "image_ocr_review_queue.md"),
             _relative(reports_dir / "claim_review_queue.md"),
             _relative(reports_dir / "methodology_profile_draft.md"),
+            _relative(reports_dir / "curated_methodology_profile.md"),
+            _relative(reports_dir / "claim_curation_report.md"),
         ],
         "counts": counts,
         "has_aoch": counts["aoch_discussions"] > 0,
         "downloaded_images_path": _relative(raw_dir / "images_downloaded.jsonl"),
         "image_ocr_path": _relative(processed_dir / "image_ocr.jsonl"),
         "methodology_claims_path": _relative(processed_dir / "methodology_claims.jsonl"),
+        "claim_review_decisions_path": _relative(processed_dir / "claim_review_decisions.yaml"),
     }
     output_path = processed_dir / "corpus_manifest.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)

@@ -8,6 +8,7 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from tgb_pipeline.config import load_crawl_config, load_ocr_config, load_target_config
+from tgb_pipeline.curation.tasks import review_claims_bundle
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index, seed_start_article
 from tgb_pipeline.extraction.tasks import extract_claims_bundle
@@ -25,6 +26,7 @@ COMMANDS = (
     "ocr-images",
     "export-corpus",
     "extract-claims",
+    "review-claims",
     "build-skill",
 )
 
@@ -47,6 +49,7 @@ def build_parser() -> argparse.ArgumentParser:
             "ocr-images",
             "export-corpus",
             "extract-claims",
+            "review-claims",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -64,6 +67,27 @@ def build_parser() -> argparse.ArgumentParser:
                 default="configs/ocr.yaml",
                 help="Path to OCR and image YAML configuration.",
             )
+        if command == "review-claims":
+            command_parser.add_argument(
+                "--decisions",
+                default="data/processed/tgb/claim_review_decisions.yaml",
+                help="Path to claim review decision YAML file.",
+            )
+            command_parser.add_argument(
+                "--overwrite-review-template",
+                action="store_true",
+                help="Overwrite an existing review template.",
+            )
+            command_parser.add_argument(
+                "--include-unreviewed",
+                action="store_true",
+                help="Include unreviewed claims in the needs-edit output when applying.",
+            )
+            command_parser.add_argument(
+                "--apply",
+                action="store_true",
+                help="Apply review decisions and emit curated artifacts.",
+            )
     return parser
 
 
@@ -79,6 +103,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "ocr-images",
         "export-corpus",
         "extract-claims",
+        "review-claims",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -150,6 +175,19 @@ def main(argv: Sequence[str] | None = None) -> int:
                 processed_dir = crawl_config.storage.processed_dir / "tgb"
                 outputs = extract_claims_bundle(raw_dir, processed_dir, Path("reports"))
                 print(f"extract-claims: generated {len(outputs)} outputs.")
+            elif args.command == "review-claims":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = review_claims_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    decisions_path=Path(args.decisions),
+                    overwrite_review_template=args.overwrite_review_template,
+                    include_unreviewed=args.include_unreviewed,
+                    apply=args.apply,
+                )
+                print(f"review-claims: generated {len(outputs)} outputs.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

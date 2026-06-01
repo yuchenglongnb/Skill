@@ -18,7 +18,9 @@ def test_build_corpus_manifest_uses_relative_paths_and_counts(tmp_path, monkeypa
     assert payload["counts"]["images_downloaded"] == 0
     assert payload["counts"]["image_ocr"] == 0
     assert payload["counts"]["methodology_claims"] == 0
+    assert payload["counts"]["accepted_methodology_claims"] == 0
     assert payload["has_aoch"] is False
     assert all(not path.startswith("C:/") for path in payload["outputs"])
     assert payload["image_ocr_path"].endswith("data/processed/tgb/image_ocr.jsonl")
     assert payload["methodology_claims_path"].endswith("data/processed/tgb/methodology_claims.jsonl")
+    assert payload["claim_review_decisions_path"].endswith("data/processed/tgb/claim_review_decisions.yaml")

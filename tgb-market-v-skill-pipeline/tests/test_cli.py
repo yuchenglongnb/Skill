@@ -15,6 +15,7 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert parser.parse_args(["download-images"]).ocr_config == "configs/ocr.yaml"
     assert parser.parse_args(["ocr-images"]).crawl_config == "configs/crawl.yaml"
     assert parser.parse_args(["extract-claims"]).target_config == "configs/target.yaml"
+    assert parser.parse_args(["review-claims"]).decisions == "data/processed/tgb/claim_review_decisions.yaml"
 
     assert main(["extract-images"]) == 0
     assert "scaffold only" in capsys.readouterr().out
