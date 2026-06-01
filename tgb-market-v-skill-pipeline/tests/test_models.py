@@ -33,6 +33,29 @@ def test_aoch_has_dedicated_model_marker() -> None:
 
     assert comment.is_aoch is True
     assert comment.eligible_for_corpus is False
+    assert comment.eligible_for_aoch_corpus is True
+
+
+def test_image_asset_supports_structured_evidence_fields() -> None:
+    image = ImageAsset(
+        image_id="image-structured",
+        article_id="article-1",
+        source_url="https://example.test/image.png",
+        page_url="https://example.test/article",
+        source_type="article_body",
+        position_index=2,
+        before_text="前文片段",
+        after_text="后文片段",
+        keep_reason="target_author_article_image",
+        review_status="unreviewed",
+    )
+
+    assert image.source_type == "article_body"
+    assert image.position_index == 2
+    assert image.before_text == "前文片段"
+    assert image.after_text == "后文片段"
+    assert image.keep_reason == "target_author_article_image"
+    assert image.review_status == "unreviewed"
 
 
 def test_image_requires_parent_and_ocr_remains_separate() -> None:
@@ -51,4 +74,3 @@ def test_image_requires_parent_and_ocr_remains_separate() -> None:
         normalized_text="图片识别文本",
     )
     assert ocr.raw_text != ocr.normalized_text
-

@@ -55,6 +55,10 @@ def parse_article_page(
         author_name=author_name,
         published_at=published_at,
         url=index_record.url,
+        mobile_url=index_record.mobile_url,
+        tag=index_record.tag,
+        view_count=index_record.view_count,
+        reply_count=index_record.reply_count,
         raw_content=text,
         content_text=text,
         image_asset_ids=[image.image_id for image in images],
@@ -89,4 +93,3 @@ def _published_at(soup: BeautifulSoup, index_record: ArticleIndex):
         except ValueError:
             pass
     return parse_datetime(index_record.published_date.isoformat())
-

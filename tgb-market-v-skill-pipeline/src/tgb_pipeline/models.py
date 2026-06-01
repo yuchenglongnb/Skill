@@ -64,6 +64,10 @@ class Article(PipelineModel):
     author_name: str
     published_at: datetime
     url: str
+    mobile_url: str | None = None
+    tag: str | None = None
+    view_count: int | None = None
+    reply_count: int | None = None
     raw_content: str
     content_text: str | None = None
     image_asset_ids: list[str] = Field(default_factory=list)
@@ -94,6 +98,10 @@ class Comment(PipelineModel):
     def is_aoch(self) -> bool:
         return self.author_role == AuthorRole.AOCH
 
+    @property
+    def eligible_for_aoch_corpus(self) -> bool:
+        return self.author_role == AuthorRole.AOCH
+
 
 class Interaction(PipelineModel):
     interaction_id: str
@@ -103,6 +111,9 @@ class Interaction(PipelineModel):
     target_name: str | None = None
     comment_id: str | None = None
     related_comment_id: str | None = None
+    member_names: list[str] = Field(default_factory=list)
+    comment_ids: list[str] = Field(default_factory=list)
+    keep_reason: str | None = None
     occurred_at: datetime | None = None
     raw_content: str | None = None
     raw: dict[str, Any] = Field(default_factory=dict)
@@ -119,6 +130,13 @@ class ImageAsset(PipelineModel):
     mime_type: str | None = None
     width: int | None = None
     height: int | None = None
+    source_type: str | None = None
+    position_index: int | None = None
+    before_text: str | None = None
+    after_text: str | None = None
+    keep_reason: str | None = None
+    image_type: str | None = None
+    review_status: str = "unreviewed"
     raw: dict[str, Any] = Field(default_factory=dict)
 
     @property

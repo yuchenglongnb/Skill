@@ -38,6 +38,8 @@ data/raw/tgb/html/{article_id}_page_1.html
 
 `crawl-index` 和 `crawl-articles` 均使用去重写入，重复运行时可以断点续跑。正文图片会替换为
 `[IMAGE: image_id]` 占位符，并单独写入 `images.jsonl`。本阶段不会下载图片，也不会执行 OCR。
+`ArticleIndex` 仍是索引元数据主表；`Article` 上的 `mobile_url/tag/view_count/reply_count` 仅作为
+从索引表填充的便捷冗余字段，完整元数据以 `ArticleIndex` 为 canonical source。
 
 站点可能将部分列表页或正文页限制为登录后访问。管线不会绕过登录、验证码或访问控制；遇到
 此类限制时应停止采集，并在获得合规授权或公开入口后再更新配置。

@@ -2,12 +2,14 @@
 
 from __future__ import annotations
 
+from copy import copy
 import hashlib
 from urllib.parse import urljoin
 
-from bs4 import Tag
+from bs4 import NavigableString, Tag
 
 from tgb_pipeline.models import ImageAsset
+from tgb_pipeline.utils.text_cleaning import clean_text
 
 
 def extract_article_images(
@@ -31,6 +33,12 @@ def extract_article_images(
                 article_id=article_id,
                 source_url=absolute_url,
                 page_url=page_url,
+                source_type="article_body",
+                position_index=position,
+                before_text=_adjacent_text(image, reverse=True),
+                after_text=_adjacent_text(image, reverse=False),
+                keep_reason="target_author_article_image",
+                review_status="unreviewed",
                 raw={
                     "position": position,
                     "html": str(image),
@@ -49,3 +57,33 @@ def _image_url(image: Tag) -> str | None:
             return value.strip()
     return None
 
+
+def _adjacent_text(image: Tag, *, reverse: bool) -> str | None:
+    sibling = image.previous_sibling if reverse else image.next_sibling
+    while sibling is not None:
+        text = _text_from_node(sibling)
+        if text:
+            return clean_text(text)
+        sibling = sibling.previous_sibling if reverse else sibling.next_sibling
+
+    parent = image.parent
+    if not isinstance(parent, Tag):
+        return None
+    sibling = parent.previous_sibling if reverse else parent.next_sibling
+    while sibling is not None:
+        text = _text_from_node(sibling)
+        if text:
+            return clean_text(text)
+        sibling = sibling.previous_sibling if reverse else sibling.next_sibling
+    return None
+
+
+def _text_from_node(node: object) -> str:
+    if isinstance(node, NavigableString):
+        return str(node).strip()
+    if isinstance(node, Tag):
+        clone = copy(node)
+        for nested_image in clone.find_all("img"):
+            nested_image.decompose()
+        return clone.get_text(" ", strip=True)
+    return ""
