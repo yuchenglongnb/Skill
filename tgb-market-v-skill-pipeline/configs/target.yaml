@@ -2,10 +2,11 @@ target:
   platform: taoguba
   author_name: 等主人的猫
   author_slug: null
+  blog_url: https://www.tgb.cn/blog/2368012
   start_article:
     title: 情绪周期是否可靠的思考
     published_date: "2023-01-15"
-    url: null
+    url: https://www.tgb.cn/a/1Vgsye6eK36
   include_after_start_article: true
 
 priority_members:
@@ -21,4 +22,3 @@ corpus_policy:
   keep_excluded_comments_in_raw_storage: true
   images_are_first_class_evidence: true
   keep_ocr_separate_from_body_text: true
-

@@ -14,6 +14,34 @@ pytest
 python -m tgb_pipeline crawl-index
 ```
 
+## Milestone 2：博客索引和主帖正文
+
+当前版本已实现公开页面范围内的博客索引解析和主帖正文解析。默认目标配置位于
+`configs/target.yaml`，其中包含目标作者公开博客主页和起始帖 URL。运行前可以复制配置文件，
+通过命令参数显式指定路径：
+
+```powershell
+python -m pip install -e ".[dev]"
+tgb-pipeline crawl-index --target-config configs/target.yaml --crawl-config configs/crawl.yaml
+tgb-pipeline crawl-articles --target-config configs/target.yaml --crawl-config configs/crawl.yaml
+```
+
+生成文件：
+
+```text
+data/raw/tgb/articles_index.jsonl
+data/raw/tgb/articles.jsonl
+data/raw/tgb/images.jsonl
+data/raw/tgb/html/blog_index_page_{n}.html
+data/raw/tgb/html/{article_id}_page_1.html
+```
+
+`crawl-index` 和 `crawl-articles` 均使用去重写入，重复运行时可以断点续跑。正文图片会替换为
+`[IMAGE: image_id]` 占位符，并单独写入 `images.jsonl`。本阶段不会下载图片，也不会执行 OCR。
+
+站点可能将部分列表页或正文页限制为登录后访问。管线不会绕过登录、验证码或访问控制；遇到
+此类限制时应停止采集，并在获得合规授权或公开入口后再更新配置。
+
 ## 数据边界
 
 - 目标范围从 2023-01-15《情绪周期是否可靠的思考》开始，包含之后的目标作者主帖。
@@ -54,4 +82,3 @@ build-skill
 2. 建立互动关系、评论准入规则和 Aoch 专项索引。
 3. 提取、下载并校验图片，接入 OCR，保留图片证据链。
 4. 导出可审计语料，抽取方法论主张并生成 Skill 输入材料。
-

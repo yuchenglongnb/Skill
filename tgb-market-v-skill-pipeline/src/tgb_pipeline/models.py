@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime
+from datetime import date, datetime
 from enum import StrEnum
 from typing import Any
 
@@ -44,6 +44,18 @@ class PipelineModel(BaseModel):
     class Config:
         extra = "forbid"
         validate_assignment = True
+
+
+class ArticleIndex(PipelineModel):
+    article_id: str
+    title: str
+    tag: str | None = None
+    published_date: date
+    view_count: int = 0
+    reply_count: int = 0
+    url: str
+    mobile_url: str
+    raw: dict[str, Any] = Field(default_factory=dict)
 
 
 class Article(PipelineModel):

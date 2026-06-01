@@ -3,7 +3,11 @@
 from __future__ import annotations
 
 import argparse
+import sys
 from collections.abc import Sequence
+
+from tgb_pipeline.config import load_crawl_config, load_target_config
+from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index
 
 COMMANDS = (
     "crawl-index",
@@ -26,12 +30,39 @@ def build_parser() -> argparse.ArgumentParser:
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
     for command in COMMANDS:
-        subparsers.add_parser(command, help=f"Placeholder for {command}.")
+        command_parser = subparsers.add_parser(command, help=f"Run {command}.")
+        if command in {"crawl-index", "crawl-articles"}:
+            command_parser.add_argument(
+                "--target-config",
+                default="configs/target.yaml",
+                help="Path to target YAML configuration.",
+            )
+            command_parser.add_argument(
+                "--crawl-config",
+                default="configs/crawl.yaml",
+                help="Path to crawl YAML configuration.",
+            )
     return parser
 
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command in {"crawl-index", "crawl-articles"}:
+        target_config = load_target_config(args.target_config)
+        crawl_config = load_crawl_config(args.crawl_config)
+        try:
+            if args.command == "crawl-index":
+                count = crawl_index(target_config, crawl_config)
+                print(f"crawl-index: appended {count} article index records.")
+            else:
+                article_count, image_count = crawl_articles(target_config, crawl_config)
+                print(
+                    "crawl-articles: appended "
+                    f"{article_count} articles and {image_count} image assets."
+                )
+        except (PermissionError, ValueError) as exc:
+            print(f"{args.command}: stopped: {exc}", file=sys.stderr)
+            return 2
+        return 0
     print(f"{args.command}: scaffold only; implementation is planned for a later milestone.")
     return 0
-

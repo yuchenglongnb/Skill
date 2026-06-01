@@ -7,6 +7,8 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     for command in COMMANDS:
         assert parser.parse_args([command]).command == command
 
-    assert main(["crawl-index"]) == 0
-    assert "scaffold only" in capsys.readouterr().out
+    assert parser.parse_args(["crawl-index"]).target_config == "configs/target.yaml"
+    assert parser.parse_args(["crawl-articles"]).crawl_config == "configs/crawl.yaml"
 
+    assert main(["crawl-comments"]) == 0
+    assert "scaffold only" in capsys.readouterr().out

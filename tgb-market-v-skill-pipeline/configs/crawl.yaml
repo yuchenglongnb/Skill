@@ -3,6 +3,7 @@ crawl:
   request_interval_seconds: 2.0
   request_timeout_seconds: 20
   max_retries: 3
+  max_index_pages: 100
   concurrency: 1
   respect_robots_txt: true
   resume: true
@@ -12,4 +13,3 @@ storage:
   interim_dir: data/interim
   processed_dir: data/processed
   jsonl_encoding: utf-8
-
