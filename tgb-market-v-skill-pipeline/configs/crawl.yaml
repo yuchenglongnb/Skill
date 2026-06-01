@@ -7,6 +7,8 @@ crawl:
   concurrency: 1
   respect_robots_txt: true
   resume: true
+  allow_seed_article_fallback: true
+  seed_only_when_index_missing_start: true
 
 storage:
   raw_dir: data/raw

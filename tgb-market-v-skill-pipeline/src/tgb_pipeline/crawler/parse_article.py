@@ -19,10 +19,16 @@ CONTENT_SELECTORS = (
     ".topic-content",
     ".article-body",
     ".main-content",
+    ".tzitem_text",
 )
-TITLE_SELECTORS = ("h1", ".article-title", ".title")
-AUTHOR_SELECTORS = (".author-name", ".article-author", "[data-role='author']")
-TIME_SELECTORS = ("time", ".publish-time", ".article-time", "[data-role='published-at']")
+TITLE_SELECTORS = ("h1", ".article-title", ".title", ".Pagetitle")
+AUTHOR_SELECTORS = (
+    ".author-name",
+    ".article-author",
+    "[data-role='author']",
+    ".HeadInfo_name",
+)
+TIME_SELECTORS = ("time", ".publish-time", ".article-time", "[data-role='published-at']", ".Pagetime")
 
 
 def parse_article_page(

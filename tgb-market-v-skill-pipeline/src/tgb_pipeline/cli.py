@@ -7,11 +7,12 @@ import sys
 from collections.abc import Sequence
 
 from tgb_pipeline.config import load_crawl_config, load_target_config
-from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index
+from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index, seed_start_article
 
 COMMANDS = (
     "crawl-index",
     "crawl-articles",
+    "seed-start-article",
     "crawl-comments",
     "filter-comments",
     "extract-images",
@@ -31,7 +32,7 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
     for command in COMMANDS:
         command_parser = subparsers.add_parser(command, help=f"Run {command}.")
-        if command in {"crawl-index", "crawl-articles"}:
+        if command in {"crawl-index", "crawl-articles", "seed-start-article"}:
             command_parser.add_argument(
                 "--target-config",
                 default="configs/target.yaml",
@@ -47,13 +48,27 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
-    if args.command in {"crawl-index", "crawl-articles"}:
+    if args.command in {"crawl-index", "crawl-articles", "seed-start-article"}:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
         try:
             if args.command == "crawl-index":
-                count = crawl_index(target_config, crawl_config)
-                print(f"crawl-index: appended {count} article index records.")
+                result = crawl_index(target_config, crawl_config)
+                if result.used_seed_fallback:
+                    print(
+                        "crawl-index: appended "
+                        f"{result.seed_appended_count} seed article index record"
+                        f"{'' if result.seed_appended_count == 1 else 's'} because "
+                        "start article was not visible in public index."
+                    )
+                else:
+                    print(
+                        f"crawl-index: appended {result.appended_count} "
+                        "article index records."
+                    )
+            elif args.command == "seed-start-article":
+                count = seed_start_article(target_config, crawl_config)
+                print(f"seed-start-article: appended {count} seed article index records.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

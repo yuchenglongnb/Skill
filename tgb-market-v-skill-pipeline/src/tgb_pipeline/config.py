@@ -56,6 +56,8 @@ class CrawlSettings(BaseModel):
     concurrency: int = Field(default=1, ge=1)
     respect_robots_txt: bool = True
     resume: bool = True
+    allow_seed_article_fallback: bool = True
+    seed_only_when_index_missing_start: bool = True
 
 
 class StorageSettings(BaseModel):
@@ -85,4 +87,3 @@ def _read_yaml(path: str | Path) -> dict:
     if not isinstance(payload, dict):
         raise ValueError(f"config must contain a YAML mapping: {config_path}")
     return payload
-

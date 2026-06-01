@@ -14,6 +14,7 @@ target:
   start_article:
     title: 情绪周期是否可靠的思考
     published_date: "2023-01-15"
+    url: https://www.tgb.cn/a/1Vgsye6eK36
 priority_members:
   - name: Aoch
     aliases: [aoch]
@@ -28,6 +29,8 @@ crawl:
   user_agent: fixture-agent
   request_interval_seconds: 1.5
   request_timeout_seconds: 10
+  allow_seed_article_fallback: true
+  seed_only_when_index_missing_start: true
 storage:
   raw_dir: fixture/raw
   interim_dir: fixture/interim
@@ -41,10 +44,12 @@ storage:
 
     assert target.target.author_name == "等主人的猫"
     assert target.target.start_article.published_date.isoformat() == "2023-01-15"
+    assert target.target.start_article.url == "https://www.tgb.cn/a/1Vgsye6eK36"
     assert target.aoch is not None
     assert target.aoch.dedicated_index is True
     assert crawl.crawl.user_agent == "fixture-agent"
     assert crawl.crawl.request_interval_seconds == 1.5
+    assert crawl.crawl.allow_seed_article_fallback is True
+    assert crawl.crawl.seed_only_when_index_missing_start is True
     assert crawl.storage.raw_dir == Path("fixture/raw")
     assert crawl.storage.processed_dir == Path("fixture/processed")
-

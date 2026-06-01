@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 from pathlib import Path
 
 from tgb_pipeline.config import CrawlConfig, TargetConfig
@@ -12,8 +13,16 @@ from tgb_pipeline.crawler.parse_blog import (
     find_next_page_url,
     parse_blog_index,
 )
+from tgb_pipeline.crawler.seed import build_seed_article_index
 from tgb_pipeline.models import Article, ArticleIndex, ImageAsset
 from tgb_pipeline.storage import JSONLStore
+
+
+@dataclass(frozen=True)
+class CrawlIndexResult:
+    appended_count: int
+    used_seed_fallback: bool = False
+    seed_appended_count: int = 0
 
 
 def crawl_index(
@@ -21,7 +30,7 @@ def crawl_index(
     crawl_config: CrawlConfig,
     *,
     fetcher: Fetcher | None = None,
-) -> int:
+) -> CrawlIndexResult:
     blog_url = target_config.target.blog_url
     if not blog_url:
         raise ValueError("target.blog_url must be configured before running crawl-index")
@@ -52,8 +61,43 @@ def crawl_index(
         records,
         start_date=target_config.target.start_article.published_date,
         start_title=target_config.target.start_article.title,
+        require_start_article=False,
     )
-    return store.append_many(selected)
+    if _contains_start_article(selected, target_config):
+        return CrawlIndexResult(appended_count=store.append_many(selected))
+
+    if not crawl_config.crawl.allow_seed_article_fallback:
+        raise ValueError(
+            f"start article not found in parsed index pages: "
+            f"{target_config.target.start_article.title}"
+        )
+    if not target_config.target.start_article.url:
+        raise ValueError(
+            "target.start_article.url must be configured when public index "
+            "does not expose the start article"
+        )
+
+    seed_record = build_seed_article_index(target_config)
+    appended_count = store.append_many(selected)
+    should_append_seed = (
+        not crawl_config.crawl.seed_only_when_index_missing_start
+        or not any(record.article_id == seed_record.article_id for record in selected)
+    )
+    seed_appended_count = int(should_append_seed and store.append(seed_record))
+    return CrawlIndexResult(
+        appended_count=appended_count + seed_appended_count,
+        used_seed_fallback=True,
+        seed_appended_count=seed_appended_count,
+    )
+
+
+def seed_start_article(
+    target_config: TargetConfig,
+    crawl_config: CrawlConfig,
+) -> int:
+    raw_root = crawl_config.storage.raw_dir / "tgb"
+    store = JSONLStore(raw_root / "articles_index.jsonl", ArticleIndex, "article_id")
+    return int(store.append(build_seed_article_index(target_config)))
 
 
 def crawl_articles(
@@ -77,11 +121,17 @@ def crawl_articles(
             continue
         html = client.get_text(index_record.mobile_url)
         _save_snapshot(html_root / f"{index_record.article_id}_page_1.html", html)
-        article, images = parse_article_page(
-            html,
-            index_record=index_record,
-            target_author=target_config.target.author_name,
-        )
+        try:
+            article, images = parse_article_page(
+                html,
+                index_record=index_record,
+                target_author=target_config.target.author_name,
+            )
+        except ValueError as exc:
+            raise ValueError(
+                f"failed to parse article {index_record.article_id} "
+                f"from {index_record.mobile_url}: {exc}"
+            ) from exc
         image_count += image_store.append_many(images)
         article_count += int(article_store.append(article))
     return article_count, image_count
@@ -99,4 +149,3 @@ def _title_matches(actual: str, expected: str) -> bool:
 def _save_snapshot(path: Path, html: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(html, encoding="utf-8")
-
