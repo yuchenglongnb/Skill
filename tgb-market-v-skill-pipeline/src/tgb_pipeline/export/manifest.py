@@ -6,7 +6,7 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 
-from tgb_pipeline.models import Article, Comment, ImageAsset, ImageOCR, Interaction
+from tgb_pipeline.models import Article, ArticleIndex, Comment, CrawlError, ImageAsset, ImageOCR, Interaction
 from tgb_pipeline.models import MethodologyClaim
 from tgb_pipeline.storage import JSONLStore
 
@@ -14,8 +14,11 @@ from tgb_pipeline.storage import JSONLStore
 def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path) -> Path:
     downloaded_images = _read_optional(raw_dir / "images_downloaded.jsonl", ImageAsset, "image_id")
     counts = {
+        "article_index": len(_read_optional(raw_dir / "articles_index.jsonl", ArticleIndex, "article_id")),
         "articles": len(_read_optional(raw_dir / "articles.jsonl", Article, "article_id")),
+        "article_crawl_errors": len(_read_optional(raw_dir / "article_crawl_errors.jsonl", CrawlError, "error_id")),
         "comments_all": len(_read_optional(raw_dir / "comments_all.jsonl", Comment, "comment_id")),
+        "comment_crawl_errors": len(_read_optional(raw_dir / "comment_crawl_errors.jsonl", CrawlError, "error_id")),
         "comments": len(_read_optional(raw_dir / "comments.jsonl", Comment, "comment_id")),
         "interactions": len(_read_optional(raw_dir / "interactions.jsonl", Interaction, "interaction_id")),
         "images": len(_read_optional(raw_dir / "images.jsonl", ImageAsset, "image_id")),
@@ -38,7 +41,9 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "inputs": [
             _relative(raw_dir / "articles_index.jsonl"),
             _relative(raw_dir / "articles.jsonl"),
+            _relative(raw_dir / "article_crawl_errors.jsonl"),
             _relative(raw_dir / "comments_all.jsonl"),
+            _relative(raw_dir / "comment_crawl_errors.jsonl"),
             _relative(raw_dir / "comments.jsonl"),
             _relative(raw_dir / "interactions.jsonl"),
             _relative(raw_dir / "images.jsonl"),
@@ -56,6 +61,7 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         ],
         "reports": [
             _relative(reports_dir / "comment_coverage_report.md"),
+            _relative(reports_dir / "article_inventory_report.md"),
             _relative(reports_dir / "author_inventory.md"),
             _relative(reports_dir / "image_inventory_report.md"),
             _relative(reports_dir / "image_review_candidates.md"),

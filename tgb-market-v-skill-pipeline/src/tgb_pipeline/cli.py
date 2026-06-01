@@ -10,7 +10,12 @@ from pathlib import Path
 from tgb_pipeline.config import load_crawl_config, load_ocr_config, load_target_config
 from tgb_pipeline.curation.tasks import review_claims_bundle
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
-from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index, seed_start_article
+from tgb_pipeline.crawler.tasks import (
+    crawl_articles,
+    crawl_index,
+    ingest_article_seeds,
+    seed_start_article,
+)
 from tgb_pipeline.extraction.tasks import extract_claims_bundle
 from tgb_pipeline.export.tasks import export_corpus_bundle
 from tgb_pipeline.images.tasks import download_images_task, ocr_images_task
@@ -19,6 +24,7 @@ COMMANDS = (
     "crawl-index",
     "crawl-articles",
     "seed-start-article",
+    "ingest-article-seeds",
     "crawl-comments",
     "filter-comments",
     "extract-images",
@@ -43,6 +49,7 @@ def build_parser() -> argparse.ArgumentParser:
             "crawl-index",
             "crawl-articles",
             "seed-start-article",
+            "ingest-article-seeds",
             "crawl-comments",
             "filter-comments",
             "download-images",
@@ -66,6 +73,12 @@ def build_parser() -> argparse.ArgumentParser:
                 "--ocr-config",
                 default="configs/ocr.yaml",
                 help="Path to OCR and image YAML configuration.",
+            )
+        if command == "ingest-article-seeds":
+            command_parser.add_argument(
+                "--article-seeds",
+                default="configs/article_seeds.yaml",
+                help="Path to manual article seed YAML configuration.",
             )
         if command == "review-claims":
             command_parser.add_argument(
@@ -97,6 +110,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "crawl-index",
         "crawl-articles",
         "seed-start-article",
+        "ingest-article-seeds",
         "crawl-comments",
         "filter-comments",
         "download-images",
@@ -130,6 +144,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             elif args.command == "seed-start-article":
                 count = seed_start_article(target_config, crawl_config)
                 print(f"seed-start-article: appended {count} seed article index records.")
+            elif args.command == "ingest-article-seeds":
+                result = ingest_article_seeds(
+                    target_config,
+                    crawl_config,
+                    args.article_seeds,
+                )
+                print(
+                    "ingest-article-seeds: added "
+                    f"{result.added_count}, total {result.total_article_index_count}, "
+                    f"skipped_before_start {result.skipped_before_start_count}, "
+                    f"duplicates {result.duplicate_count}."
+                )
             elif args.command == "crawl-comments":
                 comment_count, image_count = crawl_comments(target_config, crawl_config)
                 print(

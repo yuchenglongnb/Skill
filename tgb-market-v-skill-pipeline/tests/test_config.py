@@ -1,6 +1,11 @@
 from pathlib import Path
 
-from tgb_pipeline.config import load_crawl_config, load_ocr_config, load_target_config
+from tgb_pipeline.config import (
+    load_article_seeds_config,
+    load_crawl_config,
+    load_ocr_config,
+    load_target_config,
+)
 
 
 def test_load_configs_from_explicit_paths(tmp_path: Path) -> None:
@@ -88,3 +93,43 @@ images:
     assert config.ocr.min_confidence == 0.9
     assert config.images.download_dir == Path("data/raw/tgb/images")
     assert config.images.allowed_extensions == [".jpg", ".png"]
+
+
+def test_load_article_seeds_config_and_crawl_defaults(tmp_path: Path) -> None:
+    seeds_path = tmp_path / "article_seeds.yaml"
+    seeds_path.write_text(
+        """
+version: 1
+source: manual_article_seed_list
+description: seed list
+articles:
+  - title: Start article
+    published_date: "2023-01-15"
+    url: https://www.tgb.cn/a/1Vgsye6eK36
+    note: start article
+""",
+        encoding="utf-8",
+    )
+    crawl_path = tmp_path / "crawl.yaml"
+    crawl_path.write_text(
+        """
+crawl:
+  user_agent: fixture-agent
+  request_interval_seconds: 1.0
+  request_timeout_seconds: 10
+storage:
+  raw_dir: data/raw
+  interim_dir: data/interim
+  processed_dir: data/processed
+""",
+        encoding="utf-8",
+    )
+
+    seeds = load_article_seeds_config(seeds_path)
+    crawl = load_crawl_config(crawl_path)
+
+    assert seeds.articles[0].title == "Start article"
+    assert seeds.articles[0].published_date.isoformat() == "2023-01-15"
+    assert seeds.articles[0].note == "start article"
+    assert crawl.crawl.allow_seed_article_fallback is True
+    assert crawl.crawl.seed_only_when_index_missing_start is True

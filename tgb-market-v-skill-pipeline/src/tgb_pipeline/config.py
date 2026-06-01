@@ -102,6 +102,21 @@ class OCRConfig(BaseModel):
     images: ImageDownloadSettings = Field(default_factory=ImageDownloadSettings)
 
 
+class ArticleSeedItem(BaseModel):
+    title: str
+    published_date: date
+    url: str
+    tag: str | None = None
+    note: str | None = None
+
+
+class ArticleSeedsConfig(BaseModel):
+    version: int = 1
+    source: str | None = None
+    description: str | None = None
+    articles: list[ArticleSeedItem] = Field(default_factory=list)
+
+
 def load_target_config(path: str | Path) -> TargetConfig:
     return TargetConfig.parse_obj(_read_yaml(path))
 
@@ -112,6 +127,10 @@ def load_crawl_config(path: str | Path) -> CrawlConfig:
 
 def load_ocr_config(path: str | Path) -> OCRConfig:
     return OCRConfig.parse_obj(_read_yaml(path))
+
+
+def load_article_seeds_config(path: str | Path) -> ArticleSeedsConfig:
+    return ArticleSeedsConfig.parse_obj(_read_yaml(path))
 
 
 def _read_yaml(path: str | Path) -> dict:

@@ -165,6 +165,16 @@ class ImageOCR(PipelineModel):
     raw: dict[str, Any] = Field(default_factory=dict)
 
 
+class CrawlError(PipelineModel):
+    error_id: str
+    stage: str
+    article_id: str | None = None
+    url: str | None = None
+    error_type: str
+    error_message: str
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
 class MethodologyClaim(PipelineModel):
     claim_id: str
     claim_text: str

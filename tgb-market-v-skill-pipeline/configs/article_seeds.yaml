@@ -1,0 +1,17 @@
+version: 1
+source: manual_article_seed_list
+description: "等主人的猫 2023-01-15 及之后公开可访问文章 URL 清单"
+
+articles:
+  - title: "情绪周期是否可靠的思考"
+    published_date: "2023-01-15"
+    url: "https://www.tgb.cn/a/1Vgsye6eK36"
+    tag: null
+    note: "start article"
+
+  # 后续可继续补充公开可访问文章 URL。
+  # - title: "后续文章标题"
+  #   published_date: "2023-01-24"
+  #   url: "https://www.tgb.cn/a/..."
+  #   tag: null
+  #   note: ""
