@@ -23,17 +23,48 @@ from tgb_pipeline.extraction.tags import detect_method_tags
 from tgb_pipeline.models import (
     Article,
     AuthorRole,
+    ClaimSourceType,
+    ClaimStatus,
     Comment,
     ImageAsset,
     ImageOCR,
+    Interaction,
     MethodologyClaim,
 )
-from tgb_pipeline.models import ClaimSourceType, ClaimStatus, Interaction
 from tgb_pipeline.storage import JSONLStore
 from tgb_pipeline.utils.text_cleaning import clean_text
 
-REASONING_HINTS = ("因为", "所以", "如果", "但是", "本质", "规律", "标准", "周期", "成交额", "量化")
-MARKET_HINTS = ("市场", "指数", "板块", "题材", "个股", "龙头", "情绪", "周期")
+REASONING_HINTS = (
+    "因为",
+    "所以",
+    "如果",
+    "但是",
+    "本质",
+    "规律",
+    "标准",
+    "周期",
+    "成交额",
+    "量化",
+)
+MARKET_HINTS = (
+    "市场",
+    "指数",
+    "板块",
+    "题材",
+    "个股",
+    "龙头",
+    "情绪",
+    "周期",
+)
+STRONG_TAGS = {
+    "情绪周期",
+    "成交额",
+    "短线基础行情",
+    "量化影响",
+    "市场结构",
+    "指数环境",
+}
+QUESTION_ONLY_RE = re.compile(r".+[?？]\s*$")
 
 
 def extract_claims_from_segments(segments: list[dict[str, Any]]) -> list[MethodologyClaim]:
@@ -124,7 +155,8 @@ def extract_claims_from_corpus(raw_dir: Path, processed_dir: Path) -> list[Metho
     for interaction in interactions:
         interaction_segments = segment_interaction(interaction, comments_by_id)
         filtered = [
-            segment for segment in interaction_segments
+            segment
+            for segment in interaction_segments
             if segment.get("author_name") and _is_target_text_segment(segment, comments_by_id)
         ]
         segments.extend(filtered)
@@ -151,19 +183,46 @@ def _should_make_claim(
     sectors: list[str],
     concepts: list[str],
 ) -> bool:
+    compact = clean_text(text)
+    if not compact or compact.startswith("[IMAGE:"):
+        return False
+    if QUESTION_ONLY_RE.match(compact) and not method_tags and not tickers and not sectors and not concepts:
+        return False
+    if len(compact) < 10 and not tickers and not sectors and not concepts:
+        return False
+    if (
+        segment["source_type"] == "article"
+        and len(compact) < 16
+        and not set(method_tags).intersection(STRONG_TAGS)
+    ):
+        return False
     if method_tags:
+        if len(compact) < 8 and not set(method_tags).intersection(STRONG_TAGS):
+            return False
         return True
-    if tickers or sectors or concepts:
+    if tickers:
         return True
-    if segment["source_type"] in {"article", "comment", "interaction"} and any(hint in text for hint in REASONING_HINTS):
+    if sectors or concepts:
+        if len(compact) < 12 and not any(hint in compact for hint in REASONING_HINTS + MARKET_HINTS):
+            return False
         return True
-    if any(hint in text for hint in MARKET_HINTS):
+    if segment["source_type"] in {"article", "comment", "interaction"} and any(
+        hint in compact for hint in REASONING_HINTS
+    ):
+        if len(compact) < 12:
+            return False
+        return True
+    if any(hint in compact for hint in MARKET_HINTS):
+        if len(compact) < 14:
+            return False
         return True
     return False
 
 
 def _build_claim_id(source_type: str, source_id: str, normalized_excerpt: str) -> str:
-    digest = hashlib.sha256(f"{source_type}|{source_id}|{normalized_excerpt}".encode("utf-8")).hexdigest()
+    digest = hashlib.sha256(
+        f"{source_type}|{source_id}|{normalized_excerpt}".encode("utf-8")
+    ).hexdigest()
     return f"claim-{digest[:16]}"
 
 
@@ -171,7 +230,10 @@ def _normalize_for_dedupe(text: str) -> str:
     return re.sub(r"\s+", "", text).casefold()
 
 
-def _is_target_text_segment(segment: dict[str, Any], comments_by_id: dict[str, Comment]) -> bool:
+def _is_target_text_segment(
+    segment: dict[str, Any],
+    comments_by_id: dict[str, Comment],
+) -> bool:
     source_id = str(segment["source_id"])
     if ":" in source_id:
         comment_id = source_id.split(":")[-1]
@@ -200,4 +262,3 @@ def _index_images_by_article(images: list[ImageAsset]) -> dict[str, list[str]]:
         if image.article_id and image.source_type == "article_body":
             index.setdefault(image.article_id, []).append(image.image_id)
     return index
-

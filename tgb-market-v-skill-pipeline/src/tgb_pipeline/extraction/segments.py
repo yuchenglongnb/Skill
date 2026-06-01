@@ -11,6 +11,7 @@ from tgb_pipeline.utils.text_cleaning import clean_text
 SPLIT_RE = re.compile(r"(?<=[。！？!?；;\n])")
 MEANINGFUL_RE = re.compile(r"[\u4e00-\u9fffA-Za-z]")
 DIGIT_ONLY_RE = re.compile(r"^[\d\W_]+$")
+IMAGE_PLACEHOLDER_RE = re.compile(r"^\[IMAGE:\s*[^\]]+\]$", re.IGNORECASE)
 KEYWORD_HINTS = (
     "情绪",
     "周期",
@@ -145,6 +146,8 @@ def _should_skip_segment(text: str) -> bool:
     compact = text.strip()
     if not compact:
         return True
+    if IMAGE_PLACEHOLDER_RE.match(compact):
+        return True
     if len(compact) <= 2 and not any(keyword in compact for keyword in KEYWORD_HINTS):
         return True
     if DIGIT_ONLY_RE.match(compact) and not any(keyword in compact for keyword in KEYWORD_HINTS):
@@ -166,4 +169,3 @@ def _dedupe_segments(segments: list[dict[str, Any]]) -> list[dict[str, Any]]:
         seen.add(key)
         deduped.append(segment)
     return deduped
-

@@ -48,6 +48,33 @@ def test_extract_claims_from_segments_is_stable_and_deduped() -> None:
     assert claims[0].method_tags[:2] == ["情绪周期", "成交额"]
 
 
+def test_extract_claims_skips_image_placeholders_and_weak_questions() -> None:
+    segments = [
+        {
+            "source_type": "article",
+            "source_id": "a1",
+            "article_id": "a1",
+            "author_name": "等主人的猫",
+            "text": "[IMAGE: image-1234567890abcdef]",
+            "source_time": datetime(2023, 1, 15, tzinfo=UTC),
+            "source_title": "情绪周期思考",
+            "evidence_level": "article_text",
+        },
+        {
+            "source_type": "article",
+            "source_id": "a1",
+            "article_id": "a1",
+            "author_name": "等主人的猫",
+            "text": "这里能看出什么？",
+            "source_time": datetime(2023, 1, 15, tzinfo=UTC),
+            "source_title": "情绪周期思考",
+            "evidence_level": "article_text",
+        },
+    ]
+
+    assert extract_claims_from_segments(segments) == []
+
+
 def test_extract_claims_from_corpus_respects_source_boundaries(tmp_path) -> None:
     raw_dir = tmp_path / "data" / "raw" / "tgb"
     processed_dir = tmp_path / "data" / "processed" / "tgb"
@@ -117,20 +144,35 @@ def test_extract_claims_from_corpus_respects_source_boundaries(tmp_path) -> None
     )
 
     JSONLStore(raw_dir / "articles.jsonl", Article, "article_id").append(article)
-    JSONLStore(raw_dir / "comments.jsonl", Comment, "comment_id").append_many([target_comment, member_comment, aoch_comment])
-    JSONLStore(raw_dir / "comments_all.jsonl", Comment, "comment_id").append_many([target_comment, member_comment, aoch_comment])
+    JSONLStore(raw_dir / "comments.jsonl", Comment, "comment_id").append_many(
+        [target_comment, member_comment, aoch_comment]
+    )
+    JSONLStore(raw_dir / "comments_all.jsonl", Comment, "comment_id").append_many(
+        [target_comment, member_comment, aoch_comment]
+    )
     JSONLStore(raw_dir / "interactions.jsonl", Interaction, "interaction_id").append(interaction)
     JSONLStore(raw_dir / "images.jsonl", ImageAsset, "image_id").append(image)
     JSONLStore(processed_dir / "image_ocr.jsonl", ImageOCR, "ocr_id").append(ocr)
 
     claims = extract_claims_from_corpus(raw_dir, processed_dir)
-    stored = JSONLStore(processed_dir / "methodology_claims.jsonl", MethodologyClaim, "claim_id").read_all()
+    stored = JSONLStore(
+        processed_dir / "methodology_claims.jsonl",
+        MethodologyClaim,
+        "claim_id",
+    ).read_all()
 
     assert claims
     assert stored
     assert any("情绪周期" in claim.method_tags for claim in claims)
-    assert any("量化影响" in claim.method_tags or "市场结构" in claim.method_tags for claim in claims)
+    assert any(
+        "量化影响" in claim.method_tags or "市场结构" in claim.method_tags
+        for claim in claims
+    )
     assert all("Aoch" not in (claim.source_author or "") for claim in claims)
-    assert all("普通成员" not in (claim.source_author or "") for claim in claims if claim.source_type.value != "interaction")
+    assert all(
+        "普通成员" not in (claim.source_author or "")
+        for claim in claims
+        if claim.source_type.value != "interaction"
+    )
     assert any(claim.evidence_level == "image_ocr_unreviewed" for claim in claims)
-
+    assert all("[IMAGE:" not in claim.raw_excerpt for claim in claims)

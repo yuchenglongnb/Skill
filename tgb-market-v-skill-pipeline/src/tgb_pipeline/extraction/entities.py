@@ -6,6 +6,7 @@ import re
 from collections import OrderedDict
 
 TICKER_RE = re.compile(r"(?<!\d)((?:6\d{5}|0\d{5}|3\d{5}|688\d{3})(?:\.(?:SH|SZ))?)(?!\d)", re.IGNORECASE)
+IMAGE_PLACEHOLDER_RE = re.compile(r"\[IMAGE:\s*[^\]]+\]", re.IGNORECASE)
 SECTOR_KEYWORDS = (
     "券商",
     "机器人",
@@ -47,8 +48,9 @@ CONCEPT_KEYWORDS = (
 
 
 def extract_tickers(text: str) -> list[str]:
+    sanitized = IMAGE_PLACEHOLDER_RE.sub(" ", text)
     seen: OrderedDict[str, None] = OrderedDict()
-    for match in TICKER_RE.findall(text):
+    for match in TICKER_RE.findall(sanitized):
         seen[match.upper()] = None
     return list(seen.keys())
 
@@ -92,4 +94,3 @@ def _ordered_keyword_matches(text: str, keywords: tuple[str, ...]) -> list[str]:
         if keyword.casefold() in lowered:
             matches[keyword] = None
     return list(matches.keys())
-
