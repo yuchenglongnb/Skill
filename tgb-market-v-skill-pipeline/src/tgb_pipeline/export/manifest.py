@@ -6,11 +6,12 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 
-from tgb_pipeline.models import Article, Comment, ImageAsset, Interaction
+from tgb_pipeline.models import Article, Comment, ImageAsset, ImageOCR, Interaction
 from tgb_pipeline.storage import JSONLStore
 
 
 def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path) -> Path:
+    downloaded_images = _read_optional(raw_dir / "images_downloaded.jsonl", ImageAsset, "image_id")
     counts = {
         "articles": len(_read_optional(raw_dir / "articles.jsonl", Article, "article_id")),
         "comments_all": len(_read_optional(raw_dir / "comments_all.jsonl", Comment, "comment_id")),
@@ -18,6 +19,9 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "interactions": len(_read_optional(raw_dir / "interactions.jsonl", Interaction, "interaction_id")),
         "images": len(_read_optional(raw_dir / "images.jsonl", ImageAsset, "image_id")),
         "aoch_discussions": len(_read_optional(raw_dir / "aoch_discussions.jsonl", Comment, "comment_id")),
+        "images_downloaded": len(downloaded_images),
+        "image_ocr": len(_read_optional(processed_dir / "image_ocr.jsonl", ImageOCR, "ocr_id")),
+        "image_ocr_review_queue": 1 if (reports_dir / "image_ocr_review_queue.md").exists() else 0,
     }
     manifest = {
         "generated_at": datetime.now(UTC).isoformat(),
@@ -33,6 +37,7 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
             _relative(processed_dir / "target_author_corpus.md"),
             _relative(processed_dir / "interaction_pairs.md"),
             _relative(processed_dir / "aoch_corpus.md"),
+            _relative(processed_dir / "image_ocr.jsonl"),
         ],
         "reports": [
             _relative(reports_dir / "comment_coverage_report.md"),
@@ -40,9 +45,12 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
             _relative(reports_dir / "image_inventory_report.md"),
             _relative(reports_dir / "image_review_candidates.md"),
             _relative(reports_dir / "filter_quality_report.md"),
+            _relative(reports_dir / "image_ocr_review_queue.md"),
         ],
         "counts": counts,
         "has_aoch": counts["aoch_discussions"] > 0,
+        "downloaded_images_path": _relative(raw_dir / "images_downloaded.jsonl"),
+        "image_ocr_path": _relative(processed_dir / "image_ocr.jsonl"),
     }
     output_path = processed_dir / "corpus_manifest.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)

@@ -7,10 +7,11 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from tgb_pipeline.config import load_crawl_config, load_target_config
+from tgb_pipeline.config import load_crawl_config, load_ocr_config, load_target_config
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import crawl_articles, crawl_index, seed_start_article
 from tgb_pipeline.export.tasks import export_corpus_bundle
+from tgb_pipeline.images.tasks import download_images_task, ocr_images_task
 
 COMMANDS = (
     "crawl-index",
@@ -41,6 +42,8 @@ def build_parser() -> argparse.ArgumentParser:
             "seed-start-article",
             "crawl-comments",
             "filter-comments",
+            "download-images",
+            "ocr-images",
             "export-corpus",
         }:
             command_parser.add_argument(
@@ -53,6 +56,12 @@ def build_parser() -> argparse.ArgumentParser:
                 default="configs/crawl.yaml",
                 help="Path to crawl YAML configuration.",
             )
+        if command in {"download-images", "ocr-images"}:
+            command_parser.add_argument(
+                "--ocr-config",
+                default="configs/ocr.yaml",
+                help="Path to OCR and image YAML configuration.",
+            )
     return parser
 
 
@@ -64,10 +73,17 @@ def main(argv: Sequence[str] | None = None) -> int:
         "seed-start-article",
         "crawl-comments",
         "filter-comments",
+        "download-images",
+        "ocr-images",
         "export-corpus",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
+        ocr_config = (
+            load_ocr_config(args.ocr_config)
+            if hasattr(args, "ocr_config")
+            else None
+        )
         try:
             if args.command == "crawl-index":
                 result = crawl_index(target_config, crawl_config)
@@ -107,6 +123,25 @@ def main(argv: Sequence[str] | None = None) -> int:
                 processed_dir = crawl_config.storage.processed_dir / "tgb"
                 outputs = export_corpus_bundle(raw_dir, processed_dir, Path("reports"), target_config)
                 print(f"export-corpus: generated {len(outputs)} outputs.")
+            elif args.command == "download-images":
+                downloaded_count, failed_count = download_images_task(
+                    crawl_config,
+                    ocr_config,
+                )
+                print(
+                    "download-images: downloaded "
+                    f"{downloaded_count} images, failed {failed_count} images."
+                )
+            elif args.command == "ocr-images":
+                ocr_count, skipped_count, failed_count = ocr_images_task(
+                    crawl_config,
+                    ocr_config,
+                )
+                print(
+                    "ocr-images: created "
+                    f"{ocr_count} ocr records, skipped {skipped_count} images, "
+                    f"failed {failed_count} images."
+                )
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

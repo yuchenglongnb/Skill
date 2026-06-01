@@ -73,12 +73,45 @@ class CrawlConfig(BaseModel):
     storage: StorageSettings
 
 
+class OCRSettings(BaseModel):
+    enabled: bool = True
+    engine: str | None = "rapidocr"
+    languages: list[str] = Field(default_factory=lambda: ["chi_sim", "eng"])
+    preserve_raw_text: bool = True
+    normalize_text: bool = True
+    min_confidence: float | None = Field(default=0.85, ge=0, le=1)
+    skip_if_engine_missing: bool = True
+
+
+class ImageDownloadSettings(BaseModel):
+    download_dir: Path = Path("data/raw/tgb/images")
+    compute_sha256: bool = True
+    keep_original_files: bool = True
+    request_interval_seconds: float = Field(default=1.0, ge=0)
+    request_timeout_seconds: float = Field(default=20.0, gt=0)
+    max_retries: int = Field(default=3, ge=0)
+    skip_existing: bool = True
+    allowed_extensions: list[str] = Field(
+        default_factory=lambda: [".jpg", ".jpeg", ".png", ".webp"],
+    )
+    allow_noise_images_for_ocr: bool = False
+
+
+class OCRConfig(BaseModel):
+    ocr: OCRSettings = Field(default_factory=OCRSettings)
+    images: ImageDownloadSettings = Field(default_factory=ImageDownloadSettings)
+
+
 def load_target_config(path: str | Path) -> TargetConfig:
     return TargetConfig.parse_obj(_read_yaml(path))
 
 
 def load_crawl_config(path: str | Path) -> CrawlConfig:
     return CrawlConfig.parse_obj(_read_yaml(path))
+
+
+def load_ocr_config(path: str | Path) -> OCRConfig:
+    return OCRConfig.parse_obj(_read_yaml(path))
 
 
 def _read_yaml(path: str | Path) -> dict:

@@ -68,6 +68,26 @@ class JSONLStore(Generic[ModelT]):
                 handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
         return len(new_records)
 
+    def rewrite_all(self, records: Iterable[ModelT]) -> int:
+        normalized = self._validate_records(records)
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        with self.path.open("w", encoding="utf-8", newline="\n") as handle:
+            for record in normalized:
+                payload = self._dump_json_compatible(record)
+                handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
+        return len(normalized)
+
+    def upsert_many(self, records: Iterable[ModelT]) -> int:
+        existing = {self._key(record): record for record in self.read_all()}
+        replacements = 0
+        for record in self._validate_records(records):
+            if self._key(record) in existing:
+                replacements += 1
+            existing[self._key(record)] = record
+        ordered_records = list(existing.values())
+        self.rewrite_all(ordered_records)
+        return replacements
+
     def index_by(self, field_name: str) -> dict[Hashable, list[ModelT]]:
         """Build an in-memory index; list fields contribute one entry per value."""
 
@@ -93,6 +113,19 @@ class JSONLStore(Generic[ModelT]):
         if hasattr(self.model_type, "model_validate_json"):
             return self.model_type.model_validate_json(line)
         return self.model_type.parse_raw(line)
+
+    def _validate_records(self, records: Iterable[ModelT]) -> list[ModelT]:
+        normalized: list[ModelT] = []
+        seen_keys: set[Hashable] = set()
+        for record in records:
+            if not isinstance(record, self.model_type):
+                raise TypeError(f"expected {self.model_type.__name__}")
+            key = self._key(record)
+            if key in seen_keys:
+                continue
+            seen_keys.add(key)
+            normalized.append(record)
+        return normalized
 
     @staticmethod
     def _dump_json_compatible(record: ModelT) -> dict[str, Any]:

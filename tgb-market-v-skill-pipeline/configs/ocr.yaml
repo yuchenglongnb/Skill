@@ -1,16 +1,24 @@
 ocr:
   enabled: true
-  engine: null
+  engine: rapidocr
   languages:
     - chi_sim
     - eng
   preserve_raw_text: true
   normalize_text: true
-  min_confidence: null
+  min_confidence: 0.85
+  skip_if_engine_missing: true
 
 images:
-  download_dir: data/raw/images
+  download_dir: data/raw/tgb/images
   compute_sha256: true
   keep_original_files: true
-  treat_as_first_class_evidence: true
-
+  request_interval_seconds: 1.0
+  request_timeout_seconds: 20
+  max_retries: 3
+  skip_existing: true
+  allowed_extensions:
+    - .jpg
+    - .jpeg
+    - .png
+    - .webp

@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from tgb_pipeline.config import load_crawl_config, load_target_config
+from tgb_pipeline.config import load_crawl_config, load_ocr_config, load_target_config
 
 
 def test_load_configs_from_explicit_paths(tmp_path: Path) -> None:
@@ -55,3 +55,36 @@ storage:
     assert crawl.crawl.max_comment_pages_per_article == 12
     assert crawl.storage.raw_dir == Path("fixture/raw")
     assert crawl.storage.processed_dir == Path("fixture/processed")
+
+
+def test_load_ocr_config_from_explicit_path(tmp_path: Path) -> None:
+    config_path = tmp_path / "ocr.yaml"
+    config_path.write_text(
+        """
+ocr:
+  enabled: true
+  engine: rapidocr
+  languages: [chi_sim, eng]
+  preserve_raw_text: true
+  normalize_text: true
+  min_confidence: 0.9
+  skip_if_engine_missing: true
+images:
+  download_dir: data/raw/tgb/images
+  compute_sha256: true
+  keep_original_files: true
+  request_interval_seconds: 1.0
+  request_timeout_seconds: 20
+  max_retries: 3
+  skip_existing: true
+  allowed_extensions: [.jpg, .png]
+""",
+        encoding="utf-8",
+    )
+
+    config = load_ocr_config(config_path)
+
+    assert config.ocr.engine == "rapidocr"
+    assert config.ocr.min_confidence == 0.9
+    assert config.images.download_dir == Path("data/raw/tgb/images")
+    assert config.images.allowed_extensions == [".jpg", ".png"]
