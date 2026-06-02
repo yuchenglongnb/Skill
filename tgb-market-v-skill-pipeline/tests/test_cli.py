@@ -13,6 +13,20 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert parser.parse_args(["ingest-article-seeds"]).article_seeds == "configs/article_seeds.yaml"
     assert parser.parse_args(["discover-article-seeds"]).discovery_config == "configs/article_discovery.yaml"
     assert parser.parse_args(["promote-article-seeds"]).only_selected is False
+    plan_args = parser.parse_args(
+        [
+            "plan-comment-completion",
+            "--pages-per-article",
+            "20",
+            "--max-total-pages",
+            "60",
+        ]
+    )
+    assert plan_args.pages_per_article == 20
+    assert plan_args.max_total_pages == 60
+    assert parser.parse_args(["run-comment-completion-plan"]).plan.endswith(
+        "comment_completion_plan.json"
+    )
     assert parser.parse_args(["crawl-comments"]).crawl_config == "configs/crawl.yaml"
     comment_args = parser.parse_args(
         [

@@ -13,6 +13,10 @@ from tgb_pipeline.config import (
     load_ocr_config,
     load_target_config,
 )
+from tgb_pipeline.completion.tasks import (
+    execute_comment_completion_plan,
+    generate_comment_completion_plan_bundle,
+)
 from tgb_pipeline.curation.tasks import review_claims_bundle
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import (
@@ -36,6 +40,8 @@ COMMANDS = (
     "ingest-article-seeds",
     "discover-article-seeds",
     "promote-article-seeds",
+    "plan-comment-completion",
+    "run-comment-completion-plan",
     "crawl-comments",
     "filter-comments",
     "extract-images",
@@ -173,6 +179,35 @@ def build_parser() -> argparse.ArgumentParser:
                 "--apply",
                 action="store_true",
                 help="Apply review decisions and emit curated artifacts.",
+            )
+        if command == "plan-comment-completion":
+            command_parser.add_argument(
+                "--target-config",
+                default="configs/target.yaml",
+                help="Path to target YAML configuration.",
+            )
+            command_parser.add_argument(
+                "--crawl-config",
+                default="configs/crawl.yaml",
+                help="Path to crawl YAML configuration.",
+            )
+            command_parser.add_argument("--article-id")
+            command_parser.add_argument("--pages-per-article", type=int)
+            command_parser.add_argument("--max-total-pages", type=int)
+        if command == "run-comment-completion-plan":
+            command_parser.add_argument(
+                "--target-config",
+                default="configs/target.yaml",
+                help="Path to target YAML configuration.",
+            )
+            command_parser.add_argument(
+                "--crawl-config",
+                default="configs/crawl.yaml",
+                help="Path to crawl YAML configuration.",
+            )
+            command_parser.add_argument(
+                "--plan",
+                default="data/interim/tgb/comment_completion_plan.json",
             )
     return parser
 
@@ -343,6 +378,34 @@ def main(argv: Sequence[str] | None = None) -> int:
         except ValueError as exc:
             print(f"{args.command}: stopped: {exc}", file=sys.stderr)
             return 2
+        return 0
+    if args.command == "plan-comment-completion":
+        crawl_config = load_crawl_config(args.crawl_config)
+        outputs = generate_comment_completion_plan_bundle(
+            crawl_config,
+            article_id=args.article_id,
+            pages_per_article=args.pages_per_article,
+            max_total_pages=args.max_total_pages,
+        )
+        plan_payload = __import__("json").loads(outputs[0].read_text(encoding="utf-8"))
+        print(
+            "plan-comment-completion: planned "
+            f"{plan_payload['total_items']} articles and "
+            f"{plan_payload['total_planned_pages']} pages."
+        )
+        return 0
+    if args.command == "run-comment-completion-plan":
+        target_config = load_target_config(args.target_config)
+        crawl_config = load_crawl_config(args.crawl_config)
+        comments, images, pages = execute_comment_completion_plan(
+            target_config,
+            crawl_config,
+            plan_path=Path(args.plan),
+        )
+        print(
+            "run-comment-completion-plan: appended "
+            f"{comments} comments, {images} image assets, fetched {pages} pages."
+        )
         return 0
     print(f"{args.command}: scaffold only; implementation is planned for a later milestone.")
     return 0

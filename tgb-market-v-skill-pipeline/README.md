@@ -301,3 +301,23 @@ Compliance boundary:
 - Only public pages are requested at the configured low frequency.
 - The pipeline does not bypass login, captcha, robots rules, or access controls.
 - `comments_all.jsonl` remains the append-only raw comment corpus.
+
+## Milestone 6D: Comment Completion Planner
+
+Generate a bounded next-batch plan from existing comment checkpoints:
+
+```powershell
+python -m tgb_pipeline plan-comment-completion --target-config configs/target.yaml --crawl-config configs/crawl.yaml --pages-per-article 100 --max-total-pages 300
+```
+
+Review `reports/comment_completion_plan.md`, then explicitly execute the saved plan:
+
+```powershell
+python -m tgb_pipeline run-comment-completion-plan --target-config configs/target.yaml --crawl-config configs/crawl.yaml --plan data/interim/tgb/comment_completion_plan.json
+```
+
+Behavior notes:
+- The planner only reads existing article and checkpoint state; generating a plan does not access the network.
+- Priority article IDs, per-article batch size, and total page budget are configurable in `configs/crawl.yaml`.
+- Plan execution remains explicit so large public comment sections can be backfilled in controlled batches.
+- Each generated report includes copyable `crawl-comments` commands for manual review.

@@ -16,3 +16,14 @@ storage:
   interim_dir: data/interim
   processed_dir: data/processed
   jsonl_encoding: utf-8
+
+comment_completion:
+  default_pages_per_article: 100
+  max_total_pages_per_run: 300
+  priority_article_ids:
+    - "1VvuASpPpMr"
+    - "1Zn2UmelLMJ"
+    - "21mulzOf8Yb"
+    - "28ACjvWeEjl"
+  skip_completed: true
+  skip_active_errors: false

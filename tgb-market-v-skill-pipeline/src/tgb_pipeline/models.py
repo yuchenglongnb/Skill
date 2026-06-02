@@ -209,6 +209,28 @@ class CommentArticleState(PipelineModel):
     raw: dict[str, Any] = Field(default_factory=dict)
 
 
+class CommentCompletionPlanItem(PipelineModel):
+    article_id: str
+    title: str | None = None
+    next_page_to_fetch: int
+    target_max_page: int
+    discovered_last_page: int | None = None
+    remaining_known_pages: int | None = None
+    planned_pages: int
+    priority: int = 0
+    reason: str | None = None
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class CommentCompletionPlan(PipelineModel):
+    plan_id: str
+    generated_at: datetime
+    total_items: int
+    total_planned_pages: int
+    items: list[CommentCompletionPlanItem] = Field(default_factory=list)
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
 class ArticleSeedCandidate(PipelineModel):
     candidate_id: str
     article_id: str

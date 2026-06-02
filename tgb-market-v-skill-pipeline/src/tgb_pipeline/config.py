@@ -69,9 +69,20 @@ class StorageSettings(BaseModel):
     jsonl_encoding: str = "utf-8"
 
 
+class CommentCompletionSettings(BaseModel):
+    default_pages_per_article: int = Field(default=100, ge=1)
+    max_total_pages_per_run: int = Field(default=300, ge=1)
+    priority_article_ids: list[str] = Field(default_factory=list)
+    skip_completed: bool = True
+    skip_active_errors: bool = False
+
+
 class CrawlConfig(BaseModel):
     crawl: CrawlSettings
     storage: StorageSettings
+    comment_completion: CommentCompletionSettings = Field(
+        default_factory=CommentCompletionSettings
+    )
 
 
 class OCRSettings(BaseModel):
