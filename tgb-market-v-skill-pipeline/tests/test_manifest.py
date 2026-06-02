@@ -2,18 +2,41 @@ import json
 
 from tgb_pipeline.export.manifest import build_corpus_manifest
 from tgb_pipeline.export.export_markdown import export_all_corpora
+from tgb_pipeline.models import ArticleSeedCandidate
+from tgb_pipeline.storage import JSONLStore
 from tests.export_fixture_data import build_sample_corpus
 
 
 def test_build_corpus_manifest_uses_relative_paths_and_counts(tmp_path, monkeypatch) -> None:
     raw_dir, processed_dir, reports_dir = build_sample_corpus(tmp_path)
     export_all_corpora(raw_dir, processed_dir)
+    interim_dir = tmp_path / "data" / "interim" / "tgb"
+    JSONLStore(
+        interim_dir / "article_seed_candidates.jsonl",
+        ArticleSeedCandidate,
+        "candidate_id",
+    ).append(
+        ArticleSeedCandidate(
+            candidate_id="candidate-a1",
+            article_id="a1",
+            title="Start article",
+            url="https://www.tgb.cn/a/1Vgsye6eK36",
+            mobile_url="https://m.tgb.cn/a/1Vgsye6eK36",
+            source="seed_yaml",
+            selected=True,
+        )
+    )
+    reports_dir.mkdir(parents=True, exist_ok=True)
+    (reports_dir / "article_seed_candidates.md").write_text("# candidates\n", encoding="utf-8")
     monkeypatch.chdir(tmp_path)
 
     manifest_path = build_corpus_manifest(raw_dir, processed_dir, reports_dir)
     payload = json.loads(manifest_path.read_text(encoding="utf-8"))
 
     assert payload["counts"]["article_index"] == 1
+    assert payload["counts"]["article_seed_candidates"] == 1
+    assert payload["counts"]["article_seed_candidates_report"] == 1
+    assert payload["counts"]["article_seeds_config_count"] >= 0
     assert payload["counts"]["comments_all"] == 3
     assert payload["counts"]["images"] == 3
     assert payload["counts"]["article_crawl_errors"] == 0

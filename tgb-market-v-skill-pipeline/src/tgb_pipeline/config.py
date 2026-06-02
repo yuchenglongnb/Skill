@@ -117,6 +117,18 @@ class ArticleSeedsConfig(BaseModel):
     articles: list[ArticleSeedItem] = Field(default_factory=list)
 
 
+class ArticleDiscoverySource(BaseModel):
+    name: str
+    type: str
+    path: str
+
+
+class ArticleDiscoveryConfig(BaseModel):
+    version: int = 1
+    start_date: date
+    sources: list[ArticleDiscoverySource] = Field(default_factory=list)
+
+
 def load_target_config(path: str | Path) -> TargetConfig:
     return TargetConfig.parse_obj(_read_yaml(path))
 
@@ -131,6 +143,10 @@ def load_ocr_config(path: str | Path) -> OCRConfig:
 
 def load_article_seeds_config(path: str | Path) -> ArticleSeedsConfig:
     return ArticleSeedsConfig.parse_obj(_read_yaml(path))
+
+
+def load_article_discovery_config(path: str | Path) -> ArticleDiscoveryConfig:
+    return ArticleDiscoveryConfig.parse_obj(_read_yaml(path))
 
 
 def _read_yaml(path: str | Path) -> dict:

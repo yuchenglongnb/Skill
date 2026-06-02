@@ -6,15 +6,30 @@ import json
 from datetime import UTC, datetime
 from pathlib import Path
 
-from tgb_pipeline.models import Article, ArticleIndex, Comment, CrawlError, ImageAsset, ImageOCR, Interaction
+from tgb_pipeline.models import (
+    Article,
+    ArticleIndex,
+    ArticleSeedCandidate,
+    Comment,
+    CrawlError,
+    ImageAsset,
+    ImageOCR,
+    Interaction,
+)
 from tgb_pipeline.models import MethodologyClaim
 from tgb_pipeline.storage import JSONLStore
 
 
 def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path) -> Path:
     downloaded_images = _read_optional(raw_dir / "images_downloaded.jsonl", ImageAsset, "image_id")
+    interim_dir = raw_dir.parent.parent / "interim" / raw_dir.name
+    candidates_path = interim_dir / "article_seed_candidates.jsonl"
+    seeds_config_path = Path("configs/article_seeds.yaml")
     counts = {
         "article_index": len(_read_optional(raw_dir / "articles_index.jsonl", ArticleIndex, "article_id")),
+        "article_seed_candidates": len(_read_optional(candidates_path, ArticleSeedCandidate, "candidate_id")),
+        "article_seed_candidates_report": 1 if (reports_dir / "article_seed_candidates.md").exists() else 0,
+        "article_seeds_config_count": _count_article_seeds_config(seeds_config_path),
         "articles": len(_read_optional(raw_dir / "articles.jsonl", Article, "article_id")),
         "article_crawl_errors": len(_read_optional(raw_dir / "article_crawl_errors.jsonl", CrawlError, "error_id")),
         "comments_all": len(_read_optional(raw_dir / "comments_all.jsonl", Comment, "comment_id")),
@@ -62,6 +77,7 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "reports": [
             _relative(reports_dir / "comment_coverage_report.md"),
             _relative(reports_dir / "article_inventory_report.md"),
+            _relative(reports_dir / "article_seed_candidates.md"),
             _relative(reports_dir / "author_inventory.md"),
             _relative(reports_dir / "image_inventory_report.md"),
             _relative(reports_dir / "image_review_candidates.md"),
@@ -98,3 +114,15 @@ def _read_optional(path: Path, model_type, key_field: str):
     if not path.exists():
         return []
     return JSONLStore(path, model_type, key_field).read_all()
+def _count_article_seeds_config(path: Path) -> int:
+    if not path.exists():
+        return 0
+    try:
+        import yaml
+
+        with path.open("r", encoding="utf-8") as handle:
+            data = yaml.safe_load(handle) or {}
+    except Exception:
+        return 0
+    articles = data.get("articles", [])
+    return len(articles) if isinstance(articles, list) else 0

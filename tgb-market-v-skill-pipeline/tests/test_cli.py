@@ -11,6 +11,8 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert parser.parse_args(["crawl-articles"]).crawl_config == "configs/crawl.yaml"
     assert parser.parse_args(["seed-start-article"]).crawl_config == "configs/crawl.yaml"
     assert parser.parse_args(["ingest-article-seeds"]).article_seeds == "configs/article_seeds.yaml"
+    assert parser.parse_args(["discover-article-seeds"]).discovery_config == "configs/article_discovery.yaml"
+    assert parser.parse_args(["promote-article-seeds"]).only_selected is False
     assert parser.parse_args(["crawl-comments"]).crawl_config == "configs/crawl.yaml"
     assert parser.parse_args(["filter-comments"]).target_config == "configs/target.yaml"
     assert parser.parse_args(["download-images"]).ocr_config == "configs/ocr.yaml"

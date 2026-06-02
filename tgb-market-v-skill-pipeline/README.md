@@ -246,3 +246,28 @@ Compliance boundary:
 - We only use public URLs or explicit user-provided seed URLs.
 - We do not bypass login, captcha, robots rules, or access controls.
 - Failures remain auditable through JSONL error logs and HTML snapshots instead of being silently dropped.
+
+## Milestone 6B: Article Discovery and Seed Expansion
+
+This stage adds an auditable offline article discovery layer.
+
+1. Save public blog pages as HTML, or paste candidate links into `data/interim/tgb/manual_article_links.txt`.
+2. Run `discover-article-seeds` to build `data/interim/tgb/article_seed_candidates.jsonl`.
+3. Review `reports/article_seed_candidates.md`.
+4. Manually edit `article_seed_candidates.jsonl` and set confirmed records to `selected: true`.
+5. Run `promote-article-seeds` to write confirmed candidates into `configs/article_seeds.yaml`.
+6. Then continue with `ingest-article-seeds`, `crawl-articles`, `crawl-comments`, and `filter-comments`.
+7. Review `reports/article_inventory_report.md` to check corpus coverage.
+
+Commands:
+
+```powershell
+tgb-pipeline discover-article-seeds --target-config configs/target.yaml --discovery-config configs/article_discovery.yaml
+tgb-pipeline promote-article-seeds --candidates data/interim/tgb/article_seed_candidates.jsonl --article-seeds configs/article_seeds.yaml --only-selected --dry-run
+```
+
+Behavior notes:
+- Discovery is fully offline and only parses user-provided or previously saved public material.
+- Discovery does not fetch the network, does not log in, and does not bypass access controls.
+- `promote-article-seeds` is conservative by default and only promotes manually selected candidates.
+- Candidate JSONL and Markdown reports preserve source and raw audit context.

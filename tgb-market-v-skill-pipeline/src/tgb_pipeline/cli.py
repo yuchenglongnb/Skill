@@ -7,7 +7,12 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
-from tgb_pipeline.config import load_crawl_config, load_ocr_config, load_target_config
+from tgb_pipeline.config import (
+    load_article_discovery_config,
+    load_crawl_config,
+    load_ocr_config,
+    load_target_config,
+)
 from tgb_pipeline.curation.tasks import review_claims_bundle
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import (
@@ -15,6 +20,10 @@ from tgb_pipeline.crawler.tasks import (
     crawl_index,
     ingest_article_seeds,
     seed_start_article,
+)
+from tgb_pipeline.discovery.tasks import (
+    discover_article_seeds_task,
+    promote_candidates_to_article_seeds,
 )
 from tgb_pipeline.extraction.tasks import extract_claims_bundle
 from tgb_pipeline.export.tasks import export_corpus_bundle
@@ -25,6 +34,8 @@ COMMANDS = (
     "crawl-articles",
     "seed-start-article",
     "ingest-article-seeds",
+    "discover-article-seeds",
+    "promote-article-seeds",
     "crawl-comments",
     "filter-comments",
     "extract-images",
@@ -79,6 +90,48 @@ def build_parser() -> argparse.ArgumentParser:
                 "--article-seeds",
                 default="configs/article_seeds.yaml",
                 help="Path to manual article seed YAML configuration.",
+            )
+        if command == "discover-article-seeds":
+            command_parser.add_argument(
+                "--target-config",
+                default="configs/target.yaml",
+                help="Path to target YAML configuration.",
+            )
+            command_parser.add_argument(
+                "--discovery-config",
+                default="configs/article_discovery.yaml",
+                help="Path to article discovery YAML configuration.",
+            )
+            command_parser.add_argument(
+                "--output",
+                default="data/interim/tgb/article_seed_candidates.jsonl",
+                help="Path to article seed candidate JSONL output.",
+            )
+        if command == "promote-article-seeds":
+            command_parser.add_argument(
+                "--candidates",
+                default="data/interim/tgb/article_seed_candidates.jsonl",
+                help="Path to article seed candidate JSONL file.",
+            )
+            command_parser.add_argument(
+                "--article-seeds",
+                default="configs/article_seeds.yaml",
+                help="Path to article seeds YAML file.",
+            )
+            command_parser.add_argument(
+                "--only-selected",
+                action="store_true",
+                help="Only promote candidates manually marked as selected.",
+            )
+            command_parser.add_argument(
+                "--min-confidence",
+                default="medium",
+                help="Minimum confidence to promote when --only-selected is not used.",
+            )
+            command_parser.add_argument(
+                "--dry-run",
+                action="store_true",
+                help="Preview seed promotion without writing the YAML file.",
             )
         if command == "review-claims":
             command_parser.add_argument(
@@ -221,6 +274,41 @@ def main(argv: Sequence[str] | None = None) -> int:
                     f"{article_count} articles and {image_count} image assets."
                 )
         except (PermissionError, ValueError) as exc:
+            print(f"{args.command}: stopped: {exc}", file=sys.stderr)
+            return 2
+        return 0
+    if args.command == "discover-article-seeds":
+        target_config = load_target_config(args.target_config)
+        discovery_config = load_article_discovery_config(args.discovery_config)
+        try:
+            count, report_path = discover_article_seeds_task(
+                discovery_config,
+                target_config,
+                output_path=Path(args.output),
+                reports_dir=Path("reports"),
+            )
+            print(
+                "discover-article-seeds: discovered "
+                f"{count} candidates, report {report_path.as_posix()}"
+            )
+        except ValueError as exc:
+            print(f"{args.command}: stopped: {exc}", file=sys.stderr)
+            return 2
+        return 0
+    if args.command == "promote-article-seeds":
+        try:
+            added_count, total_seed_count = promote_candidates_to_article_seeds(
+                Path(args.candidates),
+                Path(args.article_seeds),
+                only_selected=args.only_selected,
+                min_confidence=args.min_confidence,
+                dry_run=args.dry_run,
+            )
+            print(
+                "promote-article-seeds: added "
+                f"{added_count} article seeds, total {total_seed_count}."
+            )
+        except ValueError as exc:
             print(f"{args.command}: stopped: {exc}", file=sys.stderr)
             return 2
         return 0

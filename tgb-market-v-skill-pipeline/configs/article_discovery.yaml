@@ -1,0 +1,14 @@
+version: 1
+start_date: "2023-01-15"
+sources:
+  - name: "manual_notes"
+    type: "text_file"
+    path: "data/interim/tgb/manual_article_links.txt"
+
+  - name: "saved_blog_html"
+    type: "html_glob"
+    path: "data/raw/tgb/html/blog_index_page_*.html"
+
+  - name: "seed_yaml"
+    type: "article_seeds"
+    path: "configs/article_seeds.yaml"

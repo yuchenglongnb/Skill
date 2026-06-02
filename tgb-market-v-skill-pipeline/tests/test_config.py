@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from tgb_pipeline.config import (
+    load_article_discovery_config,
     load_article_seeds_config,
     load_crawl_config,
     load_ocr_config,
@@ -133,3 +134,23 @@ storage:
     assert seeds.articles[0].note == "start article"
     assert crawl.crawl.allow_seed_article_fallback is True
     assert crawl.crawl.seed_only_when_index_missing_start is True
+
+
+def test_load_article_discovery_config(tmp_path: Path) -> None:
+    path = tmp_path / "article_discovery.yaml"
+    path.write_text(
+        """
+version: 1
+start_date: "2023-01-15"
+sources:
+  - name: manual_notes
+    type: text_file
+    path: data/interim/tgb/manual_article_links.txt
+""",
+        encoding="utf-8",
+    )
+
+    config = load_article_discovery_config(path)
+
+    assert config.start_date.isoformat() == "2023-01-15"
+    assert config.sources[0].type == "text_file"

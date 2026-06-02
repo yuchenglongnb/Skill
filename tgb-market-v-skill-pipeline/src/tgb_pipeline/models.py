@@ -175,6 +175,21 @@ class CrawlError(PipelineModel):
     raw: dict[str, Any] = Field(default_factory=dict)
 
 
+class ArticleSeedCandidate(PipelineModel):
+    candidate_id: str
+    article_id: str
+    title: str | None = None
+    published_date: date | None = None
+    url: str
+    mobile_url: str
+    tag: str | None = None
+    source: str | None = None
+    confidence: str = "candidate"
+    selected: bool = False
+    note: str | None = None
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
 class MethodologyClaim(PipelineModel):
     claim_id: str
     claim_text: str
