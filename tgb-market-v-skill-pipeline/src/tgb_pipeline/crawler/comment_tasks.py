@@ -148,10 +148,13 @@ def crawl_comments(
                 )
                 comment_count += comments_store.append_many(page_comments)
                 image_count += images_store.append_many(page_images)
-                discovered_last_page = (
-                    discovered_last_page
-                    or find_comment_last_page_num(html, page_url)
-                )
+                page_last_page = find_comment_last_page_num(html, page_url)
+                if page_last_page is not None:
+                    discovered_last_page = max(
+                        value
+                        for value in [discovered_last_page, page_last_page]
+                        if value is not None
+                    )
                 next_page_url = find_comment_next_page_url(html, page_url)
                 page_state = CommentPageState(
                     state_id=comment_page_state_id(article.article_id, next_page_num),
@@ -174,7 +177,12 @@ def crawl_comments(
                 article_page_states = _upsert_page_state(article_page_states, page_state)
                 known_fetched_pages.add(next_page_num)
                 fetched_page_count += 1
-                if not next_page_url or not page_comments:
+                if not page_comments:
+                    break
+                if discovered_last_page is not None:
+                    if next_page_num >= discovered_last_page:
+                        break
+                elif not next_page_url:
                     break
                 next_page_num += 1
             except PermissionError:

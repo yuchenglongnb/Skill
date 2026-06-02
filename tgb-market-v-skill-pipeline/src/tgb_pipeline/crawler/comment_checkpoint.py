@@ -172,17 +172,12 @@ def build_comment_article_state(
     ]
     discovered_last_page = max(discovered_values, default=None)
     latest = max(page_states, key=lambda state: state.page_num, default=None)
-    completed = bool(
-        latest
-        and (
-            latest.status == "empty"
-            or latest.has_next_page is False
-            or (
-                discovered_last_page is not None
-                and max_fetched_page >= discovered_last_page
-            )
-        )
+    completion_reason = determine_comment_completion_reason(
+        latest=latest,
+        discovered_last_page=discovered_last_page,
+        max_fetched_page=max_fetched_page,
     )
+    completed = completion_reason is not None
     max_limit_reached = bool(
         not completed
         and max_fetched_page >= max_pages_limit
@@ -191,7 +186,7 @@ def build_comment_article_state(
             or discovered_last_page > max_fetched_page
         )
     )
-    return CommentArticleState(
+    state = CommentArticleState(
         article_id=article.article_id,
         title=article.title,
         indexed_reply_count=article.reply_count,
@@ -205,11 +200,55 @@ def build_comment_article_state(
         images_count=images_count,
         updated_at=datetime.now(UTC),
         raw={
+            "completion_reason": completion_reason,
             "failed_pages": [
                 state.page_num for state in page_states if state.status == "failed"
             ],
         },
     )
+    state.raw["state_warnings"] = validate_comment_article_state(state)
+    return state
+
+
+def determine_comment_completion_reason(
+    *,
+    latest: CommentPageState | None,
+    discovered_last_page: int | None,
+    max_fetched_page: int,
+) -> str | None:
+    if latest is None:
+        return None
+    if discovered_last_page is not None:
+        if max_fetched_page >= discovered_last_page:
+            return "discovered_last_page_reached"
+        return None
+    if latest.status == "failed":
+        return None
+    if latest.has_next_page is False and latest.status in {"fetched", "empty"}:
+        if latest.status == "empty":
+            return "empty_page_without_known_last_page"
+        return "no_next_page_without_known_last_page"
+    return None
+
+
+def validate_comment_article_state(state: CommentArticleState) -> list[str]:
+    warnings: list[str] = []
+    if (
+        state.completed
+        and state.discovered_last_page is not None
+        and state.max_fetched_page < state.discovered_last_page
+    ):
+        warnings.append("completed_before_discovered_last_page")
+    if not state.completed and state.next_page_to_fetch <= state.max_fetched_page:
+        warnings.append("next_page_not_ahead_of_max_fetched_page")
+    if state.max_limit_reached and state.completed:
+        warnings.append("max_limit_reached_and_completed")
+    if (
+        state.discovered_last_page is not None
+        and state.next_page_to_fetch > state.discovered_last_page + 1
+    ):
+        warnings.append("next_page_beyond_discovered_last_page")
+    return warnings
 
 
 def count_records_by_article(records) -> Counter[str]:

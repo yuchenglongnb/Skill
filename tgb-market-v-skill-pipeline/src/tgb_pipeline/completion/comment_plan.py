@@ -57,7 +57,8 @@ def build_comment_completion_plan(
             article_id=article.article_id,
             title=article.title,
         )
-        if settings.skip_completed and state.completed:
+        inconsistent_completed_state = _has_inconsistent_completed_state(state)
+        if settings.skip_completed and state.completed and not inconsistent_completed_state:
             continue
         if settings.skip_active_errors and article.article_id in active_error_ids:
             continue
@@ -67,6 +68,7 @@ def build_comment_completion_plan(
             pages_per_item,
             priority=priority_ids.get(article.article_id, 0),
             has_active_error=article.article_id in active_error_ids,
+            inconsistent_completed_state=inconsistent_completed_state,
         )
         if item is not None:
             candidates.append(item)
@@ -102,8 +104,11 @@ def _build_plan_item(
     *,
     priority: int,
     has_active_error: bool,
+    inconsistent_completed_state: bool,
 ) -> CommentCompletionPlanItem | None:
     next_page = max(1, state.next_page_to_fetch)
+    if inconsistent_completed_state:
+        next_page = max(1, state.max_fetched_page + 1)
     last_page = state.discovered_last_page
     if last_page is not None and next_page > last_page:
         return None
@@ -121,6 +126,8 @@ def _build_plan_item(
         reasons.append("resume_after_limit")
     if has_active_error:
         reasons.append("active_error_retry")
+    if inconsistent_completed_state:
+        reasons.append("inconsistent_completed_state")
     return CommentCompletionPlanItem(
         article_id=article.article_id,
         title=article.title,
@@ -135,6 +142,7 @@ def _build_plan_item(
             "max_fetched_page": state.max_fetched_page,
             "max_limit_reached": state.max_limit_reached,
             "has_active_error": has_active_error,
+            "state_warnings": state.raw.get("state_warnings", []),
         },
     )
 
@@ -160,3 +168,11 @@ def _read_optional(path: Path, model_type, key_field: str):
     if not path.exists():
         return []
     return JSONLStore(path, model_type, key_field).read_all()
+
+
+def _has_inconsistent_completed_state(state: CommentArticleState) -> bool:
+    return bool(
+        state.completed
+        and state.discovered_last_page is not None
+        and state.max_fetched_page < state.discovered_last_page
+    )

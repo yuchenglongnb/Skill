@@ -7,6 +7,7 @@ from tgb_pipeline.crawler.comment_checkpoint import (
     comment_page_state_id,
     compute_next_comment_page,
     load_fetched_comment_pages,
+    validate_comment_article_state,
 )
 from tgb_pipeline.models import ArticleIndex, CommentPageState
 
@@ -57,6 +58,8 @@ def test_comment_article_state_marks_limit_and_completion() -> None:
     assert limit_state.max_limit_reached is True
     assert limit_state.completed is False
     assert limit_state.next_page_to_fetch == 101
+    assert limit_state.raw["completion_reason"] is None
+    assert validate_comment_article_state(limit_state) == []
 
     complete_state = build_comment_article_state(
         article,
@@ -75,3 +78,69 @@ def test_comment_article_state_marks_limit_and_completion() -> None:
         max_pages_limit=100,
     )
     assert complete_state.completed is True
+    assert complete_state.raw["completion_reason"] == "discovered_last_page_reached"
+
+
+def test_comment_article_state_does_not_complete_before_known_last_page() -> None:
+    state = build_comment_article_state(
+        _article(),
+        [
+            CommentPageState(
+                state_id="comment-page-a1-500",
+                article_id="a1",
+                page_num=500,
+                page_url="https://m.tgb.cn/a/a1-500?type=",
+                status="fetched",
+                discovered_last_page=749,
+                has_next_page=False,
+            )
+        ],
+        comments_count=5000,
+        images_count=10,
+        max_pages_limit=1000,
+    )
+    assert state.completed is False
+    assert state.next_page_to_fetch == 501
+    assert state.raw["completion_reason"] is None
+
+
+def test_comment_article_state_completes_without_known_last_page_when_no_next_page() -> None:
+    state = build_comment_article_state(
+        _article(),
+        [
+            CommentPageState(
+                state_id="comment-page-a1-2",
+                article_id="a1",
+                page_num=2,
+                page_url="https://m.tgb.cn/a/a1-2?type=",
+                status="fetched",
+                has_next_page=False,
+            )
+        ],
+        comments_count=20,
+        images_count=1,
+        max_pages_limit=100,
+    )
+    assert state.completed is True
+    assert state.raw["completion_reason"] == "no_next_page_without_known_last_page"
+
+
+def test_comment_article_state_failed_latest_page_is_not_completed() -> None:
+    state = build_comment_article_state(
+        _article(),
+        [
+            CommentPageState(
+                state_id="comment-page-a1-2",
+                article_id="a1",
+                page_num=2,
+                page_url="https://m.tgb.cn/a/a1-2?type=",
+                status="failed",
+                has_next_page=False,
+            )
+        ],
+        comments_count=20,
+        images_count=1,
+        max_pages_limit=100,
+    )
+    assert state.completed is False
+    assert state.raw["completion_reason"] is None

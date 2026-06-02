@@ -13,6 +13,7 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert parser.parse_args(["ingest-article-seeds"]).article_seeds == "configs/article_seeds.yaml"
     assert parser.parse_args(["discover-article-seeds"]).discovery_config == "configs/article_discovery.yaml"
     assert parser.parse_args(["promote-article-seeds"]).only_selected is False
+    assert parser.parse_args(["reconcile-comment-states"]).crawl_config == "configs/crawl.yaml"
     plan_args = parser.parse_args(
         [
             "plan-comment-completion",

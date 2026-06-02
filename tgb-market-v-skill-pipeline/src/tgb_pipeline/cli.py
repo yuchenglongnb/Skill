@@ -7,6 +7,8 @@ import sys
 from collections.abc import Sequence
 from pathlib import Path
 
+from tgb_pipeline.audit.article_inventory_audit import build_article_inventory_report
+from tgb_pipeline.audit.comment_state_audit import build_comment_state_warning_report
 from tgb_pipeline.config import (
     load_article_discovery_config,
     load_crawl_config,
@@ -18,6 +20,10 @@ from tgb_pipeline.completion.tasks import (
     generate_comment_completion_plan_bundle,
 )
 from tgb_pipeline.curation.tasks import review_claims_bundle
+from tgb_pipeline.crawler.comment_checkpoint import (
+    bootstrap_comment_page_states_from_snapshots,
+    reconcile_comment_article_states,
+)
 from tgb_pipeline.crawler.comment_tasks import crawl_comments, filter_comments
 from tgb_pipeline.crawler.tasks import (
     crawl_articles,
@@ -40,6 +46,7 @@ COMMANDS = (
     "ingest-article-seeds",
     "discover-article-seeds",
     "promote-article-seeds",
+    "reconcile-comment-states",
     "plan-comment-completion",
     "run-comment-completion-plan",
     "crawl-comments",
@@ -69,6 +76,7 @@ def build_parser() -> argparse.ArgumentParser:
             "ingest-article-seeds",
             "crawl-comments",
             "filter-comments",
+            "reconcile-comment-states",
             "download-images",
             "ocr-images",
             "export-corpus",
@@ -221,6 +229,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "ingest-article-seeds",
         "crawl-comments",
         "filter-comments",
+        "reconcile-comment-states",
         "download-images",
         "ocr-images",
         "export-corpus",
@@ -292,10 +301,32 @@ def main(argv: Sequence[str] | None = None) -> int:
                     f"{kept_count} comments, {aoch_count} aoch comments, and "
                     f"{interaction_count} interactions."
                 )
+            elif args.command == "reconcile-comment-states":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                reports_dir = Path("reports")
+                bootstrap_comment_page_states_from_snapshots(raw_dir)
+                reconciled = reconcile_comment_article_states(
+                    raw_dir,
+                    max_pages_limit=crawl_config.crawl.max_comment_pages_per_article,
+                )
+                inventory_path = reports_dir / "article_inventory_report.md"
+                build_article_inventory_report(raw_dir, inventory_path)
+                warning_path = build_comment_state_warning_report(raw_dir, reports_dir)
+                print(
+                    "reconcile-comment-states: rebuilt "
+                    f"{reconciled} article states, inventory {inventory_path.as_posix()}, "
+                    f"warnings {warning_path.as_posix()}."
+                )
             elif args.command == "export-corpus":
                 raw_dir = crawl_config.storage.raw_dir / "tgb"
                 processed_dir = crawl_config.storage.processed_dir / "tgb"
-                outputs = export_corpus_bundle(raw_dir, processed_dir, Path("reports"), target_config)
+                outputs = export_corpus_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    target_config,
+                    max_pages_limit=crawl_config.crawl.max_comment_pages_per_article,
+                )
                 print(f"export-corpus: generated {len(outputs)} outputs.")
             elif args.command == "download-images":
                 downloaded_count, failed_count = download_images_task(

@@ -326,3 +326,14 @@ Behavior notes:
 - `filter-comments` uses JSONL deduplication, so `0/0/0` can mean there were no newly eligible records to append rather than a failed run.
 - If `crawl-comments` appended new comments but `filter-comments` still reports `0/0/0`, inspect whether the new pages were mostly non-target member noise or whether the `keep_reason` rules need review.
 - The current workflow has already demonstrated successful checkpoint continuation flow, so large threads should be resumed in bounded batches rather than restarted from page 1.
+
+## Repairing Comment Article States
+
+If an article is marked `completed=True` while `max_fetched_page < discovered_last_page`, the historical comment checkpoint state should be reconciled before generating the next completion plan.
+
+```powershell
+python -m tgb_pipeline reconcile-comment-states --target-config configs/target.yaml --crawl-config configs/crawl.yaml
+python -m tgb_pipeline plan-comment-completion --target-config configs/target.yaml --crawl-config configs/crawl.yaml --pages-per-article 100 --max-total-pages 300
+```
+
+`reconcile-comment-states` only rebuilds derived comment state artifacts. It does not fetch the network, and it does not modify `comments_all.jsonl` or `images.jsonl`.

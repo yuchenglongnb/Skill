@@ -52,5 +52,6 @@ def test_export_corpus_cli_generates_reports_and_markdown(tmp_path, monkeypatch)
         ]
     ) == 0
     assert (tmp_path / "reports" / "article_inventory_report.md").is_file()
+    assert (tmp_path / "reports" / "comment_state_warnings.md").is_file()
     assert (tmp_path / "reports" / "comment_coverage_report.md").is_file()
     assert (tmp_path / "data" / "processed" / "tgb" / "target_author_corpus.md").is_file()
