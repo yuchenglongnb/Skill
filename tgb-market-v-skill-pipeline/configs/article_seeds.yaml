@@ -9,9 +9,104 @@ articles:
     tag: null
     note: "start article"
 
-  # 后续可继续补充公开可访问文章 URL。
-  # - title: "后续文章标题"
-  #   published_date: "2023-01-24"
-  #   url: "https://www.tgb.cn/a/..."
-  #   tag: null
-  #   note: ""
+  - title: "摒弃模糊，浅谈短线标准界定、数字化与基本规律-首发"
+    published_date: "2023-01-24"
+    url: "https://www.tgb.cn/a/1VvuASpPpMr"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "聪明豆现象"
+    published_date: "2023-06-09"
+    url: "https://www.tgb.cn/a/1Z9nRwyQGP1"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "机械纪元来临"
+    published_date: "2023-06-17"
+    url: "https://www.tgb.cn/a/1Zn2UmelLMJ"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "炒股的减法数学上成立吗？"
+    published_date: "2023-08-20"
+    url: "https://www.tgb.cn/a/214VO67bBHd"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "周一大跌是否量化的锅？"
+    published_date: "2023-08-31"
+    url: "https://www.tgb.cn/a/21mulzOf8Yb"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "短线的人间荒唐。"
+    published_date: "2023-09-23"
+    url: "https://www.tgb.cn/a/21ZIusToJzV"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "短线基础行情如何影响个股"
+    published_date: "2024-01-07"
+    url: "https://www.tgb.cn/a/24O3rehPcWv"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "回首来时路，叹往昔，敬畏未来"
+    published_date: "2024-02-17"
+    url: "https://www.tgb.cn/a/25VmrtPmuWI"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "实事求是"
+    published_date: "2024-05-27"
+    url: "https://www.tgb.cn/a/28ACjvWeEjl"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "弱市短线交易随想"
+    published_date: "2024-07-17"
+    url: "https://www.tgb.cn/a/29Xod6dwBS9"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "建立正确逻辑观念，进而帮助交易"
+    published_date: "2024-09-14"
+    url: "https://www.tgb.cn/a/2bxcCRLsJHH"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "牛市熊市都是一样的"
+    published_date: "2024-09-29"
+    url: "https://www.tgb.cn/a/2bWeZGDSi07"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "史上最短牛市的后续"
+    published_date: "2024-10-13"
+    url: "https://www.tgb.cn/a/2cjts82YIZy"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "周五你中标了没？"
+    published_date: "2025-02-22"
+    url: "https://www.tgb.cn/a/2fQt29pQ3Pa"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "魔法战魔法"
+    published_date: "2025-03-10"
+    url: "https://www.tgb.cn/a/2ghvnc9bHeR"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "若干短线常识悖论"
+    published_date: "2025-06-27"
+    url: "https://www.tgb.cn/a/2jbi0efIsof"
+    tag: null
+    note: "manual main post seed"
+
+  - title: "入魔疯魔-量来"
+    published_date: "2026-01-03"
+    url: "https://www.tgb.cn/a/2ohHCnLXtP8"
+    tag: null
+    note: "manual main post seed"
