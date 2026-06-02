@@ -59,6 +59,7 @@ class CrawlSettings(BaseModel):
     allow_seed_article_fallback: bool = True
     seed_only_when_index_missing_start: bool = True
     max_comment_pages_per_article: int = Field(default=100, ge=1)
+    resume_comment_pages_from_snapshots: bool = True
 
 
 class StorageSettings(BaseModel):

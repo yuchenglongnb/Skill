@@ -271,3 +271,33 @@ Behavior notes:
 - Discovery does not fetch the network, does not log in, and does not bypass access controls.
 - `promote-article-seeds` is conservative by default and only promotes manually selected candidates.
 - Candidate JSONL and Markdown reports preserve source and raw audit context.
+
+## Milestone 6C: Comment Page Checkpoints and Error Resolution
+
+Large discussion threads may contain hundreds of public comment pages. `crawl-comments`
+now persists page-level checkpoints and resumes from the next uncrawled page.
+
+```powershell
+python -m tgb_pipeline crawl-comments --target-config configs/target.yaml --crawl-config configs/crawl.yaml
+python -m tgb_pipeline crawl-comments --target-config configs/target.yaml --crawl-config configs/crawl.yaml --article-id 1VvuASpPpMr --start-page 101 --max-pages 800
+```
+
+Behavior notes:
+- Existing comment page states and saved HTML snapshots are treated as checkpoints.
+- Previously fetched pages are skipped unless `--force-comments` is passed.
+- `--article-id`, `--start-page`, and `--max-pages` support targeted backfill runs.
+- Reaching the configured page ceiling records `max_limit_reached` and `next_page_to_fetch`.
+- Historical crawl errors are marked resolved after the corresponding article or comment page succeeds.
+- `export-corpus` refreshes `reports/article_inventory_report.md` and generates `reports/crawl_error_report.md`.
+
+Checkpoint files:
+
+```text
+data/raw/tgb/comment_page_states.jsonl
+data/raw/tgb/comment_article_states.jsonl
+```
+
+Compliance boundary:
+- Only public pages are requested at the configured low frequency.
+- The pipeline does not bypass login, captcha, robots rules, or access controls.
+- `comments_all.jsonl` remains the append-only raw comment corpus.

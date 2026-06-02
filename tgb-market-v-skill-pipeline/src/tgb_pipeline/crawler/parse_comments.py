@@ -47,7 +47,7 @@ def find_comment_next_page_url(html: str, page_url: str) -> str | None:
     soup = BeautifulSoup(html, "lxml")
     for anchor in soup.find_all("a", href=True):
         text = anchor.get_text(" ", strip=True)
-        if text in {"下一页", "下页", "Next", "next", ">"}:
+        if text in {"\u4e0b\u4e00\u9875", "\u4e0b\u9875", "Next", "next", ">"}:
             return urljoin(page_url, anchor["href"])
     return None
 
@@ -57,7 +57,7 @@ def find_comment_last_page_num(html: str, page_url: str) -> int | None:
     for anchor in soup.find_all("a", href=True):
         text = anchor.get_text(" ", strip=True)
         href = str(anchor["href"])
-        if text in {"末页", "尾页", "最后一页"}:
+        if text in {"\u672b\u9875", "\u5c3e\u9875", "\u6700\u540e\u4e00\u9875"}:
             match = COMMENT_PAGE_HREF.search(href)
             if match:
                 return int(match.group("page"))

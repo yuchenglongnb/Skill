@@ -91,6 +91,26 @@ def build_parser() -> argparse.ArgumentParser:
                 default="configs/article_seeds.yaml",
                 help="Path to manual article seed YAML configuration.",
             )
+        if command == "crawl-comments":
+            command_parser.add_argument(
+                "--article-id",
+                help="Only crawl comments for one article ID.",
+            )
+            command_parser.add_argument(
+                "--start-page",
+                type=int,
+                help="Override the checkpoint and begin at this page.",
+            )
+            command_parser.add_argument(
+                "--max-pages",
+                type=int,
+                help="Override the maximum page number for this run.",
+            )
+            command_parser.add_argument(
+                "--force-comments",
+                action="store_true",
+                help="Refetch pages even when checkpoint state already exists.",
+            )
         if command == "discover-article-seeds":
             command_parser.add_argument(
                 "--target-config",
@@ -210,10 +230,22 @@ def main(argv: Sequence[str] | None = None) -> int:
                     f"duplicates {result.duplicate_count}."
                 )
             elif args.command == "crawl-comments":
-                comment_count, image_count = crawl_comments(target_config, crawl_config)
+                result = crawl_comments(
+                    target_config,
+                    crawl_config,
+                    article_id=args.article_id,
+                    start_page=args.start_page,
+                    max_pages=args.max_pages,
+                    force_comments=args.force_comments,
+                )
                 print(
                     "crawl-comments: appended "
-                    f"{comment_count} comments and {image_count} image assets."
+                    f"{result.appended_comments} comments and "
+                    f"{result.appended_images} image assets; fetched "
+                    f"{result.fetched_pages} pages, skipped {result.skipped_pages} "
+                    f"pages, failed {result.failed_pages} pages; completed "
+                    f"{result.completed_articles} articles, max-limit "
+                    f"{result.max_limit_articles} articles."
                 )
             elif args.command == "filter-comments":
                 kept_count, aoch_count, interaction_count = filter_comments(

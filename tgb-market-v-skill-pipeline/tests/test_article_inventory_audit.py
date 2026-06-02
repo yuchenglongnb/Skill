@@ -1,5 +1,5 @@
 from tgb_pipeline.audit.article_inventory_audit import build_article_inventory_report
-from tgb_pipeline.models import CrawlError
+from tgb_pipeline.models import CommentArticleState, CrawlError
 from tgb_pipeline.storage import JSONLStore
 from tests.export_fixture_data import build_sample_corpus
 
@@ -27,6 +27,19 @@ def test_build_article_inventory_report_counts_coverage_and_errors(tmp_path) -> 
             raw={"page_num": 2},
         )
     )
+    JSONLStore(
+        raw_dir / "comment_article_states.jsonl",
+        CommentArticleState,
+        "article_id",
+    ).append(
+        CommentArticleState(
+            article_id="a1",
+            max_fetched_page=100,
+            next_page_to_fetch=101,
+            discovered_last_page=749,
+            max_limit_reached=True,
+        )
+    )
 
     report = build_article_inventory_report(raw_dir, reports_dir / "article_inventory_report.md")
 
@@ -35,6 +48,8 @@ def test_build_article_inventory_report_counts_coverage_and_errors(tmp_path) -> 
     assert report["articles_with_comments"] == 1
     assert report["article_crawl_errors"] == 1
     assert report["comment_crawl_errors"] == 1
+    assert report["per_article"][0]["next_page_to_fetch"] == 101
+    assert report["per_article"][0]["max_limit_reached"] is True
     content = (reports_dir / "article_inventory_report.md").read_text(encoding="utf-8")
     assert "# Article Inventory Report" in content
     assert "| a1 |" in content

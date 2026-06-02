@@ -11,6 +11,8 @@ from tgb_pipeline.models import (
     ArticleIndex,
     ArticleSeedCandidate,
     Comment,
+    CommentArticleState,
+    CommentPageState,
     CrawlError,
     ImageAsset,
     ImageOCR,
@@ -25,6 +27,8 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
     interim_dir = raw_dir.parent.parent / "interim" / raw_dir.name
     candidates_path = interim_dir / "article_seed_candidates.jsonl"
     seeds_config_path = Path("configs/article_seeds.yaml")
+    article_errors = _read_optional(raw_dir / "article_crawl_errors.jsonl", CrawlError, "error_id")
+    comment_errors = _read_optional(raw_dir / "comment_crawl_errors.jsonl", CrawlError, "error_id")
     counts = {
         "article_index": len(_read_optional(raw_dir / "articles_index.jsonl", ArticleIndex, "article_id")),
         "article_seed_candidates": len(_read_optional(candidates_path, ArticleSeedCandidate, "candidate_id")),
@@ -32,8 +36,15 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "article_seeds_config_count": _count_article_seeds_config(seeds_config_path),
         "articles": len(_read_optional(raw_dir / "articles.jsonl", Article, "article_id")),
         "article_crawl_errors": len(_read_optional(raw_dir / "article_crawl_errors.jsonl", CrawlError, "error_id")),
+        "active_article_crawl_errors": sum(1 for error in article_errors if not error.resolved),
+        "resolved_article_crawl_errors": sum(1 for error in article_errors if error.resolved),
         "comments_all": len(_read_optional(raw_dir / "comments_all.jsonl", Comment, "comment_id")),
         "comment_crawl_errors": len(_read_optional(raw_dir / "comment_crawl_errors.jsonl", CrawlError, "error_id")),
+        "active_comment_crawl_errors": sum(1 for error in comment_errors if not error.resolved),
+        "resolved_comment_crawl_errors": sum(1 for error in comment_errors if error.resolved),
+        "comment_page_states": len(_read_optional(raw_dir / "comment_page_states.jsonl", CommentPageState, "state_id")),
+        "comment_article_states": len(_read_optional(raw_dir / "comment_article_states.jsonl", CommentArticleState, "article_id")),
+        "crawl_error_report": 1 if (reports_dir / "crawl_error_report.md").exists() else 0,
         "comments": len(_read_optional(raw_dir / "comments.jsonl", Comment, "comment_id")),
         "interactions": len(_read_optional(raw_dir / "interactions.jsonl", Interaction, "interaction_id")),
         "images": len(_read_optional(raw_dir / "images.jsonl", ImageAsset, "image_id")),
@@ -59,6 +70,8 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
             _relative(raw_dir / "article_crawl_errors.jsonl"),
             _relative(raw_dir / "comments_all.jsonl"),
             _relative(raw_dir / "comment_crawl_errors.jsonl"),
+            _relative(raw_dir / "comment_page_states.jsonl"),
+            _relative(raw_dir / "comment_article_states.jsonl"),
             _relative(raw_dir / "comments.jsonl"),
             _relative(raw_dir / "interactions.jsonl"),
             _relative(raw_dir / "images.jsonl"),
@@ -77,6 +90,7 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "reports": [
             _relative(reports_dir / "comment_coverage_report.md"),
             _relative(reports_dir / "article_inventory_report.md"),
+            _relative(reports_dir / "crawl_error_report.md"),
             _relative(reports_dir / "article_seed_candidates.md"),
             _relative(reports_dir / "author_inventory.md"),
             _relative(reports_dir / "image_inventory_report.md"),

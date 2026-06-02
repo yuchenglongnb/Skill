@@ -172,6 +172,40 @@ class CrawlError(PipelineModel):
     url: str | None = None
     error_type: str
     error_message: str
+    resolved: bool = False
+    resolved_at: datetime | None = None
+    resolved_by: str | None = None
+    resolution_note: str | None = None
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class CommentPageState(PipelineModel):
+    state_id: str
+    article_id: str
+    page_num: int
+    page_url: str
+    status: str = "fetched"
+    comments_count: int = 0
+    images_count: int = 0
+    discovered_last_page: int | None = None
+    has_next_page: bool | None = None
+    fetched_at: datetime | None = None
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class CommentArticleState(PipelineModel):
+    article_id: str
+    title: str | None = None
+    indexed_reply_count: int = 0
+    discovered_last_page: int | None = None
+    fetched_pages: int = 0
+    max_fetched_page: int = 0
+    next_page_to_fetch: int = 1
+    completed: bool = False
+    max_limit_reached: bool = False
+    comments_count: int = 0
+    images_count: int = 0
+    updated_at: datetime | None = None
     raw: dict[str, Any] = Field(default_factory=dict)
 
 
