@@ -321,3 +321,8 @@ Behavior notes:
 - Priority article IDs, per-article batch size, and total page budget are configurable in `configs/crawl.yaml`.
 - Plan execution remains explicit so large public comment sections can be backfilled in controlled batches.
 - Each generated report includes copyable `crawl-comments` commands for manual review.
+- A good default operating loop is: generate a plan, review `reports/comment_completion_plan.md`, execute the saved plan, run `filter-comments`, run `export-corpus`, then regenerate the plan once more to confirm the next batch starts from the expected page.
+- Regenerating the plan after `export-corpus` is a validation step only; do not execute the new batch until the updated plan looks reasonable.
+- `filter-comments` uses JSONL deduplication, so `0/0/0` can mean there were no newly eligible records to append rather than a failed run.
+- If `crawl-comments` appended new comments but `filter-comments` still reports `0/0/0`, inspect whether the new pages were mostly non-target member noise or whether the `keep_reason` rules need review.
+- The current workflow has already demonstrated successful checkpoint continuation flow, so large threads should be resumed in bounded batches rather than restarted from page 1.
