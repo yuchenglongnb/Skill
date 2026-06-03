@@ -35,7 +35,7 @@ from tgb_pipeline.discovery.tasks import (
     discover_article_seeds_task,
     promote_candidates_to_article_seeds,
 )
-from tgb_pipeline.extraction.tasks import extract_claims_bundle
+from tgb_pipeline.extraction.tasks import build_review_ready_claims_bundle, extract_claims_bundle
 from tgb_pipeline.export.tasks import export_corpus_bundle
 from tgb_pipeline.images.tasks import download_images_task, ocr_images_task
 
@@ -56,6 +56,7 @@ COMMANDS = (
     "ocr-images",
     "export-corpus",
     "extract-claims",
+    "build-review-ready-claims",
     "review-claims",
     "build-skill",
 )
@@ -81,6 +82,7 @@ def build_parser() -> argparse.ArgumentParser:
             "ocr-images",
             "export-corpus",
             "extract-claims",
+            "build-review-ready-claims",
             "review-claims",
         }:
             command_parser.add_argument(
@@ -188,6 +190,19 @@ def build_parser() -> argparse.ArgumentParser:
                 action="store_true",
                 help="Apply review decisions and emit curated artifacts.",
             )
+        if command in {"extract-claims", "build-review-ready-claims"}:
+            command_parser.add_argument(
+                "--max-per-tag",
+                type=int,
+                default=500,
+                help="Maximum number of normal-priority claims to keep per method tag.",
+            )
+            command_parser.add_argument(
+                "--sample-per-bucket",
+                type=int,
+                default=20,
+                help="Maximum number of sample claims to show per review bucket.",
+            )
         if command == "plan-comment-completion":
             command_parser.add_argument(
                 "--target-config",
@@ -234,6 +249,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "ocr-images",
         "export-corpus",
         "extract-claims",
+        "build-review-ready-claims",
         "review-claims",
     }:
         target_config = load_target_config(args.target_config)
@@ -350,8 +366,25 @@ def main(argv: Sequence[str] | None = None) -> int:
             elif args.command == "extract-claims":
                 raw_dir = crawl_config.storage.raw_dir / "tgb"
                 processed_dir = crawl_config.storage.processed_dir / "tgb"
-                outputs = extract_claims_bundle(raw_dir, processed_dir, Path("reports"))
+                outputs = extract_claims_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    max_per_tag=args.max_per_tag,
+                    sample_per_bucket=args.sample_per_bucket,
+                )
                 print(f"extract-claims: generated {len(outputs)} outputs.")
+            elif args.command == "build-review-ready-claims":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = build_review_ready_claims_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    max_per_tag=args.max_per_tag,
+                    sample_per_bucket=args.sample_per_bucket,
+                )
+                print(f"build-review-ready-claims: generated {len(outputs)} outputs.")
             elif args.command == "review-claims":
                 raw_dir = crawl_config.storage.raw_dir / "tgb"
                 processed_dir = crawl_config.storage.processed_dir / "tgb"

@@ -45,6 +45,8 @@ def test_build_corpus_manifest_uses_relative_paths_and_counts(tmp_path, monkeypa
     assert payload["counts"]["images_downloaded"] == 0
     assert payload["counts"]["image_ocr"] == 0
     assert payload["counts"]["methodology_claims"] == 0
+    assert payload["counts"]["review_ready_claims"] == 0
+    assert payload["counts"]["low_priority_methodology_claims"] == 0
     assert payload["counts"]["accepted_methodology_claims"] == 0
     assert payload["has_aoch"] is False
     assert all(not path.startswith("C:/") for path in payload["outputs"])

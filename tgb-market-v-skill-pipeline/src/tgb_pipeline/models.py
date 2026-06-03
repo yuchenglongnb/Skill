@@ -267,6 +267,8 @@ class MethodologyClaim(PipelineModel):
     evidence_level: str = "text_raw"
     review_status: str = "unreviewed"
     review_notes: str | None = None
+    review_priority: str = "normal"
+    review_bucket: str | None = None
     evidence_image_ids: list[str] = Field(default_factory=list)
     evidence_ocr_ids: list[str] = Field(default_factory=list)
     author_name: str | None = None

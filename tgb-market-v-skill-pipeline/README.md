@@ -355,3 +355,36 @@ It keeps:
 
 The filter only affects `methodology_claims.jsonl`.
 It does not modify raw articles, comments, or interactions.
+
+## Milestone 7B: Review-Ready Claims
+
+Milestone 7B adds a review-ready claim subset on top of the full `methodology_claims.jsonl` candidate pool.
+
+### Outputs
+- `data/processed/tgb/review_ready_claims.jsonl`
+- `data/processed/tgb/low_priority_methodology_claims.jsonl`
+- `reports/claim_sampling_report.md`
+- `reports/review_ready_claims_report.md`
+
+### What It Does
+- Keep the full methodology claim set intact for auditability.
+- Rank each claim with `review_priority` and `review_bucket`.
+- Preserve core methodology, trading mechanism, market environment, execution rule, and risk control claims for review.
+- Push background context, generic market chatter, and weaker comment fragments into a low-priority bucket instead of deleting them.
+- Write ranking metadata into `raw.ranking` so every prioritization decision remains traceable.
+
+### CLI
+```powershell
+python -m tgb_pipeline build-review-ready-claims `
+  --target-config configs/target.yaml `
+  --crawl-config configs/crawl.yaml `
+  --max-per-tag 500 `
+  --sample-per-bucket 20
+```
+
+`extract-claims` also rebuilds the review-ready subset and its reports.
+
+### Review Guidance
+- `review_ready_claims.jsonl` is the preferred starting point for human review.
+- `low_priority_methodology_claims.jsonl` is retained for later recovery or spot checks.
+- Do not overwrite `claim_review_decisions.yaml` unless you intentionally want to rebuild the review template.
