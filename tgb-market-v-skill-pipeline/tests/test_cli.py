@@ -53,6 +53,10 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert review_ready_args.max_per_tag == 200
     assert review_ready_args.sample_per_bucket == 10
     assert parser.parse_args(["review-claims"]).decisions == "data/processed/tgb/claim_review_decisions.yaml"
+    review_ready_claim_args = parser.parse_args(["review-ready-claims", "--sync", "--apply"])
+    assert review_ready_claim_args.decisions == "data/processed/tgb/review_ready_decisions.yaml"
+    assert review_ready_claim_args.sync is True
+    assert review_ready_claim_args.apply is True
 
     assert main(["extract-images"]) == 0
     assert "scaffold only" in capsys.readouterr().out

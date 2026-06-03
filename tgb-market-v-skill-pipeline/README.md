@@ -388,3 +388,30 @@ python -m tgb_pipeline build-review-ready-claims `
 - `review_ready_claims.jsonl` is the preferred starting point for human review.
 - `low_priority_methodology_claims.jsonl` is retained for later recovery or spot checks.
 - Do not overwrite `claim_review_decisions.yaml` unless you intentionally want to rebuild the review template.
+
+## Review-ready Claim Curation
+
+`review_ready_claims.jsonl` is the preferred input for first-round manual review.
+
+Generate a review template:
+
+```powershell
+python -m tgb_pipeline review-ready-claims `
+  --target-config configs/target.yaml `
+  --crawl-config configs/crawl.yaml
+```
+
+After editing `data/processed/tgb/review_ready_decisions.yaml`, apply the decisions:
+
+```powershell
+python -m tgb_pipeline review-ready-claims `
+  --target-config configs/target.yaml `
+  --crawl-config configs/crawl.yaml `
+  --apply
+```
+
+Notes:
+- Do not review the full `methodology_claims.jsonl` first; start from `review_ready_claims.jsonl`.
+- This workflow does not overwrite the legacy `claim_review_decisions.yaml`.
+- `unreviewed` claims do not enter the curated review-ready profile by default.
+- Review-ready claims are still a candidate layer, not the final Skill artifact.

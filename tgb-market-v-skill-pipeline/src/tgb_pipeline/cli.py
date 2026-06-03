@@ -19,7 +19,7 @@ from tgb_pipeline.completion.tasks import (
     execute_comment_completion_plan,
     generate_comment_completion_plan_bundle,
 )
-from tgb_pipeline.curation.tasks import review_claims_bundle
+from tgb_pipeline.curation.tasks import review_claims_bundle, review_ready_claims_bundle
 from tgb_pipeline.crawler.comment_checkpoint import (
     bootstrap_comment_page_states_from_snapshots,
     reconcile_comment_article_states,
@@ -58,6 +58,7 @@ COMMANDS = (
     "extract-claims",
     "build-review-ready-claims",
     "review-claims",
+    "review-ready-claims",
     "build-skill",
 )
 
@@ -84,6 +85,7 @@ def build_parser() -> argparse.ArgumentParser:
             "extract-claims",
             "build-review-ready-claims",
             "review-claims",
+            "review-ready-claims",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -190,6 +192,32 @@ def build_parser() -> argparse.ArgumentParser:
                 action="store_true",
                 help="Apply review decisions and emit curated artifacts.",
             )
+        if command == "review-ready-claims":
+            command_parser.add_argument(
+                "--decisions",
+                default="data/processed/tgb/review_ready_decisions.yaml",
+                help="Path to review-ready decision YAML file.",
+            )
+            command_parser.add_argument(
+                "--overwrite-template",
+                action="store_true",
+                help="Overwrite an existing review-ready template.",
+            )
+            command_parser.add_argument(
+                "--include-unreviewed",
+                action="store_true",
+                help="Include unreviewed claims in the needs-edit output when applying.",
+            )
+            command_parser.add_argument(
+                "--sync",
+                action="store_true",
+                help="Sync the current review-ready claim set with an existing decisions file.",
+            )
+            command_parser.add_argument(
+                "--apply",
+                action="store_true",
+                help="Apply review-ready decisions and emit curated artifacts.",
+            )
         if command in {"extract-claims", "build-review-ready-claims"}:
             command_parser.add_argument(
                 "--max-per-tag",
@@ -251,6 +279,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "extract-claims",
         "build-review-ready-claims",
         "review-claims",
+        "review-ready-claims",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -398,6 +427,20 @@ def main(argv: Sequence[str] | None = None) -> int:
                     apply=args.apply,
                 )
                 print(f"review-claims: generated {len(outputs)} outputs.")
+            elif args.command == "review-ready-claims":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = review_ready_claims_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    decisions_path=Path(args.decisions),
+                    overwrite_template=args.overwrite_template,
+                    include_unreviewed=args.include_unreviewed,
+                    sync=args.sync,
+                    apply=args.apply,
+                )
+                print(f"review-ready-claims: generated {len(outputs)} outputs.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

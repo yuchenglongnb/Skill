@@ -17,7 +17,7 @@ HIGH_VALUE_TAGS = {
     "指数环境",
     "风控",
     "牛熊切换",
-    "数字化?标准化",
+    "数字化/标准化",
 }
 STRONG_STRUCTURE_TERMS = (
     "不是",
@@ -39,6 +39,7 @@ LOW_PRIORITY_FLAGS = {
     "short_text",
     "has_generic_market_terms",
 }
+EXECUTION_TERMS = ("买入", "卖出", "触发", "止损", "仓位")
 
 
 def has_reasonable_density(text: str) -> bool:
@@ -96,9 +97,9 @@ def _infer_bucket(
         return "risk_control"
     if "指数环境" in tags:
         return "market_environment"
-    if any(tag in tags for tag in {"成交额", "量化影响", "短线基础行情", "数字化?标准化"}):
+    if any(tag in tags for tag in {"成交额", "量化影响", "短线基础行情", "数字化/标准化"}):
         return "trading_mechanism"
-    if any(term in text for term in ("买入", "卖出", "触发", "止损", "仓位")):
+    if any(term in text for term in EXECUTION_TERMS):
         return "execution_rule"
     if any(term in text for term in STRONG_STRUCTURE_TERMS):
         return "core_methodology"
@@ -119,19 +120,24 @@ def _infer_priority(
     score = quality_score
     tags = set(claim.method_tags)
     has_strong_structure = any(term in text for term in STRONG_STRUCTURE_TERMS)
+    has_high_value_tag = bool(tags.intersection(HIGH_VALUE_TAGS))
+    is_core_article = claim.article_id in CORE_ARTICLE_IDS
+    is_article_source = claim.source_type.value == "article"
+    has_good_length = 20 <= len(text) <= 220
+
     if has_strong_structure:
         reasons.append("strong_structure")
         score += 4
-    if tags.intersection(HIGH_VALUE_TAGS):
+    if has_high_value_tag:
         reasons.append("high_value_tags")
         score += 3
-    if 20 <= len(text) <= 220:
+    if has_good_length:
         reasons.append("good_length")
         score += 2
-    if claim.article_id in CORE_ARTICLE_IDS:
+    if is_core_article:
         reasons.append("core_article")
         score += 2
-    if claim.source_type.value == "article":
+    if is_article_source:
         reasons.append("article_source")
         score += 2
     if bucket in {"generic_market", "short_reply", "analogy_background", "background_context"}:
@@ -146,23 +152,15 @@ def _infer_priority(
 
     if (
         has_strong_structure
-        and (tags.intersection(HIGH_VALUE_TAGS) or claim.source_type.value == "article" or claim.article_id in CORE_ARTICLE_IDS)
-        and 20 <= len(text) <= 220
+        and (has_high_value_tag or is_article_source or is_core_article)
+        and has_good_length
     ):
         return "high", score, reasons or ["high_signal"]
-    if (
-        claim.source_type.value == "article"
-        and tags.intersection(HIGH_VALUE_TAGS)
-        and 20 <= len(text) <= 220
-    ):
+    if is_article_source and has_high_value_tag and has_good_length:
         return "high", score, reasons or ["article_high_value_signal"]
-    if (
-        claim.article_id in CORE_ARTICLE_IDS
-        and tags.intersection(HIGH_VALUE_TAGS)
-        and has_reasonable_density(text)
-    ):
-        return "high", score, reasons or ["high_signal"]
-    if claim.source_type.value == "article" and bucket not in {"generic_market", "short_reply", "analogy_background"}:
+    if is_core_article and has_high_value_tag and has_reasonable_density(text):
+        return "high", score, reasons or ["core_article_high_value_signal"]
+    if is_article_source and bucket not in {"generic_market", "short_reply", "analogy_background"}:
         return "normal", score, reasons or ["article_default"]
     if len(text) < 18 and not has_strong_structure:
         return "low", score, reasons or ["very_short"]
