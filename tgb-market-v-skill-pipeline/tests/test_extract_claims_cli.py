@@ -96,5 +96,6 @@ def test_extract_claims_cli_generates_outputs(tmp_path, monkeypatch) -> None:
         ]
     ) == 0
     assert (tmp_path / "data" / "processed" / "tgb" / "methodology_claims.jsonl").is_file()
+    assert (tmp_path / "reports" / "claim_noise_report.md").is_file()
     assert (tmp_path / "reports" / "claim_review_queue.md").is_file()
     assert (tmp_path / "reports" / "methodology_profile_draft.md").is_file()

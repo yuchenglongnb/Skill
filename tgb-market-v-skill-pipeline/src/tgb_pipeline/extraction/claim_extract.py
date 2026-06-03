@@ -13,6 +13,7 @@ from tgb_pipeline.extraction.entities import (
     infer_direction,
     infer_horizon,
 )
+from tgb_pipeline.extraction.quality import evaluate_claim_candidate
 from tgb_pipeline.extraction.segments import (
     segment_article,
     segment_comment,
@@ -56,15 +57,6 @@ MARKET_HINTS = (
     "情绪",
     "周期",
 )
-STRONG_TAGS = {
-    "情绪周期",
-    "成交额",
-    "短线基础行情",
-    "量化影响",
-    "市场结构",
-    "指数环境",
-}
-QUESTION_ONLY_RE = re.compile(r".+[?？]\s*$")
 
 
 def extract_claims_from_segments(segments: list[dict[str, Any]]) -> list[MethodologyClaim]:
@@ -82,7 +74,23 @@ def extract_claims_from_segments(segments: list[dict[str, Any]]) -> list[Methodo
         method_tags = detect_method_tags(text)
         tickers = extract_tickers(text)
         sectors, concepts = extract_sectors_or_concepts(text)
-        if not _should_make_claim(segment, text, method_tags, tickers, sectors, concepts):
+        quality = evaluate_claim_candidate(
+            text=text,
+            source_type=segment["source_type"],
+            method_tags=method_tags,
+            tickers=tickers,
+            sectors=sectors,
+            concepts=concepts,
+        )
+        if not _should_make_claim(
+            segment,
+            text,
+            method_tags,
+            tickers,
+            sectors,
+            concepts,
+            quality_keep=quality.keep,
+        ):
             continue
 
         source_type = ClaimSourceType(segment["source_type"])
@@ -116,7 +124,14 @@ def extract_claims_from_segments(segments: list[dict[str, Any]]) -> list[Methodo
                 author_name=segment.get("author_name"),
                 status=ClaimStatus.CANDIDATE,
                 tags=list(method_tags),
-                raw={"source_segment": segment},
+                raw={
+                    "source_segment": segment,
+                    "quality": {
+                        "reason": quality.reason,
+                        "score": quality.score,
+                        "flags": quality.flags,
+                    },
+                },
             )
         )
     return claims
@@ -182,40 +197,26 @@ def _should_make_claim(
     tickers: list[str],
     sectors: list[str],
     concepts: list[str],
+    *,
+    quality_keep: bool,
 ) -> bool:
     compact = clean_text(text)
     if not compact or compact.startswith("[IMAGE:"):
         return False
-    if QUESTION_ONLY_RE.match(compact) and not method_tags and not tickers and not sectors and not concepts:
-        return False
-    if len(compact) < 10 and not tickers and not sectors and not concepts:
-        return False
-    if (
-        segment["source_type"] == "article"
-        and len(compact) < 16
-        and not set(method_tags).intersection(STRONG_TAGS)
-    ):
+    if not quality_keep:
         return False
     if method_tags:
-        if len(compact) < 8 and not set(method_tags).intersection(STRONG_TAGS):
-            return False
         return True
     if tickers:
         return True
     if sectors or concepts:
-        if len(compact) < 12 and not any(hint in compact for hint in REASONING_HINTS + MARKET_HINTS):
-            return False
         return True
     if segment["source_type"] in {"article", "comment", "interaction"} and any(
         hint in compact for hint in REASONING_HINTS
     ):
-        if len(compact) < 12:
-            return False
-        return True
+        return len(compact) >= 12
     if any(hint in compact for hint in MARKET_HINTS):
-        if len(compact) < 14:
-            return False
-        return True
+        return len(compact) >= 14
     return False
 
 

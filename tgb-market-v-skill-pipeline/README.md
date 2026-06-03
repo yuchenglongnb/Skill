@@ -337,3 +337,21 @@ python -m tgb_pipeline plan-comment-completion --target-config configs/target.ya
 ```
 
 `reconcile-comment-states` only rebuilds derived comment state artifacts. It does not fetch the network, and it does not modify `comments_all.jsonl` or `images.jsonl`.
+## Claim Noise Filtering
+
+`extract-claims` now applies a lightweight quality filter before writing candidate claims.
+
+It filters:
+- analogy/background sentences;
+- pure emotional replies;
+- short weak replies;
+- pure questions;
+- generic market statements.
+
+It keeps:
+- causal or conditional methodology statements;
+- strong trading mechanism statements;
+- ticker, sector, or concept claims with meaningful context.
+
+The filter only affects `methodology_claims.jsonl`.
+It does not modify raw articles, comments, or interactions.
