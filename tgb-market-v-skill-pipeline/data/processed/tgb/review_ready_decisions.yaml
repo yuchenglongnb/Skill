@@ -194,10 +194,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 25
   claim-c1c3ea0d9bd5e06a:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -269,10 +269,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 23
   claim-4d44cf1a5904fea2:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -284,10 +284,10 @@ decisions:
       article_source
     ranking_score: 22
   claim-7c8abf7d84d3e9e3:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的成交额或量能方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4271,10 +4271,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-0d19310524301ad2:
-    decision: unreviewed
-    reason: market_environment
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像背景信息或盘中特指，不进入方法论。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4400,10 +4400,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-135f828da00f1296:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4770,10 +4770,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-3a4023259a7db272:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5042,10 +5042,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-5b51bdf81cc631e4:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的风控判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5087,10 +5087,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-5fe2969caeba4bdc:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5177,10 +5177,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-694dc8a4fb0e17bb:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5409,10 +5409,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-86914b3d88bfe3e5:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5438,10 +5438,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-8859e6bbf84f1014:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5539,10 +5539,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-8fa801c11064a31d:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5799,10 +5799,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-9f5b2f4a90da37fd:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5873,10 +5873,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-a1efcce271c87339:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6157,10 +6157,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-c20cd2462f4a5f36:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6331,10 +6331,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-cc8ad369db5b642f:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6474,10 +6474,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-d1a0b3592c85ffc6:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6744,10 +6744,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-e7c84659b6105e50:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6876,10 +6876,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-f267b7fa033b25fc:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6935,10 +6935,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-f379d781cc9fa02f:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6950,10 +6950,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-f5bd37257c2fe758:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7064,10 +7064,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-620f65f1a4662a5f:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7464,10 +7464,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-13dfa0e05b807068:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7635,10 +7635,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-19cd972ba0aa3f4a:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7709,10 +7709,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-1c80c1f2e95cd4d7:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7824,10 +7824,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-23a90b94549bceac:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7895,10 +7895,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-27eb38353581554b:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7983,10 +7983,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-2afab0c167a1cb5e:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8082,10 +8082,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-301fbaee2f81b263:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8110,10 +8110,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-3066f8159659def5:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8252,10 +8252,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-37b24686aff786e8:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8367,10 +8367,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-3cfa2cef39b377d6:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8425,10 +8425,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-41733260a45f4999:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8653,10 +8653,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-4e9bf8b56118d13c:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8753,10 +8753,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-514489ac9f9e7614:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8929,10 +8929,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-5c0b9ec53c04a289:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9338,10 +9338,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-6a9dfa2a32de770f:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9466,10 +9466,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-6e63ea22e28f59c6:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -9537,10 +9537,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-70e55186092304bf:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9820,10 +9820,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-80c273ac9e95bc8d:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -9921,10 +9921,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-85054b25071d7157:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：表达带有明显口语化夸张，需要人工结合上下文确认其真实约束含义。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9950,10 +9950,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-862d4632c47165f3:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10293,10 +10293,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-9ade7fc42b7a639e:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -10392,10 +10392,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-a0f25fd512415770:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的成交额或量能方法论表述。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10477,10 +10477,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-a89949be75198874:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10760,10 +10760,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-b4981a3636d8e9bb:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -10832,10 +10832,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-b6d8cdd9a5244190:
-    decision: unreviewed
-    reason: market_environment
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句口语化且上下文依赖强，需要人工结合盘中语境确认。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -11529,10 +11529,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-d811f508ccc5d3a0:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -11615,10 +11615,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-de575506d7350ef1:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -11686,10 +11686,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-e53282dcf709dd94:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -11914,10 +11914,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-ee9a1fca5f8a26f1:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -11957,10 +11957,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-f0d489a5346c0bf5:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -12115,10 +12115,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-f7c64c47149fb743:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12129,10 +12129,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-f846423267c200c0:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -12201,10 +12201,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-fcfc58698e2df1e8:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -12216,10 +12216,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-fd670d60e95104c8:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像背景信息或盘中特指，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12260,10 +12260,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 21
   claim-2a6e8b7431277fda:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12288,10 +12288,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-3ee7c69311a9312c:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12302,10 +12302,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 21
   claim-430e333ecc703089:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的风控判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -12345,10 +12345,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-54c47b99347842e7:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12359,10 +12359,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-5f0a723e2eb71187:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12401,10 +12401,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 21
   claim-70d207775fff0a00:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12430,10 +12430,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 21
   claim-82db2114f94fd691:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12501,10 +12501,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 21
   claim-d246ff491ee3f1d0:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12543,10 +12543,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 21
   claim-ea01c059afe0fc26:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的执行规则表述。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -12700,10 +12700,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 20
   claim-19f114842b0cb0b5:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句比喻化较强，需要人工结合上下文确认其真实含义。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -13321,10 +13321,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 20
   claim-7271eaea669cdade:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -13649,10 +13649,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 20
   claim-a9a58c492aa965c1:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14076,10 +14076,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 20
   claim-f805dec78eb455fc:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14119,10 +14119,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 20
   claim-00d38cc1fae37aab:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14148,10 +14148,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 19
   claim-02ab4524049f4150:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的风控判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14176,10 +14176,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 19
   claim-065e769425671e46:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：含有打趣式表达，不宜自动按字面沉淀为方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14191,10 +14191,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 19
   claim-08c69055deb83aef:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14233,10 +14233,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 19
   claim-0a9ef1292de67edc:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：存在明显玩笑化表达，需要人工结合上下文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14247,10 +14247,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-0b3a02c8acec3fb7:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14261,10 +14261,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 19
   claim-0b630d99d4f0eff6:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14275,10 +14275,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 19
   claim-0d40f1ce5320496c:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14289,10 +14289,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-0e6a2e3af37e7883:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：涉及特定席位与口语化判断，需要人工结合上下文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14303,10 +14303,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 19
   claim-0e7f3ef1e8cb030b:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14318,10 +14318,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 19
   claim-106fed88bae20b84:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的成交额或量能方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14332,10 +14332,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-10b31b926a9e1f7c:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14346,10 +14346,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-14cbac4a9c0ea306:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14374,10 +14374,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 19
   claim-22a33e186d1f09d2:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14388,10 +14388,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-27840258bb41446c:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14402,10 +14402,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-33c6c0149d8c0b93:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14416,10 +14416,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-33fbbe92934f4859:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14430,10 +14430,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-34eda8218d84dfe6:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14458,10 +14458,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 19
   claim-36d6c516f4fa2129:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14516,10 +14516,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 19
   claim-3d1636d619e04598:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的成交额或量能方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14530,10 +14530,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-3d4cf0eed9a7ac99:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句过于口语化且盘中特指强，需要人工确认后再抽象。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14559,10 +14559,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 19
   claim-46ad9806d31c7ce0:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14601,10 +14601,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 19
   claim-4d590936a20e41e6:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14615,10 +14615,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-4d8d1cda16e11670:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14671,10 +14671,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 19
   claim-530c3f762a2af67c:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14685,10 +14685,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 19
   claim-56679dc62be2c4a5:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:

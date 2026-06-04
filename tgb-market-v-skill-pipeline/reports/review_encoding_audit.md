@@ -3,7 +3,7 @@
 ## Summary
 - total_files: 12
 - corrupted_files: 0
-- total_reviewed_items: 300
+- total_reviewed_items: 495
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 
@@ -76,7 +76,7 @@
 
 - exists: True
 - total_items: 100
-- reviewed_items: 0
+- reviewed_items: 100
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
@@ -85,7 +85,7 @@
 
 - exists: True
 - total_items: 6552
-- reviewed_items: 100
+- reviewed_items: 195
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
