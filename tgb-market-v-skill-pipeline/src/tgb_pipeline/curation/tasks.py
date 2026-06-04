@@ -7,6 +7,7 @@ from pathlib import Path
 from tgb_pipeline.curation.apply_review import apply_review_decisions
 from tgb_pipeline.curation.review_pack import build_default_review_packs, build_review_pack
 from tgb_pipeline.curation.review_pack_apply import apply_review_pack_decisions
+from tgb_pipeline.curation.review_encoding_audit import audit_review_encoding_outputs
 from tgb_pipeline.curation.review_pack_report import build_review_pack_apply_report
 from tgb_pipeline.curation.decisions import load_review_decisions, write_review_decision_template
 from tgb_pipeline.curation.profile import build_curated_methodology_profile
@@ -224,6 +225,18 @@ def build_default_review_packs_bundle(
     )
     outputs.append(build_corpus_manifest(raw_dir, processed_dir, reports_dir))
     return outputs
+
+
+def audit_review_encoding_bundle(
+    raw_dir: Path,
+    processed_dir: Path,
+    reports_dir: Path,
+) -> tuple[dict, Path]:
+    stats, report_path = audit_review_encoding_outputs(processed_dir, reports_dir)
+    manifest_path = build_corpus_manifest(raw_dir, processed_dir, reports_dir)
+    stats = dict(stats)
+    stats["manifest_path"] = manifest_path.as_posix()
+    return stats, report_path
 
 
 def _relative(path: Path) -> str:

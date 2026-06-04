@@ -71,6 +71,7 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     apply_pack_args = parser.parse_args(["apply-review-pack", "--pack", "data/processed/tgb/review_packs/pack-1.yaml"])
     assert apply_pack_args.pack.endswith("pack-1.yaml")
     assert parser.parse_args(["build-default-review-packs"]).crawl_config == "configs/crawl.yaml"
+    assert parser.parse_args(["audit-review-encoding"]).crawl_config == "configs/crawl.yaml"
 
     assert main(["extract-images"]) == 0
     assert "scaffold only" in capsys.readouterr().out

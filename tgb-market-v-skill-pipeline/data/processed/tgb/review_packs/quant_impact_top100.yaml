@@ -14,7 +14,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2fQt29pQ3Pa
@@ -28,7 +28,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ???????????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -42,7 +42,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 短线基础行情
   - 量化影响
@@ -57,7 +57,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -71,7 +71,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -85,7 +85,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   - 买入触发
@@ -100,7 +100,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -114,7 +114,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ??????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -128,7 +128,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ???????????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   - 买入触发
@@ -143,7 +143,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -157,7 +157,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 成交额
   - 量化影响
@@ -174,7 +174,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -188,7 +188,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2bWeZGDSi07
@@ -202,7 +202,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ???????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 短线基础行情
   - 量化影响
@@ -217,7 +217,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -231,7 +231,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -245,7 +245,7 @@ items:
   decision: accepted
   reason: risk_control
   edited_claim_text: null
-  review_notes: ???????????????????????
+  review_notes: 保留：属于量化影响下的风控原则或风险识别判断。
   method_tags:
   - 量化影响
   - 风控
@@ -260,7 +260,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ???????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2fQt29pQ3Pa
@@ -274,7 +274,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ??????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2bWeZGDSi07
@@ -288,7 +288,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 指数环境
   - 量化影响
@@ -303,7 +303,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -317,7 +317,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 25VmrtPmuWI
@@ -331,7 +331,7 @@ items:
   decision: rejected
   reason: background_context
   edited_claim_text: null
-  review_notes: ???????????????????
+  review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
   method_tags:
   - 量化影响
   article_id: 25VmrtPmuWI
@@ -345,7 +345,7 @@ items:
   decision: rejected
   reason: background_context
   edited_claim_text: null
-  review_notes: ????????????????????
+  review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
   method_tags:
   - 量化影响
   article_id: 2ghvnc9bHeR
@@ -359,7 +359,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 1Zn2UmelLMJ
@@ -373,7 +373,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ghvnc9bHeR
@@ -387,7 +387,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -401,7 +401,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 指数环境
   - 量化影响
@@ -416,7 +416,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 1Zn2UmelLMJ
@@ -430,7 +430,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2bWeZGDSi07
@@ -444,7 +444,7 @@ items:
   decision: rejected
   reason: too_fragmented
   edited_claim_text: null
-  review_notes: ?????????????????????
+  review_notes: 拒绝：表达过于碎片化，缺少可独立沉淀的判断。
   method_tags:
   - 量化影响
   article_id: 21ZIusToJzV
@@ -458,7 +458,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 28ACjvWeEjl
@@ -472,7 +472,7 @@ items:
   decision: rejected
   reason: too_fragmented
   edited_claim_text: null
-  review_notes: ?????????????????
+  review_notes: 拒绝：表达过于碎片化，缺少可独立沉淀的判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -486,7 +486,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -500,7 +500,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 25VmrtPmuWI
@@ -514,7 +514,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 1VvuASpPpMr
@@ -528,7 +528,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -542,7 +542,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -556,7 +556,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -570,7 +570,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 28ACjvWeEjl
@@ -584,7 +584,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -598,7 +598,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????/????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -612,7 +612,7 @@ items:
   decision: rejected
   reason: background_context
   edited_claim_text: null
-  review_notes: ?????????????????????
+  review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -626,7 +626,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -640,7 +640,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 指数环境
   - 量化影响
@@ -655,7 +655,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -669,7 +669,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 21mulzOf8Yb
@@ -683,7 +683,7 @@ items:
   decision: rejected
   reason: too_generic
   edited_claim_text: null
-  review_notes: ??????????????????
+  review_notes: 拒绝：表述偏泛，不能独立构成方法论。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -697,7 +697,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ?????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 短线基础行情
   - 量化影响
@@ -712,7 +712,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 成交额
   - 指数环境
@@ -728,7 +728,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 短线基础行情
   - 量化影响
@@ -743,7 +743,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 成交额
   - 量化影响
@@ -758,7 +758,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -772,7 +772,7 @@ items:
   decision: accepted
   reason: risk_control
   edited_claim_text: null
-  review_notes: ???????????????????????
+  review_notes: 保留：属于量化影响下的风控原则或风险识别判断。
   method_tags:
   - 量化影响
   - 仓位管理
@@ -788,7 +788,7 @@ items:
   decision: rejected
   reason: background_context
   edited_claim_text: null
-  review_notes: ?????????????????????
+  review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -802,7 +802,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 28ACjvWeEjl
@@ -816,7 +816,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -830,7 +830,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 成交额
   - 指数环境
@@ -846,7 +846,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 28ACjvWeEjl
@@ -860,7 +860,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   - 市场结构
@@ -875,7 +875,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   - 买入触发
@@ -890,7 +890,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ??????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -904,7 +904,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????/?????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -918,7 +918,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 28ACjvWeEjl
@@ -932,7 +932,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ??????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 指数环境
   - 量化影响
@@ -947,7 +947,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2fQt29pQ3Pa
@@ -961,7 +961,7 @@ items:
   decision: rejected
   reason: too_generic
   edited_claim_text: null
-  review_notes: ?????????????????????
+  review_notes: 拒绝：表述偏泛，不能独立构成方法论。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -975,7 +975,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 1VvuASpPpMr
@@ -989,7 +989,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1003,7 +1003,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   - 仓位管理
@@ -1019,7 +1019,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -1033,7 +1033,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1047,7 +1047,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 指数环境
   - 量化影响
@@ -1063,7 +1063,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -1077,7 +1077,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 28ACjvWeEjl
@@ -1091,7 +1091,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1105,7 +1105,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2fQt29pQ3Pa
@@ -1119,7 +1119,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 短线基础行情
   - 量化影响
@@ -1134,7 +1134,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   - 卖出条件
@@ -1149,7 +1149,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 指数环境
   - 量化影响
@@ -1164,7 +1164,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????/?????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 指数环境
   - 量化影响
@@ -1179,7 +1179,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 21ZIusToJzV
@@ -1193,7 +1193,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2ohHCnLXtP8
@@ -1207,7 +1207,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ?????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1221,7 +1221,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 1Zn2UmelLMJ
@@ -1235,7 +1235,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 指数环境
   - 量化影响
@@ -1250,7 +1250,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 1VvuASpPpMr
@@ -1264,7 +1264,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 1VvuASpPpMr
@@ -1278,7 +1278,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ??????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1292,7 +1292,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   - 买入触发
@@ -1307,7 +1307,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1321,7 +1321,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ?????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1335,7 +1335,7 @@ items:
   decision: accepted
   reason: market_environment
   edited_claim_text: null
-  review_notes: ????????????????????????
+  review_notes: 保留：属于量化影响与市场环境关系的判断。
   method_tags:
   - 指数环境
   - 量化影响
@@ -1350,7 +1350,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 短线基础行情
   - 量化影响
@@ -1365,7 +1365,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   - 风控
@@ -1380,7 +1380,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof
@@ -1394,7 +1394,7 @@ items:
   decision: needs_edit
   reason: needs_human_check
   edited_claim_text: null
-  review_notes: ????/?????????????
+  review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
   method_tags:
   - 量化影响
   article_id: 2bWeZGDSi07
@@ -1408,7 +1408,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 28ACjvWeEjl
@@ -1422,7 +1422,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 成交额
   - 量化影响
@@ -1437,7 +1437,7 @@ items:
   decision: accepted
   reason: trading_mechanism
   edited_claim_text: null
-  review_notes: ?????????????????????????
+  review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
   method_tags:
   - 量化影响
   article_id: 2jbi0efIsof

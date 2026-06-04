@@ -7,7 +7,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -67,7 +67,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -96,7 +96,7 @@ decisions:
     decision: rejected
     reason: background_context
     edited_claim_text: null
-    review_notes: ???????????????????
+    review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -110,7 +110,7 @@ decisions:
     decision: rejected
     reason: background_context
     edited_claim_text: null
-    review_notes: ????????????????????
+    review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -169,7 +169,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -183,7 +183,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3743,7 +3743,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ???????????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3757,7 +3757,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3772,7 +3772,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3786,7 +3786,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3814,7 +3814,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3843,7 +3843,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3857,7 +3857,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ??????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3871,7 +3871,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ???????????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3886,7 +3886,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3900,7 +3900,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3932,7 +3932,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3946,7 +3946,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3960,7 +3960,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ???????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4031,7 +4031,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4045,7 +4045,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4073,7 +4073,7 @@ decisions:
     decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ???????????????????????
+    review_notes: 保留：属于量化影响下的风控原则或风险识别判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -4088,7 +4088,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ???????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4117,7 +4117,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ??????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4131,7 +4131,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4146,7 +4146,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4174,7 +4174,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4217,7 +4217,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4232,7 +4232,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4246,7 +4246,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4260,7 +4260,7 @@ decisions:
     decision: rejected
     reason: too_fragmented
     edited_claim_text: null
-    review_notes: ?????????????????????
+    review_notes: 拒绝：表达过于碎片化，缺少可独立沉淀的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4289,7 +4289,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4303,7 +4303,7 @@ decisions:
     decision: rejected
     reason: too_fragmented
     edited_claim_text: null
-    review_notes: ?????????????????
+    review_notes: 拒绝：表达过于碎片化，缺少可独立沉淀的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4359,7 +4359,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4373,7 +4373,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4432,7 +4432,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4446,7 +4446,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4534,7 +4534,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4548,7 +4548,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4633,7 +4633,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4661,7 +4661,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4675,7 +4675,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????/????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4703,7 +4703,7 @@ decisions:
     decision: rejected
     reason: background_context
     edited_claim_text: null
-    review_notes: ?????????????????????
+    review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4731,7 +4731,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4788,7 +4788,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4859,7 +4859,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4887,7 +4887,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4929,7 +4929,7 @@ decisions:
     decision: rejected
     reason: too_generic
     edited_claim_text: null
-    review_notes: ??????????????????
+    review_notes: 拒绝：表述偏泛，不能独立构成方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4971,7 +4971,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ?????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5015,7 +5015,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5060,7 +5060,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5075,7 +5075,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5105,7 +5105,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5119,7 +5119,7 @@ decisions:
     decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ???????????????????????
+    review_notes: 保留：属于量化影响下的风控原则或风险识别判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -5135,7 +5135,7 @@ decisions:
     decision: rejected
     reason: background_context
     edited_claim_text: null
-    review_notes: ?????????????????????
+    review_notes: 拒绝：更像背景信息或铺垫，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5195,7 +5195,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5238,7 +5238,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5267,7 +5267,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5283,7 +5283,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5297,7 +5297,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5312,7 +5312,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5327,7 +5327,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ??????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5355,7 +5355,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????/?????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5427,7 +5427,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5456,7 +5456,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ??????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5471,7 +5471,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5499,7 +5499,7 @@ decisions:
     decision: rejected
     reason: too_generic
     edited_claim_text: null
-    review_notes: ?????????????????????
+    review_notes: 拒绝：表述偏泛，不能独立构成方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5513,7 +5513,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5558,7 +5558,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5586,7 +5586,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5616,7 +5616,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5630,7 +5630,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5644,7 +5644,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5660,7 +5660,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5688,7 +5688,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5730,7 +5730,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5744,7 +5744,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5772,7 +5772,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5787,7 +5787,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5818,7 +5818,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5861,7 +5861,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????/?????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5891,7 +5891,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5905,7 +5905,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5919,7 +5919,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ?????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5948,7 +5948,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5976,7 +5976,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5991,7 +5991,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6033,7 +6033,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6047,7 +6047,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ??????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6103,7 +6103,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6118,7 +6118,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6132,7 +6132,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ?????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6219,7 +6219,7 @@ decisions:
     decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ????????????????????????
+    review_notes: 保留：属于量化影响与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6234,7 +6234,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6305,7 +6305,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -6349,7 +6349,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6363,7 +6363,7 @@ decisions:
     decision: needs_edit
     reason: needs_human_check
     edited_claim_text: null
-    review_notes: ????/?????????????
+    review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6377,7 +6377,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6391,7 +6391,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6421,7 +6421,7 @@ decisions:
     decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ?????????????????????????
+    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:

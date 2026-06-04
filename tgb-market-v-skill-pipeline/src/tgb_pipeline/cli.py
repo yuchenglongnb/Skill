@@ -20,6 +20,7 @@ from tgb_pipeline.completion.tasks import (
     generate_comment_completion_plan_bundle,
 )
 from tgb_pipeline.curation.tasks import (
+    audit_review_encoding_bundle,
     apply_review_pack_bundle,
     build_default_review_packs_bundle,
     build_review_pack_bundle,
@@ -68,6 +69,7 @@ COMMANDS = (
     "build-review-pack",
     "apply-review-pack",
     "build-default-review-packs",
+    "audit-review-encoding",
     "build-skill",
 )
 
@@ -98,6 +100,7 @@ def build_parser() -> argparse.ArgumentParser:
             "build-review-pack",
             "apply-review-pack",
             "build-default-review-packs",
+            "audit-review-encoding",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -325,6 +328,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "build-review-pack",
         "apply-review-pack",
         "build-default-review-packs",
+        "audit-review-encoding",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -532,6 +536,23 @@ def main(argv: Sequence[str] | None = None) -> int:
                     decisions_path=Path("data/processed/tgb/review_ready_decisions.yaml"),
                 )
                 print(f"build-default-review-packs: generated {len(outputs)} outputs.")
+            elif args.command == "audit-review-encoding":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                stats, report_path = audit_review_encoding_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                )
+                print(
+                    "audit-review-encoding: checked "
+                    f"{stats['total_files']} files, found "
+                    f"{stats['corrupted_files']} corrupted files; report "
+                    f"{report_path.as_posix()}"
+                )
+                if stats["corrupted_files"] > 0:
+                    print("corrupted review text found", file=sys.stderr)
+                    return 1
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(
