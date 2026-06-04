@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-04T13:30:05.212172+00:00",
+  "generated_at": "2026-06-04T13:54:30.059176+00:00",
   "inputs": [
     "data/raw/tgb/articles_index.jsonl",
     "data/raw/tgb/articles.jsonl",
@@ -25,6 +25,7 @@
     "data/processed/tgb/rejected_review_ready_claims.jsonl",
     "data/processed/tgb/needs_edit_review_ready_claims.jsonl",
     "data/processed/tgb/review_packs",
+    "skill_output/tgb_market_v_skill",
     "data/processed/tgb/accepted_methodology_claims.jsonl",
     "data/processed/tgb/rejected_methodology_claims.jsonl",
     "data/processed/tgb/needs_edit_methodology_claims.jsonl",
@@ -94,6 +95,7 @@
     "review_packs_count": 8,
     "review_pack_reports_count": 15,
     "review_pack_index": 1,
+    "skill_v0_count": 1,
     "methodology_profile_draft": 1,
     "accepted_methodology_claims": 0,
     "rejected_methodology_claims": 0,
@@ -106,5 +108,11 @@
   "downloaded_images_path": "data/raw/tgb/images_downloaded.jsonl",
   "image_ocr_path": "data/processed/tgb/image_ocr.jsonl",
   "methodology_claims_path": "data/processed/tgb/methodology_claims.jsonl",
-  "claim_review_decisions_path": "data/processed/tgb/claim_review_decisions.yaml"
+  "claim_review_decisions_path": "data/processed/tgb/claim_review_decisions.yaml",
+  "skill_v0_dir": "skill_output/tgb_market_v_skill",
+  "skill_v0_skill_md": "skill_output/tgb_market_v_skill/SKILL.md",
+  "skill_v0_methodology_profile": "skill_output/tgb_market_v_skill/methodology_profile.md",
+  "skill_v0_evidence_index": "skill_output/tgb_market_v_skill/evidence_index.jsonl",
+  "skill_v0_uncertainty_policy": "skill_output/tgb_market_v_skill/uncertainty_policy.md",
+  "skill_v0_review_summary": "skill_output/tgb_market_v_skill/review_summary.md"
 }

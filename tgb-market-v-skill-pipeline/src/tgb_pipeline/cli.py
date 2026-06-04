@@ -45,6 +45,7 @@ from tgb_pipeline.discovery.tasks import (
 from tgb_pipeline.extraction.tasks import build_review_ready_claims_bundle, extract_claims_bundle
 from tgb_pipeline.export.tasks import export_corpus_bundle
 from tgb_pipeline.images.tasks import download_images_task, ocr_images_task
+from tgb_pipeline.skill.tasks import build_skill_v0_bundle
 
 COMMANDS = (
     "crawl-index",
@@ -71,6 +72,7 @@ COMMANDS = (
     "build-default-review-packs",
     "audit-review-encoding",
     "build-skill",
+    "build-skill-v0",
 )
 
 
@@ -101,6 +103,7 @@ def build_parser() -> argparse.ArgumentParser:
             "apply-review-pack",
             "build-default-review-packs",
             "audit-review-encoding",
+            "build-skill-v0",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -263,6 +266,23 @@ def build_parser() -> argparse.ArgumentParser:
                 action="store_true",
                 help="Allow pack decisions to overwrite existing accepted/rejected/needs_edit entries.",
             )
+        if command == "build-skill-v0":
+            command_parser.add_argument(
+                "--output-dir",
+                default="skill_output/tgb_market_v_skill",
+                help="Directory for the generated Skill v0 artifacts.",
+            )
+            command_parser.add_argument(
+                "--include-needs-edit-index",
+                action="store_true",
+                help="Also emit a separate needs-edit evidence index.",
+            )
+            command_parser.add_argument(
+                "--max-claims-per-theme",
+                type=int,
+                default=5,
+                help="Maximum number of representative claims and rules per theme.",
+            )
         if command in {"extract-claims", "build-review-ready-claims"}:
             command_parser.add_argument(
                 "--max-per-tag",
@@ -329,6 +349,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "apply-review-pack",
         "build-default-review-packs",
         "audit-review-encoding",
+        "build-skill-v0",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -553,6 +574,18 @@ def main(argv: Sequence[str] | None = None) -> int:
                 if stats["corrupted_files"] > 0:
                     print("corrupted review text found", file=sys.stderr)
                     return 1
+            elif args.command == "build-skill-v0":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = build_skill_v0_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    output_dir=Path(args.output_dir),
+                    include_needs_edit_index=args.include_needs_edit_index,
+                    max_claims_per_theme=args.max_claims_per_theme,
+                )
+                print(f"build-skill-v0: generated {len(outputs)} outputs.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

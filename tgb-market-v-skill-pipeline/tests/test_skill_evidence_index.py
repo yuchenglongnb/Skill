@@ -1,0 +1,30 @@
+import json
+
+from tgb_pipeline.skill.evidence_index import (
+    build_needs_edit_evidence_index,
+    build_skill_evidence_index,
+)
+from tests.skill_fixture_data import make_claim
+
+
+def test_skill_evidence_index_uses_only_accepted(tmp_path) -> None:
+    accepted = [make_claim("claim-a", "量化会改变反馈速度。", tag="量化影响")]
+    needs_edit = [
+        make_claim(
+            "claim-b",
+            "像牛市又不像牛市。",
+            tag="牛熊切换",
+            review_status="needs_edit",
+        )
+    ]
+
+    accepted_path = build_skill_evidence_index(accepted, tmp_path)
+    needs_edit_path = build_needs_edit_evidence_index(needs_edit, tmp_path)
+
+    accepted_rows = [json.loads(line) for line in accepted_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    needs_edit_rows = [json.loads(line) for line in needs_edit_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+
+    assert [row["claim_id"] for row in accepted_rows] == ["claim-a"]
+    assert accepted_rows[0]["article_id"] == "a1"
+    assert accepted_rows[0]["raw_excerpt"] == "量化会改变反馈速度。"
+    assert [row["claim_id"] for row in needs_edit_rows] == ["claim-b"]

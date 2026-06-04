@@ -31,6 +31,12 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
     comment_errors = _read_optional(raw_dir / "comment_crawl_errors.jsonl", CrawlError, "error_id")
     review_packs_dir = processed_dir / "review_packs"
     review_pack_reports_dir = reports_dir / "review_packs"
+    skill_v0_dir = Path("skill_output/tgb_market_v_skill")
+    skill_v0_skill_md = skill_v0_dir / "SKILL.md"
+    skill_v0_methodology_profile = skill_v0_dir / "methodology_profile.md"
+    skill_v0_evidence_index = skill_v0_dir / "evidence_index.jsonl"
+    skill_v0_uncertainty_policy = skill_v0_dir / "uncertainty_policy.md"
+    skill_v0_review_summary = skill_v0_dir / "review_summary.md"
     counts = {
         "article_index": len(_read_optional(raw_dir / "articles_index.jsonl", ArticleIndex, "article_id")),
         "article_seed_candidates": len(_read_optional(candidates_path, ArticleSeedCandidate, "candidate_id")),
@@ -72,6 +78,7 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "review_packs_count": len(list(review_packs_dir.glob("*.yaml"))) if review_packs_dir.exists() else 0,
         "review_pack_reports_count": len(list(review_pack_reports_dir.glob("*.md"))) if review_pack_reports_dir.exists() else 0,
         "review_pack_index": 1 if (review_pack_reports_dir / "index.md").exists() else 0,
+        "skill_v0_count": 1 if skill_v0_dir.exists() else 0,
         "methodology_profile_draft": 1 if (reports_dir / "methodology_profile_draft.md").exists() else 0,
         "accepted_methodology_claims": len(_read_optional(processed_dir / "accepted_methodology_claims.jsonl", MethodologyClaim, "claim_id")),
         "rejected_methodology_claims": len(_read_optional(processed_dir / "rejected_methodology_claims.jsonl", MethodologyClaim, "claim_id")),
@@ -107,6 +114,7 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
             _relative(processed_dir / "rejected_review_ready_claims.jsonl"),
             _relative(processed_dir / "needs_edit_review_ready_claims.jsonl"),
             _relative(processed_dir / "review_packs"),
+            _relative(skill_v0_dir),
             _relative(processed_dir / "accepted_methodology_claims.jsonl"),
             _relative(processed_dir / "rejected_methodology_claims.jsonl"),
             _relative(processed_dir / "needs_edit_methodology_claims.jsonl"),
@@ -141,6 +149,12 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "image_ocr_path": _relative(processed_dir / "image_ocr.jsonl"),
         "methodology_claims_path": _relative(processed_dir / "methodology_claims.jsonl"),
         "claim_review_decisions_path": _relative(processed_dir / "claim_review_decisions.yaml"),
+        "skill_v0_dir": _relative(skill_v0_dir) if skill_v0_dir.exists() else None,
+        "skill_v0_skill_md": _relative(skill_v0_skill_md) if skill_v0_skill_md.exists() else None,
+        "skill_v0_methodology_profile": _relative(skill_v0_methodology_profile) if skill_v0_methodology_profile.exists() else None,
+        "skill_v0_evidence_index": _relative(skill_v0_evidence_index) if skill_v0_evidence_index.exists() else None,
+        "skill_v0_uncertainty_policy": _relative(skill_v0_uncertainty_policy) if skill_v0_uncertainty_policy.exists() else None,
+        "skill_v0_review_summary": _relative(skill_v0_review_summary) if skill_v0_review_summary.exists() else None,
     }
     output_path = processed_dir / "corpus_manifest.json"
     output_path.parent.mkdir(parents=True, exist_ok=True)
