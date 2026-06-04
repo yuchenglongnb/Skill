@@ -34,10 +34,10 @@ decisions:
       article_source
     ranking_score: 27
   claim-27d6b8820885dee1:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -50,10 +50,10 @@ decisions:
       article_source
     ranking_score: 25
   claim-38184d61ed1ba0ec:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -78,10 +78,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 25
   claim-4d2e32c471fb9741:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -121,10 +121,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 25
   claim-6d64a9229d147ed7:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性短线方法论表述。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -135,10 +135,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 25
   claim-6e6e4c1cd2740054:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -150,10 +150,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 25
   claim-7ae975def66992ff:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -210,10 +210,10 @@ decisions:
       article_source
     ranking_score: 25
   claim-da39a87946d160b7:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成短线方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -225,10 +225,10 @@ decisions:
       article_source
     ranking_score: 25
   claim-20690373fb54268c:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -239,10 +239,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 23
   claim-3a8e9d3faa8377d8:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -255,10 +255,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 23
   claim-dd20b77a7c18f0d3:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -3914,10 +3914,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 26
   claim-6b7b0cd7472e8ce9:
-    decision: unreviewed
-    reason: market_environment
+    decision: needs_edit
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的短线执行规则表述。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4199,10 +4199,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-045d85ea7de5bd92:
-    decision: unreviewed
-    reason: market_environment
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4384,10 +4384,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-1238b38b8a84fdc2:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4471,10 +4471,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-1d43f83ee28113ea:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4486,10 +4486,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-1d74e64bd2040ab0:
-    decision: unreviewed
-    reason: market_environment
+    decision: needs_edit
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的风控判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4573,10 +4573,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-20a73a4c0a41d291:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -4686,10 +4686,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-2edec5c39f0403ff:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句口语化且带有嘲讽色彩，需要人工结合上下文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5146,10 +5146,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-64b006f936c2bb96:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5206,10 +5206,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-6ad31981dcfeccf9:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5249,10 +5249,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-6e1ff63c220e4af7:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5366,10 +5366,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-825074353fe59c4c:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成短线方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5380,10 +5380,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-83a308197b76a046:
-    decision: unreviewed
-    reason: market_environment
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成短线方法论。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5930,10 +5930,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-a7fc27632cd96dbb:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6072,10 +6072,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-bb1daf51bc0582d7:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6172,10 +6172,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-c243a8147e4a2acb:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6187,10 +6187,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-c3d92b374e2483d9:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6403,10 +6403,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-cee108d4db4725f8:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6573,10 +6573,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-dd1e19772005d0a3:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6588,10 +6588,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-dd651273a122a94a:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6729,10 +6729,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-e7885e36fabe1258:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -6775,10 +6775,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-eb58a5d0f45ba417:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6891,10 +6891,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-f29bf784f999cec3:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7079,10 +7079,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 23
   claim-009323a8fac98d23:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7164,10 +7164,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-06738b0e2b2a5919:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7207,10 +7207,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-07a9a3adbf287d74:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7307,10 +7307,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-0c5bf6d39d5a91fb:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线交易的执行原则或买卖节奏规则。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7378,10 +7378,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-10bbaa43223ad693:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7407,10 +7407,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-123c471b89e83bce:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7521,10 +7521,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-1646ff0b5d22d1a5:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7592,10 +7592,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-17a2bdd7c1e40103:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线交易的执行原则或买卖节奏规则。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7607,10 +7607,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-184a79cda8f754c6:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线交易的执行原则或买卖节奏规则。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7650,10 +7650,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-1a2f0522f6633445:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7665,10 +7665,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-1a640a1d7f378a20:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7738,10 +7738,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-1d6b88cff6737cf2:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线交易的执行原则或买卖节奏规则。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7766,10 +7766,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-200c6551e0bfbb08:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -7867,10 +7867,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-26b5c31e0a624050:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7939,10 +7939,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-28f0df49eed2ed5c:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8012,10 +8012,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-2eff4f4035c78015:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句使用了强烈口语化比喻，需要人工结合上下文确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8181,10 +8181,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-330c0be093ded33d:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成短线方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8195,10 +8195,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-3635305fd4c349ae:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8209,10 +8209,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-366756e1a248d28b:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8295,10 +8295,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-3a417c1c14e06bc9:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8352,10 +8352,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-3cc3bccce2fd7b0c:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8395,10 +8395,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-40e03b9f4a6d48ea:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8409,10 +8409,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-414b0ea45b1a49c3:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8496,10 +8496,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-44e216cd6e0050c2:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8594,10 +8594,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-4c1885ecd5694079:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8623,10 +8623,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-4d7d1f6438761295:
-    decision: unreviewed
-    reason: market_environment
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8638,10 +8638,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-4e194500a0954265:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8668,10 +8668,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-4edea2fbd5d7f901:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为短线基础行情机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8768,10 +8768,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-51da446ce0d6ed84:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句吸有明显强烈情绪化描述，需要人工确认后再抽象。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8797,10 +8797,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-53fa0f34aebdbe9b:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8843,10 +8843,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-57c0b2af1a034cf0:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线交易的执行原则或买卖节奏规则。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8857,10 +8857,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-587d430610a75ace:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8943,10 +8943,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-5ccb6f66271500ff:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8971,10 +8971,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-5d85952193c25f56:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -8985,10 +8985,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-5dd5d680cb578f5e:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9098,10 +9098,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-62c981b65082b132:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9126,10 +9126,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-62ef53b2b27beeea:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句含有较强人身化吐槽，不宜直接按字面转义。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9140,10 +9140,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-6384d85aabd65fcb:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9409,10 +9409,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-6d09061bc0fe5f74:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -9622,10 +9622,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-7536ba8185d05c29:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9664,10 +9664,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-79045f4d8b3c79cf:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成短线方法论。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9678,10 +9678,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-7930a8cc01eeeb0b:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性短线方法论表述。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9706,10 +9706,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-7b9d53b3fb626f00:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：存在明显打趣和说反话风格，需要人工结合语境确认。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9749,10 +9749,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-7e344fa81b8412d0:
-    decision: unreviewed
+    decision: needs_edit
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -9806,10 +9806,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-804abd4b64c885a5:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9877,10 +9877,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-83f5c83ef3a1a1bd:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -9893,10 +9893,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-843d3eb242ca05a0:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9965,10 +9965,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-86a42cbe0079b3de:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -9979,10 +9979,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-87c49ab00bd1b8a9:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10051,10 +10051,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-8b12e5a29683b573:
-    decision: unreviewed
+    decision: needs_edit
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为短线基础行情机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10080,10 +10080,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-8b453f4a65eb7521:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10150,10 +10150,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-8f1fecb3e1009dc4:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10207,10 +10207,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-92b8d09b6a5dd8e8:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10221,10 +10221,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-9366a7a1ad167f86:
-    decision: unreviewed
+    decision: accepted
     reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线生态与市场环境关系的判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -10236,10 +10236,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-93d5499c3fe2f1e0:
-    decision: unreviewed
-    reason: trading_mechanism
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -10505,10 +10505,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-a8bfb7d84a9214e4:
-    decision: unreviewed
+    decision: accepted
     reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于短线基础行情或接力机制的判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:

@@ -1,15 +1,15 @@
 # Review-ready Curated Methodology Profile
 
 ## Summary
-- accepted_claims: 123
-- needs_edit_claims: 50
-- top_method_tags: [('量化影响', 101), ('成交额', 86), ('指数环境', 43), ('短线基础行情', 16), ('买入触发', 7), ('卖出条件', 5), ('风控', 4), ('仓位管理', 2), ('市场结构', 2), ('数字化/标准化', 1)]
-- source_type_distribution: {'article': 6, 'comment': 167}
+- accepted_claims: 177
+- needs_edit_claims: 67
+- top_method_tags: [('量化影响', 105), ('短线基础行情', 87), ('成交额', 86), ('指数环境', 72), ('买入触发', 10), ('赚钱效应', 5), ('卖出条件', 5), ('龙头', 4), ('风控', 4), ('仓位管理', 3)]
+- source_type_distribution: {'article': 12, 'comment': 232}
 
 ## Core Method Tags
 
 ### 量化影响
-- accepted count: 101
+- accepted count: 105
 - representative claims:
   - claim-451671d03a6b0646
     - claim_text: 美国和我国都因为量化趋同交易出现了股灾。
@@ -67,62 +67,62 @@
     - source_ids: ['comment-89594339']
 
 ### 短线基础行情
-- accepted count: 16
+- accepted count: 87
 - representative claims:
-  - claim-c1c3ea0d9bd5e06a
-    - claim_text: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
-    - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
+  - claim-20690373fb54268c
+    - claim_text: 所以连板率非常丑，做接力的连接12天盘，轮动超快。
+    - raw_excerpt: 所以连板率非常丑，做接力的连接12天盘，轮动超快。
+    - article_id: 1Vgsye6eK36
+    - source_ids: ['1Vgsye6eK36']
+  - claim-27d6b8820885dee1
+    - claim_text: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+    - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
     - article_id: 2jbi0efIsof
     - source_ids: ['2jbi0efIsof']
-  - claim-07c3a9a457b934fa
-    - claim_text: 机构做多那天，会把追涨量化和短线资金都带倒一处，别的地方如果有短线获利盘，则存在流动性不足。
-    - raw_excerpt: 机构做多那天，会把追涨量化和短线资金都带倒一处，别的地方如果有短线获利盘，则存在流动性不足。
-    - article_id: 2jbi0efIsof
-    - source_ids: ['comment-91938414']
-  - claim-19f114842b0cb0b5
-    - claim_text: 所以你看220427那个大底，当天放量，全是尾盘冲进去想套利的，次日被短线资金砸成狗。
-    - raw_excerpt: 所以你看220427那个大底，当天放量，全是尾盘冲进去想套利的，次日被短线资金砸成狗。
+  - claim-38184d61ed1ba0ec
+    - claim_text: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
+    - raw_excerpt: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
+    - article_id: 1Zn2UmelLMJ
+    - source_ids: ['1Zn2UmelLMJ']
+  - claim-6d64a9229d147ed7
+    - claim_text: 现学现卖，“行情不好是因为短线客接不住，接得住行情就会好。
+    - raw_excerpt: 现学现卖，“行情不好是因为短线客接不住，接得住行情就会好。
+    - article_id: 24O3rehPcWv
+    - source_ids: ['24O3rehPcWv']
+  - claim-6e6e4c1cd2740054
+    - claim_text: 如果底层观点成立，那，就要把短线分析和统计都独立于指数，否则会自受其乱。
+    - raw_excerpt: 如果底层观点成立，那，就要把短线分析和统计都独立于指数，否则会自受其乱。
     - article_id: 1VvuASpPpMr
-    - source_ids: ['comment-67011177']
-  - claim-27eb38353581554b
-    - claim_text: 指数都4连阴，肯定不是那些什么活口，里面抱团的短线佬太多，今天场内出现过恐慌杀跌特征更好（急跳，日线放量等）。
-    - raw_excerpt: 指数都4连阴，肯定不是那些什么活口，里面抱团的短线佬太多，今天场内出现过恐慌杀跌特征更好（急跳，日线放量等）。
-    - article_id: 28ACjvWeEjl
-    - source_ids: ['comment-77018462']
-  - claim-5270d1bec437cb44
-    - claim_text: 现在短线市场被量化介入以后不是你看到那会事。
-    - raw_excerpt: 现在短线市场被量化介入以后不是你看到那会事。
-    - article_id: 2fQt29pQ3Pa
-    - source_ids: ['comment-84474300']
+    - source_ids: ['1VvuASpPpMr']
 
 ### 指数环境
-- accepted count: 43
+- accepted count: 72
 - representative claims:
+  - claim-27d6b8820885dee1
+    - claim_text: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+    - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+    - article_id: 2jbi0efIsof
+    - source_ids: ['2jbi0efIsof']
+  - claim-6e6e4c1cd2740054
+    - claim_text: 如果底层观点成立，那，就要把短线分析和统计都独立于指数，否则会自受其乱。
+    - raw_excerpt: 如果底层观点成立，那，就要把短线分析和统计都独立于指数，否则会自受其乱。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['1VvuASpPpMr']
+  - claim-009323a8fac98d23
+    - claim_text: 短线这种小行情，今天已经跳空加速，并且因为指数弱，形成了抱团。
+    - raw_excerpt: 短线这种小行情，今天已经跳空加速，并且因为指数弱，形成了抱团。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['comment-67280904']
   - claim-06d4d878c50bbbfc
     - claim_text: 如果不能指数两连阳实体暴涨，板块之间肯定资金拉扯，这是量化市场的一种常态。
     - raw_excerpt: 如果不能指数两连阳实体暴涨，板块之间肯定资金拉扯，这是量化市场的一种常态。
     - article_id: 2jbi0efIsof
     - source_ids: ['comment-93337712']
-  - claim-135f828da00f1296
-    - claim_text: 如果你信V，今天早盘放量恐慌的板块，午后指数跳水点就是买点。
-    - raw_excerpt: 如果你信V，今天早盘放量恐慌的板块，午后指数跳水点就是买点。
-    - article_id: 1Zn2UmelLMJ
-    - source_ids: ['comment-68655582']
-  - claim-13dfa0e05b807068
-    - claim_text: 修个缩量下影线，明天不能高开还不是继续跌，还不断压着指数反弹，人为延长触底时间。
-    - raw_excerpt: 修个缩量下影线，明天不能高开还不是继续跌，还不断压着指数反弹，人为延长触底时间。
-    - article_id: 1Zn2UmelLMJ
-    - source_ids: ['comment-69131996']
-  - claim-19cd972ba0aa3f4a
-    - claim_text: 如果不看指数，今天开出来半导体和商业航天缩量平低开，同时是近端板块，是适合轮动。
-    - raw_excerpt: 如果不看指数，今天开出来半导体和商业航天缩量平低开，同时是近端板块，是适合轮动。
-    - article_id: 28ACjvWeEjl
-    - source_ids: ['comment-76589729']
-  - claim-23a90b94549bceac
-    - claim_text: 指数方面，如果走成缩量+小K线，一般周一走势要靠消息面决定。
-    - raw_excerpt: 指数方面，如果走成缩量+小K线，一般周一走势要靠消息面决定。
-    - article_id: 1Zn2UmelLMJ
-    - source_ids: ['comment-69414715']
+  - claim-1238b38b8a84fdc2
+    - claim_text: 指数向下，假设短线不是自己独立的数板行情，明天溢价有限，搞不好被绕柱。
+    - raw_excerpt: 指数向下，假设短线不是自己独立的数板行情，明天溢价有限，搞不好被绕柱。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-91827043']
 
 ### 风控
 - accepted count: 4
@@ -158,13 +158,18 @@
     - source_ids: ['2ohHCnLXtP8']
 
 ### 买入触发
-- accepted count: 7
+- accepted count: 10
 - representative claims:
   - claim-1bd6f55ea1a4f94f
     - claim_text: 而量化高抛低吸的中间差价，实际上就是躺着的自然人付了，因为你持股实际价值变低了。
     - raw_excerpt: 而量化高抛低吸的中间差价，实际上就是躺着的自然人付了，因为你持股实际价值变低了。
     - article_id: 2ohHCnLXtP8
     - source_ids: ['comment-96803174']
+  - claim-1d74e64bd2040ab0
+    - claim_text: 小金属今天没先手有风险的，很多短线资金昨天上车，如果午后指数不好回落炸几个板，情况又好像周四周五的
+    - raw_excerpt: 小金属今天没先手有风险的，很多短线资金昨天上车，如果午后指数不好回落炸几个板，情况又好像周四周五的
+    - article_id: 1Zn2UmelLMJ
+    - source_ids: ['comment-68271031']
   - claim-5d6a72a7232bf40b
     - claim_text: 龙虎榜3家机构，净买入1.52亿，不是做T，大概率是主观多头的机构，不是量化。
     - raw_excerpt: 龙虎榜3家机构，净买入1.52亿，不是做T，大概率是主观多头的机构，不是量化。
@@ -180,11 +185,35 @@
     - raw_excerpt: 不是今天的前排，分时跳水点博弈低吸，不会碰到高频量化。
     - article_id: 28ACjvWeEjl
     - source_ids: ['comment-76723920']
-  - claim-941817beb3dea739
-    - claim_text: 假设没仓位，大部分还不是量化拉起来去追半路。
-    - raw_excerpt: 假设没仓位，大部分还不是量化拉起来去追半路。
+
+### 赚钱效应
+- accepted count: 5
+- representative claims:
+  - claim-7ae975def66992ff
+    - claim_text: 赚钱效应应体现在短线整体，而不是局部，某某龙头还没挂。
+    - raw_excerpt: 赚钱效应应体现在短线整体，而不是局部，某某龙头还没挂。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['1VvuASpPpMr']
+  - claim-1238b38b8a84fdc2
+    - claim_text: 指数向下，假设短线不是自己独立的数板行情，明天溢价有限，搞不好被绕柱。
+    - raw_excerpt: 指数向下，假设短线不是自己独立的数板行情，明天溢价有限，搞不好被绕柱。
     - article_id: 2jbi0efIsof
-    - source_ids: ['comment-93576190']
+    - source_ids: ['comment-91827043']
+  - claim-28f0df49eed2ed5c
+    - claim_text: 下面只说客观看法，指数如果助攻，代表短线资金提前量做对了，周一享受高溢价，周一瀑布另外一码事，反正可以坑到人。
+    - raw_excerpt: 下面只说客观看法，指数如果助攻，代表短线资金提前量做对了，周一享受高溢价，周一瀑布另外一码事，反正可以坑到人。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['comment-67684728']
+  - claim-6e1ff63c220e4af7
+    - claim_text: 其实做短线接力，换手大是不好的，涨停板本质是压抑供求，让部分资金次日追买出溢价。
+    - raw_excerpt: 其实做短线接力，换手大是不好的，涨停板本质是压抑供求，让部分资金次日追买出溢价。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-92378646']
+  - claim-f0d489a5346c0bf5
+    - claim_text: 历史上创业板因为赚钱效应好，虹吸主板资金，单独放量就一次。
+    - raw_excerpt: 历史上创业板因为赚钱效应好，虹吸主板资金，单独放量就一次。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['comment-64788825']
 
 ### 卖出条件
 - accepted count: 5
@@ -215,9 +244,38 @@
     - article_id: 2ohHCnLXtP8
     - source_ids: ['comment-95006359']
 
-### 仓位管理
-- accepted count: 2
+### 龙头
+- accepted count: 4
 - representative claims:
+  - claim-7ae975def66992ff
+    - claim_text: 赚钱效应应体现在短线整体，而不是局部，某某龙头还没挂。
+    - raw_excerpt: 赚钱效应应体现在短线整体，而不是局部，某某龙头还没挂。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['1VvuASpPpMr']
+  - claim-0c5bf6d39d5a91fb
+    - claim_text: 所以短线真要开仓，尽量绕着龙头选手口味走比较好。
+    - raw_excerpt: 所以短线真要开仓，尽量绕着龙头选手口味走比较好。
+    - article_id: 21ZIusToJzV
+    - source_ids: ['comment-72306432']
+  - claim-981788c269adea5d
+    - claim_text: 高开肯定不好的，如果你要去赌提前量，竞价出门买在量化之前，是最优解，后面指数助攻上来，你就占据了龙头位置。
+    - raw_excerpt: 高开肯定不好的，如果你要去赌提前量，竞价出门买在量化之前，是最优解，后面指数助攻上来，你就占据了龙头位置。
+    - article_id: 28ACjvWeEjl
+    - source_ids: ['comment-76660682']
+  - claim-a7fc27632cd96dbb
+    - claim_text: 但是券商如果明天同样情况，明天龙头直接一字或者快速连板，整个板块因为调整过，抛压小。
+    - raw_excerpt: 但是券商如果明天同样情况，明天龙头直接一字或者快速连板，整个板块因为调整过，抛压小。
+    - article_id: 2bWeZGDSi07
+    - source_ids: ['comment-79456476']
+
+### 仓位管理
+- accepted count: 3
+- representative claims:
+  - claim-17a2bdd7c1e40103
+    - claim_text: 周一惯常有短线资金回流，所以最迟竞价可以配点仓位，市场差一般最后才是低点。
+    - raw_excerpt: 周一惯常有短线资金回流，所以最迟竞价可以配点仓位，市场差一般最后才是低点。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['comment-64510428']
   - claim-623e3b6b923fee7f
     - claim_text: 今年1月的下跌，几乎打穿了所有量化的风控线，所以小票反弹之前，它们头寸大降，仓位都去了抱团大象。
     - raw_excerpt: 今年1月的下跌，几乎打穿了所有量化的风控线，所以小票反弹之前，它们头寸大降，仓位都去了抱团大象。
@@ -230,8 +288,13 @@
     - source_ids: ['comment-93576190']
 
 ### 市场结构
-- accepted count: 2
+- accepted count: 3
 - representative claims:
+  - claim-4e194500a0954265
+    - claim_text: 短线方面，我已经说了筹码结构不好，这种死不断气的行情，不是不调整，而是当大家都防守疲劳的时候给予重击。
+    - raw_excerpt: 短线方面，我已经说了筹码结构不好，这种死不断气的行情，不是不调整，而是当大家都防守疲劳的时候给予重击。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-93305070']
   - claim-7297875d871b1c1a
     - claim_text: 量化强项就是识别量价关系，匹配筹码结构，所以这种行情它主导横跳。
     - raw_excerpt: 量化强项就是识别量价关系，匹配筹码结构，所以这种行情它主导横跳。
@@ -243,14 +306,33 @@
     - article_id: 2ohHCnLXtP8
     - source_ids: ['comment-99261680']
 
-### 龙头
-- accepted count: 1
+### 题材持续性
+- accepted count: 2
 - representative claims:
-  - claim-981788c269adea5d
-    - claim_text: 高开肯定不好的，如果你要去赌提前量，竞价出门买在量化之前，是最优解，后面指数助攻上来，你就占据了龙头位置。
-    - raw_excerpt: 高开肯定不好的，如果你要去赌提前量，竞价出门买在量化之前，是最优解，后面指数助攻上来，你就占据了龙头位置。
+  - claim-70d207775fff0a00
+    - claim_text: 由于前面一波主线是券商，所以明显缩量的情况下，也只能局部维持热度，券商涨不动，并且形成第一波的回落。
+    - raw_excerpt: 由于前面一波主线是券商，所以明显缩量的情况下，也只能局部维持热度，券商涨不动，并且形成第一波的回落。
+    - article_id: 2bWeZGDSi07
+    - source_ids: ['comment-79488229']
+  - claim-83f5c83ef3a1a1bd
+    - claim_text: 今天短线格局属于抱团昨日分歧的趋势主线电力，如果指数跳，应该会加剧资金进入电力。
+    - raw_excerpt: 今天短线格局属于抱团昨日分歧的趋势主线电力，如果指数跳，应该会加剧资金进入电力。
     - article_id: 28ACjvWeEjl
-    - source_ids: ['comment-76660682']
+    - source_ids: ['comment-76402337']
+
+### AI工具
+- accepted count: 2
+- representative claims:
+  - claim-53fa0f34aebdbe9b
+    - claim_text: 今天不用光看着AI，如果打板指数开不高，关注3个2板的接力，特别是换手那个。
+    - raw_excerpt: 今天不用光看着AI，如果打板指数开不高，关注3个2板的接力，特别是换手那个。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['comment-64840584']
+  - claim-ea01c059afe0fc26
+    - claim_text: 今天AI能高走，很关键在于竞价不要有资金抢，无论板块还是全A，呈现缩量状态，最好成交208亿以下。
+    - raw_excerpt: 今天AI能高走，很关键在于竞价不要有资金抢，无论板块还是全A，呈现缩量状态，最好成交208亿以下。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-89793598']
 
 ### 机器人
 - accepted count: 1
@@ -261,32 +343,32 @@
     - article_id: 2ohHCnLXtP8
     - source_ids: ['comment-99249773']
 
-### 赚钱效应
+### 情绪周期
 - accepted count: 1
 - representative claims:
-  - claim-f0d489a5346c0bf5
-    - claim_text: 历史上创业板因为赚钱效应好，虹吸主板资金，单独放量就一次。
-    - raw_excerpt: 历史上创业板因为赚钱效应好，虹吸主板资金，单独放量就一次。
-    - article_id: 1VvuASpPpMr
-    - source_ids: ['comment-64788825']
+  - claim-64b006f936c2bb96
+    - claim_text: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - raw_excerpt: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - article_id: 24O3rehPcWv
+    - source_ids: ['comment-73650618']
 
-### 题材持续性
+### 反核
 - accepted count: 1
 - representative claims:
-  - claim-70d207775fff0a00
-    - claim_text: 由于前面一波主线是券商，所以明显缩量的情况下，也只能局部维持热度，券商涨不动，并且形成第一波的回落。
-    - raw_excerpt: 由于前面一波主线是券商，所以明显缩量的情况下，也只能局部维持热度，券商涨不动，并且形成第一波的回落。
-    - article_id: 2bWeZGDSi07
-    - source_ids: ['comment-79488229']
+  - claim-64b006f936c2bb96
+    - claim_text: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - raw_excerpt: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - article_id: 24O3rehPcWv
+    - source_ids: ['comment-73650618']
 
-### AI工具
+### 政策催化
 - accepted count: 1
 - representative claims:
-  - claim-ea01c059afe0fc26
-    - claim_text: 今天AI能高走，很关键在于竞价不要有资金抢，无论板块还是全A，呈现缩量状态，最好成交208亿以下。
-    - raw_excerpt: 今天AI能高走，很关键在于竞价不要有资金抢，无论板块还是全A，呈现缩量状态，最好成交208亿以下。
-    - article_id: 2jbi0efIsof
-    - source_ids: ['comment-89793598']
+  - claim-51da446ce0d6ed84
+    - claim_text: 如果看得准，根据短线佬剁雕的必然性，正常明天蹲着买应该更便宜，毕竟嘎嘎乱剁的资金不看基本面多，认可政策进场的资金自然是看基本面的，也是可以拿住票的，否则哪来的增量。
+    - raw_excerpt: 如果看得准，根据短线佬剁雕的必然性，正常明天蹲着买应该更便宜，毕竟嘎嘎乱剁的资金不看基本面多，认可政策进场的资金自然是看基本面的，也是可以拿住票的，否则哪来的增量。
+    - article_id: 214VO67bBHd
+    - source_ids: ['comment-69670814']
 
 ## Evidence Caveats
 - Only accepted and needs-edit claims are included here.
