@@ -1,15 +1,15 @@
 # Review-ready Curated Methodology Profile
 
 ## Summary
-- accepted_claims: 177
-- needs_edit_claims: 67
-- top_method_tags: [('量化影响', 105), ('短线基础行情', 87), ('成交额', 86), ('指数环境', 72), ('买入触发', 10), ('赚钱效应', 5), ('卖出条件', 5), ('龙头', 4), ('风控', 4), ('仓位管理', 3)]
-- source_type_distribution: {'article': 12, 'comment': 232}
+- accepted_claims: 219
+- needs_edit_claims: 81
+- top_method_tags: [('量化影响', 113), ('短线基础行情', 90), ('成交额', 86), ('指数环境', 74), ('风控', 60), ('买入触发', 11), ('赚钱效应', 6), ('卖出条件', 5), ('亏钱效应', 5), ('龙头', 4)]
+- source_type_distribution: {'article': 13, 'comment': 287}
 
 ## Core Method Tags
 
 ### 量化影响
-- accepted count: 105
+- accepted count: 113
 - representative claims:
   - claim-451671d03a6b0646
     - claim_text: 美国和我国都因为量化趋同交易出现了股灾。
@@ -67,7 +67,7 @@
     - source_ids: ['comment-89594339']
 
 ### 短线基础行情
-- accepted count: 87
+- accepted count: 90
 - representative claims:
   - claim-20690373fb54268c
     - claim_text: 所以连板率非常丑，做接力的连接12天盘，轮动超快。
@@ -96,7 +96,7 @@
     - source_ids: ['1VvuASpPpMr']
 
 ### 指数环境
-- accepted count: 72
+- accepted count: 74
 - representative claims:
   - claim-27d6b8820885dee1
     - claim_text: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
@@ -125,28 +125,33 @@
     - source_ids: ['comment-91827043']
 
 ### 风控
-- accepted count: 4
+- accepted count: 60
 - representative claims:
-  - claim-430e333ecc703089
-    - claim_text: 量这个不是越大越好的，低开就不能放量，有大量资金水下止损才会放量，第一波跳水爆杀的。
-    - raw_excerpt: 量这个不是越大越好的，低开就不能放量，有大量资金水下止损才会放量，第一波跳水爆杀的。
-    - article_id: 28ACjvWeEjl
-    - source_ids: ['comment-77257087']
-  - claim-623e3b6b923fee7f
-    - claim_text: 今年1月的下跌，几乎打穿了所有量化的风控线，所以小票反弹之前，它们头寸大降，仓位都去了抱团大象。
-    - raw_excerpt: 今年1月的下跌，几乎打穿了所有量化的风控线，所以小票反弹之前，它们头寸大降，仓位都去了抱团大象。
-    - article_id: 28ACjvWeEjl
-    - source_ids: ['comment-77286726']
-  - claim-a6d53867639e3666
-    - claim_text: 市场走弱的情况下，如果助跌，会有很多人类止损追跌，踩踏是量化控制不了的，它只能买一边，等于引导了主观空头。
-    - raw_excerpt: 市场走弱的情况下，如果助跌，会有很多人类止损追跌，踩踏是量化控制不了的，它只能买一边，等于引导了主观空头。
-    - article_id: 25VmrtPmuWI
-    - source_ids: ['comment-76027135']
-  - claim-cbee30f7327ef4d2
-    - claim_text: 如果量化自身的风控线被自己打破了（你理解成猫仔锤到它风控也可以），就会开启揍自己模式，比你先砸盘，带着雕王们一起揍自己。
-    - raw_excerpt: 如果量化自身的风控线被自己打破了（你理解成猫仔锤到它风控也可以），就会开启揍自己模式，比你先砸盘，带着雕王们一起揍自己。
-    - article_id: 28ACjvWeEjl
-    - source_ids: ['comment-77228284']
+  - claim-fbb0b89761bddf8b
+    - claim_text: 别行情涨出熊心豹子胆再去杠杆加仓，那时筹码贵，回撤快，倾家荡产的玩法。
+    - raw_excerpt: 别行情涨出熊心豹子胆再去杠杆加仓，那时筹码贵，回撤快，倾家荡产的玩法。
+    - article_id: 2bWeZGDSi07
+    - source_ids: ['2bWeZGDSi07']
+  - claim-10deb5c8be762be7
+    - claim_text: 要大概率低开的话，自然需要硬吃这些抛压，同时早盘要顶住低开后惯性的止损砸盘。
+    - raw_excerpt: 要大概率低开的话，自然需要硬吃这些抛压，同时早盘要顶住低开后惯性的止损砸盘。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-91877127']
+  - claim-1607cfb86dd42e92
+    - claim_text: 高频交易与算法追涨杀跌放大了市场波动率，尤其在情绪脆弱期，程序化止损盘会加速市场失血，形成“下跌-减仓-再下跌”的死亡循环。
+    - raw_excerpt: 高频交易与算法追涨杀跌放大了市场波动率，尤其在情绪脆弱期，程序化止损盘会加速市场失血，形成“下跌-减仓-再下跌”的死亡循环。
+    - article_id: 2ohHCnLXtP8
+    - source_ids: ['comment-96648290']
+  - claim-1e3ff8e332e85c3e
+    - claim_text: 实际上市场买盘并非这么强，次日一个低开，量化先溜，直接就逼你跟着止损，不止损又大亏。
+    - raw_excerpt: 实际上市场买盘并非这么强，次日一个低开，量化先溜，直接就逼你跟着止损，不止损又大亏。
+    - article_id: 2ohHCnLXtP8
+    - source_ids: ['comment-96872252']
+  - claim-2b50815b715120c8
+    - claim_text: 最终目的，写好识别算法，这个票出来，弹窗，有没有风控触发，有没有诱多，是否配合行情风格。
+    - raw_excerpt: 最终目的，写好识别算法，这个票出来，弹窗，有没有风控触发，有没有诱多，是否配合行情风格。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-92854792']
 
 ### 数字化/标准化
 - accepted count: 1
@@ -158,7 +163,7 @@
     - source_ids: ['2ohHCnLXtP8']
 
 ### 买入触发
-- accepted count: 10
+- accepted count: 11
 - representative claims:
   - claim-1bd6f55ea1a4f94f
     - claim_text: 而量化高抛低吸的中间差价，实际上就是躺着的自然人付了，因为你持股实际价值变低了。
@@ -187,7 +192,7 @@
     - source_ids: ['comment-76723920']
 
 ### 赚钱效应
-- accepted count: 5
+- accepted count: 6
 - representative claims:
   - claim-7ae975def66992ff
     - claim_text: 赚钱效应应体现在短线整体，而不是局部，某某龙头还没挂。
@@ -243,6 +248,35 @@
     - raw_excerpt: 由于午前没放量，也跳水了，这个是延续了早盘能量不足的走势，所以午后继续沿用打死一边的策略，300和短线先手被强化卖出，对置的一边被强化买入。
     - article_id: 2ohHCnLXtP8
     - source_ids: ['comment-95006359']
+
+### 亏钱效应
+- accepted count: 5
+- representative claims:
+  - claim-851ee6c897f24db5
+    - claim_text: 至于触发核按钮，这个肯定有，打穿它的止损线就会有。
+    - raw_excerpt: 至于触发核按钮，这个肯定有，打穿它的止损线就会有。
+    - article_id: 2ohHCnLXtP8
+    - source_ids: ['comment-97353641']
+  - claim-e7a510d9a29c994b
+    - claim_text: 不要妄图躲过每一次回撤，模式没亏损叫良性亏钱。
+    - raw_excerpt: 不要妄图躲过每一次回撤，模式没亏损叫良性亏钱。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-92607002']
+  - claim-24c0e5cfa8a81559
+    - claim_text: ，好好的大阳线票，次日莫名其妙被竞价加单挂核按钮，一字跌停开，触发了量化的止损阈值。
+    - raw_excerpt: ，好好的大阳线票，次日莫名其妙被竞价加单挂核按钮，一字跌停开，触发了量化的止损阈值。
+    - article_id: 24O3rehPcWv
+    - source_ids: ['comment-73649581']
+  - claim-a3866653322d9882
+    - claim_text: 关键是三防，防亏钱、防回撤、防不赚钱。
+    - raw_excerpt: 关键是三防，防亏钱、防回撤、防不赚钱。
+    - article_id: 25VmrtPmuWI
+    - source_ids: ['comment-76320589']
+  - claim-eb80a69c6df2bc28
+    - claim_text: 看多跟风控其实是一样的，亏钱不用买单？
+    - raw_excerpt: 看多跟风控其实是一样的，亏钱不用买单？
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['comment-66916457']
 
 ### 龙头
 - accepted count: 4
@@ -306,6 +340,25 @@
     - article_id: 2ohHCnLXtP8
     - source_ids: ['comment-99261680']
 
+### 反核
+- accepted count: 3
+- representative claims:
+  - claim-64b006f936c2bb96
+    - claim_text: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - raw_excerpt: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - article_id: 24O3rehPcWv
+    - source_ids: ['comment-73650618']
+  - claim-851ee6c897f24db5
+    - claim_text: 至于触发核按钮，这个肯定有，打穿它的止损线就会有。
+    - raw_excerpt: 至于触发核按钮，这个肯定有，打穿它的止损线就会有。
+    - article_id: 2ohHCnLXtP8
+    - source_ids: ['comment-97353641']
+  - claim-24c0e5cfa8a81559
+    - claim_text: ，好好的大阳线票，次日莫名其妙被竞价加单挂核按钮，一字跌停开，触发了量化的止损阈值。
+    - raw_excerpt: ，好好的大阳线票，次日莫名其妙被竞价加单挂核按钮，一字跌停开，触发了量化的止损阈值。
+    - article_id: 24O3rehPcWv
+    - source_ids: ['comment-73649581']
+
 ### 题材持续性
 - accepted count: 2
 - representative claims:
@@ -319,6 +372,20 @@
     - raw_excerpt: 今天短线格局属于抱团昨日分歧的趋势主线电力，如果指数跳，应该会加剧资金进入电力。
     - article_id: 28ACjvWeEjl
     - source_ids: ['comment-76402337']
+
+### 情绪周期
+- accepted count: 2
+- representative claims:
+  - claim-1607cfb86dd42e92
+    - claim_text: 高频交易与算法追涨杀跌放大了市场波动率，尤其在情绪脆弱期，程序化止损盘会加速市场失血，形成“下跌-减仓-再下跌”的死亡循环。
+    - raw_excerpt: 高频交易与算法追涨杀跌放大了市场波动率，尤其在情绪脆弱期，程序化止损盘会加速市场失血，形成“下跌-减仓-再下跌”的死亡循环。
+    - article_id: 2ohHCnLXtP8
+    - source_ids: ['comment-96648290']
+  - claim-64b006f936c2bb96
+    - claim_text: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - raw_excerpt: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+    - article_id: 24O3rehPcWv
+    - source_ids: ['comment-73650618']
 
 ### AI工具
 - accepted count: 2
@@ -342,24 +409,6 @@
     - raw_excerpt: 顶部卖那天，明显超预期高开放量，所以超预期老师追上去，跟着机器人卖给超预期。
     - article_id: 2ohHCnLXtP8
     - source_ids: ['comment-99249773']
-
-### 情绪周期
-- accepted count: 1
-- representative claims:
-  - claim-64b006f936c2bb96
-    - claim_text: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
-    - raw_excerpt: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
-    - article_id: 24O3rehPcWv
-    - source_ids: ['comment-73650618']
-
-### 反核
-- accepted count: 1
-- representative claims:
-  - claim-64b006f936c2bb96
-    - claim_text: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
-    - raw_excerpt: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
-    - article_id: 24O3rehPcWv
-    - source_ids: ['comment-73650618']
 
 ### 政策催化
 - accepted count: 1

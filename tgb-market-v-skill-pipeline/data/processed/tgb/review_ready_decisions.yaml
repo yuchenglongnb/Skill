@@ -1567,10 +1567,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article, article_source
     ranking_score: 15
   claim-fbb0b89761bddf8b:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -3826,10 +3826,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 26
   claim-41fa00e960878b4d:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -7036,10 +7036,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-fdc0ada0a1053a95:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -12274,10 +12274,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-2d8d8202a083ae91:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -12473,10 +12473,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-ae5629ff8a6aa14f:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -12515,10 +12515,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-d832417a28904324:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -12558,10 +12558,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-efc4ff8c194fe3ee:
-    decision: unreviewed
+    decision: needs_edit
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -16203,10 +16203,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 17
   claim-1e3ff8e332e85c3e:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -17808,10 +17808,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 17
   claim-9732e82b3495d755:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的风控方法论判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -18940,10 +18940,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 17
   claim-e0eb1c78f60416f2:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于减少交易、等待或规避风险的执行原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -19195,10 +19195,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 17
   claim-f21c0a5161d8c8ab:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -19437,10 +19437,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 16
   claim-10deb5c8be762be7:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -21299,10 +21299,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 15
   claim-2b50815b715120c8:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -21614,10 +21614,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 15
   claim-349e2ffb397d59b4:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -26208,10 +26208,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 15
   claim-dfafacfc1ea2a484:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -27081,10 +27081,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 14
   claim-6f256f9f02f19bc3:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -27137,10 +27137,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 14
   claim-851ee6c897f24db5:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -27153,10 +27153,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 14
   claim-865b1c93788a4c9c:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -27351,10 +27351,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 14
   claim-ec1fc52556b1d692:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -39965,10 +39965,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 12
   claim-1607cfb86dd42e92:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -40559,10 +40559,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 12
   claim-7842f5e9359f5933:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -40825,10 +40825,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 12
   claim-ae933d9a954f29c1:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -41094,10 +41094,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 12
   claim-e26f895110cdc4e4:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -41153,10 +41153,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 12
   claim-e7a510d9a29c994b:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的风控方法论判断。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -43435,10 +43435,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 10
   claim-5393587bdc8a4b5e:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -44795,10 +44795,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 10
   claim-b4a07794e0776819:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句明显带有调侃语气，需要人工结合上下文确认。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -46512,10 +46512,10 @@ decisions:
     ranking_reason: strong_structure, article_source
     ranking_score: 20
   claim-ba5145d984c4c835:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47212,10 +47212,10 @@ decisions:
     ranking_reason: article_source, bucket:background_context
     ranking_score: 1
   claim-2d86cadbf15dbc78:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于减少交易、等待或规避风险的执行原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47259,10 +47259,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 23
   claim-2acf6176d6d59118:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47820,10 +47820,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, core_article
     ranking_score: 18
   claim-1d62d1da1944728a:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47834,10 +47834,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 17
   claim-24c0e5cfa8a81559:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47894,10 +47894,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 17
   claim-40eff1003f7492e1:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47908,10 +47908,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 17
   claim-46ca56d48b67cf09:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47923,10 +47923,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 17
   claim-5c60f693d3631ae7:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47967,10 +47967,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags
     ranking_score: 17
   claim-8efd698b48448199:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -47996,10 +47996,10 @@ decisions:
     ranking_reason: strong_structure, core_article
     ranking_score: 17
   claim-9ca77de19e1aca0c:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -48054,10 +48054,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 17
   claim-dd2daf9d939d0557:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -48933,10 +48933,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 15
   claim-254fb4cfc0f002f9:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -48947,10 +48947,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-2e949ad67d21ade0:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于减少交易、等待或规避风险的执行原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -48976,10 +48976,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-31a1559713f9db04:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成风控方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49076,10 +49076,10 @@ decisions:
     ranking_reason: strong_structure, core_article
     ranking_score: 15
   claim-5c74fb0cca3d3c8b:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49166,10 +49166,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-71047b85e30d008a:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49193,10 +49193,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 15
   claim-71cb01ed5eb89e7e:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49207,10 +49207,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-733a1f466af08f11:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49462,10 +49462,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-a3965a71ba1609f5:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49477,10 +49477,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-a8a866371286ea02:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49521,10 +49521,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 15
   claim-aeee159d86d276bb:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49598,10 +49598,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-c0bb2a544b9b759f:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49612,10 +49612,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-c1e8b75141c09c82:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要抽象为亏钱效应或止损盘风险机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49671,10 +49671,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-c9a42299d48af262:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49730,10 +49730,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, noise_flags
     ranking_score: 15
   claim-d98625568424ba83:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49815,10 +49815,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-e88addec538a8bed:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49843,10 +49843,10 @@ decisions:
     ranking_reason: strong_structure
     ranking_score: 15
   claim-e90160e37a4ac7d1:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49884,10 +49884,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 15
   claim-edbf9735a3e0312c:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49914,10 +49914,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, noise_flags
     ranking_score: 15
   claim-f13f5f6b576f489a:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: market_environment
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为市场环境触发的风控判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49944,10 +49944,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-fb10df74e8586518:
-    decision: unreviewed
+    decision: needs_edit
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -49958,10 +49958,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 15
   claim-fdfb7bfdfdf053a7:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为可执行的风控或止损原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -52423,10 +52423,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 13
   claim-4b1e1f0ab12b3804:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -52645,10 +52645,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 13
   claim-5518c5aa470f3538:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的风控方法论判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -53516,10 +53516,10 @@ decisions:
     ranking_reason: strong_structure, core_article
     ranking_score: 13
   claim-8b04518ea5d111a3:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于减少交易、等待或规避风险的执行原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -53717,10 +53717,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 13
   claim-9bbf91e60ebbef32:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -53787,10 +53787,10 @@ decisions:
     ranking_reason: strong_structure, core_article
     ranking_score: 13
   claim-a0b02f7581701aca:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表达过于碎片化，缺少可沉淀判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -54104,10 +54104,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, noise_flags
     ranking_score: 13
   claim-b910960b284643a6:
-    decision: unreviewed
+    decision: needs_edit
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -54246,10 +54246,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 13
   claim-c15793d5fad92cad:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: execution_rule
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：盘中特指较强，需要抽象为可执行的风控或止损原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -54829,10 +54829,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 13
   claim-eb80a69c6df2bc28:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句带有反问和口语化转折，需要人工结合上下文确认。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -55185,10 +55185,10 @@ decisions:
     ranking_reason: strong_structure
     ranking_score: 12
   claim-17d4d43449ab0b99:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -56209,10 +56209,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 12
   claim-c5fa494b1d3c0a53:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -56349,10 +56349,10 @@ decisions:
     ranking_reason: strong_structure, core_article
     ranking_score: 12
   claim-dd3ce96e35c8f707:
-    decision: unreviewed
-    reason: risk_control
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待确认：原句口语化且带夸张色彩，需要人工结合上下文确认。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -56406,10 +56406,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 12
   claim-efb8a91ee1788a15:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -68940,10 +68940,10 @@ decisions:
     ranking_reason: good_length
     ranking_score: 10
   claim-2608da6130a14029:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：更像盘中特指或复盘背景，不进入方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -68954,10 +68954,10 @@ decisions:
     ranking_reason: high_value_tags, good_length
     ranking_score: 10
   claim-2807fb95e5bf95c9:
-    decision: unreviewed
+    decision: needs_edit
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -69082,10 +69082,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 10
   claim-3c1fd4420dd4ac77:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -69381,10 +69381,10 @@ decisions:
     ranking_reason: strong_structure
     ranking_score: 10
   claim-6aef512c804a42ff:
-    decision: unreviewed
-    reason: risk_control
+    decision: rejected
+    reason: too_generic
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 拒绝：表述偏泛，不能独立构成风控方法论。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -69653,10 +69653,10 @@ decisions:
     ranking_reason: good_length
     ranking_score: 10
   claim-921aa34a3ed9e68c:
-    decision: unreviewed
+    decision: accepted
     reason: risk_control
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于弱市环境下的风控原则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -69825,10 +69825,10 @@ decisions:
     ranking_reason: good_length
     ranking_score: 10
   claim-a3866653322d9882:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: core_methodology
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于可沉淀的风控方法论判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:
@@ -70025,10 +70025,10 @@ decisions:
     ranking_reason: good_length, core_article
     ranking_score: 10
   claim-bbc835f43c84c569:
-    decision: unreviewed
-    reason: risk_control
+    decision: accepted
+    reason: trading_mechanism
     edited_claim_text: null
-    review_notes: ''
+    review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
     review_bucket: risk_control
     method_tags:

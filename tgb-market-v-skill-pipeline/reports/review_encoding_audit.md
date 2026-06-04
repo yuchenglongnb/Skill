@@ -3,7 +3,7 @@
 ## Summary
 - total_files: 12
 - corrupted_files: 0
-- total_reviewed_items: 866
+- total_reviewed_items: 1098
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 
@@ -58,7 +58,7 @@
 
 - exists: True
 - total_items: 80
-- reviewed_items: 0
+- reviewed_items: 80
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
@@ -85,7 +85,7 @@
 
 - exists: True
 - total_items: 6552
-- reviewed_items: 283
+- reviewed_items: 359
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
@@ -93,8 +93,8 @@
 ### data/processed/tgb/accepted_review_ready_claims.jsonl
 
 - exists: True
-- total_items: 177
-- reviewed_items: 177
+- total_items: 219
+- reviewed_items: 219
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
@@ -102,8 +102,8 @@
 ### data/processed/tgb/rejected_review_ready_claims.jsonl
 
 - exists: True
-- total_items: 39
-- reviewed_items: 39
+- total_items: 59
+- reviewed_items: 59
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
@@ -111,8 +111,8 @@
 ### data/processed/tgb/needs_edit_review_ready_claims.jsonl
 
 - exists: True
-- total_items: 67
-- reviewed_items: 67
+- total_items: 81
+- reviewed_items: 81
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
