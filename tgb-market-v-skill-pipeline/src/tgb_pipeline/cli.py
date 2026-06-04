@@ -19,7 +19,13 @@ from tgb_pipeline.completion.tasks import (
     execute_comment_completion_plan,
     generate_comment_completion_plan_bundle,
 )
-from tgb_pipeline.curation.tasks import review_claims_bundle, review_ready_claims_bundle
+from tgb_pipeline.curation.tasks import (
+    apply_review_pack_bundle,
+    build_default_review_packs_bundle,
+    build_review_pack_bundle,
+    review_claims_bundle,
+    review_ready_claims_bundle,
+)
 from tgb_pipeline.crawler.comment_checkpoint import (
     bootstrap_comment_page_states_from_snapshots,
     reconcile_comment_article_states,
@@ -59,6 +65,9 @@ COMMANDS = (
     "build-review-ready-claims",
     "review-claims",
     "review-ready-claims",
+    "build-review-pack",
+    "apply-review-pack",
+    "build-default-review-packs",
     "build-skill",
 )
 
@@ -86,6 +95,9 @@ def build_parser() -> argparse.ArgumentParser:
             "build-review-ready-claims",
             "review-claims",
             "review-ready-claims",
+            "build-review-pack",
+            "apply-review-pack",
+            "build-default-review-packs",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -218,6 +230,36 @@ def build_parser() -> argparse.ArgumentParser:
                 action="store_true",
                 help="Apply review-ready decisions and emit curated artifacts.",
             )
+        if command == "build-review-pack":
+            command_parser.add_argument("--pack-id", required=True, help="Stable review pack identifier.")
+            command_parser.add_argument("--title", required=True, help="Human-readable review pack title.")
+            command_parser.add_argument("--tag", dest="tags", action="append", default=[], help="Method tag filter.")
+            command_parser.add_argument("--article-id", dest="article_ids", action="append", default=[], help="Article ID filter.")
+            command_parser.add_argument("--bucket", dest="buckets", action="append", default=[], help="Review bucket filter.")
+            command_parser.add_argument("--priority", dest="priorities", action="append", default=[], help="Review priority filter.")
+            command_parser.add_argument("--max-items", type=int, default=100, help="Maximum number of claims in the pack.")
+            command_parser.add_argument(
+                "--include-reviewed",
+                action="store_true",
+                help="Include claims that already have accepted/rejected/needs_edit decisions.",
+            )
+            command_parser.add_argument(
+                "--decisions",
+                default="data/processed/tgb/review_ready_decisions.yaml",
+                help="Path to review-ready decisions YAML file.",
+            )
+        if command == "apply-review-pack":
+            command_parser.add_argument("--pack", required=True, help="Path to an editable review pack YAML file.")
+            command_parser.add_argument(
+                "--decisions",
+                default="data/processed/tgb/review_ready_decisions.yaml",
+                help="Path to review-ready decisions YAML file.",
+            )
+            command_parser.add_argument(
+                "--overwrite-existing",
+                action="store_true",
+                help="Allow pack decisions to overwrite existing accepted/rejected/needs_edit entries.",
+            )
         if command in {"extract-claims", "build-review-ready-claims"}:
             command_parser.add_argument(
                 "--max-per-tag",
@@ -280,6 +322,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         "build-review-ready-claims",
         "review-claims",
         "review-ready-claims",
+        "build-review-pack",
+        "apply-review-pack",
+        "build-default-review-packs",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -441,6 +486,52 @@ def main(argv: Sequence[str] | None = None) -> int:
                     apply=args.apply,
                 )
                 print(f"review-ready-claims: generated {len(outputs)} outputs.")
+            elif args.command == "build-review-pack":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                item_count, outputs = build_review_pack_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    pack_id=args.pack_id,
+                    title=args.title,
+                    tags=args.tags,
+                    article_ids=args.article_ids,
+                    buckets=args.buckets,
+                    priorities=args.priorities,
+                    max_items=args.max_items,
+                    include_reviewed=args.include_reviewed,
+                    decisions_path=Path(args.decisions),
+                )
+                print(
+                    "build-review-pack: wrote "
+                    f"{item_count} items to {outputs[0].as_posix()}"
+                )
+            elif args.command == "apply-review-pack":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                stats, _outputs = apply_review_pack_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    pack_path=Path(args.pack),
+                    decisions_path=Path(args.decisions),
+                    overwrite_existing=args.overwrite_existing,
+                )
+                print(
+                    "apply-review-pack: applied "
+                    f"{stats['applied']} decisions, skipped {stats['skipped_unreviewed']} unreviewed."
+                )
+            elif args.command == "build-default-review-packs":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = build_default_review_packs_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    decisions_path=Path("data/processed/tgb/review_ready_decisions.yaml"),
+                )
+                print(f"build-default-review-packs: generated {len(outputs)} outputs.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

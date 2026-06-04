@@ -5,7 +5,13 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     parser = build_parser()
 
     for command in COMMANDS:
-        assert parser.parse_args([command]).command == command
+        if command == "build-review-pack":
+            parsed = parser.parse_args([command, "--pack-id", "pack-1", "--title", "Pack 1"])
+        elif command == "apply-review-pack":
+            parsed = parser.parse_args([command, "--pack", "data/processed/tgb/review_packs/pack-1.yaml"])
+        else:
+            parsed = parser.parse_args([command])
+        assert parsed.command == command
 
     assert parser.parse_args(["crawl-index"]).target_config == "configs/target.yaml"
     assert parser.parse_args(["crawl-articles"]).crawl_config == "configs/crawl.yaml"
@@ -57,6 +63,14 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert review_ready_claim_args.decisions == "data/processed/tgb/review_ready_decisions.yaml"
     assert review_ready_claim_args.sync is True
     assert review_ready_claim_args.apply is True
+    build_pack_args = parser.parse_args(
+        ["build-review-pack", "--pack-id", "pack-1", "--title", "Pack 1", "--tag", "量化影响"]
+    )
+    assert build_pack_args.pack_id == "pack-1"
+    assert build_pack_args.tags == ["量化影响"]
+    apply_pack_args = parser.parse_args(["apply-review-pack", "--pack", "data/processed/tgb/review_packs/pack-1.yaml"])
+    assert apply_pack_args.pack.endswith("pack-1.yaml")
+    assert parser.parse_args(["build-default-review-packs"]).crawl_config == "configs/crawl.yaml"
 
     assert main(["extract-images"]) == 0
     assert "scaffold only" in capsys.readouterr().out

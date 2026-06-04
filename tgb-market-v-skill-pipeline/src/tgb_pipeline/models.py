@@ -275,3 +275,25 @@ class MethodologyClaim(PipelineModel):
     status: ClaimStatus = ClaimStatus.CANDIDATE
     tags: list[str] = Field(default_factory=list)
     raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class ReviewPackItem(PipelineModel):
+    claim_id: str
+    decision: str = "unreviewed"
+    reason: str | None = None
+    edited_claim_text: str | None = None
+    review_notes: str | None = None
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
+class ReviewPack(PipelineModel):
+    pack_id: str
+    title: str
+    generated_at: datetime
+    source_path: str
+    filter_tags: list[str] = Field(default_factory=list)
+    filter_articles: list[str] = Field(default_factory=list)
+    filter_buckets: list[str] = Field(default_factory=list)
+    max_items: int = 100
+    items: list[ReviewPackItem] = Field(default_factory=list)
+    raw: dict[str, Any] = Field(default_factory=dict)

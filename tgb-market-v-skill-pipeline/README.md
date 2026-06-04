@@ -415,3 +415,48 @@ Notes:
 - This workflow does not overwrite the legacy `claim_review_decisions.yaml`.
 - `unreviewed` claims do not enter the curated review-ready profile by default.
 - Review-ready claims are still a candidate layer, not the final Skill artifact.
+
+## Review Packs
+
+Review-ready claims can be split into smaller review packs.
+
+Build one pack:
+
+```powershell
+python -m tgb_pipeline build-review-pack `
+  --target-config configs/target.yaml `
+  --crawl-config configs/crawl.yaml `
+  --pack-id quant_impact_top100 `
+  --title "量化影响 Top 100" `
+  --tag 量化影响 `
+  --max-items 100
+```
+
+Edit:
+`data/processed/tgb/review_packs/quant_impact_top100.yaml`
+
+Apply decisions:
+
+```powershell
+python -m tgb_pipeline apply-review-pack `
+  --target-config configs/target.yaml `
+  --crawl-config configs/crawl.yaml `
+  --pack data/processed/tgb/review_packs/quant_impact_top100.yaml
+```
+
+Then rebuild curated review-ready outputs:
+
+```powershell
+python -m tgb_pipeline review-ready-claims `
+  --target-config configs/target.yaml `
+  --crawl-config configs/crawl.yaml `
+  --apply
+```
+
+Notes:
+- Markdown packs are read-only reading aids.
+- YAML packs are the editable decision surface.
+- `unreviewed` items are not applied.
+- Existing human decisions are not overwritten by default.
+- Pack decisions sync only into `review_ready_decisions.yaml`.
+- This workflow does not affect the legacy `claim_review_decisions.yaml`.

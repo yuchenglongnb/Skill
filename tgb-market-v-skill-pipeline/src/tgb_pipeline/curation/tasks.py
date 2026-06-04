@@ -5,6 +5,9 @@ from __future__ import annotations
 from pathlib import Path
 
 from tgb_pipeline.curation.apply_review import apply_review_decisions
+from tgb_pipeline.curation.review_pack import build_default_review_packs, build_review_pack
+from tgb_pipeline.curation.review_pack_apply import apply_review_pack_decisions
+from tgb_pipeline.curation.review_pack_report import build_review_pack_apply_report
 from tgb_pipeline.curation.decisions import load_review_decisions, write_review_decision_template
 from tgb_pipeline.curation.profile import build_curated_methodology_profile
 from tgb_pipeline.curation.report import build_claim_curation_report
@@ -149,6 +152,78 @@ def review_ready_claims_bundle(
         curation_report_path,
         manifest_path,
     ]
+
+
+def build_review_pack_bundle(
+    raw_dir: Path,
+    processed_dir: Path,
+    reports_dir: Path,
+    *,
+    pack_id: str,
+    title: str,
+    tags: list[str] | None = None,
+    article_ids: list[str] | None = None,
+    buckets: list[str] | None = None,
+    priorities: list[str] | None = None,
+    max_items: int = 100,
+    include_reviewed: bool = False,
+    decisions_path: Path | None = None,
+) -> tuple[int, list[Path]]:
+    pack_path, report_path = build_review_pack(
+        processed_dir,
+        reports_dir,
+        pack_id=pack_id,
+        title=title,
+        tags=tags,
+        article_ids=article_ids,
+        buckets=buckets,
+        priorities=priorities,
+        max_items=max_items,
+        exclude_reviewed=not include_reviewed,
+        decisions_path=decisions_path,
+    )
+    manifest_path = build_corpus_manifest(raw_dir, processed_dir, reports_dir)
+    import yaml
+
+    with pack_path.open("r", encoding="utf-8") as handle:
+        payload = yaml.safe_load(handle) or {}
+    item_count = len(payload.get("items", [])) if isinstance(payload, dict) else 0
+    return item_count, [pack_path, report_path, manifest_path]
+
+
+def apply_review_pack_bundle(
+    raw_dir: Path,
+    processed_dir: Path,
+    reports_dir: Path,
+    *,
+    pack_path: Path,
+    decisions_path: Path,
+    overwrite_existing: bool = False,
+) -> tuple[dict, list[Path]]:
+    stats = apply_review_pack_decisions(
+        pack_path,
+        decisions_path,
+        overwrite_existing=overwrite_existing,
+    )
+    report_path = build_review_pack_apply_report(stats, pack_path, reports_dir)
+    manifest_path = build_corpus_manifest(raw_dir, processed_dir, reports_dir)
+    return stats, [report_path, manifest_path]
+
+
+def build_default_review_packs_bundle(
+    raw_dir: Path,
+    processed_dir: Path,
+    reports_dir: Path,
+    *,
+    decisions_path: Path | None = None,
+) -> list[Path]:
+    outputs = build_default_review_packs(
+        processed_dir,
+        reports_dir,
+        decisions_path=decisions_path,
+    )
+    outputs.append(build_corpus_manifest(raw_dir, processed_dir, reports_dir))
+    return outputs
 
 
 def _relative(path: Path) -> str:
