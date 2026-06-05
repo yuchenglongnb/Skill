@@ -9,6 +9,7 @@ from pathlib import Path
 
 from tgb_pipeline.audit.article_inventory_audit import build_article_inventory_report
 from tgb_pipeline.audit.comment_state_audit import build_comment_state_warning_report
+from tgb_pipeline.audit.text_encoding_audit import audit_default_text_outputs
 from tgb_pipeline.config import (
     load_article_discovery_config,
     load_crawl_config,
@@ -71,6 +72,7 @@ COMMANDS = (
     "apply-review-pack",
     "build-default-review-packs",
     "audit-review-encoding",
+    "audit-text-encoding",
     "build-skill",
     "build-skill-v0",
 )
@@ -103,6 +105,7 @@ def build_parser() -> argparse.ArgumentParser:
             "apply-review-pack",
             "build-default-review-packs",
             "audit-review-encoding",
+            "audit-text-encoding",
             "build-skill-v0",
         }:
             command_parser.add_argument(
@@ -349,6 +352,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "apply-review-pack",
         "build-default-review-packs",
         "audit-review-encoding",
+        "audit-text-encoding",
         "build-skill-v0",
     }:
         target_config = load_target_config(args.target_config)
@@ -573,6 +577,17 @@ def main(argv: Sequence[str] | None = None) -> int:
                 )
                 if stats["corrupted_files"] > 0:
                     print("corrupted review text found", file=sys.stderr)
+                    return 1
+            elif args.command == "audit-text-encoding":
+                summary, report_path = audit_default_text_outputs(Path.cwd(), Path("reports"))
+                print(
+                    "audit-text-encoding: checked "
+                    f"{summary['scanned_files']} files, found "
+                    f"{summary['corrupted_files']} corrupted files; report "
+                    f"{report_path.as_posix()}"
+                )
+                if summary["corrupted_files"] > 0:
+                    print("corrupted text found", file=sys.stderr)
                     return 1
             elif args.command == "build-skill-v0":
                 raw_dir = crawl_config.storage.raw_dir / "tgb"
