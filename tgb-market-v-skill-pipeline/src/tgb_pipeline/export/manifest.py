@@ -18,7 +18,7 @@ from tgb_pipeline.models import (
     ImageOCR,
     Interaction,
 )
-from tgb_pipeline.models import MethodologyClaim
+from tgb_pipeline.models import MethodologyClaim, MethodologyRule
 from tgb_pipeline.storage import JSONLStore
 
 
@@ -35,6 +35,10 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
     skill_v0_skill_md = skill_v0_dir / "SKILL.md"
     skill_v0_methodology_profile = skill_v0_dir / "methodology_profile.md"
     skill_v0_evidence_index = skill_v0_dir / "evidence_index.jsonl"
+    skill_v0_methodology_rules = skill_v0_dir / "methodology_rules.jsonl"
+    skill_v0_rule_evidence_map = skill_v0_dir / "rule_evidence_map.jsonl"
+    skill_v0_needs_edit_worklist = skill_v0_dir / "needs_edit_worklist.md"
+    skill_v0_skill_quality_report = skill_v0_dir / "skill_quality_report.md"
     skill_v0_uncertainty_policy = skill_v0_dir / "uncertainty_policy.md"
     skill_v0_review_summary = skill_v0_dir / "review_summary.md"
     counts = {
@@ -79,6 +83,10 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "review_pack_reports_count": len(list(review_pack_reports_dir.glob("*.md"))) if review_pack_reports_dir.exists() else 0,
         "review_pack_index": 1 if (review_pack_reports_dir / "index.md").exists() else 0,
         "skill_v0_count": 1 if skill_v0_dir.exists() else 0,
+        "skill_v0_methodology_rules": len(_read_optional(skill_v0_methodology_rules, MethodologyRule, "rule_id")),
+        "skill_v0_rule_evidence_map": _count_jsonl_lines(skill_v0_rule_evidence_map),
+        "skill_v0_needs_edit_worklist": 1 if skill_v0_needs_edit_worklist.exists() else 0,
+        "skill_v0_skill_quality_report": 1 if skill_v0_skill_quality_report.exists() else 0,
         "methodology_profile_draft": 1 if (reports_dir / "methodology_profile_draft.md").exists() else 0,
         "accepted_methodology_claims": len(_read_optional(processed_dir / "accepted_methodology_claims.jsonl", MethodologyClaim, "claim_id")),
         "rejected_methodology_claims": len(_read_optional(processed_dir / "rejected_methodology_claims.jsonl", MethodologyClaim, "claim_id")),
@@ -153,6 +161,10 @@ def build_corpus_manifest(raw_dir: Path, processed_dir: Path, reports_dir: Path)
         "skill_v0_skill_md": _relative(skill_v0_skill_md) if skill_v0_skill_md.exists() else None,
         "skill_v0_methodology_profile": _relative(skill_v0_methodology_profile) if skill_v0_methodology_profile.exists() else None,
         "skill_v0_evidence_index": _relative(skill_v0_evidence_index) if skill_v0_evidence_index.exists() else None,
+        "skill_v0_methodology_rules": _relative(skill_v0_methodology_rules) if skill_v0_methodology_rules.exists() else None,
+        "skill_v0_rule_evidence_map": _relative(skill_v0_rule_evidence_map) if skill_v0_rule_evidence_map.exists() else None,
+        "skill_v0_needs_edit_worklist": _relative(skill_v0_needs_edit_worklist) if skill_v0_needs_edit_worklist.exists() else None,
+        "skill_v0_skill_quality_report": _relative(skill_v0_skill_quality_report) if skill_v0_skill_quality_report.exists() else None,
         "skill_v0_uncertainty_policy": _relative(skill_v0_uncertainty_policy) if skill_v0_uncertainty_policy.exists() else None,
         "skill_v0_review_summary": _relative(skill_v0_review_summary) if skill_v0_review_summary.exists() else None,
     }
@@ -175,6 +187,14 @@ def _read_optional(path: Path, model_type, key_field: str):
     if not path.exists():
         return []
     return JSONLStore(path, model_type, key_field).read_all()
+
+
+def _count_jsonl_lines(path: Path) -> int:
+    if not path.exists():
+        return 0
+    return sum(1 for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
+
+
 def _count_article_seeds_config(path: Path) -> int:
     if not path.exists():
         return 0

@@ -69,9 +69,17 @@ skill_output/tgb_market_v_skill/SKILL.md
 skill_output/tgb_market_v_skill/methodology_profile.md
 skill_output/tgb_market_v_skill/evidence_index.jsonl
 skill_output/tgb_market_v_skill/needs_edit_evidence_index.jsonl
+skill_output/tgb_market_v_skill/methodology_rules.jsonl
+skill_output/tgb_market_v_skill/rule_evidence_map.jsonl
+skill_output/tgb_market_v_skill/skill_quality_report.md
+skill_output/tgb_market_v_skill/needs_edit_worklist.md
 skill_output/tgb_market_v_skill/uncertainty_policy.md
 skill_output/tgb_market_v_skill/review_summary.md
 ```
+
+Skill v0.1 的核心规则只来自 accepted claims。
+needs_edit 会被单独输出为待确认材料，不会混入核心规则。
+raw_excerpt 保留在 evidence 文件中，而不是直接作为 SKILL 规则正文。
 
 ## 当前阶段
 

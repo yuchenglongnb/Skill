@@ -2,12 +2,14 @@ import json
 
 from tgb_pipeline.skill.evidence_index import (
     build_needs_edit_evidence_index,
+    build_rule_evidence_map,
     build_skill_evidence_index,
 )
+from tgb_pipeline.skill.rule_builder import build_methodology_rules
 from tests.skill_fixture_data import make_claim
 
 
-def test_skill_evidence_index_uses_only_accepted(tmp_path) -> None:
+def test_skill_evidence_index_uses_only_accepted_and_separates_needs_edit(tmp_path) -> None:
     accepted = [make_claim("claim-a", "量化会改变反馈速度。", tag="量化影响")]
     needs_edit = [
         make_claim(
@@ -20,11 +22,15 @@ def test_skill_evidence_index_uses_only_accepted(tmp_path) -> None:
 
     accepted_path = build_skill_evidence_index(accepted, tmp_path)
     needs_edit_path = build_needs_edit_evidence_index(needs_edit, tmp_path)
+    rules = build_methodology_rules(accepted, max_rules_per_theme=2)
+    rule_map_path = build_rule_evidence_map(rules, accepted, tmp_path)
 
     accepted_rows = [json.loads(line) for line in accepted_path.read_text(encoding="utf-8").splitlines() if line.strip()]
     needs_edit_rows = [json.loads(line) for line in needs_edit_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+    rule_map_rows = [json.loads(line) for line in rule_map_path.read_text(encoding="utf-8").splitlines() if line.strip()]
 
     assert [row["claim_id"] for row in accepted_rows] == ["claim-a"]
     assert accepted_rows[0]["article_id"] == "a1"
     assert accepted_rows[0]["raw_excerpt"] == "量化会改变反馈速度。"
     assert [row["claim_id"] for row in needs_edit_rows] == ["claim-b"]
+    assert all(row["claim_id"] == "claim-a" for row in rule_map_rows)

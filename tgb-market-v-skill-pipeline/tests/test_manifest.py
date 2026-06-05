@@ -55,12 +55,20 @@ def test_build_corpus_manifest_uses_relative_paths_and_counts(tmp_path, monkeypa
     assert payload["counts"]["review_pack_reports_count"] == 0
     assert payload["counts"]["review_pack_index"] == 0
     assert payload["counts"]["skill_v0_count"] == 0
+    assert payload["counts"]["skill_v0_methodology_rules"] == 0
+    assert payload["counts"]["skill_v0_rule_evidence_map"] == 0
+    assert payload["counts"]["skill_v0_needs_edit_worklist"] == 0
+    assert payload["counts"]["skill_v0_skill_quality_report"] == 0
     assert payload["counts"]["accepted_methodology_claims"] == 0
     assert payload["has_aoch"] is False
     assert payload["skill_v0_dir"] is None
     assert payload["skill_v0_skill_md"] is None
     assert payload["skill_v0_methodology_profile"] is None
     assert payload["skill_v0_evidence_index"] is None
+    assert payload["skill_v0_methodology_rules"] is None
+    assert payload["skill_v0_rule_evidence_map"] is None
+    assert payload["skill_v0_needs_edit_worklist"] is None
+    assert payload["skill_v0_skill_quality_report"] is None
     assert payload["skill_v0_uncertainty_policy"] is None
     assert payload["skill_v0_review_summary"] is None
     assert all(not path.startswith("C:/") for path in payload["outputs"])

@@ -44,7 +44,7 @@ def write_skill_inputs(tmp_path: Path) -> tuple[Path, Path, Path]:
     reports_dir.mkdir(parents=True, exist_ok=True)
 
     accepted = [
-        make_claim("claim-quant", "量化资金会改变反馈速度。", tag="量化影响", article_id="2jbi0efIsof"),
+        make_claim("claim-quant", "量化资金会改变短线反馈速度。", tag="量化影响", article_id="2jbi0efIsof"),
         make_claim("claim-turnover", "成交额不足时短线高度会受限。", tag="成交额", article_id="2ohHCnLXtP8"),
         make_claim("claim-short", "短线基础行情差时接力容错会下降。", tag="短线基础行情", article_id="2bWeZGDSi07"),
         make_claim("claim-index", "指数环境转弱会压制短线承接。", tag="指数环境", article_id="2bWeZGDSi07"),
@@ -86,6 +86,9 @@ def write_skill_inputs(tmp_path: Path) -> tuple[Path, Path, Path]:
     for name in [
         "quant_impact_top100_apply_report.md",
         "turnover_top100_apply_report.md",
+        "short_term_base_top100_apply_report.md",
+        "risk_control_top80_apply_report.md",
+        "bull_bear_top80_apply_report.md",
     ]:
         (review_packs_dir / name).write_text(f"# {name}\n", encoding="utf-8")
 

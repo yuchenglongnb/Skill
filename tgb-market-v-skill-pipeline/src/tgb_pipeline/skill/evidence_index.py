@@ -1,12 +1,12 @@
-"""Write accepted and uncertain skill evidence indices."""
+"""Write accepted, uncertain, and rule-level evidence indices."""
 
 from __future__ import annotations
 
 import json
 from pathlib import Path
 
-from tgb_pipeline.models import MethodologyClaim
-from tgb_pipeline.skill.profile_builder import primary_theme
+from tgb_pipeline.models import MethodologyClaim, MethodologyRule
+from tgb_pipeline.skill.rule_builder import primary_theme
 
 
 def build_skill_evidence_index(
@@ -54,4 +54,32 @@ def build_needs_edit_evidence_index(
                 "review_notes": claim.review_notes,
             }
             handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
+    return output_path
+
+
+def build_rule_evidence_map(
+    rules: list[MethodologyRule],
+    accepted_claims: list[MethodologyClaim],
+    output_dir: Path,
+) -> Path:
+    claim_by_id = {claim.claim_id: claim for claim in accepted_claims}
+    output_dir.mkdir(parents=True, exist_ok=True)
+    output_path = output_dir / "rule_evidence_map.jsonl"
+    with output_path.open("w", encoding="utf-8", newline="\n") as handle:
+        for rule in rules:
+            for claim_id in rule.evidence_claim_ids:
+                claim = claim_by_id.get(claim_id)
+                if claim is None:
+                    continue
+                payload = {
+                    "rule_id": rule.rule_id,
+                    "claim_id": claim.claim_id,
+                    "theme": rule.theme,
+                    "article_id": claim.article_id,
+                    "source_type": claim.source_type.value,
+                    "raw_excerpt": claim.raw_excerpt,
+                    "review_reason": claim.review_bucket or claim.review_status,
+                    "review_notes": claim.review_notes,
+                }
+                handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
     return output_path

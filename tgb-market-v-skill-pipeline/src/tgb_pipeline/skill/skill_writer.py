@@ -1,12 +1,12 @@
-"""Write Skill v0 markdown artifacts."""
+"""Write Skill v0.1 markdown artifacts from normalized rules."""
 
 from __future__ import annotations
 
 from collections import Counter
 from pathlib import Path
 
-from tgb_pipeline.models import MethodologyClaim
-from tgb_pipeline.skill.profile_builder import THEME_ORDER, THEME_TAG_MAP, primary_theme
+from tgb_pipeline.models import MethodologyClaim, MethodologyRule
+from tgb_pipeline.skill.rule_builder import THEME_ORDER
 
 NEXT_REVIEW_PACKS = [
     "execution_rule_top100",
@@ -16,55 +16,63 @@ NEXT_REVIEW_PACKS = [
 
 
 def write_skill_markdown(
-    accepted_claims: list[MethodologyClaim],
-    needs_edit_claims: list[MethodologyClaim],
+    rules: list[MethodologyRule],
     output_dir: Path,
-    *,
-    max_claims_per_theme: int = 5,
 ) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
-    accepted_by_theme = _group_by_theme(accepted_claims)
+    rules_by_theme = _group_rules_by_theme(rules)
     lines = [
-        "# TGB Market V Skill v0",
+        "# TGB Market V Skill v0.1",
         "",
         "## Purpose",
         "This skill summarizes the reviewed methodology of the target author based on accepted claims only.",
         "",
-        "## Scope",
-        "- 用于归纳该博主的方法论表达；",
-        "- 用于辅助分析其发言、文章和评论；",
-        "- 不用于生成买卖建议；",
+        "## Scope and Non-advice Boundary",
+        "- 用于归纳该作者的方法论表达；",
+        "- 用于辅助分析其文章、评论和互动中的方法论线索；",
+        "- 不用于生成具体买卖建议；",
         "- 不用于预测个股涨跌；",
         "- 不替代人工判断。",
         "",
         "## Source Policy",
         "- Core rules come from accepted_review_ready_claims only.",
-        "- needs_edit claims are treated as uncertain.",
+        "- needs_edit claims are treated as uncertain context only.",
         "- rejected and unreviewed claims must not be used as methodology.",
         "",
-        "## Core Methodology",
+        "## Core Methodology Rules",
         "",
     ]
-    for theme in THEME_ORDER:
-        lines.append(f"### {theme}")
-        theme_claims = _select_claims(accepted_by_theme.get(theme, []), max_claims_per_theme)
-        if not theme_claims:
-            lines.append("- 暂无已确认规则。")
-            lines.append("")
+
+    for index, theme in enumerate(THEME_ORDER, start=1):
+        lines.append(f"### {index}. {theme}")
+        theme_rules = rules_by_theme.get(theme, [])
+        if not theme_rules:
+            lines.extend(["- 暂无已确认规则。", ""])
             continue
-        for claim in theme_claims:
-            lines.append(f"- {claim.claim_text} (`{claim.claim_id}`)")
-        lines.append("")
+        for rule in theme_rules:
+            lines.extend(
+                [
+                    f"#### Rule {rule.rule_id}: {rule.title}",
+                    f"- Rule: {rule.rule_text}",
+                    f"- When to use: {'；'.join(rule.when_to_use) if rule.when_to_use else 'none'}",
+                    f"- Do not use when: {'；'.join(rule.do_not_use_when) if rule.do_not_use_when else 'none'}",
+                    "- Evidence:",
+                ]
+            )
+            for claim_id in rule.evidence_claim_ids:
+                lines.append(f"  - `{claim_id}`")
+            lines.append(f"- Caveats: {'；'.join(rule.caveats) if rule.caveats else 'none'}")
+            lines.append("")
 
     lines.extend(
         [
-            "## Reasoning Rules",
-            "When analyzing a new statement from the author:",
-            "1. Identify whether it relates to market environment, turnover, quant impact, short-term base condition, risk control, or bull/bear regime.",
-            "2. Check whether the statement is literal or possibly sarcastic/joking.",
-            "3. If tone is ambiguous, do not infer the opposite meaning automatically.",
-            "4. Use accepted evidence only for strong conclusions.",
-            "5. Use needs_edit evidence only as tentative context.",
+            "## How to Analyze a New Statement",
+            "1. 识别它更接近量化影响、成交额 / 量能、短线基础行情、指数环境、风控还是牛熊切换。",
+            "2. 判断表达是字面陈述，还是可能带有反讽、玩笑、夸张或故意说反话。",
+            "3. 如果语气或上下文不确定，标记为 `needs_human_check`，不要自动反向解释。",
+            "4. 只有 accepted evidence 支持的规则，才能作为强结论来源。",
+            "5. needs_edit 只能作为待确认背景，不能升级成核心规则。",
+            "6. 不输出买卖建议，不输出确定性承诺。",
             "",
             "## Tone and Ambiguity Policy",
             "- The author may use sarcasm, jokes, deliberate exaggeration, and intentionally wrong-sounding statements.",
@@ -73,20 +81,17 @@ def write_skill_markdown(
             "- Require surrounding context before converting them into methodology.",
             "",
             "## Output Rules",
-            "When asked to analyze a post:",
-            "- State which methodology theme it relates to.",
-            "- Quote or cite relevant claim_id evidence.",
-            "- Clearly distinguish confirmed methodology from tentative interpretation.",
-            "- Avoid direct buy/sell recommendations.",
-            "- Avoid claims of certainty.",
+            "- 指出发言对应的主题。",
+            "- 优先引用 rule_id 和 claim_id，而不是直接复述长段原文。",
+            "- 清楚区分已确认方法论和待确认解释。",
+            "- 避免直接买卖建议。",
+            "- 避免宣称确定性结论。",
             "",
             "## Limitations",
             "- Corpus is partial.",
-            "- Some comment pages were inaccessible due to login/verification pages.",
-            "- Image OCR is currently not a reliable source unless reviewed.",
-            "- The skill is v0 and based on first-round reviewed packs only.",
-            f"- Current accepted evidence count: {len(accepted_claims)}.",
-            f"- Current needs_edit evidence count: {len(needs_edit_claims)}.",
+            "- Some comment pages were inaccessible due to login/verification/app-open pages.",
+            "- Image OCR is not a reliable source unless explicitly reviewed.",
+            "- Skill v0.1 is based on first-round reviewed packs only.",
             "",
         ]
     )
@@ -128,6 +133,7 @@ def write_review_summary(
     accepted_claims: list[MethodologyClaim],
     needs_edit_claims: list[MethodologyClaim],
     rejected_claims: list[MethodologyClaim],
+    rules: list[MethodologyRule],
     output_dir: Path,
     *,
     reviewed_packs: list[str],
@@ -135,6 +141,7 @@ def write_review_summary(
 ) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     accepted_by_tag = Counter(tag for claim in accepted_claims for tag in claim.method_tags)
+    rules_by_theme = Counter(rule.theme for rule in rules)
     lines = [
         "# Review Summary",
         "",
@@ -159,51 +166,34 @@ def write_review_summary(
     )
     for tag, count in accepted_by_tag.most_common(10):
         lines.append(f"- {tag}: {count}")
+
+    lines.extend(["", "## rule_count_by_theme"])
+    for theme in THEME_ORDER:
+        lines.append(f"- {theme}: {rules_by_theme.get(theme, 0)}")
+
     lines.extend(
         [
             "",
             "## Known Gaps",
-            "- 部分评论页因登录/验证/app 打开页不可访问，形成证据缺口。",
+            "- 部分评论页因登录 / 验证 / 打开 app 页面不可访问，形成证据缺口。",
             "- image OCR 目前只适合作为待复核辅助，不作为默认核心证据。",
-            "- 仍有大量 unreviewed review-ready claims 尚未进入本轮 Skill v0。",
+            "- 仍有大量 unreviewed review-ready claims 尚未进入本轮 Skill v0.1。",
             "",
             "## Next Recommended Review Packs",
         ]
     )
     for pack in NEXT_REVIEW_PACKS:
         lines.append(f"- {pack}")
-    lines.extend(
-        [
-            "- 或继续补 2jbi0efIsof / 2ohHCnLXtP8 评论。",
-            "",
-        ]
-    )
+    lines.append("- 或继续补 2jbi0efIsof / 2ohHCnLXtP8 评论。")
+    lines.append("")
+
     output_path = output_dir / "review_summary.md"
     output_path.write_text("\n".join(lines), encoding="utf-8")
     return output_path
 
 
-def _group_by_theme(claims: list[MethodologyClaim]) -> dict[str, list[MethodologyClaim]]:
-    grouped: dict[str, list[MethodologyClaim]] = {theme: [] for theme in THEME_ORDER}
-    for claim in claims:
-        theme = primary_theme(claim)
-        if theme is not None:
-            grouped[theme].append(claim)
+def _group_rules_by_theme(rules: list[MethodologyRule]) -> dict[str, list[MethodologyRule]]:
+    grouped: dict[str, list[MethodologyRule]] = {theme: [] for theme in THEME_ORDER}
+    for rule in rules:
+        grouped.setdefault(rule.theme, []).append(rule)
     return grouped
-
-
-def _select_claims(claims: list[MethodologyClaim], max_items: int) -> list[MethodologyClaim]:
-    source_priority = {"article": 0, "comment": 1, "interaction": 2, "image_ocr": 3}
-
-    def score(claim: MethodologyClaim) -> int:
-        ranking = (claim.raw or {}).get("ranking") or {}
-        return int(ranking.get("score", 0))
-
-    return sorted(
-        claims,
-        key=lambda claim: (
-            source_priority.get(claim.source_type.value, 9),
-            -score(claim),
-            claim.claim_id,
-        ),
-    )[:max_items]

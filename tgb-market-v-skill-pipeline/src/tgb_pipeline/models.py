@@ -277,6 +277,21 @@ class MethodologyClaim(PipelineModel):
     raw: dict[str, Any] = Field(default_factory=dict)
 
 
+class MethodologyRule(PipelineModel):
+    rule_id: str
+    theme: str
+    title: str
+    rule_text: str
+    when_to_use: list[str] = Field(default_factory=list)
+    do_not_use_when: list[str] = Field(default_factory=list)
+    evidence_claim_ids: list[str] = Field(default_factory=list)
+    evidence_article_ids: list[str] = Field(default_factory=list)
+    confidence: str = "reviewed_v0"
+    caveats: list[str] = Field(default_factory=list)
+    source_tags: list[str] = Field(default_factory=list)
+    raw: dict[str, Any] = Field(default_factory=dict)
+
+
 class ReviewPackItem(PipelineModel):
     claim_id: str
     decision: str = "unreviewed"

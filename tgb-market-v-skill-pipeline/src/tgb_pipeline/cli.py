@@ -286,6 +286,28 @@ def build_parser() -> argparse.ArgumentParser:
                 default=5,
                 help="Maximum number of representative claims and rules per theme.",
             )
+            command_parser.add_argument(
+                "--max-rules-per-theme",
+                type=int,
+                default=8,
+                help="Maximum number of normalized rules to emit per theme.",
+            )
+            command_parser.add_argument(
+                "--max-evidence-per-rule",
+                type=int,
+                default=5,
+                help="Maximum number of accepted claim IDs to attach to one rule.",
+            )
+            command_parser.add_argument(
+                "--include-needs-edit-worklist",
+                action="store_true",
+                help="Also emit a needs-edit worklist markdown file.",
+            )
+            command_parser.add_argument(
+                "--rule-mode",
+                action="store_true",
+                help="Generate the rule-normalized Skill v0.1 artifact set.",
+            )
         if command in {"extract-claims", "build-review-ready-claims"}:
             command_parser.add_argument(
                 "--max-per-tag",
@@ -598,7 +620,11 @@ def main(argv: Sequence[str] | None = None) -> int:
                     Path("reports"),
                     output_dir=Path(args.output_dir),
                     include_needs_edit_index=args.include_needs_edit_index,
+                    include_needs_edit_worklist=args.include_needs_edit_worklist,
                     max_claims_per_theme=args.max_claims_per_theme,
+                    max_rules_per_theme=args.max_rules_per_theme,
+                    max_evidence_per_rule=args.max_evidence_per_rule,
+                    rule_mode=args.rule_mode,
                 )
                 print(f"build-skill-v0: generated {len(outputs)} outputs.")
             else:
