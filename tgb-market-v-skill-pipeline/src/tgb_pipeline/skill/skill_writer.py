@@ -1,4 +1,4 @@
-"""Write Skill v0.1 markdown artifacts from normalized rules."""
+"""Write Skill v0.2 markdown artifacts from abstract rules."""
 
 from __future__ import annotations
 
@@ -15,14 +15,11 @@ NEXT_REVIEW_PACKS = [
 ]
 
 
-def write_skill_markdown(
-    rules: list[MethodologyRule],
-    output_dir: Path,
-) -> Path:
+def write_skill_markdown(rules: list[MethodologyRule], output_dir: Path) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     rules_by_theme = _group_rules_by_theme(rules)
     lines = [
-        "# TGB Market V Skill v0.1",
+        "# TGB Market V Skill v0.2",
         "",
         "## Purpose",
         "This skill summarizes the reviewed methodology of the target author based on accepted claims only.",
@@ -54,14 +51,20 @@ def write_skill_markdown(
                 [
                     f"#### Rule {rule.rule_id}: {rule.title}",
                     f"- Rule: {rule.rule_text}",
-                    f"- When to use: {'；'.join(rule.when_to_use) if rule.when_to_use else 'none'}",
-                    f"- Do not use when: {'；'.join(rule.do_not_use_when) if rule.do_not_use_when else 'none'}",
-                    "- Evidence:",
+                    "- When to use:",
                 ]
             )
+            for item in rule.when_to_use:
+                lines.append(f"  - {item}")
+            lines.append("- Do not use when:")
+            for item in rule.do_not_use_when:
+                lines.append(f"  - {item}")
+            lines.append("- Evidence:")
             for claim_id in rule.evidence_claim_ids:
                 lines.append(f"  - `{claim_id}`")
-            lines.append(f"- Caveats: {'；'.join(rule.caveats) if rule.caveats else 'none'}")
+            lines.append("- Caveats:")
+            for item in (rule.caveats or ["none"]):
+                lines.append(f"  - {item}")
             lines.append("")
 
     lines.extend(
@@ -91,7 +94,7 @@ def write_skill_markdown(
             "- Corpus is partial.",
             "- Some comment pages were inaccessible due to login/verification/app-open pages.",
             "- Image OCR is not a reliable source unless explicitly reviewed.",
-            "- Skill v0.1 is based on first-round reviewed packs only.",
+            "- Skill v0.2 is based on first-round reviewed packs only.",
             "",
         ]
     )
@@ -138,6 +141,7 @@ def write_review_summary(
     *,
     reviewed_packs: list[str],
     unreviewed_count: int,
+    accepted_recheck_count: int = 0,
 ) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
     accepted_by_tag = Counter(tag for claim in accepted_claims for tag in claim.method_tags)
@@ -160,6 +164,7 @@ def write_review_summary(
             f"- rejected: {len(rejected_claims)}",
             f"- needs_edit: {len(needs_edit_claims)}",
             f"- unreviewed: {unreviewed_count}",
+            f"- accepted_recheck_candidates: {accepted_recheck_count}",
             "",
             "## accepted_by_tag",
         ]
@@ -177,7 +182,8 @@ def write_review_summary(
             "## Known Gaps",
             "- 部分评论页因登录 / 验证 / 打开 app 页面不可访问，形成证据缺口。",
             "- image OCR 目前只适合作为待复核辅助，不作为默认核心证据。",
-            "- 仍有大量 unreviewed review-ready claims 尚未进入本轮 Skill v0.1。",
+            "- 仍有大量 unreviewed review-ready claims 尚未进入本轮 Skill v0.2。",
+            "- accepted recheck candidates 说明仍有一批口语化、反讽化或强上下文 accepted 证据需要回看。",
             "",
             "## Next Recommended Review Packs",
         ]

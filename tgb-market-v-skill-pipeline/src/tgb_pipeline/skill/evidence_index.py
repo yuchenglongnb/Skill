@@ -61,8 +61,11 @@ def build_rule_evidence_map(
     rules: list[MethodologyRule],
     accepted_claims: list[MethodologyClaim],
     output_dir: Path,
+    *,
+    recheck_flags_by_claim: dict[str, list[str]] | None = None,
 ) -> Path:
     claim_by_id = {claim.claim_id: claim for claim in accepted_claims}
+    recheck_flags_by_claim = recheck_flags_by_claim or {}
     output_dir.mkdir(parents=True, exist_ok=True)
     output_path = output_dir / "rule_evidence_map.jsonl"
     with output_path.open("w", encoding="utf-8", newline="\n") as handle:
@@ -78,8 +81,10 @@ def build_rule_evidence_map(
                     "article_id": claim.article_id,
                     "source_type": claim.source_type.value,
                     "raw_excerpt": claim.raw_excerpt,
+                    "claim_text": claim.claim_text,
                     "review_reason": claim.review_bucket or claim.review_status,
                     "review_notes": claim.review_notes,
+                    "recheck_flags": recheck_flags_by_claim.get(claim.claim_id, []),
                 }
                 handle.write(json.dumps(payload, ensure_ascii=False) + "\n")
     return output_path

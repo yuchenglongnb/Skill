@@ -289,7 +289,7 @@ def build_parser() -> argparse.ArgumentParser:
             command_parser.add_argument(
                 "--max-rules-per-theme",
                 type=int,
-                default=8,
+                default=4,
                 help="Maximum number of normalized rules to emit per theme.",
             )
             command_parser.add_argument(
@@ -306,7 +306,17 @@ def build_parser() -> argparse.ArgumentParser:
             command_parser.add_argument(
                 "--rule-mode",
                 action="store_true",
-                help="Generate the rule-normalized Skill v0.1 artifact set.",
+                help="Generate the rule-normalized Skill v0.2 artifact set.",
+            )
+            command_parser.add_argument(
+                "--strict-rule-abstraction",
+                action="store_true",
+                help="Fail if rule texts still contain direct claim excerpts or generic rule titles.",
+            )
+            command_parser.add_argument(
+                "--generate-accepted-recheck-pack",
+                action="store_true",
+                help="Generate a recheck pack for accepted claims that remain too colloquial or context-dependent.",
             )
         if command in {"extract-claims", "build-review-ready-claims"}:
             command_parser.add_argument(
@@ -625,6 +635,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                     max_rules_per_theme=args.max_rules_per_theme,
                     max_evidence_per_rule=args.max_evidence_per_rule,
                     rule_mode=args.rule_mode,
+                    strict_rule_abstraction=args.strict_rule_abstraction,
+                    generate_accepted_recheck_pack=args.generate_accepted_recheck_pack,
                 )
                 print(f"build-skill-v0: generated {len(outputs)} outputs.")
             else:

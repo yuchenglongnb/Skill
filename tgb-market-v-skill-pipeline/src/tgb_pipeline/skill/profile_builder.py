@@ -1,12 +1,12 @@
-"""Build a structured methodology profile from reviewed rules and claims."""
+"""Build a structured methodology profile from abstract rules and reviewed evidence."""
 
 from __future__ import annotations
 
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 
 from tgb_pipeline.models import MethodologyClaim, MethodologyRule
-from tgb_pipeline.skill.rule_builder import THEME_ORDER, group_claims_by_theme, theme_key
+from tgb_pipeline.skill.rule_builder import THEME_ORDER, group_claims_by_theme
 
 THEME_RELATIONSHIPS = [
     "量化影响如何改变短线生态：量化资金会改变资金反馈速度、流动性分布和盘中承接结构。",
@@ -26,20 +26,23 @@ def build_methodology_profile_v0(
     *,
     reviewed_packs: list[str],
     unreviewed_count: int,
+    accepted_recheck_candidates: list[dict[str, object]] | None = None,
     max_claims_per_theme: int = 5,
     max_rules_per_theme: int = 5,
 ) -> Path:
     output_dir.mkdir(parents=True, exist_ok=True)
+    accepted_recheck_candidates = accepted_recheck_candidates or []
     accepted_by_theme = group_claims_by_theme(accepted_claims)
     needs_edit_by_theme = group_claims_by_theme(needs_edit_claims)
     rules_by_theme = _group_rules_by_theme(rules)
+    recheck_by_theme = _group_recheck_by_theme(accepted_recheck_candidates)
     rejected_reason_counts = Counter(
         claim.review_notes or claim.raw.get("review_reason") or claim.review_bucket or "rejected"
         for claim in rejected_claims
     )
 
     lines = [
-        "# 等主人的猫：阶段性方法论画像 v0.1",
+        "# 等主人的猫：阶段性方法论画像 v0.2",
         "",
         "## 数据状态",
         f"- accepted claims: {len(accepted_claims)}",
@@ -47,60 +50,68 @@ def build_methodology_profile_v0(
         f"- rejected claims: {len(rejected_claims)}",
         f"- reviewed packs: {', '.join(reviewed_packs) if reviewed_packs else 'none'}",
         f"- unreviewed claims: {unreviewed_count}",
+        f"- accepted recheck candidates: {len(accepted_recheck_candidates)}",
         "",
-        "## 核心主题",
+        "## Rule Summary",
     ]
 
     for theme in THEME_ORDER:
-        lines.extend(
-            [
-                f"### {theme}",
-                "",
-                "#### Rule Summary",
-            ]
-        )
+        lines.extend([f"### {theme}", ""])
         theme_rules = rules_by_theme.get(theme, [])[:max_rules_per_theme]
         if theme_rules:
-            for index, rule in enumerate(theme_rules, start=1):
+            for rule in theme_rules:
                 lines.extend(
                     [
-                        f"{index}. {rule.title}",
-                        f"   - rule_id: `{rule.rule_id}`",
-                        f"   - rule_text: {rule.rule_text}",
-                        f"   - evidence_claim_ids: {', '.join(rule.evidence_claim_ids)}",
+                        f"- `{rule.rule_id}` {rule.title}",
+                        f"  - rule_text: {rule.rule_text}",
+                        f"  - evidence_claim_ids: {', '.join(rule.evidence_claim_ids)}",
                     ]
                 )
         else:
-            lines.append("1. 暂无已生成规则。")
+            lines.append("- 暂无该主题规则。")
+        lines.append("")
 
-        lines.extend(["", "#### Representative Accepted Evidence"])
+    lines.extend(["## Representative Accepted Evidence", ""])
+    for theme in THEME_ORDER:
+        lines.extend([f"### {theme}", ""])
         theme_claims = accepted_by_theme.get(theme, [])[:max_claims_per_theme]
         if theme_claims:
             for claim in theme_claims:
                 lines.extend(_claim_block(claim))
         else:
-            lines.append("- 暂无已确认代表 claim。")
-
-        lines.extend(["", "#### Needs-edit / Caveats"])
-        theme_needs_edit = needs_edit_by_theme.get(theme, [])[:max_claims_per_theme]
-        if theme_needs_edit:
-            for claim in theme_needs_edit:
-                lines.extend(_claim_block(claim, include_notes=True))
-        else:
-            lines.append("- 暂无该主题的 needs_edit 待确认观点。")
+            lines.append("- 暂无已确认代表 evidence。")
         lines.append("")
 
-    lines.extend(["## 主题之间的关系", ""])
-    for relation in THEME_RELATIONSHIPS:
-        lines.append(f"- {relation}")
+    lines.extend(["## Accepted Claims Recheck Candidates", ""])
+    if accepted_recheck_candidates:
+        for theme in [*THEME_ORDER, "未分类"]:
+            theme_items = recheck_by_theme.get(theme, [])[:max_claims_per_theme]
+            if not theme_items:
+                continue
+            lines.extend([f"### {theme}", ""])
+            for item in theme_items:
+                lines.extend(
+                    [
+                        f"- claim_id: `{item['claim_id']}`",
+                        f"  - article_id: {item['article_id'] or 'unknown'}",
+                        f"  - source_type: {item['source_type']}",
+                        f"  - recheck_reason: {item['recheck_reason']}",
+                        f"  - raw_excerpt: {item['raw_excerpt']}",
+                        f"  - review_notes: {item['review_notes'] or 'none'}",
+                    ]
+                )
+            lines.append("")
+    else:
+        lines.append("- 当前没有 accepted recheck candidates。")
+        lines.append("")
 
-    lines.extend(["", "## 待确认观点", ""])
+    lines.extend(["## Needs-edit Worklist", ""])
     if needs_edit_claims:
         for theme in THEME_ORDER:
             theme_claims = needs_edit_by_theme.get(theme, [])[:max_claims_per_theme]
             if not theme_claims:
                 continue
-            lines.append(f"### {theme}")
+            lines.extend([f"### {theme}", ""])
             for claim in theme_claims:
                 lines.extend(_claim_block(claim, include_notes=True))
             lines.append("")
@@ -108,7 +119,11 @@ def build_methodology_profile_v0(
         lines.append("- 当前没有 needs_edit 观点。")
         lines.append("")
 
-    lines.extend(["## 排除边界", "", "- rejected 类型总结："])
+    lines.extend(["## 主题之间的关系", ""])
+    for relation in THEME_RELATIONSHIPS:
+        lines.append(f"- {relation}")
+
+    lines.extend(["", "## 排除边界", "", "- rejected 类型总结："])
     if rejected_reason_counts:
         for reason, count in rejected_reason_counts.most_common(8):
             lines.append(f"  - {reason}: {count}")
@@ -117,8 +132,8 @@ def build_methodology_profile_v0(
     lines.extend(
         [
             "- 泛句、碎句、反讽、上下文不足不进入核心方法论。",
-            "- needs_edit 只作为待确认材料，不直接写成核心规则。",
-            "- rejected / unreviewed 不进入 Skill v0.1 的核心方法论。",
+            "- needs_edit 只作为待确认素材，不直接写成核心规则。",
+            "- rejected / unreviewed 不进入 Skill v0.2 的核心方法论。",
             "",
         ]
     )
@@ -129,18 +144,25 @@ def build_methodology_profile_v0(
 
 
 def _group_rules_by_theme(rules: list[MethodologyRule]) -> dict[str, list[MethodologyRule]]:
-    grouped: dict[str, list[MethodologyRule]] = {}
-    for theme in THEME_ORDER:
-        grouped[theme] = [rule for rule in rules if rule.theme == theme]
+    grouped: dict[str, list[MethodologyRule]] = defaultdict(list)
+    for rule in rules:
+        grouped[rule.theme].append(rule)
+    return grouped
+
+
+def _group_recheck_by_theme(items: list[dict[str, object]]) -> dict[str, list[dict[str, object]]]:
+    grouped: dict[str, list[dict[str, object]]] = defaultdict(list)
+    for item in items:
+        grouped[str(item.get("theme") or "未分类")].append(item)
     return grouped
 
 
 def _claim_block(claim: MethodologyClaim, *, include_notes: bool = False) -> list[str]:
     lines = [
         f"- claim_id: `{claim.claim_id}`",
+        f"  - raw_excerpt: {claim.raw_excerpt}",
         f"  - article_id: {claim.article_id or 'unknown'}",
         f"  - source_type: {claim.source_type.value}",
-        f"  - raw_excerpt: {claim.raw_excerpt}",
         f"  - method_tags: {', '.join(claim.method_tags) if claim.method_tags else 'none'}",
     ]
     if include_notes:

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-05T08:46:24.207350+00:00",
+  "generated_at": "2026-06-08T08:56:08.469482+00:00",
   "inputs": [
     "data/raw/tgb/articles_index.jsonl",
     "data/raw/tgb/articles.jsonl",
@@ -92,14 +92,16 @@
     "review_ready_claims_report": 1,
     "review_ready_curated_profile": 1,
     "review_ready_curation_report": 1,
-    "review_packs_count": 8,
-    "review_pack_reports_count": 15,
+    "review_packs_count": 9,
+    "review_pack_reports_count": 16,
     "review_pack_index": 1,
     "skill_v0_count": 1,
-    "skill_v0_methodology_rules": 45,
-    "skill_v0_rule_evidence_map": 69,
+    "skill_v0_methodology_rules": 16,
+    "skill_v0_rule_evidence_map": 75,
     "skill_v0_needs_edit_worklist": 1,
     "skill_v0_skill_quality_report": 1,
+    "skill_v0_accepted_recheck_pack": 1,
+    "skill_v0_accepted_recheck_report": 1,
     "methodology_profile_draft": 1,
     "accepted_methodology_claims": 0,
     "rejected_methodology_claims": 0,
@@ -121,6 +123,8 @@
   "skill_v0_rule_evidence_map": "skill_output/tgb_market_v_skill/rule_evidence_map.jsonl",
   "skill_v0_needs_edit_worklist": "skill_output/tgb_market_v_skill/needs_edit_worklist.md",
   "skill_v0_skill_quality_report": "skill_output/tgb_market_v_skill/skill_quality_report.md",
+  "skill_v0_accepted_recheck_pack": "data/processed/tgb/review_packs/accepted_recheck_v0_2.yaml",
+  "skill_v0_accepted_recheck_report": "reports/review_packs/accepted_recheck_v0_2.md",
   "skill_v0_uncertainty_policy": "skill_output/tgb_market_v_skill/uncertainty_policy.md",
   "skill_v0_review_summary": "skill_output/tgb_market_v_skill/review_summary.md"
 }

@@ -82,12 +82,16 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
             "--max-evidence-per-rule",
             "4",
             "--include-needs-edit-worklist",
+            "--strict-rule-abstraction",
+            "--generate-accepted-recheck-pack",
         ]
     )
     assert skill_args.rule_mode is True
     assert skill_args.max_rules_per_theme == 6
     assert skill_args.max_evidence_per_rule == 4
     assert skill_args.include_needs_edit_worklist is True
+    assert skill_args.strict_rule_abstraction is True
+    assert skill_args.generate_accepted_recheck_pack is True
 
     assert main(["extract-images"]) == 0
     assert "scaffold only" in capsys.readouterr().out

@@ -89,6 +89,18 @@ def write_skill_quality_report(
     for rule_id, evidence_count in audit_summary["evidence_density"].items():
         lines.append(f"| {rule_id} | {evidence_count} |")
 
+    abstraction_checks = audit_summary.get("rule_abstraction_checks", {})
+    lines.extend(
+        [
+            "",
+            "## Rule Abstraction Checks",
+            f"- direct excerpt in rule_text: {abstraction_checks.get('direct_excerpt_in_rule_text', 0)}",
+            f"- generic rule titles: {abstraction_checks.get('generic_rule_titles', 0)}",
+            f"- raw excerpt in SKILL.md: {abstraction_checks.get('raw_excerpt_in_skill_md', 0)}",
+            f"- accepted recheck candidates: {abstraction_checks.get('accepted_recheck_candidates', 0)}",
+        ]
+    )
+
     lines.extend(["", "## Warnings"])
     if audit_summary["warnings"]:
         for warning in audit_summary["warnings"]:

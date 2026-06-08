@@ -1,4 +1,4 @@
-"""Task orchestration for building a rule-based Skill v0.1 draft."""
+"""Task orchestration for building a rule-based Skill v0.2 draft."""
 
 from __future__ import annotations
 
@@ -12,7 +12,8 @@ from tgb_pipeline.skill.evidence_index import (
     build_skill_evidence_index,
 )
 from tgb_pipeline.skill.profile_builder import build_methodology_profile_v0
-from tgb_pipeline.skill.rule_builder import build_methodology_rules
+from tgb_pipeline.skill.recheck_pack import build_accepted_recheck_pack, detect_accepted_recheck_flags
+from tgb_pipeline.skill.rule_builder import build_methodology_rules, primary_theme
 from tgb_pipeline.skill.rule_writer import (
     write_methodology_rules,
     write_needs_edit_worklist,
@@ -36,9 +37,11 @@ def build_skill_v0_bundle(
     include_needs_edit_index: bool = False,
     include_needs_edit_worklist: bool = False,
     max_claims_per_theme: int = 5,
-    max_rules_per_theme: int = 8,
+    max_rules_per_theme: int = 4,
     max_evidence_per_rule: int = 5,
     rule_mode: bool = False,
+    strict_rule_abstraction: bool = False,
+    generate_accepted_recheck_pack: bool = False,
 ) -> list[Path]:
     accepted_claims = _read_claims(processed_dir / "accepted_review_ready_claims.jsonl")
     if not accepted_claims:
@@ -57,6 +60,23 @@ def build_skill_v0_bundle(
     }
     unreviewed_count = len(unreviewed_claim_ids)
     reviewed_packs = _discover_reviewed_packs(reports_dir / "review_packs")
+    accepted_recheck_flags_by_claim = {
+        claim.claim_id: detect_accepted_recheck_flags(claim)
+        for claim in accepted_claims
+    }
+    accepted_recheck_items = [
+        {
+            "claim_id": claim.claim_id,
+            "theme": primary_theme(claim) or "未分类",
+            "article_id": claim.article_id,
+            "source_type": claim.source_type.value,
+            "raw_excerpt": claim.raw_excerpt,
+            "review_notes": claim.review_notes or "",
+            "recheck_reason": accepted_recheck_flags_by_claim[claim.claim_id],
+        }
+        for claim in accepted_claims
+        if accepted_recheck_flags_by_claim[claim.claim_id]
+    ]
 
     rules = build_methodology_rules(
         accepted_claims,
@@ -72,13 +92,19 @@ def build_skill_v0_bundle(
         output_dir,
         reviewed_packs=reviewed_packs,
         unreviewed_count=unreviewed_count,
+        accepted_recheck_candidates=accepted_recheck_items,
         max_claims_per_theme=max_claims_per_theme,
         max_rules_per_theme=max_rules_per_theme,
     )
     skill_md_path = write_skill_markdown(rules, output_dir)
     evidence_index_path = build_skill_evidence_index(accepted_claims, output_dir)
     rule_path = write_methodology_rules(rules, output_dir)
-    rule_evidence_map_path = build_rule_evidence_map(rules, accepted_claims, output_dir)
+    rule_evidence_map_path = build_rule_evidence_map(
+        rules,
+        accepted_claims,
+        output_dir,
+        recheck_flags_by_claim=accepted_recheck_flags_by_claim,
+    )
     uncertainty_policy_path = write_uncertainty_policy(output_dir)
     review_summary_path = write_review_summary(
         accepted_claims,
@@ -88,6 +114,7 @@ def build_skill_v0_bundle(
         output_dir,
         reviewed_packs=reviewed_packs,
         unreviewed_count=unreviewed_count,
+        accepted_recheck_count=len(accepted_recheck_items),
     )
 
     outputs = [
@@ -103,10 +130,18 @@ def build_skill_v0_bundle(
         outputs.append(build_needs_edit_evidence_index(needs_edit_claims, output_dir))
     if include_needs_edit_worklist or rule_mode:
         outputs.append(write_needs_edit_worklist(needs_edit_claims, output_dir))
+    if generate_accepted_recheck_pack:
+        recheck_pack_path, recheck_report_path, _ = build_accepted_recheck_pack(
+            accepted_claims,
+            processed_dir,
+            reports_dir,
+        )
+        outputs.extend([recheck_pack_path, recheck_report_path])
 
     audit_summary = audit_skill_outputs(
         output_dir,
         rules=rules,
+        accepted_claims=accepted_claims,
         accepted_claim_ids=accepted_claim_ids,
         needs_edit_claim_ids=needs_edit_claim_ids,
         rejected_claim_ids=rejected_claim_ids,
@@ -115,7 +150,16 @@ def build_skill_v0_bundle(
         needs_edit_claims_count=len(needs_edit_claims),
         rejected_claims_count=len(rejected_claims),
         unreviewed_claims_count=unreviewed_count,
+        accepted_recheck_candidates_count=len(accepted_recheck_items),
     )
+    if strict_rule_abstraction:
+        abstraction_checks = audit_summary["rule_abstraction_checks"]
+        if (
+            abstraction_checks["direct_excerpt_in_rule_text"] > 0
+            or abstraction_checks["generic_rule_titles"] > 0
+            or abstraction_checks["raw_excerpt_in_skill_md"] > 0
+        ):
+            raise ValueError("strict rule abstraction failed; check skill_quality_report.md")
     outputs.append(write_skill_quality_report(audit_summary, output_dir))
     outputs.append(build_corpus_manifest(raw_dir, processed_dir, reports_dir))
     return outputs

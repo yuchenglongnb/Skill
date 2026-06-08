@@ -17,6 +17,8 @@ def test_build_skill_v0_rule_mode_cli_generates_rule_outputs(tmp_path, monkeypat
             "--rule-mode",
             "--include-needs-edit-index",
             "--include-needs-edit-worklist",
+            "--strict-rule-abstraction",
+            "--generate-accepted-recheck-pack",
             "--max-rules-per-theme",
             "4",
             "--max-evidence-per-rule",
@@ -29,3 +31,4 @@ def test_build_skill_v0_rule_mode_cli_generates_rule_outputs(tmp_path, monkeypat
     assert (output_dir / "rule_evidence_map.jsonl").is_file()
     assert (output_dir / "skill_quality_report.md").is_file()
     assert (output_dir / "needs_edit_worklist.md").is_file()
+    assert (tmp_path / "data" / "processed" / "tgb" / "review_packs" / "accepted_recheck_v0_2.yaml").is_file()

@@ -1,13 +1,22 @@
 # Review Encoding Audit
 
 ## Summary
-- total_files: 12
+- total_files: 13
 - corrupted_files: 0
-- total_reviewed_items: 1338
+- total_reviewed_items: 1419
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 
 ## Files
+
+### data/processed/tgb/review_packs/accepted_recheck_v0_2.yaml
+
+- exists: True
+- total_items: 81
+- reviewed_items: 81
+- corrupted_review_notes_count: 0
+- corrupted_edited_claim_text_count: 0
+- sample_claim_ids: []
 
 ### data/processed/tgb/review_packs/bull_bear_top80.yaml
 

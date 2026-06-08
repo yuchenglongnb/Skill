@@ -16,6 +16,7 @@ def make_claim(
     source_type: ClaimSourceType = ClaimSourceType.COMMENT,
     review_status: str = "accepted",
     review_notes: str | None = None,
+    review_bucket: str = "core_methodology",
 ) -> MethodologyClaim:
     return MethodologyClaim(
         claim_id=claim_id,
@@ -30,7 +31,7 @@ def make_claim(
         review_status=review_status,
         review_notes=review_notes,
         review_priority="high",
-        review_bucket="core_methodology",
+        review_bucket=review_bucket,
         raw={"ranking": {"score": 10}, "review_reason": review_status},
     )
 
@@ -44,12 +45,90 @@ def write_skill_inputs(tmp_path: Path) -> tuple[Path, Path, Path]:
     reports_dir.mkdir(parents=True, exist_ok=True)
 
     accepted = [
-        make_claim("claim-quant", "量化资金会改变短线反馈速度。", tag="量化影响", article_id="2jbi0efIsof"),
-        make_claim("claim-turnover", "成交额不足时短线高度会受限。", tag="成交额", article_id="2ohHCnLXtP8"),
-        make_claim("claim-short", "短线基础行情差时接力容错会下降。", tag="短线基础行情", article_id="2bWeZGDSi07"),
-        make_claim("claim-index", "指数环境转弱会压制短线承接。", tag="指数环境", article_id="2bWeZGDSi07"),
-        make_claim("claim-risk", "弱市要先收缩仓位。", tag="风控", article_id="2bWeZGDSi07"),
-        make_claim("claim-bullbear", "牛熊切换时不能套用同一套短线节奏。", tag="牛熊切换", article_id="2bWeZGDSi07"),
+        make_claim(
+            "claim-quant-1",
+            "量化会改变短线盘中的反馈速度。",
+            tag="量化影响",
+            article_id="2jbi0efIsof",
+            review_bucket="trading_mechanism",
+        ),
+        make_claim(
+            "claim-quant-2",
+            "量化趋同交易会改变流动性分布。",
+            tag="量化影响",
+            article_id="2ohHCnLXtP8",
+            review_bucket="market_environment",
+        ),
+        make_claim(
+            "claim-turnover-1",
+            "成交额不足时短线高度会受限。",
+            tag="成交额",
+            article_id="2ohHCnLXtP8",
+            review_bucket="market_environment",
+        ),
+        make_claim(
+            "claim-turnover-2",
+            "缩量环境下接力持续性会下降。",
+            tag="成交额",
+            article_id="2bWeZGDSi07",
+            review_bucket="trading_mechanism",
+        ),
+        make_claim(
+            "claim-short-1",
+            "短线基础行情差时接力容错会下降。",
+            tag="短线基础行情",
+            article_id="2bWeZGDSi07",
+            review_bucket="core_methodology",
+        ),
+        make_claim(
+            "claim-short-2",
+            "赚钱效应要看整体短线生态而不是单个龙头。",
+            tag="短线基础行情",
+            article_id="2jbi0efIsof",
+            review_bucket="market_environment",
+        ),
+        make_claim(
+            "claim-index-1",
+            "指数环境转弱会压制短线承接。",
+            tag="指数环境",
+            article_id="2bWeZGDSi07",
+            review_bucket="market_environment",
+        ),
+        make_claim(
+            "claim-index-2",
+            "指数震荡时局部题材的持续性要打折看待。",
+            tag="指数环境",
+            article_id="2jbi0efIsof",
+            review_bucket="risk_control",
+        ),
+        make_claim(
+            "claim-risk-1",
+            "弱市要先收缩仓位。",
+            tag="风控",
+            article_id="2bWeZGDSi07",
+            review_bucket="risk_control",
+        ),
+        make_claim(
+            "claim-risk-2",
+            "买入前提不成立时先减少交易。",
+            tag="风控",
+            article_id="2jbi0efIsof",
+            review_bucket="execution_rule",
+        ),
+        make_claim(
+            "claim-bullbear-1",
+            "牛熊切换时不能套用同一套短线节奏。",
+            tag="牛熊切换",
+            article_id="2bWeZGDSi07",
+            review_bucket="market_environment",
+        ),
+        make_claim(
+            "claim-bullbear-2",
+            "市场状态切换会改变进攻和防守的权重。",
+            tag="牛熊切换",
+            article_id="2jbi0efIsof",
+            review_bucket="risk_control",
+        ),
     ]
     needs_edit = [
         make_claim(
@@ -58,6 +137,7 @@ def write_skill_inputs(tmp_path: Path) -> tuple[Path, Path, Path]:
             tag="牛熊切换",
             review_status="needs_edit",
             review_notes="待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。",
+            review_bucket="needs_human_check",
         )
     ]
     rejected = [
@@ -67,6 +147,7 @@ def write_skill_inputs(tmp_path: Path) -> tuple[Path, Path, Path]:
             tag="指数环境",
             review_status="rejected",
             review_notes="拒绝：表述偏泛，不能独立构成方法论。",
+            review_bucket="too_generic",
         )
     ]
     review_ready = [*accepted, *needs_edit, *rejected]
