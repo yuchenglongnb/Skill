@@ -6,21 +6,22 @@
 - short_term_base_top100
 - risk_control_top80
 - bull_bear_top80
+- accepted_recheck_v0_2
 
 ## Counts
-- accepted: 248
-- rejected: 91
-- needs_edit: 100
+- accepted: 222
+- rejected: 95
+- needs_edit: 122
 - unreviewed: 6113
-- accepted_recheck_candidates: 81
+- accepted_recheck_candidates: 55
 
 ## accepted_by_tag
-- 量化影响: 86
-- 短线基础行情: 69
-- 成交额: 59
-- 指数环境: 54
-- 风控: 45
-- 牛熊切换: 29
+- 量化影响: 77
+- 短线基础行情: 61
+- 成交额: 55
+- 指数环境: 49
+- 风控: 42
+- 牛熊切换: 22
 - 买入触发: 8
 - 赚钱效应: 5
 - 市场结构: 5

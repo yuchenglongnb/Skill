@@ -1,9 +1,9 @@
 # Package Audit
 
 ## Summary
-- files: 11
+- files: 12
 - rules: 16
-- evidence mappings: 75
+- evidence mappings: 74
 - warnings: 0
 
 ## Checks
@@ -19,14 +19,14 @@
 | review_summary.md | ok | required file review_summary.md |
 | skill_quality_report.md | ok | required file skill_quality_report.md |
 | rules_count | ok | 16 rules |
-| evidence_map_count | ok | 75 evidence mappings |
+| evidence_map_count | ok | 74 evidence mappings |
 | raw_excerpt_in_skill | ok | overlap_count=0 |
 | investment_advice_language | ok | hits=[] |
 | excluded_artifacts | ok | forbidden_paths=[] |
 | encoding | ok | corrupted_files=0 |
 | manifest_rules_count | ok | manifest=16 actual=16 |
-| manifest_accepted_count | ok | manifest=248 summary=248 |
-| manifest_needs_edit_count | ok | manifest=100 summary=100 |
+| manifest_accepted_count | ok | manifest=222 summary=222 |
+| manifest_needs_edit_count | ok | manifest=122 summary=122 |
 | manifest_quality_direct_excerpt | ok | manifest=0 quality=0 |
 | manifest_quality_warnings | ok | manifest=0 quality=0 |
 

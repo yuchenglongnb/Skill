@@ -34,10 +34,10 @@ decisions:
       article_source
     ranking_score: 27
   claim-27d6b8820885dee1:
-    decision: accepted
-    reason: risk_control
-    edited_claim_text: null
-    review_notes: 保留：属于弱市短线的风控或仓位判断。
+    decision: needs_edit
+    reason: market_environment
+    edited_claim_text: 震荡或低开环境下，应先判断短线整体承接，再决定是否追逐高弹性方向。
+    review_notes: 待编辑：原句有价值，但需要去掉盘中问句和当日语境后再作为方法论证据。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -50,10 +50,10 @@ decisions:
       article_source
     ranking_score: 25
   claim-38184d61ed1ba0ec:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于短线基础行情或接力机制的判断。
+    edited_claim_text: 短线环境恶化时，资金会围绕先后手博弈和相对拥挤度重新分配，而不是按单一板块独立运行。
+    review_notes: 待编辑：原句有价值，但表达过于口语化，需压缩为中性的短线博弈机制表述。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -180,10 +180,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 25
   claim-acaaf4cdb5d413ec:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+    edited_claim_text: 量化影响属于更高维度的市场结构变量，不能用简单的主观短线技巧正面应对。
+    review_notes: 待编辑：原句有价值，但比喻和夸张色彩过强，需要改写为中性机制表述。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -194,10 +194,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, article_source
     ranking_score: 25
   claim-c1c3ea0d9bd5e06a:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
+    edited_claim_text: 短线放量并不天然利好；若放量意味着稀缺性下降，则持续性往往变差。
+    review_notes: 待编辑：原句有价值，但带有反问和口语修辞，需要压缩为中性成交额机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -285,7 +285,7 @@ decisions:
     ranking_score: 22
   claim-7c8abf7d84d3e9e3:
     decision: accepted
-    reason: core_methodology
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于可沉淀的成交额或量能方法论判断。
     review_priority: high
@@ -2969,10 +2969,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, article_source
     ranking_score: 14
   claim-0d18577396d6de47:
-    decision: accepted
-    reason: trading_mechanism
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: 保留：属于牛熊环境对交易机制影响的判断。
+    review_notes: 拒绝：更像夸张化背景评论，缺少可独立沉淀的市场状态方法论。
     review_priority: high
     review_bucket: background_context
     method_tags:
@@ -3084,10 +3084,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article, article_source, bucket:background_context
     ranking_score: 13
   claim-c96ab1bcbaaaca45:
-    decision: accepted
-    reason: market_environment
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: 保留：属于牛熊切换下市场状态识别或环境变化判断。
+    review_notes: 拒绝：更像口语化市场评论，不能稳定支撑牛熊切换规则。
     review_priority: high
     review_bucket: background_context
     method_tags:
@@ -4243,10 +4243,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-08b11dfb69c89a83:
-    decision: accepted
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+    review_notes: 待确认：上下文依赖较强，需结合原文确认“逆因子杀跌”在该场景下的具体机制含义。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4286,10 +4286,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-0d90b621ec337546:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+    edited_claim_text: 如果前一日已被量化充分配置，次日即便有增量，也更容易成为先手资金的兑现对象。
+    review_notes: 待编辑：原句有价值，但“卖给你”这类盘中口语不适合直接作为强证据。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -4356,10 +4356,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-11d5b011723554bf:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+    edited_claim_text: 在竞价到开盘初段的反应速度上，主观交易通常难以正面竞争高频量化。
+    review_notes: 待编辑：原句有价值，但表达过于口语化，需要改写为中性机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5043,7 +5043,7 @@ decisions:
     ranking_score: 24
   claim-5b51bdf81cc631e4:
     decision: accepted
-    reason: risk_control
+    reason: market_environment
     edited_claim_text: null
     review_notes: 保留：属于成交额或量能条件下的风控判断。
     review_priority: high
@@ -5192,10 +5192,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-6a61b73111c4871e:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+    edited_claim_text: 若量化资金在前一日已完成配置，次日缺席买盘会放大原有抛压并改变场内多空结构。
+    review_notes: 待编辑：原句有价值，但表述依赖特定盘中假设，需要改写为更稳的结构判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5206,10 +5206,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 24
   claim-6ad31981dcfeccf9:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于短线基础行情或接力机制的判断。
+    edited_claim_text: 当短线整体预期抬升但前排并未留出足够换手机会时，先手资金更容易向后手兑现。
+    review_notes: 待编辑：原句有价值，但“卖给你”式表述过强，需要抽象为先后手兑现机制。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5264,10 +5264,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-6f10ff37311d9865:
-    decision: accepted
+    decision: needs_edit
     reason: market_environment
-    edited_claim_text: null
-    review_notes: 保留：属于量化影响与市场环境关系的判断。
+    edited_claim_text: 缩量拉升后若午后主要依赖新增资金接力，量化与先手资金更容易借增量兑现。
+    review_notes: 待编辑：原句有价值，但依赖具体时段语境，需要改写为中性的环境与兑现关系判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -5424,10 +5424,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-86e1a879fa8fffc1:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+    edited_claim_text: 当预期修复吸引量化抢筹时，主观交易若无更早的前置信号，开盘后很难获取优势。
+    review_notes: 待编辑：原句有价值，但“盲买”这类执行口语不宜直接作为方法论证据。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -5439,7 +5439,7 @@ decisions:
     ranking_score: 24
   claim-8859e6bbf84f1014:
     decision: accepted
-    reason: execution_rule
+    reason: market_environment
     edited_claim_text: null
     review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
@@ -5613,10 +5613,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 24
   claim-97b34a7880aa0e35:
-    decision: accepted
-    reason: trading_mechanism
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+    review_notes: 待确认：原句含明显口语和拟人化表达，需要结合上下文确认是否稳定指向量化迁移行为。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -6173,7 +6173,7 @@ decisions:
     ranking_score: 24
   claim-c243a8147e4a2acb:
     decision: accepted
-    reason: risk_control
+    reason: market_environment
     edited_claim_text: null
     review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
@@ -7378,10 +7378,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length
     ranking_score: 22
   claim-10bbaa43223ad693:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于短线基础行情或接力机制的判断。
+    edited_claim_text: 当量化策略向更高频的波动利用靠拢时，短线交易对波动的争夺会明显加剧。
+    review_notes: 待编辑：原句有价值，但以反问形式出现，需要改写为中性机制判断。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -7522,7 +7522,7 @@ decisions:
     ranking_score: 22
   claim-1646ff0b5d22d1a5:
     decision: accepted
-    reason: risk_control
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
@@ -7593,7 +7593,7 @@ decisions:
     ranking_score: 22
   claim-17a2bdd7c1e40103:
     decision: accepted
-    reason: execution_rule
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于短线交易的执行原则或买卖节奏规则。
     review_priority: high
@@ -7608,7 +7608,7 @@ decisions:
     ranking_score: 22
   claim-184a79cda8f754c6:
     decision: accepted
-    reason: execution_rule
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于短线交易的执行原则或买卖节奏规则。
     review_priority: high
@@ -8252,10 +8252,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-37b24686aff786e8:
-    decision: accepted
+    decision: needs_edit
     reason: market_environment
-    edited_claim_text: null
-    review_notes: 保留：属于成交额或量能变化与市场环境关系的判断。
+    edited_claim_text: 指数放量却只换来弱势上涨时，应警惕滞涨和后续承接不足。
+    review_notes: 待编辑：原句有价值，但以当日反问展开，需要压缩为中性的环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -8624,7 +8624,7 @@ decisions:
     ranking_score: 22
   claim-4d7d1f6438761295:
     decision: accepted
-    reason: risk_control
+    reason: market_environment
     edited_claim_text: null
     review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
@@ -8944,7 +8944,7 @@ decisions:
     ranking_score: 22
   claim-5ccb6f66271500ff:
     decision: accepted
-    reason: risk_control
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于弱市短线的风控或仓位判断。
     review_priority: high
@@ -9141,7 +9141,7 @@ decisions:
     ranking_score: 22
   claim-6384d85aabd65fcb:
     decision: accepted
-    reason: core_methodology
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于可沉淀的短线方法论判断。
     review_priority: high
@@ -9339,7 +9339,7 @@ decisions:
     ranking_score: 22
   claim-6a9dfa2a32de770f:
     decision: accepted
-    reason: execution_rule
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
@@ -9409,10 +9409,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 22
   claim-6d09061bc0fe5f74:
-    decision: accepted
+    decision: needs_edit
     reason: market_environment
-    edited_claim_text: null
-    review_notes: 保留：属于短线生态与市场环境关系的判断。
+    edited_claim_text: 指数不动而短线尾盘回流过猛后，次日更容易出现短线资金集中兑现。
+    review_notes: 待编辑：原句有价值，但口语和夸张成分过强，需要改写为中性的短线环境判断。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -12274,10 +12274,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, good_length, core_article
     ranking_score: 21
   claim-2d8d8202a083ae91:
-    decision: accepted
+    decision: needs_edit
     reason: risk_control
-    edited_claim_text: null
-    review_notes: 保留：属于弱市环境下的风控原则。
+    edited_claim_text: 弱市急跌后若跟风止损集中在午后释放，应警惕被动踩踏带来的二次伤害。
+    review_notes: 待编辑：原句有价值，但反问和时段细节较强，需要压缩为中性风控规则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -12501,10 +12501,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 21
   claim-d246ff491ee3f1d0:
-    decision: accepted
+    decision: needs_edit
     reason: trading_mechanism
-    edited_claim_text: null
-    review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
+    edited_claim_text: 放量滞涨意味着新增资金承接有限，先手资金更容易借增量兑现。
+    review_notes: 待编辑：原句有价值，但“卖给增量”这类行话不宜直接作为规则证据。
     review_priority: high
     review_bucket: trading_mechanism
     method_tags:
@@ -14077,7 +14077,7 @@ decisions:
     ranking_score: 20
   claim-f805dec78eb455fc:
     decision: accepted
-    reason: execution_rule
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
@@ -14319,7 +14319,7 @@ decisions:
     ranking_score: 19
   claim-106fed88bae20b84:
     decision: accepted
-    reason: core_methodology
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于可沉淀的成交额或量能方法论判断。
     review_priority: high
@@ -14431,7 +14431,7 @@ decisions:
     ranking_score: 19
   claim-34eda8218d84dfe6:
     decision: accepted
-    reason: execution_rule
+    reason: trading_mechanism
     edited_claim_text: null
     review_notes: 保留：属于成交额或量能条件下的执行规则判断。
     review_priority: high
@@ -30655,10 +30655,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article, noise_flags
     ranking_score: 13
   claim-450d050cafe52c0d:
-    decision: accepted
-    reason: execution_rule
+    decision: rejected
+    reason: background_context
     edited_claim_text: null
-    review_notes: 保留：属于不同市场状态下的执行原则。
+    review_notes: 拒绝：表述依赖当日语境且口语化过强，不适合作为核心方法论证据。
     review_priority: high
     review_bucket: market_environment
     method_tags:
@@ -34571,10 +34571,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 13
   claim-96f858b0bfdd7619:
-    decision: accepted
-    reason: risk_control
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: 保留：属于不同市场环境下的风控原则。
+    review_notes: 待确认：表述带有明显情绪和祝愿色彩，需要人工结合上下文确认是否可作为牛熊风险证据。
     review_priority: high
     review_bucket: needs_human_check
     method_tags:
@@ -41912,10 +41912,10 @@ decisions:
     ranking_reason: strong_structure, good_length, core_article
     ranking_score: 11
   claim-89eb0e2b4494fe23:
-    decision: accepted
-    reason: risk_control
+    decision: needs_edit
+    reason: needs_human_check
     edited_claim_text: null
-    review_notes: 保留：属于不同市场环境下的风控原则。
+    review_notes: 待确认：疑似反问和情绪化劝诫，需要人工结合上下文确认其是否可沉淀为方法论。
     review_priority: high
     review_bucket: needs_human_check
     method_tags:
@@ -43435,10 +43435,10 @@ decisions:
     ranking_reason: high_value_tags, good_length, core_article
     ranking_score: 10
   claim-5393587bdc8a4b5e:
-    decision: accepted
+    decision: needs_edit
     reason: risk_control
-    edited_claim_text: null
-    review_notes: 保留：属于弱市环境下的风控原则。
+    edited_claim_text: 高波动打法在连续弱势环境中回撤极大，应优先评估可承受风险而非机械坚持。
+    review_notes: 待编辑：原句有价值，但带有明显反问色彩，需要压缩为中性风控规则。
     review_priority: high
     review_bucket: risk_control
     method_tags:
@@ -47213,7 +47213,7 @@ decisions:
     ranking_score: 1
   claim-2d86cadbf15dbc78:
     decision: accepted
-    reason: execution_rule
+    reason: risk_control
     edited_claim_text: null
     review_notes: 保留：属于减少交易、等待或规避风险的执行原则。
     review_priority: normal
@@ -47331,10 +47331,10 @@ decisions:
     ranking_reason: strong_structure, good_length
     ranking_score: 21
   claim-3b63682df66aabca:
-    decision: accepted
-    reason: core_methodology
+    decision: rejected
+    reason: too_fragmented
     edited_claim_text: null
-    review_notes: 保留：属于牛熊状态差异下的可沉淀方法论判断。
+    review_notes: 拒绝：表达过短且情绪化，不能独立支撑牛熊状态差异规则。
     review_priority: normal
     review_bucket: trading_mechanism
     method_tags:
@@ -47346,10 +47346,10 @@ decisions:
     ranking_reason: strong_structure, high_value_tags, core_article
     ranking_score: 20
   claim-5eb3fc02b6c6ddcd:
-    decision: accepted
-    reason: market_environment
-    edited_claim_text: null
-    review_notes: 保留：属于牛熊切换下市场状态识别或环境变化判断。
+    decision: needs_edit
+    reason: core_methodology
+    edited_claim_text: 牛市中的正常回撤形态与熊市不同，不能用单一日K强弱机械定义市场状态。
+    review_notes: 待编辑：原句有价值，但过于口号化，需要改写为中性牛熊识别规则。
     review_priority: normal
     review_bucket: core_methodology
     method_tags:
@@ -47692,7 +47692,7 @@ decisions:
     ranking_score: 18
   claim-106c48596621ea0c:
     decision: accepted
-    reason: risk_control
+    reason: core_methodology
     edited_claim_text: null
     review_notes: 保留：属于不同市场环境下的风控原则。
     review_priority: normal
@@ -47835,7 +47835,7 @@ decisions:
     ranking_score: 17
   claim-24c0e5cfa8a81559:
     decision: accepted
-    reason: trading_mechanism
+    reason: risk_control
     edited_claim_text: null
     review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
@@ -47968,7 +47968,7 @@ decisions:
     ranking_score: 17
   claim-8efd698b48448199:
     decision: accepted
-    reason: trading_mechanism
+    reason: risk_control
     edited_claim_text: null
     review_notes: 保留：属于亏钱效应、止损盘或流动性风险的机制判断。
     review_priority: normal
@@ -53516,10 +53516,10 @@ decisions:
     ranking_reason: strong_structure, core_article
     ranking_score: 13
   claim-8b04518ea5d111a3:
-    decision: accepted
-    reason: execution_rule
-    edited_claim_text: null
-    review_notes: 保留：属于减少交易、等待或规避风险的执行原则。
+    decision: needs_edit
+    reason: risk_control
+    edited_claim_text: 当短线进入爆量加速杀跌阶段，风控应前置，而不是在亏损扩大后才被动执行。
+    review_notes: 待编辑：原句有价值，但反问语气较强，需要压缩为中性风控规则。
     review_priority: normal
     review_bucket: risk_control
     method_tags:

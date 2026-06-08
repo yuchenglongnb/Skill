@@ -32,7 +32,7 @@ Rejected and unreviewed claims are excluded from core methodology.
 
 ## Current Coverage
 
-- accepted claims: 248
+- accepted claims: 222
 - rules: 16
-- reviewed packs: quant_impact_top100, turnover_top100, short_term_base_top100, risk_control_top80, bull_bear_top80
+- reviewed packs: quant_impact_top100, turnover_top100, short_term_base_top100, risk_control_top80, bull_bear_top80, accepted_recheck_v0_2
 - known gaps: 4

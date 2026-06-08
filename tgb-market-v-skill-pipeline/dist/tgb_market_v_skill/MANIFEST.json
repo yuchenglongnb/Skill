@@ -1,12 +1,12 @@
 {
   "package_name": "tgb_market_v_skill",
   "version": "0.2",
-  "generated_at": "2026-06-08T12:21:45.499450+00:00",
-  "source_commit": "43d0aaf094c954ccef202188f4b30811ac509d83",
+  "generated_at": "2026-06-08T12:47:05.388294+00:00",
+  "source_commit": "4139d2978b88d82ba0825a84ef534c4b45f92598",
   "source_pipeline": "tgb-market-v-skill-pipeline",
-  "accepted_claims": 248,
-  "needs_edit_claims": 100,
-  "rejected_claims": 91,
+  "accepted_claims": 222,
+  "needs_edit_claims": 122,
+  "rejected_claims": 95,
   "unreviewed_claims": 6113,
   "rules_count": 16,
   "themes": {
@@ -19,6 +19,7 @@
   },
   "files": [
     "MANIFEST.json",
+    "PACKAGE_AUDIT.md",
     "README.md",
     "SKILL.md",
     "evidence_index.jsonl",

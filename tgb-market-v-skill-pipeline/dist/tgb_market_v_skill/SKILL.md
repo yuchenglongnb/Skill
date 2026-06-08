@@ -27,9 +27,9 @@ This skill summarizes the reviewed methodology of the target author based on acc
 - Evidence:
   - `claim-451671d03a6b0646`
   - `claim-9fa24ae5f750c243`
-  - `claim-acaaf4cdb5d413ec`
   - `claim-0f01272d60e70e94`
   - `claim-1bd6f55ea1a4f94f`
+  - `claim-46791f2cd9e4e4a2`
 - Caveats:
   - 不要把量化影响简化成单一利多或利空。
 
@@ -56,7 +56,7 @@ This skill summarizes the reviewed methodology of the target author based on acc
   - `claim-07c3a9a457b934fa`
   - `claim-66c0959e9ccbec5f`
   - `claim-080543f469028c23`
-  - `claim-08b11dfb69c89a83`
+  - `claim-58420714a6e676ce`
 - Caveats:
   - 更适合作为结构判断，不直接导出具体买卖指令。
 
@@ -83,11 +83,11 @@ This skill summarizes the reviewed methodology of the target author based on acc
 - Do not use when:
   - 只有量能描述、没有指数环境或资金背景时。
 - Evidence:
-  - `claim-c1c3ea0d9bd5e06a`
   - `claim-69c5debdc8794968`
   - `claim-58420714a6e676ce`
   - `claim-5b51bdf81cc631e4`
   - `claim-5db540e61b9c4ef6`
+  - `claim-5fe2969caeba4bdc`
 - Caveats:
   - 量能变化需要和市场状态配套解读。
 
@@ -99,11 +99,11 @@ This skill summarizes the reviewed methodology of the target author based on acc
 - Do not use when:
   - 只有个股点评、没有整体短线生态含义时。
 - Evidence:
-  - `claim-27d6b8820885dee1`
-  - `claim-38184d61ed1ba0ec`
   - `claim-6e6e4c1cd2740054`
-  - `claim-c1c3ea0d9bd5e06a`
   - `claim-07c3a9a457b934fa`
+  - `claim-1d43f83ee28113ea`
+  - `claim-20a73a4c0a41d291`
+  - `claim-5bf99d11358263c6`
 - Caveats:
   - 局部龙头强势不等于整体短线环境健康。
 
@@ -160,11 +160,11 @@ This skill summarizes the reviewed methodology of the target author based on acc
 - Do not use when:
   - 只有个股复盘、没有指数背景约束时。
 - Evidence:
-  - `claim-27d6b8820885dee1`
   - `claim-86914b3d88bfe3e5`
   - `claim-c7b6d955b4e77c3e`
   - `claim-200c6551e0bfbb08`
   - `claim-83f5c83ef3a1a1bd`
+  - `claim-9ade7fc42b7a639e`
 - Caveats:
   - 局部题材强势需要放回大盘环境中重新评估。
 
@@ -208,7 +208,6 @@ This skill summarizes the reviewed methodology of the target author based on acc
   - `claim-e0eb1c78f60416f2`
   - `claim-2e949ad67d21ade0`
   - `claim-e90160e37a4ac7d1`
-  - `claim-8b04518ea5d111a3`
 - Caveats:
   - 这是一条执行约束，不是具体买卖建议。
 
@@ -222,8 +221,8 @@ This skill summarizes the reviewed methodology of the target author based on acc
   - `claim-fbb0b89761bddf8b`
   - `claim-41fa00e960878b4d`
   - `claim-fdc0ada0a1053a95`
-  - `claim-2d8d8202a083ae91`
   - `claim-d832417a28904324`
+  - `claim-1e3ff8e332e85c3e`
 - Caveats:
   - 需要结合指数环境和成交额共同确认。
 
@@ -235,11 +234,11 @@ This skill summarizes the reviewed methodology of the target author based on acc
 - Do not use when:
   - 只有泛泛的牛熊评论、没有策略差异判断时。
 - Evidence:
-  - `claim-0d18577396d6de47`
   - `claim-4401e71816e7b264`
   - `claim-24155837184cdad5`
   - `claim-8a89cc9f5b4d6a08`
-  - `claim-3b63682df66aabca`
+  - `claim-5dff2483fa3819be`
+  - `claim-106c48596621ea0c`
 - Caveats:
   - 牛熊切换要和成交额、指数环境、赚钱效应一起看。
 
@@ -251,10 +250,10 @@ This skill summarizes the reviewed methodology of the target author based on acc
   - 只有情绪化牛熊表述、没有变量支撑时。
 - Evidence:
   - `claim-ed117cf1071a1b82`
-  - `claim-c96ab1bcbaaaca45`
   - `claim-184d968de1ea8f8b`
-  - `claim-5eb3fc02b6c6ddcd`
   - `claim-b532548766fbbf0e`
+  - `claim-859ed6774a56538f`
+  - `claim-5e72ebc236b0c2c4`
 - Caveats:
   - 不要把牛熊判断当作单一、瞬时信号。
 

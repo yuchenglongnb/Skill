@@ -1,10 +1,10 @@
 # Review-ready Curated Methodology Profile
 
 ## Summary
-- accepted_claims: 248
-- needs_edit_claims: 100
-- top_method_tags: [('量化影响', 113), ('短线基础行情', 92), ('成交额', 87), ('指数环境', 79), ('风控', 60), ('牛熊切换', 48), ('买入触发', 13), ('赚钱效应', 7), ('亏钱效应', 6), ('市场结构', 5)]
-- source_type_distribution: {'article': 17, 'comment': 331}
+- accepted_claims: 222
+- needs_edit_claims: 122
+- top_method_tags: [('量化影响', 113), ('短线基础行情', 91), ('成交额', 87), ('指数环境', 78), ('风控', 60), ('牛熊切换', 44), ('买入触发', 13), ('赚钱效应', 7), ('亏钱效应', 6), ('市场结构', 5)]
+- source_type_distribution: {'article': 15, 'comment': 329}
 
 ## Core Method Tags
 
@@ -22,7 +22,7 @@
     - article_id: 1Zn2UmelLMJ
     - source_ids: ['1Zn2UmelLMJ']
   - claim-acaaf4cdb5d413ec
-    - claim_text: 所以，别再这么傻问怎么狙击量化，低纬战高维，我们都是虫子。
+    - claim_text: 量化影响属于更高维度的市场结构变量，不能用简单的主观短线技巧正面应对。
     - raw_excerpt: 所以，别再这么傻问怎么狙击量化，低纬战高维，我们都是虫子。
     - article_id: 2ghvnc9bHeR
     - source_ids: ['2ghvnc9bHeR']
@@ -46,7 +46,7 @@
     - article_id: 2ohHCnLXtP8
     - source_ids: ['2ohHCnLXtP8']
   - claim-c1c3ea0d9bd5e06a
-    - claim_text: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
+    - claim_text: 短线放量并不天然利好；若放量意味着稀缺性下降，则持续性往往变差。
     - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
     - article_id: 2jbi0efIsof
     - source_ids: ['2jbi0efIsof']
@@ -67,7 +67,7 @@
     - source_ids: ['comment-89594339']
 
 ### 短线基础行情
-- accepted count: 92
+- accepted count: 91
 - representative claims:
   - claim-20690373fb54268c
     - claim_text: 所以连板率非常丑，做接力的连接12天盘，轮动超快。
@@ -75,12 +75,12 @@
     - article_id: 1Vgsye6eK36
     - source_ids: ['1Vgsye6eK36']
   - claim-27d6b8820885dee1
-    - claim_text: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+    - claim_text: 震荡或低开环境下，应先判断短线整体承接，再决定是否追逐高弹性方向。
     - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
     - article_id: 2jbi0efIsof
     - source_ids: ['2jbi0efIsof']
   - claim-38184d61ed1ba0ec
-    - claim_text: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
+    - claim_text: 短线环境恶化时，资金会围绕先后手博弈和相对拥挤度重新分配，而不是按单一板块独立运行。
     - raw_excerpt: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
     - article_id: 1Zn2UmelLMJ
     - source_ids: ['1Zn2UmelLMJ']
@@ -96,10 +96,10 @@
     - source_ids: ['1VvuASpPpMr']
 
 ### 指数环境
-- accepted count: 79
+- accepted count: 78
 - representative claims:
   - claim-27d6b8820885dee1
-    - claim_text: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+    - claim_text: 震荡或低开环境下，应先判断短线整体承接，再决定是否追逐高弹性方向。
     - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
     - article_id: 2jbi0efIsof
     - source_ids: ['2jbi0efIsof']
@@ -154,21 +154,11 @@
     - source_ids: ['comment-92854792']
 
 ### 牛熊切换
-- accepted count: 48
+- accepted count: 44
 - representative claims:
-  - claim-0d18577396d6de47
-    - claim_text: 癌股历来的牛市都是水牛，有钱就涨，涨到某些人怕了从天而降的掌法，拼裸泳。
-    - raw_excerpt: 癌股历来的牛市都是水牛，有钱就涨，涨到某些人怕了从天而降的掌法，拼裸泳。
-    - article_id: 2bWeZGDSi07
-    - source_ids: ['2bWeZGDSi07']
   - claim-4401e71816e7b264
     - claim_text: 认知的一致，是没法垫高市场成本，牛市结构的筹码堆叠就无从说起。
     - raw_excerpt: 认知的一致，是没法垫高市场成本，牛市结构的筹码堆叠就无从说起。
-    - article_id: 2bWeZGDSi07
-    - source_ids: ['2bWeZGDSi07']
-  - claim-c96ab1bcbaaaca45
-    - claim_text: 不中听说句，这么多大婶能看出牛市来了，真是牛市也会一波三折。
-    - raw_excerpt: 不中听说句，这么多大婶能看出牛市来了，真是牛市也会一波三折。
     - article_id: 2bWeZGDSi07
     - source_ids: ['2bWeZGDSi07']
   - claim-ed117cf1071a1b82
@@ -181,6 +171,16 @@
     - raw_excerpt: 牛市多长阴，今天创业板长了15CM，调整可以20CM的。
     - article_id: 2bWeZGDSi07
     - source_ids: ['comment-79329944']
+  - claim-03c257757050e834
+    - claim_text: 说了牛市全部老鸟玩不过菜市场大妈，因为知道得太多了。
+    - raw_excerpt: 说了牛市全部老鸟玩不过菜市场大妈，因为知道得太多了。
+    - article_id: 1VvuASpPpMr
+    - source_ids: ['comment-65946200']
+  - claim-1280ee58a2a33bb7
+    - claim_text: 正常明天会方，全部大神表示牛市多长阴，也就是全部砸到了。
+    - raw_excerpt: 正常明天会方，全部大神表示牛市多长阴，也就是全部砸到了。
+    - article_id: 2jbi0efIsof
+    - source_ids: ['comment-89825282']
 
 ### 数字化/标准化
 - accepted count: 1

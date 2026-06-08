@@ -102,8 +102,8 @@
 ### data/processed/tgb/accepted_review_ready_claims.jsonl
 
 - exists: True
-- total_items: 248
-- reviewed_items: 248
+- total_items: 222
+- reviewed_items: 222
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
@@ -111,8 +111,8 @@
 ### data/processed/tgb/rejected_review_ready_claims.jsonl
 
 - exists: True
-- total_items: 91
-- reviewed_items: 91
+- total_items: 95
+- reviewed_items: 95
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []
@@ -120,8 +120,8 @@
 ### data/processed/tgb/needs_edit_review_ready_claims.jsonl
 
 - exists: True
-- total_items: 100
-- reviewed_items: 100
+- total_items: 122
+- reviewed_items: 122
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []

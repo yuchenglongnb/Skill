@@ -1,25 +1,25 @@
 # 等主人的猫：阶段性方法论画像 v0.2
 
 ## 数据状态
-- accepted claims: 248
-- needs_edit claims: 100
-- rejected claims: 91
-- reviewed packs: quant_impact_top100, turnover_top100, short_term_base_top100, risk_control_top80, bull_bear_top80
+- accepted claims: 222
+- needs_edit claims: 122
+- rejected claims: 95
+- reviewed packs: quant_impact_top100, turnover_top100, short_term_base_top100, risk_control_top80, bull_bear_top80, accepted_recheck_v0_2
 - unreviewed claims: 6113
-- accepted recheck candidates: 81
+- accepted recheck candidates: 55
 
 ## Rule Summary
 ### 量化影响
 
 - `quant-impact-market-structure` 量化影响需要纳入短线市场结构判断
   - rule_text: 量化交易会改变短线生态中的资金反馈速度、流动性分布和追涨/抛压结构；分析短线机会时，需要把量化带来的趋同交易、规避策略和盘中反馈纳入市场结构判断。
-  - evidence_claim_ids: claim-451671d03a6b0646, claim-9fa24ae5f750c243, claim-acaaf4cdb5d413ec, claim-0f01272d60e70e94, claim-1bd6f55ea1a4f94f
+  - evidence_claim_ids: claim-451671d03a6b0646, claim-9fa24ae5f750c243, claim-0f01272d60e70e94, claim-1bd6f55ea1a4f94f, claim-46791f2cd9e4e4a2
 - `quant-impact-not-single-direction` 不要把量化影响简化为单一利多或利空
   - rule_text: 量化影响更像市场结构变量，而不是固定方向结论；同样的量化参与，在不同成交额、指数环境和短线基础行情下会放大不同结果。
   - evidence_claim_ids: claim-46e97b566ea5469f, claim-6d4f584afbbfa9a8
 - `quant-impact-intraday-liquidity` 量化会影响盘中流动性与反馈节奏
   - rule_text: 量化会改变盘中流动性分布和反馈节奏，进而影响追涨、回落、回封和承接的时间结构；短线分析不能只看结果，还要看盘中反馈如何被量化重塑。
-  - evidence_claim_ids: claim-ef4706e7c13c1cf0, claim-07c3a9a457b934fa, claim-66c0959e9ccbec5f, claim-080543f469028c23, claim-08b11dfb69c89a83
+  - evidence_claim_ids: claim-ef4706e7c13c1cf0, claim-07c3a9a457b934fa, claim-66c0959e9ccbec5f, claim-080543f469028c23, claim-58420714a6e676ce
 
 ### 成交额 / 量能
 
@@ -28,13 +28,13 @@
   - evidence_claim_ids: claim-7c8abf7d84d3e9e3, claim-3a4023259a7db272, claim-8fa801c11064a31d, claim-1c80c1f2e95cd4d7, claim-41733260a45f4999
 - `turnover-with-index-context` 放量和缩量必须结合指数环境与资金稀缺性判断
   - rule_text: 放量、缩量本身没有固定方向含义，必须结合指数环境、资金稀缺性和短线基础行情一起判断；同样的量能变化，在不同市场状态下对应的交易难度并不相同。
-  - evidence_claim_ids: claim-c1c3ea0d9bd5e06a, claim-69c5debdc8794968, claim-58420714a6e676ce, claim-5b51bdf81cc631e4, claim-5db540e61b9c4ef6
+  - evidence_claim_ids: claim-69c5debdc8794968, claim-58420714a6e676ce, claim-5b51bdf81cc631e4, claim-5db540e61b9c4ef6, claim-5fe2969caeba4bdc
 
 ### 短线基础行情
 
 - `short-term-base-before-local-opportunity` 先判断短线整体环境，再判断局部机会
   - rule_text: 短线机会不能只看单只个股局部强弱，必须先判断整体赚钱效应、接力环境、轮动速度和容错空间；局部机会是否成立，取决于短线基础行情是否支持。
-  - evidence_claim_ids: claim-27d6b8820885dee1, claim-38184d61ed1ba0ec, claim-6e6e4c1cd2740054, claim-c1c3ea0d9bd5e06a, claim-07c3a9a457b934fa
+  - evidence_claim_ids: claim-6e6e4c1cd2740054, claim-07c3a9a457b934fa, claim-1d43f83ee28113ea, claim-20a73a4c0a41d291, claim-5bf99d11358263c6
 - `short-term-base-not-single-stock` 赚钱效应应看短线整体，而不是单个龙头或局部强势
   - rule_text: 短线赚钱效应应从整体接力质量、承接分布和亏钱效应扩散看，而不是把单个龙头或局部强势误判为整体环境转好。
   - evidence_claim_ids: claim-7ae975def66992ff, claim-1238b38b8a84fdc2, claim-6e1ff63c220e4af7, claim-a7fc27632cd96dbb, claim-0c5bf6d39d5a91fb
@@ -49,7 +49,7 @@
   - evidence_claim_ids: claim-6e6e4c1cd2740054, claim-ed117cf1071a1b82, claim-d3a0ff453c56ac8f, claim-1238b38b8a84fdc2, claim-1d43f83ee28113ea
 - `index-environment-lower-certainty` 指数震荡或下行风险会降低局部题材确定性
   - rule_text: 指数震荡或下行风险抬升时，局部题材和个股的确定性会下降；即使存在热点，也要降低对持续性和高度的预期。
-  - evidence_claim_ids: claim-27d6b8820885dee1, claim-86914b3d88bfe3e5, claim-c7b6d955b4e77c3e, claim-200c6551e0bfbb08, claim-83f5c83ef3a1a1bd
+  - evidence_claim_ids: claim-86914b3d88bfe3e5, claim-c7b6d955b4e77c3e, claim-200c6551e0bfbb08, claim-83f5c83ef3a1a1bd, claim-9ade7fc42b7a639e
 - `index-environment-layered-judgment` 指数、板块、个股需要分层判断
   - rule_text: 指数、板块和个股是不同层级的判断对象；分析时应先分清环境层、板块层和个股层，再决定哪些结论可以外推。
   - evidence_claim_ids: claim-06d4d878c50bbbfc, claim-9f801ab88fb50785, claim-80871be657572a84
@@ -61,19 +61,19 @@
   - evidence_claim_ids: claim-a6d53867639e3666, claim-623e3b6b923fee7f, claim-430e333ecc703089, claim-9732e82b3495d755, claim-5518c5aa470f3538
 - `risk-control-missing-entry-premise` 买入前提不成立时应减少交易或等待
   - rule_text: 当买入前提、承接条件或流动性条件不成立时，应减少交易、延后出手或直接等待；而不是强行把弱环境里的反弹解释为可持续机会。
-  - evidence_claim_ids: claim-2d86cadbf15dbc78, claim-e0eb1c78f60416f2, claim-2e949ad67d21ade0, claim-e90160e37a4ac7d1, claim-8b04518ea5d111a3
+  - evidence_claim_ids: claim-2d86cadbf15dbc78, claim-e0eb1c78f60416f2, claim-2e949ad67d21ade0, claim-e90160e37a4ac7d1
 - `risk-control-weak-market-priority` 亏钱效应、流动性不足和弱市环境下风控优先
   - rule_text: 当亏钱效应扩散、流动性不足或弱市环境强化时，风控应优先于进攻；短线策略要先处理风险预算，再考虑机会筛选。
-  - evidence_claim_ids: claim-fbb0b89761bddf8b, claim-41fa00e960878b4d, claim-fdc0ada0a1053a95, claim-2d8d8202a083ae91, claim-d832417a28904324
+  - evidence_claim_ids: claim-fbb0b89761bddf8b, claim-41fa00e960878b4d, claim-fdc0ada0a1053a95, claim-d832417a28904324, claim-1e3ff8e332e85c3e
 
 ### 牛熊切换
 
 - `bull-bear-no-single-rhythm` 牛市、熊市和切换期不能沿用同一套短线节奏
   - rule_text: 牛市、熊市和切换期的短线基础行情不同，不能简单沿用同一套短线节奏；进攻强度、容错预期和风险预算都要随环境调整。
-  - evidence_claim_ids: claim-0d18577396d6de47, claim-4401e71816e7b264, claim-24155837184cdad5, claim-8a89cc9f5b4d6a08, claim-3b63682df66aabca
+  - evidence_claim_ids: claim-4401e71816e7b264, claim-24155837184cdad5, claim-8a89cc9f5b4d6a08, claim-5dff2483fa3819be, claim-106c48596621ea0c
 - `bull-bear-combined-signals` 牛熊判断必须结合成交额、指数环境和赚钱/亏钱效应
   - rule_text: 牛熊判断不是单一标签，而是成交额、指数环境、赚钱效应和亏钱效应共同作用的结果；环境切换时，要重新确认哪些变量在主导市场。
-  - evidence_claim_ids: claim-ed117cf1071a1b82, claim-c96ab1bcbaaaca45, claim-184d968de1ea8f8b, claim-5eb3fc02b6c6ddcd, claim-b532548766fbbf0e
+  - evidence_claim_ids: claim-ed117cf1071a1b82, claim-184d968de1ea8f8b, claim-b532548766fbbf0e, claim-859ed6774a56538f, claim-5e72ebc236b0c2c4
 
 ## Representative Accepted Evidence
 
@@ -94,24 +94,19 @@
   - article_id: 1Zn2UmelLMJ
   - source_type: article
   - method_tags: 量化影响
-- claim_id: `claim-acaaf4cdb5d413ec`
-  - raw_excerpt: 所以，别再这么傻问怎么狙击量化，低纬战高维，我们都是虫子。
-  - article_id: 2ghvnc9bHeR
-  - source_type: article
-  - method_tags: 量化影响
 - claim_id: `claim-07c3a9a457b934fa`
   - raw_excerpt: 机构做多那天，会把追涨量化和短线资金都带倒一处，别的地方如果有短线获利盘，则存在流动性不足。
   - article_id: 2jbi0efIsof
   - source_type: comment
   - method_tags: 短线基础行情, 量化影响
+- claim_id: `claim-0f01272d60e70e94`
+  - raw_excerpt: 因为量化深度绑定市场后，由于它的指增策略和横跳不空仓策略，导致市场会在很长一段时间，无论涨跌都是接近的成交水平。
+  - article_id: 2ohHCnLXtP8
+  - source_type: comment
+  - method_tags: 量化影响
 
 ### 成交额 / 量能
 
-- claim_id: `claim-c1c3ea0d9bd5e06a`
-  - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
-  - article_id: 2jbi0efIsof
-  - source_type: article
-  - method_tags: 成交额, 短线基础行情
 - claim_id: `claim-7c8abf7d84d3e9e3`
   - raw_excerpt: 之所以用换手不用金额，是为体现个股本身精确的活跃度排名，竞价可以用成交量跟金额直接转换，换手率=成交量/自由流通盘*100，大家的数值都是在0-100之间，标准化对比，更能体现全市场活跃度的排列。
   - article_id: 2ohHCnLXtP8
@@ -132,19 +127,14 @@
   - article_id: 2ohHCnLXtP8
   - source_type: comment
   - method_tags: 成交额, 指数环境, 量化影响
+- claim_id: `claim-5b51bdf81cc631e4`
+  - raw_excerpt: 本身指数在高位，缩量午后很容易跳水的，所以比较风险。
+  - article_id: 1VvuASpPpMr
+  - source_type: comment
+  - method_tags: 成交额, 指数环境
 
 ### 短线基础行情
 
-- claim_id: `claim-27d6b8820885dee1`
-  - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
-  - article_id: 2jbi0efIsof
-  - source_type: article
-  - method_tags: 指数环境, 短线基础行情
-- claim_id: `claim-38184d61ed1ba0ec`
-  - raw_excerpt: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
-  - article_id: 1Zn2UmelLMJ
-  - source_type: article
-  - method_tags: 短线基础行情
 - claim_id: `claim-6e6e4c1cd2740054`
   - raw_excerpt: 如果底层观点成立，那，就要把短线分析和统计都独立于指数，否则会自受其乱。
   - article_id: 1VvuASpPpMr
@@ -155,19 +145,24 @@
   - article_id: 1VvuASpPpMr
   - source_type: article
   - method_tags: 短线基础行情, 赚钱效应, 龙头
-- claim_id: `claim-c1c3ea0d9bd5e06a`
-  - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
-  - article_id: 2jbi0efIsof
+- claim_id: `claim-20690373fb54268c`
+  - raw_excerpt: 所以连板率非常丑，做接力的连接12天盘，轮动超快。
+  - article_id: 1Vgsye6eK36
   - source_type: article
-  - method_tags: 成交额, 短线基础行情
+  - method_tags: 短线基础行情
+- claim_id: `claim-07c3a9a457b934fa`
+  - raw_excerpt: 机构做多那天，会把追涨量化和短线资金都带倒一处，别的地方如果有短线获利盘，则存在流动性不足。
+  - article_id: 2jbi0efIsof
+  - source_type: comment
+  - method_tags: 短线基础行情, 量化影响
+- claim_id: `claim-1238b38b8a84fdc2`
+  - raw_excerpt: 指数向下，假设短线不是自己独立的数板行情，明天溢价有限，搞不好被绕柱。
+  - article_id: 2jbi0efIsof
+  - source_type: comment
+  - method_tags: 指数环境, 短线基础行情, 赚钱效应
 
 ### 指数环境
 
-- claim_id: `claim-27d6b8820885dee1`
-  - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
-  - article_id: 2jbi0efIsof
-  - source_type: article
-  - method_tags: 指数环境, 短线基础行情
 - claim_id: `claim-6e6e4c1cd2740054`
   - raw_excerpt: 如果底层观点成立，那，就要把短线分析和统计都独立于指数，否则会自受其乱。
   - article_id: 1VvuASpPpMr
@@ -188,6 +183,11 @@
   - article_id: 2jbi0efIsof
   - source_type: comment
   - method_tags: 指数环境, 量化影响
+- claim_id: `claim-1238b38b8a84fdc2`
+  - raw_excerpt: 指数向下，假设短线不是自己独立的数板行情，明天溢价有限，搞不好被绕柱。
+  - article_id: 2jbi0efIsof
+  - source_type: comment
+  - method_tags: 指数环境, 短线基础行情, 赚钱效应
 
 ### 风控
 
@@ -224,16 +224,6 @@
   - article_id: 2jbi0efIsof
   - source_type: article
   - method_tags: 指数环境, 买入触发, 牛熊切换
-- claim_id: `claim-0d18577396d6de47`
-  - raw_excerpt: 癌股历来的牛市都是水牛，有钱就涨，涨到某些人怕了从天而降的掌法，拼裸泳。
-  - article_id: 2bWeZGDSi07
-  - source_type: article
-  - method_tags: 牛熊切换
-- claim_id: `claim-c96ab1bcbaaaca45`
-  - raw_excerpt: 不中听说句，这么多大婶能看出牛市来了，真是牛市也会一波三折。
-  - article_id: 2bWeZGDSi07
-  - source_type: article
-  - method_tags: 牛熊切换
 - claim_id: `claim-4401e71816e7b264`
   - raw_excerpt: 认知的一致，是没法垫高市场成本，牛市结构的筹码堆叠就无从说起。
   - article_id: 2bWeZGDSi07
@@ -244,17 +234,21 @@
   - article_id: 2bWeZGDSi07
   - source_type: comment
   - method_tags: 牛熊切换
+- claim_id: `claim-24155837184cdad5`
+  - raw_excerpt: 因为长期熊市，聪明豆拿不住票的，往往涨两天就到处提示风险，以示经验丰富。
+  - article_id: 21ZIusToJzV
+  - source_type: comment
+  - method_tags: 牛熊切换
+- claim_id: `claim-8a89cc9f5b4d6a08`
+  - raw_excerpt: 如果再有一个大的牛熊周期，熊市应该保住本金，收缩战线。
+  - article_id: 2bWeZGDSi07
+  - source_type: comment
+  - method_tags: 情绪周期, 牛熊切换
 
 ## Accepted Claims Recheck Candidates
 
 ### 量化影响
 
-- claim_id: `claim-acaaf4cdb5d413ec`
-  - article_id: 2ghvnc9bHeR
-  - source_type: article
-  - recheck_reason: ['colloquial_or_exaggerated']
-  - raw_excerpt: 所以，别再这么傻问怎么狙击量化，低纬战高维，我们都是虫子。
-  - review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
 - claim_id: `claim-66c0959e9ccbec5f`
   - article_id: 2ohHCnLXtP8
   - source_type: comment
@@ -273,21 +267,21 @@
   - recheck_reason: ['strong_context_dependency']
   - raw_excerpt: 首先，前面拉升一直有资金利用量化追涨，实际上那个高位并不是人类认可的位置。
   - review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
-- claim_id: `claim-08b11dfb69c89a83`
-  - article_id: 2bWeZGDSi07
+- claim_id: `claim-353844665149b998`
+  - article_id: 2ohHCnLXtP8
   - source_type: comment
   - recheck_reason: ['strong_context_dependency']
-  - raw_excerpt: 去看看1009盘中对科技的看法，说了昨天如果不是补跌开盘，会被量化用逆因子杀跌的。
+  - raw_excerpt: 不过你要提前量要看的很准，周五提到过，电力和光伏是现在形态最好的，所以资金也聚在这里，起码量化是这样选的。
   - review_notes: 保留：属于量化影响下的交易机制或市场结构判断。
+- claim_id: `claim-3bafcca0d64d0920`
+  - article_id: 28ACjvWeEjl
+  - source_type: comment
+  - recheck_reason: ['strong_context_dependency']
+  - raw_excerpt: 量化买的地方有个特点，早盘有买盘，如果午后指数回流，就会买轮动超跌，这批又没人买。
+  - review_notes: 保留：属于量化影响与市场环境关系的判断。
 
 ### 成交额 / 量能
 
-- claim_id: `claim-c1c3ea0d9bd5e06a`
-  - article_id: 2jbi0efIsof
-  - source_type: article
-  - recheck_reason: ['colloquial_or_exaggerated', 'rhetorical_or_question']
-  - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
-  - review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
 - claim_id: `claim-7c8abf7d84d3e9e3`
   - article_id: 2ohHCnLXtP8
   - source_type: article
@@ -312,27 +306,15 @@
   - recheck_reason: ['strong_context_dependency']
   - raw_excerpt: 但是缩量上板，如果午后指数不举，它就会反复炸。
   - review_notes: 保留：属于成交额或量能条件下的执行规则判断。
+- claim_id: `claim-e7c84659b6105e50`
+  - article_id: 2ohHCnLXtP8
+  - source_type: comment
+  - recheck_reason: ['strong_context_dependency']
+  - raw_excerpt: 由于午前没放量，也跳水了，这个是延续了早盘能量不足的走势，所以午后继续沿用打死一边的策略，300和短线先手被强化卖出，对置的一边被强化买入。
+  - review_notes: 保留：属于成交额或量能变化影响交易机制的判断。
 
 ### 短线基础行情
 
-- claim_id: `claim-27d6b8820885dee1`
-  - article_id: 2jbi0efIsof
-  - source_type: article
-  - recheck_reason: ['rhetorical_or_question', 'strong_context_dependency']
-  - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
-  - review_notes: 保留：属于弱市短线的风控或仓位判断。
-- claim_id: `claim-38184d61ed1ba0ec`
-  - article_id: 1Zn2UmelLMJ
-  - source_type: article
-  - recheck_reason: ['strong_context_dependency']
-  - raw_excerpt: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
-  - review_notes: 保留：属于短线基础行情或接力机制的判断。
-- claim_id: `claim-6ad31981dcfeccf9`
-  - article_id: 2jbi0efIsof
-  - source_type: comment
-  - recheck_reason: ['strong_context_dependency']
-  - raw_excerpt: 而不是这个强那个强，还好今天短线板票开得不高，但凡市场看好点，全部卖给你。
-  - review_notes: 保留：属于短线基础行情或接力机制的判断。
 - claim_id: `claim-bb1daf51bc0582d7`
   - article_id: 24O3rehPcWv
   - source_type: comment
@@ -344,6 +326,24 @@
   - source_type: comment
   - recheck_reason: ['strong_context_dependency']
   - raw_excerpt: 以往这里可能是我买点，既然它不是龙一，在市场不接力和指数可能会冲高回落的情况下，早上流动性好就卖。
+  - review_notes: 保留：属于弱市短线的风控或仓位判断。
+- claim_id: `claim-f29bf784f999cec3`
+  - article_id: 1Zn2UmelLMJ
+  - source_type: comment
+  - recheck_reason: ['strong_context_dependency']
+  - raw_excerpt: 但短线不是一码事，以往周五效应，是短线午后买盘特弱，要跟指数区分开。
+  - review_notes: 保留：属于短线生态与市场环境关系的判断。
+- claim_id: `claim-009323a8fac98d23`
+  - article_id: 1VvuASpPpMr
+  - source_type: comment
+  - recheck_reason: ['strong_context_dependency']
+  - raw_excerpt: 短线这种小行情，今天已经跳空加速，并且因为指数弱，形成了抱团。
+  - review_notes: 保留：属于短线生态与市场环境关系的判断。
+- claim_id: `claim-1646ff0b5d22d1a5`
+  - article_id: 2fQt29pQ3Pa
+  - source_type: comment
+  - recheck_reason: ['strong_context_dependency']
+  - raw_excerpt: 再说短线标上午换手不足，午后拉起来可能抛压也挺大的，所以自己决策。
   - review_notes: 保留：属于弱市短线的风控或仓位判断。
 
 ### 指数环境
@@ -360,27 +360,9 @@
   - recheck_reason: ['strong_context_dependency']
   - raw_excerpt: 这次交易制度跟之前牛市不一样，例如，一年纪不能买创业板&+，那增量市场，主板和ohters可能会形成两个交易风格。
   - review_notes: 保留：属于牛熊切换下市场状态识别或环境变化判断。
-- claim_id: `claim-450d050cafe52c0d`
-  - article_id: 2jbi0efIsof
-  - source_type: comment
-  - recheck_reason: ['strong_context_dependency']
-  - raw_excerpt: 指数正常今天跌也跌不多的，你觉得牛市，周末就别太空舱。
-  - review_notes: 保留：属于不同市场状态下的执行原则。
 
 ### 风控
 
-- claim_id: `claim-2d8d8202a083ae91`
-  - article_id: 2jbi0efIsof
-  - source_type: comment
-  - recheck_reason: ['rhetorical_or_question']
-  - raw_excerpt: 出门爆砸半小时，后面散户后知后觉就会跟着“纪律止损”，你们想想以往行情不好，是不是忍一整天，很容易1:30~2:00剁雕？
-  - review_notes: 保留：属于弱市环境下的风控原则。
-- claim_id: `claim-5393587bdc8a4b5e`
-  - article_id: 2jbi0efIsof
-  - source_type: comment
-  - recheck_reason: ['rhetorical_or_question']
-  - raw_excerpt: 这种打法账户波动很大的，碰上连续冰冰的日子，一波回撤本季没了80%，你还坚持吗?
-  - review_notes: 保留：属于弱市环境下的风控原则。
 - claim_id: `claim-2d86cadbf15dbc78`
   - article_id: 2jbi0efIsof
   - source_type: comment
@@ -396,41 +378,23 @@
 
 ### 牛熊切换
 
-- claim_id: `claim-0d18577396d6de47`
-  - article_id: 2bWeZGDSi07
-  - source_type: article
-  - recheck_reason: ['colloquial_or_exaggerated']
-  - raw_excerpt: 癌股历来的牛市都是水牛，有钱就涨，涨到某些人怕了从天而降的掌法，拼裸泳。
-  - review_notes: 保留：属于牛熊环境对交易机制影响的判断。
-- claim_id: `claim-c96ab1bcbaaaca45`
-  - article_id: 2bWeZGDSi07
-  - source_type: article
-  - recheck_reason: ['colloquial_or_exaggerated']
-  - raw_excerpt: 不中听说句，这么多大婶能看出牛市来了，真是牛市也会一波三折。
-  - review_notes: 保留：属于牛熊切换下市场状态识别或环境变化判断。
-- claim_id: `claim-96f858b0bfdd7619`
-  - article_id: 2bWeZGDSi07
-  - source_type: comment
-  - recheck_reason: ['strong_context_dependency']
-  - raw_excerpt: 所有的牛市都以股灾结束，希望这次不一样，让大家财富永续昌隆吧。
-  - review_notes: 保留：属于不同市场环境下的风控原则。
-- claim_id: `claim-89eb0e2b4494fe23`
-  - article_id: 2bWeZGDSi07
-  - source_type: comment
-  - recheck_reason: ['rhetorical_or_question']
-  - raw_excerpt: 以现在淘县客左冲右核的本事，平台段就退市一大半，本金没了，牛市主升浪来了跟你有什么关系吗？
-  - review_notes: 保留：属于不同市场环境下的风控原则。
-- claim_id: `claim-5eb3fc02b6c6ddcd`
-  - article_id: 2fQt29pQ3Pa
+- claim_id: `claim-106c48596621ea0c`
+  - article_id: 28ACjvWeEjl
   - source_type: comment
   - recheck_reason: ['too_short']
-  - raw_excerpt: 牛市多长阴，没长阴不是牛市。
-  - review_notes: 保留：属于牛熊切换下市场状态识别或环境变化判断。
+  - raw_excerpt: 又不是牛市，快没用，稳才能活得久。
+  - review_notes: 保留：属于不同市场环境下的风控原则。
 
 ## Needs-edit Worklist
 
 ### 量化影响
 
+- claim_id: `claim-acaaf4cdb5d413ec`
+  - raw_excerpt: 所以，别再这么傻问怎么狙击量化，低纬战高维，我们都是虫子。
+  - article_id: 2ghvnc9bHeR
+  - source_type: article
+  - method_tags: 量化影响
+  - review_notes: 待编辑：原句有价值，但比喻和夸张色彩过强，需要改写为中性机制表述。
 - claim_id: `claim-01f3c877548cd251`
   - raw_excerpt: 但当早上量化资金发现全是抄底资金的时候，它就先不卖，让抄底资金买，高位再卖，是不是价格就高很多，还不用自己抬轿。
   - article_id: 2jbi0efIsof
@@ -455,15 +419,15 @@
   - source_type: comment
   - method_tags: 量化影响, 买入触发
   - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
-- claim_id: `claim-76f055a577e5743a`
-  - raw_excerpt: 不用问了，还是那句，午后如果量化策略自动减仓30%，这批短线票腥风血雨的。
-  - article_id: 2fQt29pQ3Pa
-  - source_type: comment
-  - method_tags: 短线基础行情, 量化影响
-  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
 
 ### 成交额 / 量能
 
+- claim_id: `claim-c1c3ea0d9bd5e06a`
+  - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
+  - article_id: 2jbi0efIsof
+  - source_type: article
+  - method_tags: 成交额, 短线基础行情
+  - review_notes: 待编辑：原句有价值，但带有反问和口语修辞，需要压缩为中性成交额机制判断。
 - claim_id: `claim-135f828da00f1296`
   - raw_excerpt: 如果你信V，今天早盘放量恐慌的板块，午后指数跳水点就是买点。
   - article_id: 1Zn2UmelLMJ
@@ -476,60 +440,60 @@
   - source_type: comment
   - method_tags: 成交额, 短线基础行情
   - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+- claim_id: `claim-6f10ff37311d9865`
+  - raw_excerpt: 午前拉升缩量，如果午后继续这个势头，看指数什么时候放量，多数是增量来了，量化会卖给增量的。
+  - article_id: 28ACjvWeEjl
+  - source_type: comment
+  - method_tags: 成交额, 指数环境, 量化影响
+  - review_notes: 待编辑：原句有价值，但依赖具体时段语境，需要改写为中性的环境与兑现关系判断。
 - claim_id: `claim-9f5b2f4a90da37fd`
   - raw_excerpt: 所以整个上午指数放了点量，短线那批票反而大幅度缩量。
   - article_id: 2fQt29pQ3Pa
   - source_type: comment
   - method_tags: 成交额, 指数环境, 短线基础行情
   - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
-- claim_id: `claim-c20cd2462f4a5f36`
-  - raw_excerpt: 还有个事，就是现在指数右肩缩量，今天如果再高开，是跳空摸前面3万亿成交的套牢日的。
-  - article_id: 2ohHCnLXtP8
-  - source_type: comment
-  - method_tags: 成交额, 指数环境
-  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
-- claim_id: `claim-cc8ad369db5b642f`
-  - raw_excerpt: 开得高是没办法，因为市场持续缩量，所以外盘和消息面影响很大，动不动就大高开大低开，指数大阴大阳。
-  - article_id: 2ohHCnLXtP8
-  - source_type: comment
-  - method_tags: 成交额, 指数环境
-  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
 
 ### 短线基础行情
 
+- claim_id: `claim-27d6b8820885dee1`
+  - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+  - article_id: 2jbi0efIsof
+  - source_type: article
+  - method_tags: 指数环境, 短线基础行情
+  - review_notes: 待编辑：原句有价值，但需要去掉盘中问句和当日语境后再作为方法论证据。
+- claim_id: `claim-38184d61ed1ba0ec`
+  - raw_excerpt: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
+  - article_id: 1Zn2UmelLMJ
+  - source_type: article
+  - method_tags: 短线基础行情
+  - review_notes: 待编辑：原句有价值，但表达过于口语化，需压缩为中性的短线博弈机制表述。
 - claim_id: `claim-6d64a9229d147ed7`
   - raw_excerpt: 现学现卖，“行情不好是因为短线客接不住，接得住行情就会好。
   - article_id: 24O3rehPcWv
   - source_type: article
   - method_tags: 短线基础行情
   - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性短线方法论表述。
+- claim_id: `claim-c1c3ea0d9bd5e06a`
+  - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
+  - article_id: 2jbi0efIsof
+  - source_type: article
+  - method_tags: 成交额, 短线基础行情
+  - review_notes: 待编辑：原句有价值，但带有反问和口语修辞，需要压缩为中性成交额机制判断。
 - claim_id: `claim-6b7b0cd7472e8ce9`
   - raw_excerpt: 实际上，要操作也应该昨天买科技，共振指数修复，而不是今天去接力。
   - article_id: 2jbi0efIsof
   - source_type: comment
   - method_tags: 指数环境, 短线基础行情
   - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线执行规则表述。
-- claim_id: `claim-76f055a577e5743a`
-  - raw_excerpt: 不用问了，还是那句，午后如果量化策略自动减仓30%，这批短线票腥风血雨的。
-  - article_id: 2fQt29pQ3Pa
-  - source_type: comment
-  - method_tags: 短线基础行情, 量化影响
-  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
-- claim_id: `claim-1d74e64bd2040ab0`
-  - raw_excerpt: 小金属今天没先手有风险的，很多短线资金昨天上车，如果午后指数不好回落炸几个板，情况又好像周四周五的
-  - article_id: 1Zn2UmelLMJ
-  - source_type: comment
-  - method_tags: 指数环境, 短线基础行情, 买入触发
-  - review_notes: 待编辑：原句有价值，但需要压缩为中性的风控判断。
-- claim_id: `claim-2edec5c39f0403ff`
-  - raw_excerpt: 关键，成交快速放，第一波拉升之前6%+，也就是市场整体态度是红盘让你砸，显然不是短线佬加钱买上去的，最厉害就是坑挚爱亲朋，长期卖一把买五忽悠瘸了。
-  - article_id: 2fQt29pQ3Pa
-  - source_type: comment
-  - method_tags: 短线基础行情
-  - review_notes: 待确认：原句口语化且带有嘲讽色彩，需要人工结合上下文确认。
 
 ### 指数环境
 
+- claim_id: `claim-27d6b8820885dee1`
+  - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+  - article_id: 2jbi0efIsof
+  - source_type: article
+  - method_tags: 指数环境, 短线基础行情
+  - review_notes: 待编辑：原句有价值，但需要去掉盘中问句和当日语境后再作为方法论证据。
 - claim_id: `claim-6b7b0cd7472e8ce9`
   - raw_excerpt: 实际上，要操作也应该昨天买科技，共振指数修复，而不是今天去接力。
   - article_id: 2jbi0efIsof
@@ -554,12 +518,6 @@
   - source_type: comment
   - method_tags: 情绪周期, 指数环境, 短线基础行情, 反核
   - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
-- claim_id: `claim-88f3a06648d1f267`
-  - raw_excerpt: 讲真，今天指数卦象并不好，因为权重护盘，大多次日要补跌，哪怕市场资金想做，量化买了一手大象，来对手盘立刻给你万象奔腾。
-  - article_id: 21ZIusToJzV
-  - source_type: comment
-  - method_tags: 指数环境, 量化影响
-  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
 
 ### 风控
 
@@ -569,6 +527,12 @@
   - source_type: comment
   - method_tags: 量化影响, 风控
   - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+- claim_id: `claim-2d8d8202a083ae91`
+  - raw_excerpt: 出门爆砸半小时，后面散户后知后觉就会跟着“纪律止损”，你们想想以往行情不好，是不是忍一整天，很容易1:30~2:00剁雕？
+  - article_id: 2jbi0efIsof
+  - source_type: comment
+  - method_tags: 风控
+  - review_notes: 待编辑：原句有价值，但反问和时段细节较强，需要压缩为中性风控规则。
 - claim_id: `claim-efc4ff8c194fe3ee`
   - raw_excerpt: 同时所谓超额收益，就是被打死那边逼着止损，资金出来以后，又要去拉升那边追高，因为你没有
   - article_id: 21mulzOf8Yb
@@ -581,18 +545,12 @@
   - source_type: comment
   - method_tags: 风控
   - review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
-- claim_id: `claim-b4a07794e0776819`
-  - raw_excerpt: 要么跟些躺赢老师讨论一下躺赢技术，昨天如何在昨日早盘跳水买到全部不回撤的票，今天如何在300红盘的行情躺赢？
-  - article_id: 2bWeZGDSi07
+- claim_id: `claim-5393587bdc8a4b5e`
+  - raw_excerpt: 这种打法账户波动很大的，碰上连续冰冰的日子，一波回撤本季没了80%，你还坚持吗?
+  - article_id: 2jbi0efIsof
   - source_type: comment
   - method_tags: 风控
-  - review_notes: 待确认：原句明显带有调侃语气，需要人工结合上下文确认。
-- claim_id: `claim-2acf6176d6d59118`
-  - raw_excerpt: 一环扣一环的演变，所以，风控不见得坏。
-  - article_id: 25VmrtPmuWI
-  - source_type: comment
-  - method_tags: 风控
-  - review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
+  - review_notes: 待编辑：原句有价值，但带有明显反问色彩，需要压缩为中性风控规则。
 
 ### 牛熊切换
 
