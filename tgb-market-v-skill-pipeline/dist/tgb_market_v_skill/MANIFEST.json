@@ -1,0 +1,47 @@
+{
+  "package_name": "tgb_market_v_skill",
+  "version": "0.2",
+  "generated_at": "2026-06-08T12:21:45.499450+00:00",
+  "source_commit": "43d0aaf094c954ccef202188f4b30811ac509d83",
+  "source_pipeline": "tgb-market-v-skill-pipeline",
+  "accepted_claims": 248,
+  "needs_edit_claims": 100,
+  "rejected_claims": 91,
+  "unreviewed_claims": 6113,
+  "rules_count": 16,
+  "themes": {
+    "量化影响": 3,
+    "成交额 / 量能": 2,
+    "短线基础行情": 3,
+    "指数环境": 3,
+    "风控": 3,
+    "牛熊切换": 2
+  },
+  "files": [
+    "MANIFEST.json",
+    "README.md",
+    "SKILL.md",
+    "evidence_index.jsonl",
+    "methodology_rules.jsonl",
+    "needs_edit_evidence_index.jsonl",
+    "needs_edit_worklist.md",
+    "review_summary.md",
+    "rule_evidence_map.jsonl",
+    "skill_quality_report.md",
+    "uncertainty_policy.md"
+  ],
+  "quality": {
+    "direct_excerpt_in_rule_text": 0,
+    "generic_rule_titles": 0,
+    "raw_excerpt_in_skill_md": 0,
+    "warnings": 0
+  },
+  "boundaries": [
+    "not_investment_advice",
+    "no_stock_prediction",
+    "accepted_claims_only_for_core_rules",
+    "needs_edit_is_uncertain",
+    "rejected_unreviewed_excluded",
+    "sarcasm_requires_human_check"
+  ]
+}

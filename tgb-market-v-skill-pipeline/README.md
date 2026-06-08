@@ -1,6 +1,6 @@
 # tgb-market-v-skill-pipeline
 
-面向投资方法论 Skill 的结构化证据管线。项目围绕淘股吧目标作者“等主人的猫”的公开主帖、评论、互动与图片证据，构建可追溯的采集、过滤、抽取、人工复核和 Skill v0 生成流程。
+面向投资方法论 Skill 的结构化证据管线。项目围绕淘股吧目标作者“等主人的猫”的公开主帖、评论、互动与图片证据，构建可追溯的采集、过滤、抽取、人工复核、Skill 构建与发布流程。
 
 ## 核心原则
 
@@ -11,7 +11,7 @@
 - 普通成员观点不进入目标作者方法论；
 - Aoch 单独标记；
 - 反讽、打趣、故意说反话的内容必须人工确认；
-- Skill v0 不提供买卖建议，不预测个股涨跌。
+- Skill v0.x 不提供买卖建议，不预测个股涨跌。
 
 ## Quick Start
 
@@ -73,18 +73,36 @@ skill_output/tgb_market_v_skill/methodology_rules.jsonl
 skill_output/tgb_market_v_skill/rule_evidence_map.jsonl
 skill_output/tgb_market_v_skill/skill_quality_report.md
 skill_output/tgb_market_v_skill/needs_edit_worklist.md
-data/processed/tgb/review_packs/accepted_recheck_v0_2.yaml
-reports/review_packs/accepted_recheck_v0_2.md
 skill_output/tgb_market_v_skill/uncertainty_policy.md
 skill_output/tgb_market_v_skill/review_summary.md
+data/processed/tgb/review_packs/accepted_recheck_v0_2.yaml
+reports/review_packs/accepted_recheck_v0_2.md
 ```
 
 Skill v0.2 separates abstract rules from raw evidence.
 
 - `SKILL.md` contains abstract methodology rules only.
-- `rule_evidence_map.jsonl` contains raw excerpts and claim evidence.
+- `rule_evidence_map.jsonl` contains raw excerpts and accepted claim evidence.
 - `accepted_recheck_v0_2.yaml` contains accepted claims that may be too colloquial, sarcastic, or context-dependent and should be manually revisited.
-- needs_edit 会被单独输出为待确认材料，不会混入核心规则。
+- `needs_edit` 只作为不确定证据单独输出，不会混入核心规则。
+
+## Package Skill v0.2
+
+```powershell
+python -m tgb_pipeline package-skill-v0 `
+  --target-config configs/target.yaml `
+  --crawl-config configs/crawl.yaml
+```
+
+输出：
+
+```text
+dist/tgb_market_v_skill/SKILL.md
+dist/tgb_market_v_skill/MANIFEST.json
+dist/tgb_market_v_skill/PACKAGE_AUDIT.md
+```
+
+发布包会排除 raw crawl data、review decision files 和 HTML snapshots。
 
 ## 当前阶段
 
@@ -96,7 +114,7 @@ Skill v0.2 separates abstract rules from raw evidence.
 - risk_control_top80
 - bull_bear_top80
 
-Skill v0 基于 accepted claims 生成；needs_edit 只作为不确定证据；rejected/unreviewed 不进入核心规则。
+Skill v0.2 基于 accepted claims 生成；`needs_edit` 只作为不确定证据；`rejected` / `unreviewed` 不进入核心规则。
 
 ## 编码审计
 
@@ -111,5 +129,5 @@ python -m tgb_pipeline audit-text-encoding --target-config configs/target.yaml -
 - 不抓取非公开内容；
 - 不输出投资建议；
 - 不预测个股涨跌；
-- 不把反讽/打趣内容自动解释为相反意思；
+- 不把反讽、打趣内容自动解释为相反意思；
 - 不把普通成员观点混入目标作者方法论。

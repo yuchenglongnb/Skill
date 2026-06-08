@@ -46,7 +46,7 @@ from tgb_pipeline.discovery.tasks import (
 from tgb_pipeline.extraction.tasks import build_review_ready_claims_bundle, extract_claims_bundle
 from tgb_pipeline.export.tasks import export_corpus_bundle
 from tgb_pipeline.images.tasks import download_images_task, ocr_images_task
-from tgb_pipeline.skill.tasks import build_skill_v0_bundle
+from tgb_pipeline.skill.tasks import build_skill_v0_bundle, package_skill_v0_bundle
 
 COMMANDS = (
     "crawl-index",
@@ -75,6 +75,7 @@ COMMANDS = (
     "audit-text-encoding",
     "build-skill",
     "build-skill-v0",
+    "package-skill-v0",
 )
 
 
@@ -107,6 +108,7 @@ def build_parser() -> argparse.ArgumentParser:
             "audit-review-encoding",
             "audit-text-encoding",
             "build-skill-v0",
+            "package-skill-v0",
         }:
             command_parser.add_argument(
                 "--target-config",
@@ -318,6 +320,33 @@ def build_parser() -> argparse.ArgumentParser:
                 action="store_true",
                 help="Generate a recheck pack for accepted claims that remain too colloquial or context-dependent.",
             )
+        if command == "package-skill-v0":
+            command_parser.add_argument(
+                "--source-dir",
+                default="skill_output/tgb_market_v_skill",
+                help="Source Skill output directory to package.",
+            )
+            command_parser.add_argument(
+                "--dist-dir",
+                default="dist/tgb_market_v_skill",
+                help="Publishable package output directory.",
+            )
+            command_parser.add_argument(
+                "--include-needs-edit",
+                action=argparse.BooleanOptionalAction,
+                default=True,
+                help="Include needs-edit supporting artifacts in the package.",
+            )
+            command_parser.add_argument(
+                "--version",
+                default="0.2",
+                help="Package version string.",
+            )
+            command_parser.add_argument(
+                "--rebuild-skill",
+                action="store_true",
+                help="Rebuild the stable Skill v0.2 output before packaging.",
+            )
         if command in {"extract-claims", "build-review-ready-claims"}:
             command_parser.add_argument(
                 "--max-per-tag",
@@ -386,6 +415,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "audit-review-encoding",
         "audit-text-encoding",
         "build-skill-v0",
+        "package-skill-v0",
     }:
         target_config = load_target_config(args.target_config)
         crawl_config = load_crawl_config(args.crawl_config)
@@ -639,6 +669,20 @@ def main(argv: Sequence[str] | None = None) -> int:
                     generate_accepted_recheck_pack=args.generate_accepted_recheck_pack,
                 )
                 print(f"build-skill-v0: generated {len(outputs)} outputs.")
+            elif args.command == "package-skill-v0":
+                raw_dir = crawl_config.storage.raw_dir / "tgb"
+                processed_dir = crawl_config.storage.processed_dir / "tgb"
+                outputs = package_skill_v0_bundle(
+                    raw_dir,
+                    processed_dir,
+                    Path("reports"),
+                    source_dir=Path(args.source_dir),
+                    dist_dir=Path(args.dist_dir),
+                    include_needs_edit=args.include_needs_edit,
+                    version=args.version,
+                    rebuild_skill=args.rebuild_skill,
+                )
+                print(f"package-skill-v0: generated {len(outputs)} outputs.")
             else:
                 article_count, image_count = crawl_articles(target_config, crawl_config)
                 print(

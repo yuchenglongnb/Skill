@@ -9,6 +9,8 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
             parsed = parser.parse_args([command, "--pack-id", "pack-1", "--title", "Pack 1"])
         elif command == "apply-review-pack":
             parsed = parser.parse_args([command, "--pack", "data/processed/tgb/review_packs/pack-1.yaml"])
+        elif command == "package-skill-v0":
+            parsed = parser.parse_args([command])
         else:
             parsed = parser.parse_args([command])
         assert parsed.command == command
@@ -73,6 +75,18 @@ def test_cli_exposes_all_milestone_commands(capsys) -> None:
     assert parser.parse_args(["build-default-review-packs"]).crawl_config == "configs/crawl.yaml"
     assert parser.parse_args(["audit-review-encoding"]).crawl_config == "configs/crawl.yaml"
     assert parser.parse_args(["audit-text-encoding"]).crawl_config == "configs/crawl.yaml"
+    package_args = parser.parse_args(
+        [
+            "package-skill-v0",
+            "--no-include-needs-edit",
+            "--version",
+            "0.2.1",
+            "--rebuild-skill",
+        ]
+    )
+    assert package_args.include_needs_edit is False
+    assert package_args.version == "0.2.1"
+    assert package_args.rebuild_skill is True
     skill_args = parser.parse_args(
         [
             "build-skill-v0",

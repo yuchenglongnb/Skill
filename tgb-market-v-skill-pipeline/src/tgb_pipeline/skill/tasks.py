@@ -11,6 +11,8 @@ from tgb_pipeline.skill.evidence_index import (
     build_rule_evidence_map,
     build_skill_evidence_index,
 )
+from tgb_pipeline.skill.package_audit import audit_skill_package, build_skill_package_audit_report
+from tgb_pipeline.skill.package_builder import build_skill_package
 from tgb_pipeline.skill.profile_builder import build_methodology_profile_v0
 from tgb_pipeline.skill.recheck_pack import build_accepted_recheck_pack, detect_accepted_recheck_flags
 from tgb_pipeline.skill.rule_builder import build_methodology_rules, primary_theme
@@ -161,6 +163,47 @@ def build_skill_v0_bundle(
         ):
             raise ValueError("strict rule abstraction failed; check skill_quality_report.md")
     outputs.append(write_skill_quality_report(audit_summary, output_dir))
+    outputs.append(build_corpus_manifest(raw_dir, processed_dir, reports_dir))
+    return outputs
+
+
+def package_skill_v0_bundle(
+    raw_dir: Path,
+    processed_dir: Path,
+    reports_dir: Path,
+    *,
+    source_dir: Path,
+    dist_dir: Path,
+    include_needs_edit: bool = True,
+    version: str = "0.2",
+    rebuild_skill: bool = False,
+) -> list[Path]:
+    outputs: list[Path] = []
+    if rebuild_skill:
+        outputs.extend(
+            build_skill_v0_bundle(
+                raw_dir,
+                processed_dir,
+                reports_dir,
+                output_dir=source_dir,
+                include_needs_edit_index=True,
+                include_needs_edit_worklist=True,
+                rule_mode=True,
+                strict_rule_abstraction=True,
+                generate_accepted_recheck_pack=True,
+            )
+        )
+
+    outputs.extend(
+        build_skill_package(
+            source_dir,
+            dist_dir,
+            include_needs_edit=include_needs_edit,
+            version=version,
+        )
+    )
+    audit = audit_skill_package(dist_dir)
+    outputs.append(build_skill_package_audit_report(audit, dist_dir / "PACKAGE_AUDIT.md"))
     outputs.append(build_corpus_manifest(raw_dir, processed_dir, reports_dir))
     return outputs
 
