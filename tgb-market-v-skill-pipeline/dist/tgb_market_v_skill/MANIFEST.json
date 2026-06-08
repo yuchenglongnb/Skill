@@ -1,9 +1,21 @@
 {
   "package_name": "tgb_market_v_skill",
   "version": "0.2",
-  "generated_at": "2026-06-08T12:47:05.388294+00:00",
-  "source_commit": "4139d2978b88d82ba0825a84ef534c4b45f92598",
+  "generated_at": "2026-06-08T12:58:27.934910+00:00",
+  "source_commit": "cd313717316306b83ac593a92b49b04802c5156d",
+  "package_build_commit": "cd313717316306b83ac593a92b49b04802c5156d",
+  "package_commit": null,
   "source_pipeline": "tgb-market-v-skill-pipeline",
+  "generated_from": {
+    "skill_output_dir": "skill_output/tgb_market_v_skill",
+    "pipeline_repo": "tgb-market-v-skill-pipeline",
+    "review_state": {
+      "accepted_claims": 222,
+      "needs_edit_claims": 122,
+      "rejected_claims": 95,
+      "unreviewed_claims": 6113
+    }
+  },
   "accepted_claims": 222,
   "needs_edit_claims": 122,
   "rejected_claims": 95,

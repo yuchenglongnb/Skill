@@ -24,6 +24,10 @@
 | investment_advice_language | ok | hits=[] |
 | excluded_artifacts | ok | forbidden_paths=[] |
 | encoding | ok | corrupted_files=0 |
+| manifest_has_source_commit | ok | source_commit=cd313717316306b83ac593a92b49b04802c5156d |
+| manifest_has_package_build_commit | ok | package_build_commit=cd313717316306b83ac593a92b49b04802c5156d |
+| manifest_counts_match_current_package | ok | accepted/needs_edit/rejected/unreviewed/rules counts match current package |
+| manifest_quality_matches_quality_report | ok | quality counters match skill_quality_report.md |
 | manifest_rules_count | ok | manifest=16 actual=16 |
 | manifest_accepted_count | ok | manifest=222 summary=222 |
 | manifest_needs_edit_count | ok | manifest=122 summary=122 |
@@ -36,3 +40,8 @@
 - package excludes HTML snapshots
 - package uses accepted claims only for core rules
 - package keeps needs_edit as uncertain evidence only
+
+## Traceability Notes
+- `source_commit` identifies the pipeline commit associated with the skill output used as package source.
+- `package_build_commit` identifies the current pipeline commit when `package-skill-v0` was executed.
+- `package_commit` remains null inside the package and can be filled only after the package itself is committed elsewhere.

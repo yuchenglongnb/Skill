@@ -191,13 +191,29 @@ def _write_manifest(source_dir: Path, dist_dir: Path, *, include_needs_edit: boo
     quality = parse_skill_quality_report(source_dir / "skill_quality_report.md")
     rules = JSONLStore(source_dir / "methodology_rules.jsonl", MethodologyRule, "rule_id").read_all()
     files = sorted({path.name for path in dist_dir.iterdir() if path.is_file()} | {"MANIFEST.json"})
+    source_commit = _git_head(source_dir)
+    package_build_commit = _git_head(dist_dir)
 
     manifest = {
         "package_name": "tgb_market_v_skill",
         "version": version,
         "generated_at": datetime.now(UTC).isoformat(),
-        "source_commit": _git_head(source_dir),
+        "source_commit": source_commit,
+        "package_build_commit": package_build_commit,
+        "package_commit": None,
         "source_pipeline": "tgb-market-v-skill-pipeline",
+        "generated_from": {
+            "skill_output_dir": "skill_output/tgb_market_v_skill",
+            "pipeline_repo": "tgb-market-v-skill-pipeline",
+            "review_state": {
+                "accepted_claims": review_summary["counts"].get("accepted", 0),
+                "needs_edit_claims": review_summary["counts"].get("needs_edit", 0)
+                if include_needs_edit
+                else 0,
+                "rejected_claims": review_summary["counts"].get("rejected", 0),
+                "unreviewed_claims": review_summary["counts"].get("unreviewed", 0),
+            },
+        },
         "accepted_claims": review_summary["counts"].get("accepted", 0),
         "needs_edit_claims": review_summary["counts"].get("needs_edit", 0) if include_needs_edit else 0,
         "rejected_claims": review_summary["counts"].get("rejected", 0),

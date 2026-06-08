@@ -40,6 +40,11 @@ def test_build_skill_package_copies_release_files_and_manifest(tmp_path) -> None
     assert payload["package_name"] == "tgb_market_v_skill"
     assert payload["rules_count"] > 0
     assert payload["accepted_claims"] > 0
+    assert "source_commit" in payload
+    assert "package_build_commit" in payload
+    assert payload["package_commit"] is None
+    assert payload["generated_from"]["skill_output_dir"] == "skill_output/tgb_market_v_skill"
+    assert payload["generated_from"]["pipeline_repo"] == "tgb-market-v-skill-pipeline"
+    assert payload["generated_from"]["review_state"]["accepted_claims"] == payload["accepted_claims"]
     assert "review_ready_decisions.yaml" not in payload["files"]
     assert not any("raw" in entry for entry in payload["files"])
-

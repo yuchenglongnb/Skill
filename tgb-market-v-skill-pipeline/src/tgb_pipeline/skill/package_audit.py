@@ -137,6 +137,15 @@ def build_skill_package_audit_report(audit: dict[str, Any], output_path: Path) -
     )
     for item in audit["boundaries"]:
         lines.append(f"- {item}")
+    lines.extend(
+        [
+            "",
+            "## Traceability Notes",
+            "- `source_commit` identifies the pipeline commit associated with the skill output used as package source.",
+            "- `package_build_commit` identifies the current pipeline commit when `package-skill-v0` was executed.",
+            "- `package_commit` remains null inside the package and can be filled only after the package itself is committed elsewhere.",
+        ]
+    )
 
     output_path.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return output_path
@@ -211,6 +220,41 @@ def _check_manifest_consistency(
     counts = review_summary.get("counts", {})
     quality = quality_payload.get("rule_abstraction_checks", {})
 
+    checks.append(
+        _check(
+            "manifest_has_source_commit",
+            "source_commit" in manifest_payload,
+            f"source_commit={manifest_payload.get('source_commit')}",
+        )
+    )
+    checks.append(
+        _check(
+            "manifest_has_package_build_commit",
+            "package_build_commit" in manifest_payload,
+            f"package_build_commit={manifest_payload.get('package_build_commit')}",
+        )
+    )
+    checks.append(
+        _check(
+            "manifest_counts_match_current_package",
+            manifest_payload.get("accepted_claims") == counts.get("accepted")
+            and manifest_payload.get("needs_edit_claims") == counts.get("needs_edit")
+            and manifest_payload.get("rejected_claims") == counts.get("rejected")
+            and manifest_payload.get("unreviewed_claims") == counts.get("unreviewed")
+            and manifest_payload.get("rules_count") == rules_count,
+            "accepted/needs_edit/rejected/unreviewed/rules counts match current package",
+        )
+    )
+    checks.append(
+        _check(
+            "manifest_quality_matches_quality_report",
+            manifest_payload.get("quality", {}).get("direct_excerpt_in_rule_text") == quality.get("direct_excerpt_in_rule_text", 0)
+            and manifest_payload.get("quality", {}).get("generic_rule_titles") == quality.get("generic_rule_titles", 0)
+            and manifest_payload.get("quality", {}).get("raw_excerpt_in_skill_md") == quality.get("raw_excerpt_in_skill_md", 0)
+            and manifest_payload.get("quality", {}).get("warnings") == quality_payload.get("warnings", 0),
+            "quality counters match skill_quality_report.md",
+        )
+    )
     checks.append(
         _check(
             "manifest_rules_count",

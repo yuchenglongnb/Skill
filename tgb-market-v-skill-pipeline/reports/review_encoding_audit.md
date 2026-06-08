@@ -3,7 +3,7 @@
 ## Summary
 - total_files: 13
 - corrupted_files: 0
-- total_reviewed_items: 1419
+- total_reviewed_items: 1393
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 
@@ -12,8 +12,8 @@
 ### data/processed/tgb/review_packs/accepted_recheck_v0_2.yaml
 
 - exists: True
-- total_items: 81
-- reviewed_items: 81
+- total_items: 55
+- reviewed_items: 55
 - corrupted_review_notes_count: 0
 - corrupted_edited_claim_text_count: 0
 - sample_claim_ids: []

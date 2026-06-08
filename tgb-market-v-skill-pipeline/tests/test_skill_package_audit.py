@@ -29,6 +29,11 @@ def test_audit_skill_package_passes_for_valid_dist(tmp_path) -> None:
 
     assert audit["warnings"] == 0
     assert report_path.is_file()
+    checks = {check["check"]: check["status"] for check in audit["checks"]}
+    assert checks["manifest_has_source_commit"] == "ok"
+    assert checks["manifest_has_package_build_commit"] == "ok"
+    assert checks["manifest_counts_match_current_package"] == "ok"
+    assert checks["manifest_quality_matches_quality_report"] == "ok"
 
 
 def test_audit_skill_package_detects_missing_skill_and_advice_language(tmp_path) -> None:
