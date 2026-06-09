@@ -24,13 +24,16 @@
 | investment_advice_language | ok | hits=[] |
 | excluded_artifacts | ok | forbidden_paths=[] |
 | encoding | ok | corrupted_files=0 |
-| manifest_has_source_commit | ok | source_commit=cd313717316306b83ac593a92b49b04802c5156d |
-| manifest_has_package_build_commit | ok | package_build_commit=cd313717316306b83ac593a92b49b04802c5156d |
+| manifest_has_source_commit | ok | source_commit=97c6ca8221be1b7ef3a76ee2240e0b308c125e07 |
+| manifest_has_package_build_commit | ok | package_build_commit=97c6ca8221be1b7ef3a76ee2240e0b308c125e07 |
+| manifest_has_generated_from | ok | generated_from=dict |
+| manifest_has_review_state | ok | review_state_keys=['accepted_claims', 'needs_edit_claims', 'rejected_claims', 'unreviewed_claims'] |
 | manifest_counts_match_current_package | ok | accepted/needs_edit/rejected/unreviewed/rules counts match current package |
 | manifest_quality_matches_quality_report | ok | quality counters match skill_quality_report.md |
 | manifest_rules_count | ok | manifest=16 actual=16 |
 | manifest_accepted_count | ok | manifest=222 summary=222 |
 | manifest_needs_edit_count | ok | manifest=122 summary=122 |
+| manifest_review_state_counts | ok | review_state={'accepted_claims': 222, 'needs_edit_claims': 122, 'rejected_claims': 95, 'unreviewed_claims': 6113} |
 | manifest_quality_direct_excerpt | ok | manifest=0 quality=0 |
 | manifest_quality_warnings | ok | manifest=0 quality=0 |
 

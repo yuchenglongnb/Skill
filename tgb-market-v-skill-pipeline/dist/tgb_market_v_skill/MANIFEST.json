@@ -1,9 +1,9 @@
 {
   "package_name": "tgb_market_v_skill",
   "version": "0.2",
-  "generated_at": "2026-06-08T12:58:27.934910+00:00",
-  "source_commit": "cd313717316306b83ac593a92b49b04802c5156d",
-  "package_build_commit": "cd313717316306b83ac593a92b49b04802c5156d",
+  "generated_at": "2026-06-09T06:10:17.574767+00:00",
+  "source_commit": "97c6ca8221be1b7ef3a76ee2240e0b308c125e07",
+  "package_build_commit": "97c6ca8221be1b7ef3a76ee2240e0b308c125e07",
   "package_commit": null,
   "source_pipeline": "tgb-market-v-skill-pipeline",
   "generated_from": {

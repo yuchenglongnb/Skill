@@ -236,6 +236,22 @@ def _check_manifest_consistency(
     )
     checks.append(
         _check(
+            "manifest_has_generated_from",
+            isinstance(manifest_payload.get("generated_from"), dict),
+            f"generated_from={type(manifest_payload.get('generated_from')).__name__ if 'generated_from' in manifest_payload else None}",
+        )
+    )
+    generated_from = manifest_payload.get("generated_from") if isinstance(manifest_payload.get("generated_from"), dict) else {}
+    review_state = generated_from.get("review_state") if isinstance(generated_from.get("review_state"), dict) else {}
+    checks.append(
+        _check(
+            "manifest_has_review_state",
+            isinstance(review_state, dict) and bool(review_state),
+            f"review_state_keys={sorted(review_state.keys()) if isinstance(review_state, dict) else []}",
+        )
+    )
+    checks.append(
+        _check(
             "manifest_counts_match_current_package",
             manifest_payload.get("accepted_claims") == counts.get("accepted")
             and manifest_payload.get("needs_edit_claims") == counts.get("needs_edit")
@@ -274,6 +290,16 @@ def _check_manifest_consistency(
             "manifest_needs_edit_count",
             manifest_payload.get("needs_edit_claims") == counts.get("needs_edit"),
             f"manifest={manifest_payload.get('needs_edit_claims')} summary={counts.get('needs_edit')}",
+        )
+    )
+    checks.append(
+        _check(
+            "manifest_review_state_counts",
+            review_state.get("accepted_claims") == counts.get("accepted")
+            and review_state.get("needs_edit_claims") == counts.get("needs_edit")
+            and review_state.get("rejected_claims") == counts.get("rejected")
+            and review_state.get("unreviewed_claims") == counts.get("unreviewed"),
+            f"review_state={review_state}",
         )
     )
     checks.append(
