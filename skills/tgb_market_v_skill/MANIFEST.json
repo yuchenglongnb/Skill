@@ -1,0 +1,65 @@
+{
+  "package_name": "tgb_market_v_skill",
+  "version": "0.2",
+  "generated_at": "2026-06-09T06:10:17.574767+00:00",
+  "source_commit": "97c6ca8221be1b7ef3a76ee2240e0b308c125e07",
+  "package_build_commit": "97c6ca8221be1b7ef3a76ee2240e0b308c125e07",
+  "package_commit": null,
+  "source_pipeline": "tgb-market-v-skill-pipeline",
+  "generated_from": {
+    "skill_output_dir": "skill_output/tgb_market_v_skill",
+    "pipeline_repo": "tgb-market-v-skill-pipeline",
+    "review_state": {
+      "accepted_claims": 222,
+      "needs_edit_claims": 122,
+      "rejected_claims": 95,
+      "unreviewed_claims": 6113
+    }
+  },
+  "accepted_claims": 222,
+  "needs_edit_claims": 122,
+  "rejected_claims": 95,
+  "unreviewed_claims": 6113,
+  "rules_count": 16,
+  "themes": {
+    "量化影响": 3,
+    "成交额 / 量能": 2,
+    "短线基础行情": 3,
+    "指数环境": 3,
+    "风控": 3,
+    "牛熊切换": 2
+  },
+  "files": [
+    "MANIFEST.json",
+    "PACKAGE_AUDIT.md",
+    "README.md",
+    "SKILL.md",
+    "evidence_index.jsonl",
+    "methodology_rules.jsonl",
+    "needs_edit_evidence_index.jsonl",
+    "needs_edit_worklist.md",
+    "review_summary.md",
+    "rule_evidence_map.jsonl",
+    "skill_quality_report.md",
+    "uncertainty_policy.md"
+  ],
+  "quality": {
+    "direct_excerpt_in_rule_text": 0,
+    "generic_rule_titles": 0,
+    "raw_excerpt_in_skill_md": 0,
+    "warnings": 0
+  },
+  "boundaries": [
+    "not_investment_advice",
+    "no_stock_prediction",
+    "accepted_claims_only_for_core_rules",
+    "needs_edit_is_uncertain",
+    "rejected_unreviewed_excluded",
+    "sarcasm_requires_human_check"
+  ],
+  "migration": {
+    "target_path": "skills/tgb_market_v_skill",
+    "migrated_at": "2026-06-09T14:21:35.2883439+08:00",
+    "migration_note": "Migrated from dist/tgb_market_v_skill without raw data or review decision files."
+  }
+}

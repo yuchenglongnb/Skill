@@ -1,0 +1,628 @@
+# Needs-edit Worklist
+
+## Summary
+- total needs_edit: 122
+
+## By Theme
+
+### 量化影响
+- claim_id: `claim-acaaf4cdb5d413ec`
+  - raw_excerpt: 所以，别再这么傻问怎么狙击量化，低纬战高维，我们都是虫子。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但比喻和夸张色彩过强，需要改写为中性机制表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-01f3c877548cd251`
+  - raw_excerpt: 但当早上量化资金发现全是抄底资金的时候，它就先不卖，让抄底资金买，高位再卖，是不是价格就高很多，还不用自己抬轿。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-171e0cd2096eef89`
+  - raw_excerpt: 有下影线是正常的，不是散户抄的底，应该是量化买的。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-55c8271702b5d2ff`
+  - raw_excerpt: 那个就是量化席位，我不是说了之前发掘某些形态的轮动，盘面挖出来，人家盘中已经进去了，次日卖给我这种。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-5d6a72a7232bf40b`
+  - raw_excerpt: 龙虎榜3家机构，净买入1.52亿，不是做T，大概率是主观多头的机构，不是量化。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-76f055a577e5743a`
+  - raw_excerpt: 不用问了，还是那句，午后如果量化策略自动减仓30%，这批短线票腥风血雨的。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-bbfbe5b197360e44`
+  - raw_excerpt: 量化基金允许坐庄，但不允许空仓，所以就跳来跳去。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-d2787621e63c0647`
+  - raw_excerpt: 竞价不是量化砸的，关键是出门量化跟着一堆单给你核下去，这特么左冲右核的市场，新韭菜两下就回去送外卖了。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-032afdae56d490f6`
+  - raw_excerpt: 量化最喜欢这种市场，是因为它T+0，震荡可以一天收个N次。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-08b11dfb69c89a83`
+  - raw_excerpt: 去看看1009盘中对科技的看法，说了昨天如果不是补跌开盘，会被量化用逆因子杀跌的。
+  - reason: trading_mechanism
+  - review_notes: 待确认：上下文依赖较强，需结合原文确认“逆因子杀跌”在该场景下的具体机制含义。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-0d90b621ec337546`
+  - raw_excerpt: 这样说吧，如果整车反应充分，量化昨天配置了，今天就卖给你。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但“卖给你”这类盘中口语不适合直接作为强证据。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-11d5b011723554bf`
+  - raw_excerpt: 所以你跟量化拼反应，就竞价5分钟已经输几条街。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但表达过于口语化，需要改写为中性机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-1956273333ea3b99`
+  - raw_excerpt: 昨天的底应该是公募买出来的，所以才会竞价爆了10亿，量化私募一般不干这种事，跟老师们一样擅长各种跟随。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-2df4bb4733cf8889`
+  - raw_excerpt: 多想想，如果量化把你定义为食物，食物会怎样想，量化会不会引导你怎样做，然后吃你。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-48f0e45773533e54`
+  - raw_excerpt: 量化的优势从来不是在程序交易和速度上的，你肯花钱同花顺买个交易端，包VIP通道，3万一年，可以自己录入指令，很多人能消费的。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-5270d1bec437cb44`
+  - raw_excerpt: 现在短线市场被量化介入以后不是你看到那会事。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-6a61b73111c4871e`
+  - raw_excerpt: 如果昨天有量化，今天不买，等于反向多30%的资金做空。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但表述依赖特定盘中假设，需要改写为更稳的结构判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-6f10ff37311d9865`
+  - raw_excerpt: 午前拉升缩量，如果午后继续这个势头，看指数什么时候放量，多数是增量来了，量化会卖给增量的。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但依赖具体时段语境，需要改写为中性的环境与兑现关系判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-7bef816128092d60`
+  - raw_excerpt: 现在很多大量化，已经不是单纯靠天花散女单，套那几分一毛利，都是操纵为主，收割为目的。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-807f98130d02c1c2`
+  - raw_excerpt: 要不是中午伊朗尿那下，被量化蹲到，今天还真不好说。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-86e1a879fa8fffc1`
+  - raw_excerpt: 今天如果修复预期，量化肯定跟你早盘抢筹，所以我也只能打提前量盲买。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但“盲买”这类执行口语不宜直接作为方法论证据。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-88f3a06648d1f267`
+  - raw_excerpt: 讲真，今天指数卦象并不好，因为权重护盘，大多次日要补跌，哪怕市场资金想做，量化买了一手大象，来对手盘立刻给你万象奔腾。
+  - reason: market_environment
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-941817beb3dea739`
+  - raw_excerpt: 假设没仓位，大部分还不是量化拉起来去追半路。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-97b34a7880aa0e35`
+  - raw_excerpt: 是因为今天市场弱，量化故意跳去没活人的地方。
+  - reason: trading_mechanism
+  - review_notes: 待确认：原句含明显口语和拟人化表达，需要结合上下文确认是否稳定指向量化迁移行为。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-a1bbcaa7712850a8`
+  - raw_excerpt: 0827就是因为指数高开+平量，上午资金硬干大票拉指数，量化中午开会发现韭菜家里没余粮，午后反手暴揍自己。
+  - reason: market_environment
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-a6d2a62504b0b66a`
+  - raw_excerpt: 跟mini散关系不是很大，感觉有部分量化开始操纵竞价。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-b8b0b7b36ba13e42`
+  - raw_excerpt: 如果大婶是二维猫仔这种顶多是三维，量化五维以上的。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-bc1f95c075d6fb67`
+  - raw_excerpt: 大部分场内是轮动拉的，量化也不是无线资金。
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-cbee30f7327ef4d2`
+  - raw_excerpt: 如果量化自身的风控线被自己打破了（你理解成猫仔锤到它风控也可以），就会开启揍自己模式，比你先砸盘，带着雕王们一起揍自己。
+  - reason: risk_control
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-cd8ac810b765580e`
+  - raw_excerpt: 北向主力资金你们是看到的，联动A50，是不是可以理解成北向里面的量化和内资量化，一起卖给傻逼？
+  - reason: trading_mechanism
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-10bbaa43223ad693`
+  - raw_excerpt: 现在量化策略都往T+0靠，短线吃的就是波动，做T吃的是不是波动？
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但以反问形式出现，需要改写为中性机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-514489ac9f9e7614`
+  - raw_excerpt: 明天应该小票有个修复，如果再低开缩量，量化出门就一波爆拉。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-85054b25071d7157`
+  - raw_excerpt: 量化只硬1个小时，所以后面逐步缩量，就要听天由命了。
+  - reason: trading_mechanism
+  - review_notes: 待确认：表达带有明显口语化夸张，需要人工结合上下文确认其真实约束含义。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-065e769425671e46`
+  - raw_excerpt: 低开则要配放量，否则就是摁下去也没人抄底，全天估计好难搞(这样开卦象看跌，但是现在量化常常利用早盘拉起来再卖，一棵韭菜割几次/日)。
+  - reason: trading_mechanism
+  - review_notes: 待确认：含有打趣式表达，不宜自动按字面沉淀为方法论。
+  - suggested_action: confirm_context
+- claim_id: `claim-0e7f3ef1e8cb030b`
+  - raw_excerpt: 午后应该就是量化反手买上去做T，不放量。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-fdfb7bfdfdf053a7`
+  - raw_excerpt: 什么周五抢新题材先手，周五比较好做，出金日特弱，月底效应，量化做竞价，如何薅量化羊毛，有效的低吸热门板块博弈轮动，指数跌破半年线年线止损等等。
+  - reason: risk_control
+  - review_notes: 待编辑：盘中特指较强，需要抽象为可执行的风控或止损原则。
+  - suggested_action: rewrite_neutral
+
+### 成交额 / 量能
+- claim_id: `claim-c1c3ea0d9bd5e06a`
+  - raw_excerpt: 成交量，有或无，也不是大婶口中放量就好，短线大部分放量都不好，随便买意味着没有稀缺性，怎么涨？
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但带有反问和口语修辞，需要压缩为中性成交额机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-135f828da00f1296`
+  - raw_excerpt: 如果你信V，今天早盘放量恐慌的板块，午后指数跳水点就是买点。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-694dc8a4fb0e17bb`
+  - raw_excerpt: 因为封板票多是没量的，昨日涨停和昨日连板在跌，能量放量，肯定是追卖或者炸板。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-9f5b2f4a90da37fd`
+  - raw_excerpt: 所以整个上午指数放了点量，短线那批票反而大幅度缩量。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-c20cd2462f4a5f36`
+  - raw_excerpt: 还有个事，就是现在指数右肩缩量，今天如果再高开，是跳空摸前面3万亿成交的套牢日的。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-cc8ad369db5b642f`
+  - raw_excerpt: 开得高是没办法，因为市场持续缩量，所以外盘和消息面影响很大，动不动就大高开大低开，指数大阴大阳。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-d1a0b3592c85ffc6`
+  - raw_excerpt: 明天高开中位值是234亿，明天指数如果能高开，不能缩量的，否则就是今天首阳没有吸引来资金。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-f267b7fa033b25fc`
+  - raw_excerpt: 现在指数放量4%，不是每增量，成了奔牛而已。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-f5bd37257c2fe758`
+  - raw_excerpt: 所以两波指数放量的地方，小票放得比大票更大，杏色线是300和小市值直接的涨幅差，下跌的时候上升，也就是小市值跌得更多。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-13dfa0e05b807068`
+  - raw_excerpt: 修个缩量下影线，明天不能高开还不是继续跌，还不断压着指数反弹，人为延长触底时间。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-19cd972ba0aa3f4a`
+  - raw_excerpt: 如果不看指数，今天开出来半导体和商业航天缩量平低开，同时是近端板块，是适合轮动。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-3066f8159659def5`
+  - raw_excerpt: 类似情况，机构开盘不给力拉起来，样本可以参照221031，当时指数超跌，市场资金先发动，成交量上午只少了40亿（全天成交8千多亿），不可同日而语，下午还因为机构不给力走A。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-37b24686aff786e8`
+  - raw_excerpt: 包括昨天指数放量18%，才换个高开高走的小阳线，是不是滞涨？
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但以当日反问展开，需要压缩为中性的环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-4e9bf8b56118d13c`
+  - raw_excerpt: 所以上午走出滞涨，放量20%，指数还下跌，谁在卖？
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-a0f25fd512415770`
+  - raw_excerpt: 如果不管成交额，整个市场高开的票高走率大概也是55%左右，低开高走的票66.7%左右。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的成交额或量能方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-b4981a3636d8e9bb`
+  - raw_excerpt: 的量比，由于昨天没外资，基数很低，所以今天量能盘中是失真的，等你看到型线的时候，指数已经开始回落。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为成交额或量能环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-b6d8cdd9a5244190`
+  - raw_excerpt: 午后因为持续成交不活跃，指数在水下，引发尾盘被之扶墙老师砸崩，进而放量。
+  - reason: market_environment
+  - review_notes: 待确认：原句口语化且上下文依赖强，需要人工结合盘中语境确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-2a6e8b7431277fda`
+  - raw_excerpt: 1:30后小票开始发力，有股资金流入冲上去的，所以小市值缩量在最后半小时是小于权重很多。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-d246ff491ee3f1d0`
+  - raw_excerpt: 今天竞价是个放量滞涨，有增量的，所以卖给增量。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但“卖给增量”这类行话不宜直接作为规则证据。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-ea01c059afe0fc26`
+  - raw_excerpt: 今天AI能高走，很关键在于竞价不要有资金抢，无论板块还是全A，呈现缩量状态，最好成交208亿以下。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的执行规则表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-19f114842b0cb0b5`
+  - raw_excerpt: 所以你看220427那个大底，当天放量，全是尾盘冲进去想套利的，次日被短线资金砸成狗。
+  - reason: trading_mechanism
+  - review_notes: 待确认：原句比喻化较强，需要人工结合上下文确认其真实含义。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-7271eaea669cdade`
+  - raw_excerpt: 低空今天没跌，滞涨而已，如果日内缩量，说明没有增量短线佬，是其中潜伏的一个对象。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-0a9ef1292de67edc`
+  - raw_excerpt: 放量了意味浮筹太多，明天不是补跌，就是平开Duang。
+  - reason: trading_mechanism
+  - review_notes: 待确认：存在明显玩笑化表达，需要人工结合上下文确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-0e6a2e3af37e7883`
+  - raw_excerpt: 明显是，昨天都说，如果呼家楼不买，根本没人买，是靠市场大阳线气势缩量拉上去。
+  - reason: trading_mechanism
+  - review_notes: 待确认：涉及特定席位与口语化判断，需要人工结合上下文确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-10b31b926a9e1f7c`
+  - raw_excerpt: 茂业之所以砸开，就是昨天放量了，这票如果开低点，早盘带量再上板可能就不炸，秒板变成昨天全部拿着10个点，这点很致命。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-3d4cf0eed9a7ac99`
+  - raw_excerpt: 像这个卖点，算是看到问题，这票今天扫盘后，看起来挺强，但是弱市玩呛咚呛要竞价放量硬接，可能是昨天盘面给了场内锁仓理由，今天拉起来就卖出风险了。
+  - reason: trading_mechanism
+  - review_notes: 待确认：原句过于口语化且盘中特指强，需要人工确认后再抽象。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-4d590936a20e41e6`
+  - raw_excerpt: ，能形成连续加速，是因为周五放量高开的的背景，是前一天已经是放量板，也就是竞价态度是更多资金进场。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为成交额或量能机制判断。
+  - suggested_action: rewrite_neutral
+
+### 短线基础行情
+- claim_id: `claim-27d6b8820885dee1`
+  - raw_excerpt: 举一反四，今天竞价指数低开，如果知道震荡的情况下，你还去冲短线佬多的地方吗？
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要去掉盘中问句和当日语境后再作为方法论证据。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-38184d61ed1ba0ec`
+  - raw_excerpt: 这里不是独立板块，而是整个短线先后手阵型的对立，让人感觉资金专买你不要的，互卷互拆台。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但表达过于口语化，需压缩为中性的短线博弈机制表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-6d64a9229d147ed7`
+  - raw_excerpt: 现学现卖，“行情不好是因为短线客接不住，接得住行情就会好。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性短线方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-6b7b0cd7472e8ce9`
+  - raw_excerpt: 实际上，要操作也应该昨天买科技，共振指数修复，而不是今天去接力。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线执行规则表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-1d74e64bd2040ab0`
+  - raw_excerpt: 小金属今天没先手有风险的，很多短线资金昨天上车，如果午后指数不好回落炸几个板，情况又好像周四周五的
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的风控判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-2edec5c39f0403ff`
+  - raw_excerpt: 关键，成交快速放，第一波拉升之前6%+，也就是市场整体态度是红盘让你砸，显然不是短线佬加钱买上去的，最厉害就是坑挚爱亲朋，长期卖一把买五忽悠瘸了。
+  - reason: trading_mechanism
+  - review_notes: 待确认：原句口语化且带有嘲讽色彩，需要人工结合上下文确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-64b006f936c2bb96`
+  - raw_excerpt: 情绪指数里面包含远端短线和翘板票，都说了昨天很多是顺势撬开，实际是卖点不是买点。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-6ad31981dcfeccf9`
+  - raw_excerpt: 而不是这个强那个强，还好今天短线板票开得不高，但凡市场看好点，全部卖给你。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但“卖给你”式表述过强，需要抽象为先后手兑现机制。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-cee108d4db4725f8`
+  - raw_excerpt: 肯定有啊，今天连板这么多，要午后指数不是v回来，炸成狗了。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-123c471b89e83bce`
+  - raw_excerpt: 它们是不是在宗申借到券了，拉个超跌首板9亿封8亿，指数回落一点就能炸板。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-28f0df49eed2ed5c`
+  - raw_excerpt: 下面只说客观看法，指数如果助攻，代表短线资金提前量做对了，周一享受高溢价，周一瀑布另外一码事，反正可以坑到人。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-2eff4f4035c78015`
+  - raw_excerpt: 不是说了今天短线一般都有扶墙而出的算法。
+  - reason: trading_mechanism
+  - review_notes: 待确认：原句使用了强烈口语化比喻，需要人工结合上下文确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-4edea2fbd5d7f901`
+  - raw_excerpt: 所以也就成就了相当奇葩的额盘面，红盘4000+，一个高位自然连板，不板的全部摁在水下。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为短线基础行情机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-51da446ce0d6ed84`
+  - raw_excerpt: 如果看得准，根据短线佬剁雕的必然性，正常明天蹲着买应该更便宜，毕竟嘎嘎乱剁的资金不看基本面多，认可政策进场的资金自然是看基本面的，也是可以拿住票的，否则哪来的增量。
+  - reason: trading_mechanism
+  - review_notes: 待确认：原句吸有明显强烈情绪化描述，需要人工确认后再抽象。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-53fa0f34aebdbe9b`
+  - raw_excerpt: 今天不用光看着AI，如果打板指数开不高，关注3个2板的接力，特别是换手那个。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-62ef53b2b27beeea`
+  - raw_excerpt: 你们现在应该发现，弱市里面，每当短线精灵各种大买单成交的时候，十次有九次分时顶，因为傻逼来了。
+  - reason: trading_mechanism
+  - review_notes: 待确认：原句含有较强人身化吐槽，不宜直接按字面转义。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-6d09061bc0fe5f74`
+  - raw_excerpt: 昨天尾盘回流够狠了吧，以往很少指数不动短线佬动，今早还不是砸成狗。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但口语和夸张成分过强，需要改写为中性的短线环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-7930a8cc01eeeb0b`
+  - raw_excerpt: 振荡期，市场是以数板形态维持短线热度，因为21年11月之前趋势票全部涨上天，后面这些票跌到24年救市后才横盘。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性短线方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-7b9d53b3fb626f00`
+  - raw_excerpt: 所以段永平没说错的，短线炒不过梁文锋的。
+  - reason: trading_mechanism
+  - review_notes: 待确认：存在明显打趣和说反话风格，需要人工结合语境确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-7e344fa81b8412d0`
+  - raw_excerpt: 其次，短线今天强调，如果指数弱，尾盘只赢老师各种扶墙，极可能再来一波，短线砸弱了明天要核爆开盘。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性的短线环境判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-8b12e5a29683b573`
+  - raw_excerpt: 实际上今天恒久的高开是因为短线竞价本身就顶得高，有些资金XX顶一字买入XX。
+  - reason: trading_mechanism
+  - review_notes: 待编辑：盘中特指较强，需要抽象为短线基础行情机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-8b04518ea5d111a3`
+  - raw_excerpt: 短线已处在爆量票一字跌停加速杀跌阶段了，现在才叫风控，早哪去啦？
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但反问语气较强，需要压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+
+### 指数环境
+- claim_id: `claim-01c29b11d81a8401`
+  - raw_excerpt: 牛市多长阴，今天创业板长了15CM，调整可以20CM的。
+  - reason: market_environment
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
+
+### 风控
+- claim_id: `claim-2d8d8202a083ae91`
+  - raw_excerpt: 出门爆砸半小时，后面散户后知后觉就会跟着“纪律止损”，你们想想以往行情不好，是不是忍一整天，很容易1:30~2:00剁雕？
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但反问和时段细节较强，需要压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-efc4ff8c194fe3ee`
+  - raw_excerpt: 同时所谓超额收益，就是被打死那边逼着止损，资金出来以后，又要去拉升那边追高，因为你没有
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-2b50815b715120c8`
+  - raw_excerpt: 最终目的，写好识别算法，这个票出来，弹窗，有没有风控触发，有没有诱多，是否配合行情风格。
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-5393587bdc8a4b5e`
+  - raw_excerpt: 这种打法账户波动很大的，碰上连续冰冰的日子，一波回撤本季没了80%，你还坚持吗?
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但带有明显反问色彩，需要压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-b4a07794e0776819`
+  - raw_excerpt: 要么跟些躺赢老师讨论一下躺赢技术，昨天如何在昨日早盘跳水买到全部不回撤的票，今天如何在300红盘的行情躺赢？
+  - reason: risk_control
+  - review_notes: 待确认：原句明显带有调侃语气，需要人工结合上下文确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-2acf6176d6d59118`
+  - raw_excerpt: 一环扣一环的演变，所以，风控不见得坏。
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-c1e8b75141c09c82`
+  - raw_excerpt: 正常要加个风控机制，估计没想到还有一日涨几十倍的。
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要抽象为亏钱效应或止损盘风险机制判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-f13f5f6b576f489a`
+  - raw_excerpt: 貌似每逢周五就有这情况，风控特征极其明显。
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要压缩为市场环境触发的风控判断。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-fb10df74e8586518`
+  - raw_excerpt: 可能要考虑风控的问题，毕竟去年那几棍大阴线放在那。
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-4b1e1f0ab12b3804`
+  - raw_excerpt: 做事的逻辑一理通百里明，股市交易要风控吗？
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要压缩为中性风控方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-b910960b284643a6`
+  - raw_excerpt: 问题实践起来不可行啊，个股几天给你打20-30%的振幅，风控不？
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-c15793d5fad92cad`
+  - raw_excerpt: 周三恒久不做风控，能躲开周四的一字板吗？
+  - reason: risk_control
+  - review_notes: 待编辑：盘中特指较强，需要抽象为可执行的风控或止损原则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-eb80a69c6df2bc28`
+  - raw_excerpt: 看多跟风控其实是一样的，亏钱不用买单？
+  - reason: risk_control
+  - review_notes: 待确认：原句带有反问和口语化转折，需要人工结合上下文确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-dd3ce96e35c8f707`
+  - raw_excerpt: 互联网培养出大批高手，躲在暗处，瞧着键盘，嘴角扬着诡异的笑容，乱78止损。
+  - reason: risk_control
+  - review_notes: 待确认：原句口语化且带夸张色彩，需要人工结合上下文确认。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-2807fb95e5bf95c9`
+  - raw_excerpt: 猫哥有言在先持股感受非常差的，波动大，回撤大。
+  - reason: risk_control
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+
+### 牛熊切换
+- claim_id: `claim-4fb37e6610f88183`
+  - raw_excerpt: 我不确定这是不是牛市，如果是牛市，一生不会遇到多少次。
+  - reason: core_methodology
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-9ee6f4c04ec7e9c5`
+  - raw_excerpt: 癌股的牛市，最后大部分人都赔得倾家荡产，宝总不是孤例。
+  - reason: core_methodology
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-03c257757050e834`
+  - raw_excerpt: 说了牛市全部老鸟玩不过菜市场大妈，因为知道得太多了。
+  - reason: core_methodology
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-897ffdeb9f7eb078`
+  - raw_excerpt: 今天不是证明了牛市熊市，秒天地板是没啥区别的？
+  - reason: core_methodology
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-a9a023dd2f05d434`
+  - raw_excerpt: 大牛市十大致富招数，大牛市最好的操作就是躺赢，大牛市最好就是拼上仓位，大牛市老鸟最容易收割小鸟。
+  - reason: execution_rule
+  - review_notes: 待编辑：盘中特指较强，需要抽象为市场状态下的执行原则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-ed5bb3130a196ffc`
+  - raw_excerpt: 牛市多长阴，能不能躲是技术问题，没剁也不要多想了，反正短了。
+  - reason: needs_human_check
+  - review_notes: 待编辑：盘中特指较强，需要抽象为市场状态下的执行原则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-1280ee58a2a33bb7`
+  - raw_excerpt: 正常明天会方，全部大神表示牛市多长阴，也就是全部砸到了。
+  - reason: needs_human_check
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-3265eb51688e7b8e`
+  - raw_excerpt: ”假设一辈子你只能遇上3波牛市，给你机会，拿走多少看你准备。
+  - reason: needs_human_check
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-364bdfa668b6f845`
+  - raw_excerpt: 肯定是段子，还好牛市不持久，持久段子就变真的。
+  - reason: needs_human_check
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-408bc37778bc4833`
+  - raw_excerpt: 有些大婶又开始在讲牛市多长阴，长阴也有很多种，能反包的长阴，要明天收盘确认，那就是牛市。
+  - reason: needs_human_check
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-47261bad53086f30`
+  - raw_excerpt: 既然都是熊市那堆人在搞，超个鬼预期，都特么猥琐男，说话反着听，标点符号去掉。
+  - reason: needs_human_check
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-4e3391818d331940`
+  - raw_excerpt: 话没问题，什么时候跌，什么姿势跌，跌下来多少，是否牛市完结了。
+  - reason: needs_human_check
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-5e1cb6dabab27c1a`
+  - raw_excerpt: 还杀个鬼，今天一天分歧到位，牛市多长阴，平头阴了。
+  - reason: needs_human_check
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-96f858b0bfdd7619`
+  - raw_excerpt: 所有的牛市都以股灾结束，希望这次不一样，让大家财富永续昌隆吧。
+  - reason: needs_human_check
+  - review_notes: 待确认：表述带有明显情绪和祝愿色彩，需要人工结合上下文确认是否可作为牛熊风险证据。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-b7c58efbc9cf1bc8`
+  - raw_excerpt: 就算不倒，那个亏钱速度，给你牛市，又如何？
+  - reason: needs_human_check
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性风控规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-db811fe3de33c867`
+  - raw_excerpt: 这是对老鸟说的，想想你一年级的时候是怎样，那个就是牛市赚钱的模样。
+  - reason: needs_human_check
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-fb2a9bb9505a5faf`
+  - raw_excerpt: 根据以往牛市几个阶段，现在还没开始普涨，玩点技术即可，没必要大波段看空。
+  - reason: needs_human_check
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-5184196fe5445108`
+  - raw_excerpt: 让全世界看到的机会肯定是坑，十个大婶九个九吹牛市，你赞助了吗？
+  - reason: needs_human_check
+  - review_notes: 待确认：疑似反讽、打趣或上下文不足，需要人工结合原文确认。
+  - suggested_action: confirm_context
+- claim_id: `claim-89eb0e2b4494fe23`
+  - raw_excerpt: 以现在淘县客左冲右核的本事，平台段就退市一大半，本金没了，牛市主升浪来了跟你有什么关系吗？
+  - reason: needs_human_check
+  - review_notes: 待确认：疑似反问和情绪化劝诫，需要人工结合上下文确认其是否可沉淀为方法论。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-5eb3fc02b6c6ddcd`
+  - raw_excerpt: 牛市多长阴，没长阴不是牛市。
+  - reason: core_methodology
+  - review_notes: 待编辑：原句有价值，但过于口号化，需要改写为中性牛熊识别规则。
+  - suggested_action: rewrite_neutral
+- claim_id: `claim-1c47c0219d0b5a28`
+  - raw_excerpt: 这特么不是披着牛市成交外衣的熊？
+  - reason: core_methodology
+  - review_notes: 待编辑：原句有价值，但需要结合上下文压缩为中性牛熊切换方法论表述。
+  - suggested_action: rewrite_neutral
