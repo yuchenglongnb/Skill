@@ -4,8 +4,10 @@
   "generated_at": "2026-06-09T06:10:17.574767+00:00",
   "source_commit": "97c6ca8221be1b7ef3a76ee2240e0b308c125e07",
   "package_build_commit": "97c6ca8221be1b7ef3a76ee2240e0b308c125e07",
-  "package_commit": null,
+  "package_commit": "416d9d4c96c7f16bbac254d80db120e737ef3896",
   "source_pipeline": "tgb-market-v-skill-pipeline",
+  "target_repository": "yuchenglongnb/Skill",
+  "target_path": "skills/tgb_market_v_skill",
   "generated_from": {
     "skill_output_dir": "skill_output/tgb_market_v_skill",
     "pipeline_repo": "tgb-market-v-skill-pipeline",
