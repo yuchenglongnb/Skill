@@ -8,6 +8,7 @@
   "source_pipeline": "tgb-market-v-skill-pipeline",
   "target_repository": "yuchenglongnb/Skill",
   "target_path": "skills/tgb_market_v_skill",
+  "latest_package_update_commit": "66157d3661ccb00b97ef7f1d8341ec99fea7092d",
   "generated_from": {
     "skill_output_dir": "skill_output/tgb_market_v_skill",
     "pipeline_repo": "tgb-market-v-skill-pipeline",
@@ -36,6 +37,9 @@
     "PACKAGE_AUDIT.md",
     "README.md",
     "SKILL.md",
+    "USAGE.md",
+    "evals/README.md",
+    "evals/smoke_tests.jsonl",
     "evidence_index.jsonl",
     "methodology_rules.jsonl",
     "needs_edit_evidence_index.jsonl",
@@ -50,6 +54,11 @@
     "generic_rule_titles": 0,
     "raw_excerpt_in_skill_md": 0,
     "warnings": 0
+  },
+  "evals": {
+    "smoke_tests": 12,
+    "path": "evals/smoke_tests.jsonl",
+    "purpose": "manual or model-assisted acceptance checklist"
   },
   "boundaries": [
     "not_investment_advice",
